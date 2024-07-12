@@ -1,0 +1,37 @@
+:root {
+    /*  //////////////////// background Color ////////////////////////// */
+    --primary-bg-color: #00B144;
+    --secondary-bg-color: #FFE53F;
+        --red-bg-color:#FF0000;
+       --white-bg-color:#FFFF; 
+
+    /*  //////////////////// Text Color ////////////////////////// */
+
+    --primary-text-color: #00B144;
+    --secondary-text-color: #000;
+    --white-text-color: #FFF;
+    --yellow-text-color: #FFE53F;
+
+
+    /*  //////////////////// Font Family ////////////////////////// */
+
+    --primary-font: 'Arial', sans-serif;
+    --secondary-font: 'Transforma', sans-serif;
+    --third-font: 'Roboto', sans-serif;
+
+  }
+/* @font-face {
+    font-family: var(--primary-font);
+    src: url('../assets/fonts/helvetica-now-display/HelveticaNowDisplay-Regular.ttf') format('truetype');
+  } ;
+
+
+  @font-face {
+    font-family: var(--secondary-font);
+    src: url('../assets/fonts/helvetica-now-display/HelveticaNowDisplay-Regular.ttf') format('truetype');
+  } ;
+
+  @font-face {
+    font-family: var(--third-font);
+    src: url('../assets/fonts/helvetica-now-display/HelveticaNowDisplay-Regular.ttf') format('truetype');
+  } ; */
