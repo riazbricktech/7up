@@ -13,135 +13,138 @@
     max-height: 100vh;
     height: 100vh;
     background-color: var(--primary-bg-color);
-    /* border: 2px solid green; */
+    position: relative;
 }
 .landingPage_container .landingPage_col .header_image_wrapper {
-    /* width: 30%; */
-    padding: 10px 0;
+    padding: 20px 0;
     width: 450px;
     height: auto;
 }
 
 .landingPage_container .landingPage_col .logo_wrapper {
-    /* width: 10%; */
     width: 150px;
     height: auto;
 }
 
 .landingPage_container .landingPage_col .Bottle_wrapper {
-    /* width: 10%; */
     width: 150px;
     height: auto;
 }
 
 .landingPage_container .landingPage_col .Footer_wrapper {
-    /* width: 35%; */
     width: 450px !important;
     height: auto;
-
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
     margin-top: auto !important;
-}   
+}
+
+.landingPage_container .landingPage_col .bottleNeck_wrapper {
+    width: 70px;
+    position: absolute;
+    top: 40% !important;
+    right: 0% !important;
+    transform: translate(-0%, -50%) !important;
+}
 
 @media only screen and (max-width: 1300px) {
     .landingPage_container .landingPage_col .header_image_wrapper {
-        padding: 10px 0;
+        padding: 15px 0;
         width: 440px;
         height: auto;
     }
     .landingPage_container .landingPage_col .logo_wrapper {
         width: 120px;
         height: auto;
-    
     }
 
     .landingPage_container .landingPage_col .Bottle_wrapper {
-        /* width: 10%; */
         width: 135px;
         height: auto;
     }
-    
+
     .landingPage_container .landingPage_col .Footer_wrapper {
         width: 440px !important;
-        /* height: auto; */
         margin-top: auto !important;
     }
-    
 }
 
-
 @media only screen and (max-width: 576px) {
-    .landingPage_container{
+    .landingPage_container {
         padding: 0 !important;
-        }
+    }
     .landingPage_container .landingPage_col .header_image_wrapper {
         width: 80%;
     }
     .landingPage_container .landingPage_col .logo_wrapper {
         width: 120px;
-    
     }
 
     .landingPage_container .landingPage_col .Bottle_wrapper {
         width: 135px;
     }
-    
+
     .landingPage_container .landingPage_col .Footer_wrapper {
         width: 100% !important;
-
     }
+
 
 }
 @media only screen and (max-width: 480px) {
-
     .landingPage_container .landingPage_col .header_image_wrapper {
         width: 80%;
     }
     .landingPage_container .landingPage_col .logo_wrapper {
         width: 135px;
-    
     }
 
     .landingPage_container .landingPage_col .Bottle_wrapper {
         width: 140px;
         padding-bottom: 10px;
         margin-top: auto !important;
-
     }
-    
-    .landingPage_container .landingPage_col .Footer_wrapper {
-        width:100% !important;
 
+    .landingPage_container .landingPage_col .Footer_wrapper {
+        width: 100% !important;
     }
 }
 
 /* ///////////////  Max Height  ///////////////// */
 
-@media  (max-height: 600px) { 
-
-    /* .landingPage_container {
-
-        background-color: var(--primary-bg-color);
-    }
-     */
-    /* .landingPage_col{ 
-        background-color: grey !important;
-    } */
-
+@media (max-height: 801px) {
 
     /* .landingPage_container .landingPage_col .header_image_wrapper {
-        width: 80%;
-    }
+        width: 85% !important;
+    } */
     .landingPage_container .landingPage_col .logo_wrapper {
-        width: 135px;
-    
+        width: 140px !important;
     }
 
     .landingPage_container .landingPage_col .Bottle_wrapper {
-        width: 140px;
-        padding-bottom: 10px;
-        margin-top: auto !important;
-
+        width: 140px !important;
+    }
+    /* .landingPage_container .landingPage_col .Footer_wrapper {
+        width: 100% !important;
     } */
-}   
+}
+
+@media (max-height: 620px) {
+
+    .landingPage_container .landingPage_col .header_image_wrapper {
+        padding: 10px 0 !important;
+        width: 70% !important;
+    }
+    .landingPage_container .landingPage_col .logo_wrapper {
+        width: 90px !important;
+    }
+
+    .landingPage_container .landingPage_col .Bottle_wrapper {
+        width: 95px !important;
+    }
+
+    .landingPage_container .landingPage_col .bottleNeck_wrapper {
+        width: 55px !important;
+      
+    }
+}
+

@@ -1,0 +1,17 @@
+.Wrapper_container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-bg-color);
+}
+
+.Wrapper_container .wrapper_col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-height: 100vh;
+    height: 100vh;
+    background-color: var(--primary-bg-color);
+    position: relative;
+}
