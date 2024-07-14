@@ -82,3 +82,21 @@ export function validateTerms(terms) {
   }
   return "";
 }
+
+export function nicValidate(nic) {
+  nic = nic.trim();
+  
+  if (nic === "") {
+    return "NIC is required.";
+  }
+
+  if (!/^\d+$/.test(nic)) {
+    return "NIC should only contain numbers.";
+  }
+
+  if (nic.length !== 13) {
+    return "NIC should be exactly 13 digits long.";
+  }
+
+  return "";
+}

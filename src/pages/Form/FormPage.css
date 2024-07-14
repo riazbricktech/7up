@@ -202,8 +202,6 @@ margin-top: 0px !important;
 .form_button_wrapper .btn:hover {
     background-color: var(--secondary-bg-color) !important;
     border-bottom: 4px solid gray !important;
-    
-
 }
 
 .form_bottle_wrapper {

@@ -174,7 +174,7 @@
   .modal-content h2 {
     margin-bottom: 20px;
     font-size: 24px;
-    color: var(--primary-bg-color); /* Green color */
+    color: #28a745; /* Green color */
   }
   
   .modal-content img {
