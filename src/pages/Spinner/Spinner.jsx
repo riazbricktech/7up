@@ -12,9 +12,7 @@ import "./Spinner.css";
 import { v4 as uuidv4 } from "uuid";
 import { Wheel } from "react-custom-roulette";
 import Wrapper from "../../reusableComponents/Wrapper/Wrapper";
-
 import SevenUpBottle from "../../assets/images/sevenUp_bottle.webp";
-import Confetti from 'react-confetti';
 
 
 const inputList =[

@@ -14,7 +14,7 @@ const LandingPage = () => {
   const navigate = useNavigate()
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigate("/form");
+      // navigate("/form");
     }, 3000);
 
     // Clean up the timeout when the component is unmounted

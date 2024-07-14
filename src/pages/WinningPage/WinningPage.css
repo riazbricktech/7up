@@ -1,21 +1,209 @@
-
-.wrapper_col{
-    padding:  0 !important;
+.wrapper_col {
+    padding: 0 !important;
 }
-.winner_wrapper{
-    min-width: 450px !important;
-    width: 100%;
+.winner_wrapper {
+    /* width: 100%; */
+    width: 450px !important;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* background-color: greenyellow; */
 }
 
-.winner_wrapper .winner_logo_wrapper{
-    margin-top: 100px;
+.winner_wrapper .winner_logo_wrapper {
+    margin-top: 40px;
     width: 140px !important;
     height: auto;
+}
+.winner_wrapper .celebration_wrapper {
+    width: 100% !important;
+  
+    /* background-color: bisque !important; */
+}
+/* 
+.winner_wrapper .celebration_wrapper .leftHand {
+    width: 45% !important;
+    position: absolute;
+    top: 55%;
+    left: 0%;
+    transform: translate(-0%, -50%) rotate(0deg);
+    z-index: 111;
+ 
+}
+
+.winner_wrapper .celebration_wrapper .rightHand {
+    width: 68% !important;
+    position: absolute;
+    top: 55%;
+    right: 0%;
+    transform: translate(-0%, -50%) rotate(0deg);
+    z-index: 1111;
+ 
+}
+
+
+.winner_wrapper .celebration_wrapper .leftHand {
+    width: 45% !important;
+    position: absolute;
+    top: 57%;
+    left: -26%;
+    transform: translate(-0%, -50%) rotate(-40deg);
+    z-index: 111;
+ 
+}
+
+.winner_wrapper .celebration_wrapper .rightHand {
+    width: 68% !important;
+    position: absolute;
+    top: 57%;
+    right: -32%;
+    transform: translate(-0%, -50%) rotate(43deg);
+    z-index: 1111;
+ 
+} */
+@keyframes animateLeftHand {
+    0% {
+      top: 57%;
+      left: -26%;
+      transform: translate(-0%, -50%) rotate(-40deg);
+    }
+    50% {
+      top: 55%;
+      left: 0%;
+      transform: translate(-0%, -50%) rotate(0deg);
+    }
+    100% {
+      top: 57%;
+      left: -26%;
+      transform: translate(-0%, -50%) rotate(-40deg);
+    }
+  }
+  
+  @keyframes animateRightHand {
+    0% {
+      top: 57%;
+      right: -32%;
+      transform: translate(-0%, -50%) rotate(43deg);
+    }
+    50% {
+      top: 55%;
+      right: 0%;
+      transform: translate(-0%, -50%) rotate(0deg);
+    }
+    100% {
+      top: 57%;
+      right: -32%;
+      transform: translate(-0%, -50%) rotate(43deg);
+    }
+  }
+  
+  .winner_wrapper .celebration_wrapper .leftHand {
+    width: 45% !important;
+    position: absolute;
+    top: 57%;
+    left: -26%;
+    transform: translate(-0%, -50%) rotate(-40deg);
+    z-index: 111;
+  }
+  
+  .winner_wrapper .celebration_wrapper .rightHand {
+    width: 68% !important;
+    position: absolute;
+    top: 57%;
+    right: -32%;
+    transform: translate(-0%, -50%) rotate(43deg);
+    z-index: 1111;
+  }
+  
+  .animate-leftHand {
+    animation: animateLeftHand 4s forwards;
+  }
+  
+  .animate-rightHand {
+    animation: animateRightHand 4s forwards;
+  }
+  
+
+
+  /* ////// Won Button Wrapper /////// */
+.you-won-button-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2000; 
+  }
+  
+  .you-won-button {
+    background-color: white; 
+    border: none;
+    padding: 7px 15px;
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--primary-text-color);
+    cursor: pointer;
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  /* ////// Modal Wrapper /////// */
+
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 3000; /* Ensure it appears on top of everything */
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 55px;
+    text-align: center;
+    width: 300px; /* Adjust the width as needed */
+  }
+  
+  .modal-content h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: var(--primary-bg-color); /* Green color */
+  }
+  
+  .modal-content img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  .modal-description {
+    font-size: 20px;
+    padding: 7px 15px;
+    border-radius: 15px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    background-color: var(--secondary-bg-color);
+  }
+  
+  .claim-button {
+    background-color: var(--secondary-bg-color); /* Gold color */
+    border: none;
+    width: 250px;
+    padding: 10px 20px;
     
-}
-.winner_wrapper .celebration_wrapper{
-width: 100%  !important;
-}
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    border-radius: 15px;
+
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
