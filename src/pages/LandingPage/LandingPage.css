@@ -20,7 +20,11 @@
     height: auto;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
-    margin-top: auto !important;
+    /* margin-top: auto !important; */
+    position: fixed;
+    left: 50%;
+    bottom: 0%;
+    transform: translate(-50%,-0%);
 }
 
    .landing_bottleNeck_wrapper {
@@ -49,7 +53,7 @@
 
        .landing_footer_wrapper {
         width: 440px !important;
-        margin-top: auto !important;
+        /* margin-top: auto !important; */
     }
 }
 
@@ -82,7 +86,7 @@
        .landing_bottle_wrapper {
         width: 140px;
         padding-bottom: 10px;
-        margin-top: auto !important;
+        /* margin-top: auto !important; */
     }
 
        .landing_footer_wrapper {

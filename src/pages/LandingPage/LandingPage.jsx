@@ -44,8 +44,6 @@ const LandingPage = () => {
             <img src={FooterImage} className="img-fluid" alt="Emojis" />
           </div>
 
-
-
                   {/* /////////  Bottle neck Wrapper  /////////// */}
                   <div className="landing_bottleNeck_wrapper">
             <img src={BottleNeck} className="img-fluid" alt="7up Bottle" />
