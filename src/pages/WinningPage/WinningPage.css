@@ -1,0 +1,21 @@
+
+.wrapper_col{
+    padding:  0 !important;
+}
+.winner_wrapper{
+    min-width: 450px !important;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.winner_wrapper .winner_logo_wrapper{
+    margin-top: 100px;
+    width: 140px !important;
+    height: auto;
+    
+}
+.winner_wrapper .celebration_wrapper{
+width: 100%  !important;
+}

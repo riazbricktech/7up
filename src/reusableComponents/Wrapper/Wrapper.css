@@ -14,4 +14,18 @@
     height: 100vh;
     background-color: var(--primary-bg-color);
     position: relative;
+    border-left: 3px solid green;
+    border-right: 3px solid green;
+
+}
+
+@media only screen and (max-width: 576px) {
+   .Wrapper_container {
+       padding: 0 !important;
+   }
+
+   .Wrapper_container .wrapper_col {
+    border-left:none;
+    border-right: none;
+}
 }

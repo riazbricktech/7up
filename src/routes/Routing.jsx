@@ -3,6 +3,8 @@ import {BrowserRouter, Route, Routes } from 'react-router-dom'
 import LandingPage from '../pages/LandingPage/LandingPage';
 import FormPage from '../pages/Form/FormPage';
 import Spinner from '../pages/Spinner/Spinner';
+import WinningPage from '../pages/WinningPage/WinningPage';
+// import Wrapper from '../reusableComponents/Wrapper/Wrapper';
 
 
 const Routing = () => {
@@ -11,10 +13,14 @@ const Routing = () => {
         
         <BrowserRouter>
           <Routes>
+            {/* <Route element={<Wrapper/>} path='/'> */}
             <Route element={<LandingPage/>} path='/' />
 
             <Route element={<FormPage/>} path='/form' />
             <Route element={<Spinner/>} path='/spin' />
+            <Route element={<WinningPage/>} path='/winner' />
+
+            {/* </Route> */}
 
           </Routes>
         </BrowserRouter>

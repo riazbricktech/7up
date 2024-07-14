@@ -11,6 +11,8 @@ import RollParatha from "../../assets/images/roll_paratha.webp";
 import "./Spinner.css";
 import { v4 as uuidv4 } from "uuid";
 import { Wheel } from "react-custom-roulette";
+import Wrapper from "../../reusableComponents/Wrapper/Wrapper";
+
 import SevenUpBottle from "../../assets/images/sevenUp_bottle.webp";
 import Confetti from 'react-confetti';
 
@@ -18,42 +20,100 @@ import Confetti from 'react-confetti';
 const inputList =[
     {
         id: uuidv4(),
-        image: {
-          uri: BetterLuck,
-          background: "transparent", 
-          sizeMultiplier: 1, 
-          offsetY: 140
-        }
+        // image: {
+        //   uri: BetterLuck,
+        //   background: "transparent", 
+        //   sizeMultiplier: 1, 
+        //   offsetY: 140
+        // }
+           option: "Samosa"
       },
     {
       id: uuidv4(),
-      image: {
-        uri: Zinger,
-        background: "transparent", 
-        sizeMultiplier: 1,
-        offsetY: 140 
-      }
-    //   text: "win 10"
+      // image: {
+      //   uri: Zinger,
+      //   background: "transparent", 
+      //   sizeMultiplier: 1,
+      //   offsetY: 140 
+      // }
+      option: "Pakoras"
     },
     {
       id: uuidv4(),
-      image: {
-        uri: Tikka,
-        background: "transparent",
-        sizeMultiplier: 1,
-        offsetY: 140
-    }
-    //   text: "win 140"
+      option: "Chicken Patties"
     },
     {
       id: uuidv4(),
-      image: {
-        uri: RollParatha,
-        background: "transparent", 
-        sizeMultiplier: 1, 
-        offsetY: 140
-      }
-    //   text: "win 400"
+      option: "Chana Chaat"
+    },
+
+    {
+      id: uuidv4(),
+      option: "Paratha Roll"
+    },
+    {
+      id: uuidv4(),
+      option: "Dahi Bhalay"
+    },
+    {
+      id: uuidv4(),
+      option: "Gol Gappay"
+    },
+    {
+      id: uuidv4(),
+      option: "Anda Burger"
+    },
+    {
+      id: uuidv4(),
+      option: "Chicken Cheese Paratha"
+    },
+    {
+      id: uuidv4(),
+      option: "Sandwich"
+    },
+    {
+      id: uuidv4(),
+      option: "Burger"
+    },
+    {
+      id: uuidv4(),
+      option: "Biryani"
+    },
+    {
+      id: uuidv4(),
+      option: "Chicken Qeema"
+    },
+    {
+      id: uuidv4(),
+      option: "Haleem"
+    },
+    {
+      id: uuidv4(),
+      option: "Pizza"
+    },
+    {
+      id: uuidv4(),
+      option: "Chicken Broast"
+    },
+    {
+      id: uuidv4(),
+      option: "Steak"
+    },
+    {
+      id: uuidv4(),
+      option: "BBQ"
+    },
+    {
+      id: uuidv4(),
+      option: "Sushi"
+    },
+    {
+      id: uuidv4(),
+      option: "Pasta"
+    },
+    {
+      id: uuidv4(),
+      option: "Next Time"
     },
   ]
 const Spinner = () => {
@@ -114,16 +174,15 @@ const Spinner = () => {
   }
     }, [mustSpin])
   return (
-    <div className="container-fluid landingPage_container">
-      <div className="row">
-        <div className="col-12 landingPage_col">
+    <Wrapper>
+
           {/* ///// Header Wrapper    ////// */}
-          <div className="header_image_wrapper">
+          <div className="spinner_header_wrapper">
             <img src={HeaderImage} className="img-fluid" alt="Pakistan" />
           </div>
 
           {/* /////////  logo Wrapper  /////////// */}
-          <div className="logo_wrapper">
+          <div className="spinner_logo_wrapper">
             <img src={LogoImage} className="img-fluid" alt="7up Logo" />
           </div>
 
@@ -148,18 +207,36 @@ const Spinner = () => {
           backgroundColors={[
             "#ff9100",
             "#7fe953",
+            "#6601dd",
             "#f4333e",
-            "#6601dd"
+            "#7fe953",
+            "#6601dd",
+            "#ff9100",
+            "#7fe953",
+             "#f4333e",
+            "#ff9100",
+            "#f4333e",
+            "#6601dd",
+            "#7fe953",
+            "#f4333e",
+            "#ff9100",
+            "#6601dd",
+            "#7fe953",
+            "#f4333e",
+            "#6601dd",
+            "#000",
+
           ]}
           onStopSpinning={() => {
             setMustSpin(false);
           }}
         />
-        <button className="button roulette-button" onClick={handleSpinClick}>
+        <button className="spiner_button roulette-button" onClick={handleSpinClick}>
         <span>  Start Spin </span>
         </button>
       </div>
       <br />
+      
      <div className="spin_result_wrapper">
 
           <button
@@ -173,9 +250,8 @@ style={{textAlign:"center"}}
       </button>
       </div>
             </div>
-        </div>
-      </div>
-    </div>
+            </Wrapper>
+
   );
 };
 
