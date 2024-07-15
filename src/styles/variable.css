@@ -22,11 +22,11 @@
   }
 @font-face {
     font-family: var(--gothic-font);
-    src: url('../assets/fonts/headline-gothic-atf.woff2') format('truetype');
+    src: url('../assets/fonts/headline-gothic-atf.woff2') format('woff2');
   } ;
 
 
   @font-face {
     font-family: var( --banton-font);
-    src: url('../assets/fonts/BentonSans\ Black.woff2') format('truetype');
+    src: url('../assets/fonts/BentonSans\ Black.woff2') format('woff2');
   } ;
