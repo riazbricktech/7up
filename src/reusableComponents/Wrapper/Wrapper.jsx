@@ -1,7 +1,7 @@
 import React from 'react';
 import "./Wrapper.css"
 const Wrapper = ({ children }) => {
-  console.log(children,"chidrem")
+  // console.log(children,"chidrem")
   return (
     <div className="container-fluid Wrapper_container">
       <div className="row">

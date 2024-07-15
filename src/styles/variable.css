@@ -15,23 +15,18 @@
 
     /*  //////////////////// Font Family ////////////////////////// */
 
-    --primary-font: 'Arial', sans-serif;
-    --secondary-font: 'Transforma', sans-serif;
-    --third-font: 'Roboto', sans-serif;
+    --gothic-font: 'Gothic', sans-serif;
+    --banton-font: 'bantonSansBlack', sans-serif;
+
 
   }
-/* @font-face {
-    font-family: var(--primary-font);
-    src: url('../assets/fonts/helvetica-now-display/HelveticaNowDisplay-Regular.ttf') format('truetype');
+@font-face {
+    font-family: var(--gothic-font);
+    src: url('../assets/fonts/headline-gothic-atf.woff2') format('truetype');
   } ;
 
 
   @font-face {
-    font-family: var(--secondary-font);
-    src: url('../assets/fonts/helvetica-now-display/HelveticaNowDisplay-Regular.ttf') format('truetype');
+    font-family: var( --banton-font);
+    src: url('../assets/fonts/BentonSans\ Black.woff2') format('truetype');
   } ;
-
-  @font-face {
-    font-family: var(--third-font);
-    src: url('../assets/fonts/helvetica-now-display/HelveticaNowDisplay-Regular.ttf') format('truetype');
-  } ; */

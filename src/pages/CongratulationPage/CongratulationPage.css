@@ -1,0 +1,124 @@
+.wrapper_col {
+    padding: 0 !important;
+}
+.congrats_wrapper {
+    /* width: 100%; */
+    width: 450px !important;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: greenyellow; */
+}
+
+.congrats_wrapper .congrats_logo_wrapper {
+    margin-top: 40px;
+    width: 140px !important;
+    height: auto;
+}
+.congrats_wrapper .congrats_celebration_wrapper {
+    width: 100% !important;
+}
+
+@keyframes congratsAnimateLeftHand {
+    0% {
+        top: 68%;
+        left: -26%;
+        transform: translate(-0%, -50%) rotate(-40deg);
+    }
+    50% {
+        top: 66%;
+        left: 0%;
+        transform: translate(-0%, -50%) rotate(0deg);
+    }
+    100% {
+        top: 68%;
+        left: -26%;
+        transform: translate(-0%, -50%) rotate(-40deg);
+    }
+}
+
+@keyframes congratsAnimateRightHand {
+    0% {
+        top: 68%;
+        right: -32%;
+        transform: translate(-0%, -50%) rotate(43deg);
+    }
+    50% {
+        top: 66%;
+        right: 0%;
+        transform: translate(-0%, -50%) rotate(0deg);
+    }
+    100% {
+        top: 68%;
+        right: -32%;
+        transform: translate(-0%, -50%) rotate(43deg);
+    }
+}
+.congrats_wrapper .congrats_celebration_wrapper .leftHand {
+    width: 45% !important;
+    position: absolute;
+    top: 68%;
+    left: -26%;
+    transform: translate(-0%, -50%) rotate(-40deg);
+    z-index: 111;
+}
+
+.congrats_wrapper .congrats_celebration_wrapper .rightHand {
+    width: 68% !important;
+    position: absolute;
+    top: 68%;
+    right: -32%;
+    transform: translate(-0%, -50%) rotate(43deg);
+    z-index: 1111;
+}
+
+.congrats_celebration_wrapper .animate-leftHand {
+    animation: congratsAnimateLeftHand 4s forwards;
+}
+
+.congrats_celebration_wrapper .animate-rightHand {
+    animation: congratsAnimateRightHand 4s forwards;
+}
+
+/* ////// Won Button Wrapper /////// */
+
+.congrats_button_wrapper {
+    position: absolute;
+    top: 36%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2000;
+    text-align: center;
+}
+
+.congrats_button {
+    background-color: white;
+    border: none;
+    padding: 10px 10px;
+    width: 260px;
+    font-size: 22px;
+    font-weight: bolder;
+    color: var(--primary-text-color);
+    cursor: pointer;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px auto;
+    line-height: 24px;
+}
+
+
+
+@media only screen and (max-width: 390px) {
+
+    .congrats_button_wrapper {
+        top: 55% !important;
+
+      }
+      
+      .congrats_button {
+        padding: 10px 10px !important;
+        width: 210px !important; 
+        font-size: 18px !important;
+      }
+}

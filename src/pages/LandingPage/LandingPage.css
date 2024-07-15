@@ -9,7 +9,7 @@
     }
 } */
 
-@keyframes fadeIn {
+@keyframes landingFadeIn {
     from {
         opacity: 0;
     }
@@ -18,27 +18,24 @@
     }
 }
 
-/* Applying animation */
-.fadeIn {
-    animation: fadeIn 1.6s ease-in-out !important;
-}
-
-
 .landing_header_wrapper {
     padding: 20px 0;
     width: 435px;
     height: auto;
+    animation: landingFadeIn 1s ease-out;
 }
 
 
 .landing_logo_wrapper {
     width: 140px !important;
     height: auto;
+    animation: landingFadeIn 1.2s ease-out;
 }
 
 .landing_bottle_wrapper {
     width: 140px !important;
     height: auto;
+    animation: landingFadeIn 1.4s ease-out;
 }
 
 .landing_footer_wrapper {
@@ -50,6 +47,7 @@
     left: 50%;
     bottom: 0%;
     transform: translate(-50%, -0%);
+    animation: landingFadeIn 1.4s ease-out !important; 
 
 }
 
@@ -59,6 +57,7 @@
     top: 40% !important;
     right: 0% !important;
     transform: translate(-0%, -50%) !important;
+    animation: landingFadeIn 1.9s ease-out;
 }
 
 

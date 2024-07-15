@@ -36,7 +36,7 @@ padding: 10px 0;
 /* //////// Form Wrapper  //////// */
 
 /* Add keyframes for the animations */
-@keyframes slideIn {
+@keyframes sliderIn {
     from {
         transform: translateY(100px);
         opacity: 0;
@@ -47,7 +47,7 @@ padding: 10px 0;
     }
 }
 
-@keyframes fadeIn {
+@keyframes formFadeIn {
     from {
         opacity: 0;
     }
@@ -61,7 +61,7 @@ padding: 10px 0;
 
 .nicform_wrapper .form_wrapper {
     width: 400px !important;
-    animation: slideIn 1s ease-out;
+    animation: sliderIn 1s ease-out;
 }
 .nicform_wrapper .form-control{
     color: var(--primary-text-color) !important;
@@ -88,7 +88,6 @@ padding: 10px 0;
 
 .nicform_wrapper .form_custom_input {
     box-shadow:0 0 0 0 !important;
-
     border: none;
     background: none;
     border-radius: 10px;
@@ -97,6 +96,7 @@ padding: 10px 0;
     font-weight: bolder !important;
     padding: 10px;
     text-align: center;
+    margin: 3px 0 !important;
 }
 .nicform_wrapper .phone_input {
     color: white !important;    
@@ -160,6 +160,36 @@ color: white !important;
 
 @media only screen and (max-width: 480px) {
   
+    .nicform_wrapper {
+        /* width: 100%; */
+        width: 390px !important;
+    }
+
+    .nicform_wrapper .form_wrapper {
+        width: 340px !important;
+    }
+    .nicform_wrapper .form_button_wrapper button {
+        padding: 4px 30px !important;
+        color: var(--primary-text-color);
+        font-size: 20px !important;
+    }
+
+
+}
+
+@media only screen and (max-width: 380px) {
+    .nicform_wrapper .nicform_logo_wrapper {
+        margin-top: 30px !important;
+        width: 120px !important;
+    }
+    .nicform_wrapper {
+        /* width: 100%; */
+        width: 360px !important;
+    }
+
+    .nicform_wrapper .form_wrapper {
+        width: 310px !important;
+    }
     .nicform_wrapper .form_button_wrapper button {
         padding: 4px 30px !important;
         color: var(--primary-text-color);

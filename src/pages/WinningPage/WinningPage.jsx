@@ -7,8 +7,10 @@ import HotalImage from "../../assets/images/hotel_image.webp";
 
 import "./WinningPage.css";
 import Confetti from "react-confetti";
+import { useNavigate } from "react-router-dom";
 
 const WinningPage = () => {
+  const navigate = useNavigate();
   const [animate, setAnimate] = useState(false);
   const [confettiOn, setConfettiOn] = useState(false);
   const [showButton, setShowButton] = useState(false);
@@ -18,12 +20,12 @@ const WinningPage = () => {
     // Animation Time Out
     const timer = setTimeout(() => {
       setAnimate(true);
-    }, 2000);
+    }, 1200);
 
     // Confetti Time Out
     const confettiTimer = setTimeout(() => {
       setConfettiOn(true);
-    }, 3500);
+    }, 2700);
 
     // Button Show Time Out
     const buttonTimer = setTimeout(() => {
@@ -32,7 +34,7 @@ const WinningPage = () => {
       setTimeout(() => {
         setShowModal(true);
       }, 2000);
-    }, 5500); // Adjust the time as needed
+    }, 5000); // Adjust the time as needed
 
     // Clean up the timeouts when the component is unmounted
     return () => {
@@ -85,7 +87,7 @@ const WinningPage = () => {
               <img src={HotalImage} alt="Hotel" />
               <div className="modal-description">Dinner Deal</div>
             </div>
-              <button className="claim-button">claim price</button>
+              <button className="claim-button" onClick={()=> navigate("/nicform") }>claim price</button>
           </div>
     </>
         )}
