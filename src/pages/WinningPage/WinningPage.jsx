@@ -87,7 +87,7 @@ const WinningPage = () => {
               <img src={HotalImage} alt="Hotel" />
               <div className="modal-description">Dinner Deal</div>
             </div>
-              <button className="claim-button" onClick={()=> navigate("/nicform") }>claim price</button>
+              <button className="claim-button" onClick={()=> navigate("/cnic") }>claim price</button>
           </div>
     </>
         )}

@@ -65,6 +65,9 @@
     background-color: var(--yellow-text-color) !important;
     color: var(--primary-text-color) !important;
     font-weight: bolder !important;
+    font-size: 20px;
+    font-family: var(--gothic-font) !important;
+    letter-spacing: 1px;
     padding: 10px;
 }
 .form_input_wrapper .invalid-feedback{
@@ -87,7 +90,11 @@
     border-radius: 20px;
     background-color: var(--secondary-bg-color);
     color: var(--primary-text-color) !important;
+    font-size: 20px;
+
     font-weight: bold;
+    font-family: var(--gothic-font) !important;
+    letter-spacing: 1px;
     padding: 10px;
     width: 100%;
     appearance: none;
@@ -128,6 +135,8 @@ select{
     background-color: var(--secondary-bg-color);
     color: var(--primary-text-color);
     font-weight: bold;
+    font-family: var(--gothic-font) !important;
+    letter-spacing: 1px;
 }
 
 .form_selectbox_wrapper select {
@@ -164,19 +173,25 @@ select{
 }
 .form_checkbox_wrapper span {
     color: white !important;
-    font-size: 16px !important;
+    font-size: 18px !important;
+    font-family: var(--gothic-font) !important;
+    letter-spacing: 2px;
     font-weight: 600;
 }
 .form_input_wrapper .error_message,
 .form_selectbox_wrapper .error_message,
 .form_checkbox_wrapper .error_message{
     font-weight: 700 !important;
+    font-family: var(--gothic-font) !important;
+    letter-spacing: 1px;
     box-shadow:none !important;
 padding-left: 5px !important;
 }
 
 .selectBox_error_message{
     font-weight: 700 !important;
+    font-family: var(--gothic-font) !important;
+    letter-spacing: 1px;
     box-shadow:none !important;
 padding-left: 5px !important;
 margin-top: 0px !important;
@@ -191,6 +206,8 @@ margin-top: 0px !important;
     border: none;
     border-bottom: 4px solid gray;
     font-size: 28px !important;
+    font-family: var(--gothic-font) !important;
+    letter-spacing: 1px;
     color: var(--primary-text-color);
 
 }

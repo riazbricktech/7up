@@ -29,7 +29,7 @@ const CongratulationPage = () => {
       // Button Show Time Out
       const buttonTimer = setTimeout(() => {
         setShowButton(true);
-      }, 4500); // Adjust the time as needed
+      }, 5000); // Adjust the time as needed
   
       // Clean up the timeouts when the component is unmounted
       return () => {

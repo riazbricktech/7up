@@ -1,0 +1,107 @@
+.wrapper_col {
+    padding: 0 !important;
+}
+.failedPage_wrapper {
+    width: 450px !important;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.failedPage_wrapper .failedPage_logo_wrapper {
+    margin-top: 70px;
+    width: 140px !important;
+    height: auto;
+}
+
+.failedPage_wrapper {
+    width: 100%;
+}
+.failedPage_content_wrapper {
+    width: 100%;
+    text-align: center;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.failedPage_content_wrapper h5 {
+    font-size: 30px;
+    border: none;
+    padding: 10px 10px;
+    font-weight: bolder;
+    color: white;
+    background-color: #FF0000;
+    margin: 20px auto;
+    font-family: var(--banton-font) !important;
+    letter-spacing: 2px;
+    width: 75%;
+    border-radius: 20px;
+}
+
+.failedPage_content_wrapper p {
+    font-size: 26px;
+    font-weight: bolder;
+    background-color: white;
+    color: var(--primary-text-color);
+    margin-top: 30px auto;
+    font-family: var(--banton-font) !important;
+    letter-spacing: 1px;
+    width: 60%;
+    border-radius: 20px;
+
+}
+
+.failedPage_button_wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.failedPage_button_wrapper .failedPage_button {
+    text-align: center;
+    border: 1px solid #dcdcdc;
+    padding: 10px 30px;
+    border-radius: 1.5rem;
+    font-size: 20px;
+    background-color: white;
+    color: var(--primary-text-color);
+    font-weight: 800;
+    text-align: center;
+    cursor: pointer;
+    font-family: var(--gothic-font) !important;
+    letter-spacing: 2px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+
+
+@media only screen and (max-width: 390px) {
+    .failedPage_content_wrapper h2 {
+        font-size: 24px !important;
+    }
+
+    .failedPage_content_wrapper p {
+        font-size: 20px !important;
+    }
+
+    .failedPage_button_wrapper .failedPage_button {
+
+        padding: 7px 15px;
+        font-size: 16px;        letter-spacing: 2px;
+
+    }
+}
+
+
+/* Max Height */
+@media screen and (max-height: 580px) {
+    .failedPage_wrapper .failedPage_logo_wrapper {
+
+        margin-top: 20px  !important;
+        width: 110px !important;
+        height: auto !important;
+    }
+    
+}

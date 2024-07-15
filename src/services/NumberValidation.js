@@ -53,8 +53,11 @@ export function validateName(name) {
   if (!/^[a-zA-Z\s]+$/.test(name)) {
     return "Name should only contain alphabets and spaces.";
   }
-  if (name.trim().length < 4) {
-    return "Name length must be at least 4 characters.";
+  if (name.trim().length < 3) {
+    return "Name length must be at least 3 characters.";
+  }
+  if (name.trim().length > 64) {
+    return "Name length must not exceed 64 characters.";
   }
   return "";
 }

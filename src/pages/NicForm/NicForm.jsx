@@ -90,7 +90,7 @@ const NicForm = () => {
     newErrors.phoneNumber = phoneError;
     if (Object.values(newErrors).every(error => error === "")) {
       alert("Form is valid!");
-      navigate("/spin")
+      navigate("/congrats")
     } else {
       setErrors(newErrors);
     }

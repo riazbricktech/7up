@@ -1,7 +1,7 @@
 .wrapper_col {
     padding: 0 !important;
 }
-.lossPage_wrapper {
+.usedCap_wrapper {
     /* width: 100%; */
     width: 450px !important;
     height: 100vh;
@@ -11,17 +11,17 @@
 
 }
 
-.lossPage_wrapper .lossPage_cap_wrapper {
+.usedCap_wrapper .usedCap_cap_wrapper {
     margin-top: 90px;
     width: 230px !important;
     height: auto;
 }
 
-.lossPage_wrapper .lossPage_button_wrapper {
+.usedCap_wrapper .usedCap_button_wrapper {
     margin-top: 40px !important;
     text-align: center;
 }
-.lossPage_wrapper .lossPage_button_wrapper button {
+.usedCap_wrapper .usedCap_button_wrapper button {
     padding: 4px 40px !important;
     border-radius: 30px !important;
     background-color:  white ;
@@ -33,47 +33,47 @@
     letter-spacing: 2px;
 
 }
-.lossPage_wrapper .lossPage_button_wrapper button:focus {
+.usedCap_wrapper .usedCap_button_wrapper button:focus {
     background-color: var(--secondary-bg-color) !important;
 
 }
-.lossPage_wrapper .lossPage_button_wrapper .btn:hover {
+.usedCap_wrapper .usedCap_button_wrapper .btn:hover {
     background-color: var(--secondary-bg-color) !important;
     border-bottom: 4px solid gray !important;
 }
 
-.lossPage_wrapper .lossPage_bottle_wrapper {
+.usedCap_wrapper .usedCap_bottle_wrapper {
     position: absolute;
     width: 200px;
     top: 100%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.lossPage_wrapper .lossPage_stickerOne_wrapper{
+.usedCap_wrapper .usedCap_stickerOne_wrapper{
     position: absolute;
     top: 2%;
     left: -2%;
     transform: translate(-50%) rotate(70deg);
 }
-.lossPage_wrapper .lossPage_stickerOne_wrapper img{
+.usedCap_wrapper .usedCap_stickerOne_wrapper img{
     width: 80%;
 }
 
-.lossPage_wrapper .lossPage_stickerTwo_wrapper{
+.usedCap_wrapper .usedCap_stickerTwo_wrapper{
     position: absolute;
     bottom: 2%;
     right: -38%;
     transform: translate(-50%,-50%) rotate(70deg);
 
 }
-.lossPage_wrapper .lossPage_stickerTwo_wrapper img{
+.usedCap_wrapper .usedCap_stickerTwo_wrapper img{
     width: 80%;
 }
 
 
 @media only screen and (max-width: 480px) {
 /*   
-    .lossPage_wrapper {
+    .usedCap_wrapper {
         width: 390px !important;
     } */
 
@@ -82,26 +82,26 @@
 
 @media only screen and (max-width: 380px) {
 
-    .lossPage_wrapper {
+    .usedCap_wrapper {
         padding: 0 !important;
         /* width: 360px !important; */
     }
 
-    .lossPage_wrapper .lossPage_cap_wrapper {
+    .usedCap_wrapper .usedCap_cap_wrapper {
         margin-top: 60px !important;
         width: 190px !important;
     }
     
-    .lossPage_wrapper .lossPage_button_wrapper {
+    .usedCap_wrapper .usedCap_button_wrapper {
         margin-top: 20px !important;
     }
-    .lossPage_wrapper .lossPage_button_wrapper button {
+    .usedCap_wrapper .usedCap_button_wrapper button {
         padding: 4px 25px !important;
         font-size: 20px !important;
     
     }
     
-.lossPage_bottle_wrapper {
+.usedCap_bottle_wrapper {
     width: 150px !important;
     top: 101% !important;
     left: 50% !important;
@@ -110,18 +110,18 @@
 }
 @media only screen and (max-width: 350px) {
 
-    .lossPage_wrapper .lossPage_stickerOne_wrapper{
+    .usedCap_wrapper .usedCap_stickerOne_wrapper{
         top: 5%;
         left: 1%;
     }
-    .lossPage_wrapper .lossPage_stickerTwo_wrapper{
+    .usedCap_wrapper .usedCap_stickerTwo_wrapper{
         bottom: -3%;
         right: -45%;
     }
-    .lossPage_wrapper .lossPage_stickerOne_wrapper img{
+    .usedCap_wrapper .usedCap_stickerOne_wrapper img{
         width: 70% !important; 
     }
-    .lossPage_wrapper .lossPage_stickerTwo_wrapper img{
+    .usedCap_wrapper .usedCap_stickerTwo_wrapper img{
         width: 50% !important;
     }    
 

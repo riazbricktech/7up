@@ -133,6 +133,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2000; 
+
   }
   
   .you-won-button {
@@ -145,6 +146,8 @@
     cursor: pointer;
     border-radius: 30px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: var(--gothic-font) !important;
+    letter-spacing: 2px;
   }
 
   /* ////// Modal Wrapper /////// */
@@ -175,6 +178,9 @@
     margin-bottom: 20px;
     font-size: 24px;
     color: #28a745; /* Green color */
+
+    font-family: var(--banton-font) !important;
+    letter-spacing: 1px;
   }
   
   .modal-content img {
@@ -184,12 +190,14 @@
   }
   
   .modal-description {
-    font-size: 20px;
+    font-size: 22px;
     padding: 7px 15px;
     border-radius: 15px;
     font-weight: bold;
     margin-bottom: 20px;
     background-color: var(--secondary-bg-color);
+    font-family: var(--gothic-font) !important;
+    letter-spacing: 2px;
   }
   
   .claim-button {
@@ -197,15 +205,15 @@
     border: none;
     width: 250px;
     padding: 10px 20px;
-    
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     color: black;
     cursor: pointer;
     border-radius: 15px;
-
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
+    font-family: var(--gothic-font) !important;
+    letter-spacing: 2px;
   }
 
   

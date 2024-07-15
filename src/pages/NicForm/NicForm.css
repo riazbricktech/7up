@@ -31,6 +31,8 @@ padding: 10px 0;
     color: white;
     font-size: 18px;
     font-weight: 700;
+    font-family: var(--banton-font) !important;
+    letter-spacing: 1px;
 }
 
 /* //////// Form Wrapper  //////// */
@@ -94,9 +96,12 @@ padding: 10px 0;
     background-color: var(--yellow-text-color) !important;
     color: white !important;
     font-weight: bolder !important;
+    font-size: 22px;
     padding: 10px;
     text-align: center;
     margin: 3px 0 !important;
+    font-family: var(--gothic-font) !important;
+    letter-spacing: 2px;
 }
 .nicform_wrapper .phone_input {
     color: white !important;    
@@ -146,6 +151,8 @@ color: white !important;
     background-color:  white ;
     border: none;
     font-size: 28px !important;
+    font-family: var(--gothic-font) !important;
+    letter-spacing: 1px;
     color: var(--primary-text-color);
 
 }

@@ -11,6 +11,7 @@ import { v4 as uuidv4 } from "uuid";
 import { Wheel } from "react-custom-roulette";
 import Wrapper from "../../reusableComponents/Wrapper/Wrapper";
 import SevenUpBottle from "../../assets/images/sevenUp_bottle.webp";
+import BottleImage from "../../assets/images/sevenUp_bottle.webp";
 
 const inputList = [
   {
@@ -47,7 +48,7 @@ const inputList = [
   },
   {
     id: uuidv4(),
-    option: "Chicken Cheese Paratha"
+    option: "Chicken Paratha"
   },
   {
     id: uuidv4(),
@@ -153,7 +154,7 @@ const Spinner = () => {
         <div align="center" className="roulette-container">
           <Wheel
             mustStartSpinning={mustSpin}
-            spinDuration={[0.6]}
+            spinDuration={[0.7]}
             prizeNumber={prizeNumber}
             data={inputList}
             outerBorderColor={["#00B144"]}
@@ -161,31 +162,32 @@ const Spinner = () => {
             innerBorderColor={["#00B144"]}
             innerBorderWidth={[9]}
             radiusLineColor={["#00B144"]}
-            radiusLineWidth={[9]}
-            textColors={["#f5f5f5"]}
+            radiusLineWidth={[7]}
+            textColors={["#095E39"]}
             textDistance={65}
-            fontSize={[10]}
+            fontSize={[17]}
             backgroundColors={[
-              "#ff9100",
-              "#7fe953",
-              "#6601dd",
-              "#f4333e",
-              "#7fe953",
-              "#6601dd",
-              "#ff9100",
-              "#7fe953",
-              "#f4333e",
-              "#ff9100",
-              "#f4333e",
-              "#6601dd",
-              "#7fe953",
-              "#f4333e",
-              "#ff9100",
-              "#6601dd",
-              "#7fe953",
-              "#f4333e",
-              "#6601dd",
-              "#000",
+              "#697333",
+              "#C9D633",
+              "#F9FF33",
+              "#9AA933",
+              "#697333",
+              "#757F33",
+              "#FFFF9C",
+              "#C9D633",
+              "#F9FF33",
+              "#9AA933",
+              "#FFFF9C",
+              "#697333",
+              "#757F33",
+              "#FFFF9C",
+              "#C9D633",
+              "#F9FF33",
+              "#9AA933",
+              "#757F33",
+              "#FFFF9C",
+              "#C9D633",
+              "#F9FF33",
             ]}
             onStopSpinning={() => {
               setMustSpin(false);
@@ -193,7 +195,7 @@ const Spinner = () => {
             }}
           />
           <button className="spiner_button roulette-button" onClick={handleSpinClick}>
-            <span>Start Spin</span>
+            <span>      <img src={BottleImage}alt="7up Bottle" /></span>
           </button>
         </div>
         <br />
