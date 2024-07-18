@@ -59,6 +59,8 @@
     background: white;
     color: #000;
     font-size: 0.8rem;
+    overflow: hidden;
+
     font-weight: bold;
 }
 

@@ -4,6 +4,8 @@
     align-items: center;
     justify-content: center;
     background-color: var(--primary-bg-color);
+    overflow: hidden !important;
+
 }
 
 .Wrapper_container .wrapper_col {
@@ -16,6 +18,8 @@
     position: relative;
     border-left: 3px solid green;
     border-right: 3px solid green;
+    overflow: hidden !important;
+
 
 }
 

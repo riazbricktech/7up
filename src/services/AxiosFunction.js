@@ -1,4 +1,6 @@
 import Axios from 'axios';
+import token from '../constant/Token';
+
 // import api from "../constant/Api_url";
 
 
@@ -7,9 +9,9 @@ export const getData = async (api, body) => {
     const res = await Axios.request({
         method: 'GET',
         url: api,
-        // headers: {
-        //     Authorization: "Bearer " + localStorage.getItem("token"),
-        // },
+        headers: {
+            Authorization: "Bearer " + token,
+        },
         // params: body,
     });
     return await res.data;
@@ -21,9 +23,9 @@ export const postData = async (api, body) => {
     const responseData = await Axios.request({
         method: 'POST',
         url: api,
-        // headers: {
-        //     Authorization: localStorage.getItem('token'),
-        // },
+        headers: {
+            Authorization: "Bearer " + token,
+        },
         data: body,
     });
     return await responseData.data;

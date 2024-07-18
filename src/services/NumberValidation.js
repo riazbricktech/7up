@@ -73,7 +73,7 @@ export function validateUniqueId(uniqueId) {
 }
 
 export function validateCity(city) {
-  if (city.trim() === "") {
+  if (!city) {
     return "City selection is required.";
   }
   return "";

@@ -68,7 +68,7 @@
     font-size: 20px;
     font-family: var(--gothic-font) !important;
     letter-spacing: 1px;
-    padding: 10px;
+    padding: 10px 15px  !important;
 }
 .form_input_wrapper .invalid-feedback{
     margin-top: 0 !important;
@@ -86,6 +86,74 @@
 }
 
 /*  /////////////////   Select Box   //////////////////// */
+
+.css-13cymwt-control{
+    border-radius: 20px !important;
+    background-color: var(--secondary-bg-color) !important;
+    color: var(--primary-text-color) !important;
+    font-size: 20px !important;
+
+    font-weight: bold !important;
+    font-family: var(--gothic-font) !important;
+    letter-spacing: 1px !important;
+    padding: 4px 5px !important;
+    width: 100% !important;
+    border:none !important;
+}
+.css-feonkk-Input2{
+    color: var(--primary-text-color) !important;
+}
+
+.css-1jqq78o-placeholder{
+    color: var(--primary-text-color) !important;
+}
+
+.css-t3ipsp-control{
+    border-radius: 20px !important;
+    background-color: var(--secondary-bg-color) !important;
+    color: var(--primary-text-color) !important;
+    font-size: 20px !important;
+
+    font-weight: bold !important;
+    font-family: var(--gothic-font) !important;
+    letter-spacing: 1px !important;
+    padding: 4px 5px !important;
+    width: 100% !important;
+    border:none !important;
+    box-shadow: none !important;
+}
+
+.css-1nmdiq5-menu{
+    background-color: var(--secondary-bg-color) !important;
+}
+.css-1u9des2-indicatorSeparator{
+    background-color: var(--primary-bg-color) !important;
+}
+.css-tr4s17-option{
+    background-color: var(--primary-bg-color) !important;
+}
+.css-1xc3v61-indicatorContainer svg{
+color: var(--primary-bg-color) !important;
+}
+.css-10wo9uf-option{
+    background-color: var(--secondary-bg-color) !important;
+    color: var(--primary-text-color) !important;
+    font-size: 20px !important;
+}
+.css-d7l1ni-option{
+    background-color: var(--primary-text-color) !important;
+    color: var(--secondary-bg-color) !important;
+    font-size: 20px !important;
+}
+.css-w9q2zk-Input2,
+.css-1dimb5e-singleValue{
+    color: var(--primary-text-color) !important;
+
+}
+.css-w9q2zk-Input2 input{
+color: var(--primary-text-color) !important;
+}
+
 .form_custom_select {
     border-radius: 20px;
     background-color: var(--secondary-bg-color);
@@ -117,7 +185,7 @@ select{
     position: relative;
     background-image:none !important;
 }
-.form_selectbox_wrapper::after {
+/* .form_selectbox_wrapper::after {
     content: "";
     position: absolute;
     right: 20px;
@@ -126,7 +194,7 @@ select{
     border: 5px solid transparent;
     border-top-color: var(--primary-text-color);
     pointer-events: none;
-}
+} */
 
 .form_custom_select {
     padding-right: 40px !important;
@@ -141,6 +209,62 @@ select{
 
 .form_selectbox_wrapper select {
     width: 100% !important;
+}
+
+
+/* //////////////////  SCROLL DESIGN FOR SELECT BOX       /////////////////////////////// */
+.css-1jj59y3-MenuList2 {
+    max-height: 300px;
+    overflow-y: auto;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    box-sizing: border-box;
+    scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+.css-1jj59y3-MenuList2::-webkit-scrollbar {
+    width: 8px;
+}
+
+.css-1jj59y3-MenuList2::-webkit-scrollbar-thumb {
+    background-color: #00B144; /* Scrollbar thumb color */
+    border-radius: 4px; /* Rounded corners */
+}
+
+.css-1jj59y3-MenuList2::-webkit-scrollbar-thumb:hover {
+    background-color: #009935; /* Thumb color on hover */
+}
+
+.css-1jj59y3-MenuList2::-webkit-scrollbar-track {
+    background-color: #FFE53F; /* Scrollbar track color */
+    border-radius: 4px; /* Rounded corners */
+}
+
+/* Optional: For other browsers, you can use the following pseudo-elements */
+.css-1jj59y3-MenuList2::-moz-scrollbar {
+    width: 8px;
+}
+
+.css-1jj59y3-MenuList2::-moz-scrollbar-thumb {
+    background-color: #00B144;
+    border-radius: 4px;
+}
+
+.css-1jj59y3-MenuList2::-moz-scrollbar-thumb:hover {
+    background-color: #009935;
+}
+
+.css-1jj59y3-MenuList2::-moz-scrollbar-track {
+    background-color: #FFE53F;
+    border-radius: 4px;
+}
+
+/* Firefox only */
+.css-1jj59y3-MenuList2 {
+    scrollbar-width: thin; /* Thin scrollbar */
+    scrollbar-color: #00B144 #FFE53F; /* Thumb and track colors */
 }
 
 
@@ -185,7 +309,7 @@ select{
     font-family: var(--gothic-font) !important;
     letter-spacing: 1px;
     box-shadow:none !important;
-padding-left: 5px !important;
+margin-left: 10px !important;
 }
 
 .selectBox_error_message{
@@ -193,7 +317,8 @@ padding-left: 5px !important;
     font-family: var(--gothic-font) !important;
     letter-spacing: 1px;
     box-shadow:none !important;
-padding-left: 5px !important;
+    
+/* padding-left: 5px !important; */
 margin-top: 0px !important;
 }
 .form_button_wrapper {
@@ -224,7 +349,7 @@ margin-top: 0px !important;
 .form_bottle_wrapper {
     position: absolute;
     width: 200px;
-    top: 110%;
+    top: 113%;
     left: 50%;
     transform: translate(-50%, -50%);
     animation: formFadeIn 4.5s ease-in-out;
@@ -248,7 +373,7 @@ margin-top: 0px !important;
 
     .form_bottle_wrapper {
         width: 28%;
-        top: 100% !important;
+        top: 118% !important;
     }
 }
 @media only screen and (max-width: 480px) {
@@ -262,7 +387,7 @@ margin-top: 0px !important;
 
     .form_bottle_wrapper {
         width: 32% !important;
-        top: 100% !important;
+        top: 110% !important;
     }
     .form_checkbox_wrapper input {
         width: 40px !important;
@@ -300,7 +425,7 @@ margin-top: 0px !important;
 
     .form_bottle_wrapper {
         width: 38% !important;
-        top: 95% !important;
+        top: 115% !important;
     }
 
 } 
@@ -319,7 +444,7 @@ margin-top: 0px !important;
 
      .form_bottle_wrapper {
          width: 38% !important;
-         top: 100% !important;
+         top: 118% !important;
      }
 
 

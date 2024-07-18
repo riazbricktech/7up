@@ -12,6 +12,7 @@ import { Wheel } from "react-custom-roulette";
 import Wrapper from "../../reusableComponents/Wrapper/Wrapper";
 import SevenUpBottle from "../../assets/images/sevenUp_bottle.webp";
 import BottleImage from "../../assets/images/sevenUp_bottle.webp";
+import { useSelector, useDispatch } from "react-redux";
 
 const inputList = [
   {
@@ -104,7 +105,7 @@ const Spinner = () => {
   const [mustSpin, setMustSpin] = useState(false);
   const [prizeNumber, setPrizeNumber] = useState(0);
   const [rouletteData, setRouletteData] = useState(inputList);
-
+  const cityData = useSelector(state => state?.cities?.citesData);
   const navigate = useNavigate();
 
   const [open, setOpen] = useState(false);
@@ -124,7 +125,6 @@ const Spinner = () => {
     const newPrizeNumber = 1;
     setPrizeNumber(newPrizeNumber);
     setMustSpin(true);
-    console.log(e, "ee");
   };
 
   useEffect(() => {
