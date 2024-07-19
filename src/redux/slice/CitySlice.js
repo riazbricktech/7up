@@ -45,7 +45,7 @@ const CitySlice = createSlice({
   name: 'cities',
   initialState: {
     isLoading: false,
-    citesData: null,
+    citesData: undefined,
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -59,7 +59,8 @@ const CitySlice = createSlice({
       })
       .addCase(getCities.rejected, (state, action) => {
         state.isLoading = false;
-        state.citesData = action.payload;
+        // state.citesData = action.payload;
+        state.citesData = undefined;
       });
   },
 });

@@ -4,10 +4,10 @@ import { postData } from '../../services/AxiosFunction';
 
 export const createUser = createAsyncThunk(
   'user/createUser',
-  async ({data}, { rejectWithValue }) => {
+  async (data, { rejectWithValue }) => {
     console.log('Inside createAsyncThunk');
     try {
-      console.log('Before API call');
+      console.log('Before API call', data);
       const responseData = await postData(`${api}create-user`,data);
       console.log('After API call', responseData);
       return responseData;

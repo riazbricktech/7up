@@ -1,4 +1,4 @@
-import React, { useState , useEffect} from "react";
+import React, { useState , useEffect, useLayoutEffect} from "react";
 import "./FormPage.css";
 import BottleImage from "../../assets/images/sevenUp_bottle.webp";
 import HeaderImage from "../../assets/images/header_image.webp";
@@ -15,63 +15,66 @@ import Select from "react-select";
 import { useSelector, useDispatch } from "react-redux";
 import { getCities } from "../../redux/actions/CityAction";
 import { createUser } from "../../redux/actions/CreateUserAction";
+import { useLocation } from "react-router-dom";
+import { canCode, bottleCode } from '../../constant/Codes';
 
-// const cityData = [
-//   { id: 1, name: "Bhakkar" },
-//   { id: 2, name: "Faislabad" },
-//   { id: 3, name: "Jhang" },
-//   { id: 4, name: "Khushab" },
-//   { id: 5, name: "Mianwali" },
-//   { id: 6, name: "Okara" },
-//   { id: 7, name: "Sargodha" },
-//   { id: 8, name: "Toba Tek Singh" },
-//   { id: 9, name: "Chiniot" },
-//   { id: 10, name: "Gojra" },
-//   { id: 11, name: "Samundri" },
-//   { id: 12, name: "Dijkot" },
-//   { id: 13, name: "Gujranwala" },
-//   { id: 14, name: "Bhakkar (Unknown 1)" },
-//   { id: 15, name: "Chakwal" },
-// ];
-
-// const cityOptions = cityData.map(city => ({
-//   value: city.id,
-//   label: city.name
-// }));
 
 function FormPage() {
-  const cityData = useSelector(state => state?.cities?.citesData);
-
-  
-  const cityOptions = cityData?.map(city => ({
-    value: city.id,
-    label: city.name
-  }));
-  
-  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const cityData = useSelector(state => state?.cities?.citesData);
+  const isLoading = useSelector(state => state?.cities?.isLoading);
+
+  const qrCode = useSelector(state => state?.qrCode?.qrCodeNumber);
+  const userData = useSelector(state => state?.user?.createUserData);
+
+console.log(userData,"userData");
+
+  const cityOptions = cityData ? cityData?.map(city => ({
+    value: city?.id,
+    label: city?.name
+  })) : undefined;
+
+
+
+  const [isQrCode, setIsQrCode] = useState(false);
   const [formValues, setFormValues] = useState({
-    phone: "",
     name: "",
-    qr_code: "",
+    phone_user: "",
+    qr_code_user: "",
     city_name: "",
     terms: false,
   });
 
   const [formattedPhoneNumber, setFormattedPhoneNumber] = useState("");
   const [errors, setErrors] = useState({
-    phone: "",
     name: "",
-    qr_code: "",
+    phone_user: "",
+    qr_code_user: "",
+    city_id: "",
     city_name: "",
     terms: "",
   });
+  useLayoutEffect(()=>{
+  
+    if (qrCode === `/${bottleCode}`) {
+      setIsQrCode(true);
+    }
+    if (qrCode === `/${canCode}`) {
+      setIsQrCode(false);
+    }
+    if(qrCode !== `/${bottleCode}` && qrCode !== `/${canCode}`){
+      setIsQrCode(true);
 
+    }
+  },[])
+  
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     let updatedValue = type === "checkbox" ? checked : value;
-
-    if (name === "phone") {
+  
+    if (name === "phone_user") {
       let phoneValue = value.replace(/\D/g, "");
       if (phoneValue.length > 11) {
         return;
@@ -82,9 +85,9 @@ function FormPage() {
       const errorMessage = validatePakistaniPhoneNumber(phoneValue);
       setErrors((prevErrors) => ({
         ...prevErrors,
-        phone: errorMessage,
+        phone_user: errorMessage,
       }));
-    } else if (name === "qr_code") {
+    } else if (name === "qr_code_user" && isQrCode) {
       const uniqueIdValue = value.replace(/\D/g, "");
       if (uniqueIdValue.length > 8) {
         return;
@@ -93,7 +96,7 @@ function FormPage() {
       const errorMessage = validateUniqueId(uniqueIdValue);
       setErrors((prevErrors) => ({
         ...prevErrors,
-        qr_code: errorMessage,
+        qr_code_user: errorMessage,
       }));
     } else {
       setErrors((prevErrors) => ({
@@ -101,7 +104,7 @@ function FormPage() {
         [name]: validateField(name, updatedValue),
       }));
     }
-
+  
     setFormValues((prevValues) => ({
       ...prevValues,
       [name]: updatedValue,
@@ -109,9 +112,11 @@ function FormPage() {
   };
 
   const handleSelectChange = (selectedOption) => {
+    console.log(selectedOption,"selectedOption")
     setFormValues((prevValues) => ({
       ...prevValues,
       city_name: selectedOption?.label,
+      city_id:selectedOption?.value,
     }));
 
     setErrors((prevErrors) => ({
@@ -124,8 +129,8 @@ function FormPage() {
     switch (name) {
       case "name":
         return validateName(value);
-      case "qr_code":
-        return validateUniqueId(value);
+      case "qr_code_user":
+        return isQrCode ? validateUniqueId(value) : "";
       case "city_name":
         return validateCity(value);
       case "terms":
@@ -137,24 +142,34 @@ function FormPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
     const newErrors = {
       name: validateName(formValues.name),
-      qr_code: validateUniqueId(formValues.qr_code),
+      qr_code_user: isQrCode ? validateUniqueId(formValues.qr_code_user) : "",
       city_name: validateCity(formValues.city_name),
       terms: validateTerms(formValues.terms),
     };
-    const phoneError = validatePakistaniPhoneNumber(formValues.phone);
-    newErrors.phone = phoneError;
-
+    
+    const phoneError = validatePakistaniPhoneNumber(formValues.phone_user);
+    newErrors.phone_user = phoneError;
+  
     if (Object.values(newErrors).every((error) => error === "")) {
       alert("Form is valid!");
-      console.log(formValues,"formValues");
-      // dispatch(createUser(formValues));
-      navigate("/spin");
+      const { phone_user, name, qr_code_user, city_name, city_id} = formValues;
+      const data ={phone_user, name, qr_code_user, city_name, city_id};
+      console.log(data,"data====")
+      console.log(formValues, "formValues");
+      if(data){
+console.log(data,"111111111111")
+        dispatch(createUser(data));
+        
+      }
+      // navigate("/spin");
     } else {
       setErrors(newErrors);
     }
   };
+  
   useEffect(() => {
     dispatch(getCities());
   }, [dispatch]);
@@ -191,43 +206,41 @@ function FormPage() {
           <input
             type="text"
             className={`form-control form_custom_input ${
-              errors.phone ? "is-invalid" : ""
+              errors.phone_user ? "is-invalid" : ""
             }`}
             id="validationServerPhone"
             aria-describedby="inputGroupPrepend3 validationServerPhoneFeedback"
-            name="phone"
+            name="phone_user"
             placeholder="0312 1234567"
             value={formattedPhoneNumber}
             onChange={handleChange}
           />
-          {errors.phone && (
+          {errors.phone_user && (
             <div className="invalid-feedback error_message d-block">
-              {errors.phone}
+              {errors.phone_user}
             </div>
           )}
         </div>
-
-        <div className="form_input_wrapper">
+{isQrCode &&  <div className="form_input_wrapper">
           <input
             type="text"
             className={`form-control form_custom_input ${
-              errors.qr_code ? "is-invalid" : ""
+              errors.qr_code_user ? "is-invalid" : ""
             }`}
             id="validationServerUniqueId"
-            name="qr_code"
+            name="qr_code_user"
             placeholder="Unique Id"
-            value={formValues?.qr_code}
+            value={formValues?.qr_code_user}
             onChange={handleChange}
           />
-          {errors.qr_code && (
+          {errors.qr_code_user && (
             <div className="invalid-feedback error_message d-block">
-              {errors.qr_code}
+              {errors.qr_code_user}
             </div>
           )}
         </div>
+}
         <div className="form_selectbox_wrapper">
- 
-
         <Select
         isSearchable={true}
         value={cityOptions?.find(option => option?.name === formValues.city_name)}
@@ -235,6 +248,7 @@ function FormPage() {
         id="validationServerCity"
         name="city_name"
         options={cityOptions}
+        isLoading={isLoading}
       />
         </div>
         {errors.city_name && (

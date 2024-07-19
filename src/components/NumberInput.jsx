@@ -2,26 +2,26 @@ import React, { useState } from 'react';
 import { validatePakistaniPhoneNumber } from '../services/NumberValidation';
 
 const NumberInput = () => {
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [formattedPhoneNumber, setFormattedPhoneNumber] = useState("");
-  const [error, setError] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState(0);
+  const [formattedPhoneNumber, setFormattedPhoneNumber] = useState(0);
+  const [error, setError] = useState(null);
 
   const handleChange = (e) => {
-    let value = e.target.value.replace(/\D/g, ''); // Remove non-numeric characters
+    let value = e.target.value.replace(/\D/g, ''); 
     if (value.length > 11) {
-      return; // Prevent additional characters if length exceeds 11 digits
+      return;
     }
-    const formattedValue = value.replace(/(.{4})/g, '$1 ').trim(); // Insert space after every 4 digits
+    const formattedValue = value.replace(/(.{4})/g, '$1 ').trim(); 
     setFormattedPhoneNumber(formattedValue);
 
-    const errorMessage = validatePakistaniPhoneNumber(value); // Validate without spaces
+    const errorMessage = validatePakistaniPhoneNumber(value); 
     setError(errorMessage);
-    setPhoneNumber(value); // Update the phoneNumber state without spaces
+    setPhoneNumber(value); 
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const errorMessage = validatePakistaniPhoneNumber(phoneNumber); // Validate without spaces
+    const errorMessage = validatePakistaniPhoneNumber(phoneNumber); 
 
     if (errorMessage) {
       setError(errorMessage);

@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { createUser } from '../actions/CreateUserAction';
 
 const createUserSlice = createSlice({
-  name: 'cities',
+  name: 'user',
   initialState: {
     isLoading: false,
     createUserData: null,

@@ -7,6 +7,7 @@ export const getCities = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const responseData = await getData(`${api}get-cities`, 'GET');
+      console.log(responseData,"responseData");
       return responseData;
     } catch (error) {
       if (!error.response) {

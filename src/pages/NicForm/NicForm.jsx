@@ -12,8 +12,8 @@ const NicForm = () => {
     phoneNumber: "",
   });
 
-  const [formattedNic, setFormattedNic] = useState("");
-  const [formattedPhoneNumber, setFormattedPhoneNumber] = useState("");
+  const [formattedNic, setFormattedNic] = useState(null);
+  const [formattedPhoneNumber, setFormattedPhoneNumber] = useState(null);
   const [errors, setErrors] = useState({
     nic: "",
     phoneNumber: "",
