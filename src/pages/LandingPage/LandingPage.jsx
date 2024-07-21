@@ -1,54 +1,83 @@
 import React, { useEffect } from "react";
 import "./LandingPage.css";
-import HeaderImage from "../../assets/images/header_image.webp";
-import LogoImage from "../../assets/images/sevenUp_logo.webp";
-import BottleImage from "../../assets/images/sevenUp_bottle.webp";
-import FooterImage from "../../assets/images/footer_image.webp";
 
-import BottleNeck from "../../assets/images/heart_cap.webp";
 import Wrapper from "../../reusableComponents/Wrapper/Wrapper";
 import { useNavigate } from "react-router-dom";
 
+import LogoImage from "../../assets/images/new_images/center_logo.png";
+import FooterPlaces from "../../assets/images/new_images/places.png";
+import FooterWave from "../../assets/images/new_images/waves.png";
+
+import CTikka from "../../assets/images/new_images/c_tikka.png";
+import Biryani from "../../assets/images/new_images/biryani.png";
+import CheesyFries from "../../assets/images/new_images/cheesy_fires.png";
+import DChilli from "../../assets/images/new_images/d_chilli.png";
+import DLemon from "../../assets/images/new_images/d_lemon_slice.png";
+import FLemon from "../../assets/images/new_images/f_lemon.png";
+import GolGappy from "../../assets/images/new_images/gol_gappy.png";
+import GreenChilli from "../../assets/images/new_images/green_chilli.png";
+import Tomoto from "../../assets/images/new_images/tomato.png";
+import UChilli from "../../assets/images/new_images/u_chilli.png";
+import ULemon from "../../assets/images/new_images/u_lemon_slice.png";
+import Oat from "../../assets/images/new_images/oats.png";
 
 const LandingPage = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigate("/form");
+      navigate("/animation");
     }, 3000);
 
     return () => clearTimeout(timer);
   }, [navigate]);
-  
+
   return (
-   <Wrapper>
+    <Wrapper>
+      <div className="landing_page_wrapper">
+        {/* /////////  logo Wrapper  /////////// */}
+        <div className="landing_logo_wrapper">
+          <img src={LogoImage} className="img-fluid" alt="7up Logo" />
+          <img src="" alt="" />
+        </div>
 
-          {/* ///// Header Wrapper    ////// */}
-          <div className="landing_header_wrapper">
-            <img src={HeaderImage} className="img-fluid" alt="Pakistan" />
-          </div>
+        {/* /////////  Footer Wrapper  /////////// */}
+        <div className="landing_footer_wrapper">
+          <img
+            src={FooterPlaces}
+            className="img-fluid footer_place"
+            alt="Emojis"
+          />
+          <img
+            src={FooterWave}
+            className="img-fluid footer_wave"
+            alt="Emojis"
+          />
+        </div>
 
-          {/* /////////  logo Wrapper  /////////// */}
-          <div className="landing_logo_wrapper">
-            <img src={LogoImage} className="img-fluid"  alt="7up Logo"  />
-          </div>
+        {/* ///////// Meal Images ////////////// */}
+        <img src={CTikka} className="img-fluid tikka" alt="Tikka" />
+        <img src={DLemon} className="img-fluid d_lemon" alt="Lemon" />
+        <img src={Biryani} className="img-fluid biryani" alt="Biryani" />
+        <img src={UChilli} className="img-fluid u_chilli" alt="Chilli" />
+        <img src={ULemon} className="img-fluid lemon" alt="Lemon" />
+        <img src={Oat} className="img-fluid oats" alt="Cheesy Fries" />
+        <img
+          src={CheesyFries}
+          className="img-fluid cheesy_fries"
+          alt="Cheesy Fries"
+        />
+        <img src={FLemon} className="img-fluid f_lemon" alt="Lemon" />
+        <img src={GolGappy} className="img-fluid gol_gappy" alt="Gol Gappy" />
 
-          {/* /////////  Bottle Wrapper  /////////// */}
-          <div className="landing_bottle_wrapper">
-            <img src={BottleImage} className="img-fluid" alt="7up Bottle" />
-          </div>
-
-          {/* /////////  Bottle Wrapper  /////////// */}
-          <div className="landing_footer_wrapper">
-            <img src={FooterImage} className="img-fluid" alt="Emojis" />
-          </div>
-
-                  {/* /////////  Bottle neck Wrapper  /////////// */}
-                  <div className="landing_bottleNeck_wrapper">
-            <img src={BottleNeck} className="img-fluid" alt="7up Bottle" />
-          </div>
-          </Wrapper>
-
+        <img src={DChilli} className="img-fluid d_chilli" alt="Chilli" />
+        <img
+          src={GreenChilli}
+          className="img-fluid green_chilli"
+          alt="Green Chilli"
+        />
+        <img src={Tomoto} className="img-fluid tomoto" alt="Tomoto" />
+      </div>
+    </Wrapper>
   );
 };
 

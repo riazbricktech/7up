@@ -11,17 +11,18 @@
 
 :root {
     /*  //////////////////// background Color ////////////////////////// */
-    --primary-bg-color: #00B144;
-    --secondary-bg-color: #FFE53F;
+    --primary-bg-color: #0fd56f;
+    --secondary-bg-color: #FCDC00;
         --red-bg-color:#FF0000;
        --white-bg-color:#FFFF; 
+       --button-bg-color:#E81D2C;
 
     /*  //////////////////// Text Color ////////////////////////// */
 
-    --primary-text-color: #00B144;
+    --primary-text-color: #0fd56f;
     --secondary-text-color: #000;
     --white-text-color: #FFF;
-    --yellow-text-color: #FFE53F;
+    --yellow-text-color: #FCDC00;
 
 
     /*  //////////////////// Font Family ////////////////////////// */

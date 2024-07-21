@@ -18,161 +18,318 @@
     }
 }
 
-.landing_header_wrapper {
-    padding: 20px 0;
-    width: 435px;
-    height: auto;
-    animation: landingFadeIn 1s ease-out;
+.landing_page_wrapper {
+    width: 500px !important;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: greenyellow; */
 }
 
-
 .landing_logo_wrapper {
-    width: 140px !important;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px !important;
     height: auto;
     animation: landingFadeIn 1.2s ease-out;
 }
 
-.landing_bottle_wrapper {
-    width: 140px !important;
-    height: auto;
-    animation: landingFadeIn 1.4s ease-out;
-}
-
 .landing_footer_wrapper {
-    width: 435px !important;
+    width: 500px !important;
     height: auto;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
     position: fixed;
     left: 50%;
     bottom: 0%;
-    transform: translate(-50%, -0%);
-    animation: landingFadeIn 1.4s ease-out !important; 
-
+    transform: translate(-50%, 0%);
+    animation: landingFadeIn 1.4s ease-out !important;
 }
 
-.landing_bottleNeck_wrapper {
-    width: 70px;
+.landing_footer_wrapper .footer_place {
     position: absolute;
-    top: 40% !important;
-    right: 0% !important;
+    left: 0;
+    bottom: 0% !important;
+    width: 100%;
+    margin-bottom: calc(100vh - 89vh);
+}
+
+.landing_footer_wrapper .footer_wave {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 17vh;
+}
+
+/* .landing_meal_wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0% !important;
+    left: 0% !important;
     transform: translate(-0%, -50%) !important;
     animation: landingFadeIn 1.9s ease-out;
+    z-index: 11111111111111111;
+} */
+
+
+
+/* /////////////  Meals ////////// */
+.landing_page_wrapper .tikka{
+    position: absolute;
+    left: 18%;
+    width: 85px;
+    top: 55%;
+    transform: translate(-50%, -50%);
 }
 
+.landing_page_wrapper .d_lemon{
+    position: absolute;
+    left: 18%;
+    width: 35px;
+    top: 41%;
+    transform: translate(-50%, -50%);
+
+}
+.landing_page_wrapper .biryani{
+    position: absolute;
+    left: 0%;
+    width: 85px;
+    top: 20%;
+    transform: translate(-0%, -50%);
+
+}
+
+.landing_page_wrapper .u_chilli{
+    position: absolute;
+    left: 35%;
+    width: 31px;
+    top: 11%;
+    transform: translate(-50%, -50%);
+}
+.landing_page_wrapper .lemon{
+    position: absolute;
+    left: 55%;
+    width: 31px;
+    top: 3%;
+    transform: translate(-50%, -50%);
+
+}
+.landing_page_wrapper .oats{
+    position: absolute;
+    left: 67%;
+    width: 41px;
+    top: 15%;
+    transform: translate(-50%, -50%);
+
+}
+
+.landing_page_wrapper .cheesy_fries{
+    position: absolute;
+    right: 0%;
+    width: 141px;
+    top: 18%;
+    transform: translate(-0%, -50%);
+}
+
+.landing_page_wrapper .f_lemon{
+    position: absolute;
+    right: 0%;
+    width: 47px;
+    top: 36%;
+    transform: translate(-0%, -50%);
+}
+
+.landing_page_wrapper .gol_gappy{
+    position: absolute;
+    right: 0%;
+    width: 52px;
+    top: 51%;
+    transform: translate(-0%, -50%);
+
+}
+.landing_page_wrapper .d_chilli{
+    position: absolute;
+    right: 16%;
+    width: 29px;
+    top: 58%;
+    transform: translate(-50%, -50%);
+}
+
+.landing_page_wrapper .green_chilli{
+    position: absolute;
+    right: 40%;
+    width: 49px;
+    top: 53%;
+    transform: translate(-50%, -50%);
+}
+
+.landing_page_wrapper .tomoto{
+    position: absolute;
+    right: 58%;
+    width: 28px;
+    top: 65%;
+    transform: translate(-50%, -50%);
+}
 
 
 @media only screen and (max-width: 1300px) {
-       .landing_header_wrapper{
-        padding: 15px 0;
-        width: 440px;
-        height: auto;
-    }
-       .landing_logo_wrapper {
+    /* .landing_logo_wrapper {
         width: 120px;
         height: auto;
-    }
+    } */
 
-       .landing_bottle_wrapper {
-        width: 135px;
-        height: auto;
-    }
-
-       .landing_footer_wrapper {
-        width: 440px !important;
+    .landing_footer_wrapper {
+        /* width: 440px !important; */
         /* margin-top: auto !important; */
     }
 }
 
-@media only screen and (max-width: 576px) {
-       .landing_header_wrapper{
-        width: 80%;
-    }
-       .landing_logo_wrapper {
-        width: 120px;
-    }
-
-       .landing_bottle_wrapper {
-        width: 135px;
-    }
-
-       .landing_footer_wrapper {
-        width: 100% !important;
-    }
-
-
-}
 @media only screen and (max-width: 480px) {
-       .landing_header_wrapper{
-        width: 80%;
+
+    .landing_page_wrapper {
+        width: 100vw !important;
     }
-       .landing_logo_wrapper {
-        width: 135px;
+    
+    .landing_logo_wrapper {
+        width: 210px !important;
     }
 
-       .landing_bottle_wrapper {
-        width: 110px !important;
-        padding-bottom: 10px;
-        /* margin-top: auto !important; */
-    }
-
-       .landing_footer_wrapper {
+    .landing_footer_wrapper {
         width: 100% !important;
     }
+    .landing_footer_wrapper .footer_place {
+        margin-bottom: calc(100vh - 90vh) !important;
+    }
+
+    .landing_footer_wrapper .footer_wave {
+        height: 15vh;
+    }
+    .landing_page_wrapper .lemon{
+        top: 5% !important; 
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .landing_logo_wrapper {
+        width: 185px !important;
+    }
+
+    .landing_footer_wrapper .footer_place {
+        margin-bottom: calc(100vh - 90vh) !important;
+    }
+
+    .landing_footer_wrapper .footer_wave {
+        height: 15vh;
+    }
+    .landing_page_wrapper .cheesy_fries{
+
+        width: 120px !important;
+    }
+    
+    .landing_page_wrapper .f_lemon{
+
+        width: 40px !important;
+    }
+    
+    .landing_page_wrapper .gol_gappy{
+        width: 45px !important;
+    
+    }
+
+    .landing_page_wrapper .tikka{
+
+        width: 78px !important;
+    }
+    
+    .landing_page_wrapper .d_lemon{
+        left: 15% !important;
+        width: 35px !important;
+        top: 39% !important;
+    
+    }
+    .landing_page_wrapper .biryani{
+        width: 75px !important;    
+    }
+}
+
+@media only screen and (max-width: 350px) {
+
+    .landing_logo_wrapper {
+        width: 165px !important;
+    }
+
+    .landing_footer_wrapper .footer_place {
+        margin-bottom: calc(100vh - 92vh) !important;
+    }
+
+    .landing_footer_wrapper .footer_wave {
+        height: 12vh !important;
+    }
+    .landing_page_wrapper .cheesy_fries{
+
+        width: 100px !important;
+    }
+    
+    .landing_page_wrapper .f_lemon{
+
+        width: 35px !important;
+    }
+    
+    .landing_page_wrapper .gol_gappy{
+        width: 40px !important;
+    
+    }
+
+    .landing_page_wrapper .tikka{
+
+        width: 75px !important;
+    }
+    
+    .landing_page_wrapper .d_lemon{
+        left: 13% !important;
+    
+    }
+    .landing_page_wrapper .biryani{
+        width: 70px !important;    
+    }
+
 }
 
 /* ///////////////  Max Height  ///////////////// */
 
-@media (max-width: 500px) and (max-height: 950px) {
-
+/* @media (max-width: 500px) and (max-height: 950px) {
     .landing_logo_wrapper {
         width: 170px !important;
     }
+}
 
-       .landing_bottle_wrapper {
-        width: 175px !important;
-    }
-
-
-} 
-
-
-
-
-@media (max-width: 500px) and (max-height: 800px) { 
-
-    /*    .landing_header_wrapper{
-        width: 85% !important;
-    } */
-       .landing_logo_wrapper {
+@media (max-width: 500px) and (max-height: 800px) {
+    .landing_logo_wrapper {
         width: 140px !important;
     }
-
-       .landing_bottle_wrapper {
-        width: 105px !important;
-    }
-    /*    .landing_footer_wrapper {
-        width: 100% !important;
-    } */
 }
+    */
 
-@media (max-width: 440px) and (max-height: 610px) {
-
-       .landing_header_wrapper{
-        padding: 10px 0 !important;
-        width: 70% !important;
-    }
-       .landing_logo_wrapper {
-        width: 90px !important;
+@media only screen and (max-height: 610px) {
+    .landing_logo_wrapper {
+        width: 120px !important;
     }
 
-       .landing_bottle_wrapper {
-        width: 95px !important;
-    }
+    .landing_page_wrapper .tikka{
 
-       .landing_bottleNeck_wrapper {
-        width: 55px !important;
-      
+        width: 60px !important;
     }
-}
-
+    
+    .landing_page_wrapper .d_lemon{
+        left: 13% !important;
+    
+    }
+    .landing_page_wrapper .biryani{
+        width: 55px !important;    
+    }
+} 

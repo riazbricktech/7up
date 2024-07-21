@@ -1,34 +1,21 @@
-/* Add keyframes for the animations */
-@keyframes slideInn {
-    from {
-        transform: translateY(100px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+
+
+.form_page_wrapper{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 500px;
+    overflow: hidden;
 }
-
-@keyframes formFadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-
-/* Apply animations to the form */
 
 .form_wrapper {
     width: 400px !important;
-    animation: slideInn 2s ease-out;
 }
 .form-control{
     color: var(--primary-text-color) !important;
-
+}
+.form-control.is-invalid{
+    background-image: none !important;
 }
 
   .form-control:-webkit-autofill {
@@ -43,33 +30,116 @@
 
 /* Apply animations to the header image */
 .form_header_wrapper {
-    padding: 30px 0 10px 0;
-    width: 450px;
+    padding:  0;
+    width: 500px !important;
     height: auto;
-    animation: formFadeIn 3.5s ease-in-out;
+    animation: formFadeIn 3s ease-in-out;
+    position: relative;
 }
+.form_header_wrapper .form_headerLight {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+}
+
+.form_headerMask,
+.form_headerLight {
+    width: 100%;
+    height: auto;
+}
+
+/* ///////////  Heading Wrapper /////////// */
+.form_heading_wrapper{
+
+    padding:  0;
+    width: 500px !important;
+    height: auto;
+    animation: formFadeIn 2s ease-in-out;
+    position: relative;
+text-align: center !important;
+margin-top: 55px ;
+}
+
+.form_heading_wrapper p{
+
+    font-size: 24px;
+    font-family: var(--banton-font);
+    color: white;
+    line-height: 28px;
+    margin-bottom: 0;
+}
+
+
 /*  /////////////////   Input Box   //////////////////// */
 
 .form_input_wrapper {
 
-    margin: 10px 0;
+    margin-top: 5px;
+
+}
+.form_input_wrapper label{
+    color: var(--yellow-text-color);
+    margin: 3px 10px;
+    font-size: 18px;
+    font-family: var(--banton-font);
+font-weight: 600;
 }
 
+.form_input_wrapper label,
+.form_selectbox_wrapper label{
+    color: var(--yellow-text-color);
+    margin: 3px 10px;
+    font-size: 18px;
+    font-family: var(--banton-font);
+font-weight: 600;
+line-height:  0;
+
+}
 
 .form_custom_input {
     box-shadow:0 0 0 0 !important;
-
     border: none;
     background: none;
-    border-radius: 20px;
-    background-color: var(--yellow-text-color) !important;
+    border-radius: 15px;
+    background-color: white !important;
     color: var(--primary-text-color) !important;
     font-weight: bolder !important;
     font-size: 20px;
-    font-family: var(--gothic-font) !important;
+    font-family: var(--gothic-font) ;
     letter-spacing: 1px;
     padding: 10px 15px  !important;
 }
+.unique_id_wrapper{
+    display: flex;
+
+}
+.unique_id_wrapper button{
+    border: none;
+    border-radius: 50%;
+    background-color: white;
+    padding: 10px 17px !important;
+    margin-left: 7px;
+}
+.unique_id_wrapper button img{
+    width: 18px;
+}
+.description_unique_id{
+    margin-top: 5px;
+    margin-left: 5px;
+
+}
+.description_unique_id p{
+    font-size: 13px;
+    font-family: var(--banton-font);
+    font-weight: 500;
+    color: white;
+    letter-spacing: .5px;
+    margin-bottom: 5px;
+
+}
+
 .form_input_wrapper .invalid-feedback{
     margin-top: 0 !important;
     background:transparent;
@@ -88,13 +158,13 @@
 /*  /////////////////   Select Box   //////////////////// */
 
 .css-13cymwt-control{
-    border-radius: 20px !important;
-    background-color: var(--secondary-bg-color) !important;
+    border-radius: 15px !important;
+    background-color:white !important;
     color: var(--primary-text-color) !important;
     font-size: 20px !important;
 
     font-weight: bold !important;
-    font-family: var(--gothic-font) !important;
+    font-family: var(--gothic-font);
     letter-spacing: 1px !important;
     padding: 4px 5px !important;
     width: 100% !important;
@@ -109,25 +179,25 @@
 }
 
 .css-t3ipsp-control{
-    border-radius: 20px !important;
-    background-color: var(--secondary-bg-color) !important;
+    border-radius: 15px !important;
+    background-color: white !important;
     color: var(--primary-text-color) !important;
     font-size: 20px !important;
 
     font-weight: bold !important;
-    font-family: var(--gothic-font) !important;
+    font-family: var(--gothic-font);
     letter-spacing: 1px !important;
-    padding: 4px 5px !important;
+    padding: 2px 5px !important;
     width: 100% !important;
     border:none !important;
     box-shadow: none !important;
 }
 
 .css-1nmdiq5-menu{
-    background-color: var(--secondary-bg-color) !important;
+    background-color: var(--primary-bg-color) !important;
 }
 .css-1u9des2-indicatorSeparator{
-    background-color: var(--primary-bg-color) !important;
+    background-color: transparent !important;
 }
 .css-tr4s17-option{
     background-color: var(--primary-bg-color) !important;
@@ -136,13 +206,29 @@
 color: var(--primary-bg-color) !important;
 }
 .css-10wo9uf-option{
+
+    /* background-color:var(--primary-text-color)!important;
+    color: var(--yellow-text-color) !important; */
+    font-size: 20px !important;
+    color: white !important;
+}
+/* .css-10wo9uf-option:nth-of-type(even) {
+    background-color: darkgreen !important;
+    color: white !important;
+    border-radius: 10px !important;
+} */
+
+/* Style for odd options */
+/* .css-10wo9uf-option:nth-of-type(odd) {
+    background-color: var(--primary-bg-color) !important;
+    color: white !important;
+} */
+
+
+
+.css-d7l1ni-option{
     background-color: var(--secondary-bg-color) !important;
     color: var(--primary-text-color) !important;
-    font-size: 20px !important;
-}
-.css-d7l1ni-option{
-    background-color: var(--primary-text-color) !important;
-    color: var(--secondary-bg-color) !important;
     font-size: 20px !important;
 }
 .css-w9q2zk-Input2,
@@ -155,13 +241,13 @@ color: var(--primary-text-color) !important;
 }
 
 .form_custom_select {
-    border-radius: 20px;
-    background-color: var(--secondary-bg-color);
+    border-radius: 15px !important;
+    background-color:white !important;
     color: var(--primary-text-color) !important;
     font-size: 20px;
 
     font-weight: bold;
-    font-family: var(--gothic-font) !important;
+    font-family:var(--banton-font) !important;
     letter-spacing: 1px;
     padding: 10px;
     width: 100%;
@@ -182,19 +268,10 @@ select{
     box-shadow: none !important;
 }
 .form_selectbox_wrapper {
+    margin-top: 5px;
     position: relative;
     background-image:none !important;
 }
-/* .form_selectbox_wrapper::after {
-    content: "";
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%-50%);
-    border: 5px solid transparent;
-    border-top-color: var(--primary-text-color);
-    pointer-events: none;
-} */
 
 .form_custom_select {
     padding-right: 40px !important;
@@ -203,7 +280,7 @@ select{
     background-color: var(--secondary-bg-color);
     color: var(--primary-text-color);
     font-weight: bold;
-    font-family: var(--gothic-font) !important;
+    font-family: var(--gothic-font);
     letter-spacing: 1px;
 }
 
@@ -264,7 +341,7 @@ select{
 /* Firefox only */
 .css-1jj59y3-MenuList2 {
     scrollbar-width: thin; /* Thin scrollbar */
-    scrollbar-color: #00B144 #FFE53F; /* Thumb and track colors */
+    scrollbar-color: #FCDC00 #0fd56f; /* Thumb and track colors */
 }
 
 
@@ -276,19 +353,30 @@ select{
     background-color: transparent;
     padding: 10px 5px 10px 5px;
 }
-.form_checkbox_wrapper div{
+.form_checkbox_wrapper .tc_wrapper{
        display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
+  
 }
 .form_checkbox_wrapper input {
-    width: 50px !important;
+    width: 30px !important;
     height: 30px !important;
     box-shadow: none;
     border: none !important;
     color: var(--primary-text-color) !important;
-    border-radius: 20px !important;
+    
 
+}
+.form_checkbox_wrapper label {
+    line-height: 18px;
+    color: white !important;
+    font-size: 14px;
+    font-family: var(--banton-font);
+    margin: 0 10px;
+}
+.form_checkbox_wrapper label:nth-child(2) {
+/* margin-right: 40px; */
 }
 
 .form_checkbox_wrapper input:checked {
@@ -298,7 +386,7 @@ select{
 .form_checkbox_wrapper span {
     color: white !important;
     font-size: 18px !important;
-    font-family: var(--gothic-font) !important;
+    font-family: var(--gothic-font);
     letter-spacing: 2px;
     font-weight: 600;
 }
@@ -306,7 +394,7 @@ select{
 .form_selectbox_wrapper .error_message,
 .form_checkbox_wrapper .error_message{
     font-weight: 700 !important;
-    font-family: var(--gothic-font) !important;
+    font-family: var(--gothic-font);
     letter-spacing: 1px;
     box-shadow:none !important;
 margin-left: 10px !important;
@@ -314,7 +402,7 @@ margin-left: 10px !important;
 
 .selectBox_error_message{
     font-weight: 700 !important;
-    font-family: var(--gothic-font) !important;
+    font-family: var(--gothic-font);
     letter-spacing: 1px;
     box-shadow:none !important;
     
@@ -325,15 +413,18 @@ margin-top: 0px !important;
     text-align: center;
 }
 .form_button_wrapper button {
+    margin-top: 12px;
+    width: 100%;
     padding: 4px 40px !important;
-    border-radius: 30px !important;
-    background-color: var(--white-bg-color);
+    border-radius: 15px !important;
+    background-color: var(--button-bg-color);
     border: none;
-    border-bottom: 4px solid gray;
+    border-bottom: 4px solid darkgreen;
     font-size: 28px !important;
-    font-family: var(--gothic-font) !important;
+    font-family: var(--gothic-font);
     letter-spacing: 1px;
-    color: var(--primary-text-color);
+    color: white;
+
 
 }
 .form_button_wrapper button:focus {
@@ -342,52 +433,69 @@ margin-top: 0px !important;
 
 }
 .form_button_wrapper .btn:hover {
-    background-color: var(--secondary-bg-color) !important;
+    background-color: white !important;
+    color:var(--button-bg-color); ;
     border-bottom: 4px solid gray !important;
 }
 
 .form_bottle_wrapper {
     position: absolute;
-    width: 200px;
-    top: 113%;
-    left: 50%;
+    width: 100px;
+    top: 100% !important;
+    left: 50%;  
     transform: translate(-50%, -50%);
-    animation: formFadeIn 4.5s ease-in-out;
+    animation: formFadeIn 3s ease-in-out;
+
 }
 
-@media only screen and (max-width: 1300px) {
-    .form_header_wrapper {
-        width: 440px;
-        height: auto;
+
+.form_left_circle{
+    position: absolute;
+    width: 11%;
+    left: -1%;
+    bottom: 0%;
+    transform: translate(-0%,-50%);
+
+}
+.form_right_circle{
+    position: absolute;
+    right: -2%;
+    bottom: 15%;
+    transform: translate(-0%,-50%);
+    width: 10%;
+    z-index: 0;
+}
+/* Add keyframes for the animations */
+@keyframes slideInn {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
     }
 }
 
-@media only screen and (max-width: 576px) {
+@keyframes formFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@media only screen and (max-width: 500px) {
+
+    .form_page_wrapper{ 
+        width: 100vw !important;
+    }
     .form_header_wrapper {
-        width: 70%;
+        width: 100% !important;
     }
 
     .form_wrapper {
-        width: 70% !important;
-    }
-
-    .form_bottle_wrapper {
-        width: 28%;
-        top: 118% !important;
-    }
-}
-@media only screen and (max-width: 480px) {
-    .form_header_wrapper {
-        width: 80%;
-    }
-
-    .form_wrapper {
-        width: 80% !important;
-    }
-
-    .form_bottle_wrapper {
-        width: 32% !important;
-        top: 110% !important;
+        width: 90% !important;
     }
     .form_checkbox_wrapper input {
         width: 40px !important;
@@ -397,72 +505,141 @@ margin-top: 0px !important;
         font-size: 12px !important;
     }
     .form_button_wrapper button {
-        padding: 4px 30px !important;
-        color: var(--primary-text-color);
-        font-size: 20px !important;
+        width: 90%;
+        padding: 4px 24px !important;
+        font-size: 22px !important;
     }
 
 
 }
 
 @media only screen and (max-width: 380px) {
-    .form_bottle_wrapper {
+    /* .form_bottle_wrapper {
         width: 43% !important;
         top: 100% !important;
-    }
+    } */
 }
 
 /* ///////////////  Max Height  ///////////////// */
 
-
-
-
-@media (max-width: 500px) and (max-height: 950px) {
-
-    .form_wrapper {
-       padding: 30px 0 !important;
-    }
+@media only screen and (max-height: 950px) {
 
     .form_bottle_wrapper {
-        width: 38% !important;
-        top: 115% !important;
+        width: 90px;
+        top: 101% !important;
     }
-
-} 
-
-
-
-
-@media (max-width: 500px) and (max-height: 800px) { 
-    .form_wrapper {
-        padding: 0 !important;
-     }
-        .form_input_wrapper,
-     .form_selectbox_wrapper{
-        margin: 3px 0 !important;
-     }
-
-     .form_bottle_wrapper {
-         width: 38% !important;
-         top: 118% !important;
-     }
-
 
 }
 
-@media (max-width: 440px) and (max-height: 610px) {
-    .form_header_wrapper {
-        padding: 10px 0 !important;
-        width: 70% !important;
-    }
-    .form_checkbox_wrapper {
-        padding: 10px 5px 5px 5px !important;
-     }
- 
+@media only screen and (max-height: 810px) {
+    .form_heading_wrapper{
 
+    margin-top: 60px ;
+    }
+    .form_custom_input {
+        padding: 7px 15px !important;
+    }
+    .unique_id_wrapper button {
+        padding: 7px 15px !important;
+
+    }
+    .css-13cymwt-control{
+        padding: 1px 5px !important
+    }
+    
+    .form_heading_wrapper p{
+        font-size: 22px;
+        line-height: 24px;
+    }
+    .form_button_wrapper button {
+         margin-top: 0px;
+    }
     
     .form_bottle_wrapper {
-        width: 38% !important;
-        top: 112% !important;
+        width: 70px;
+        top: 103% !important;
     }
+
+}
+
+/* @media only screen and (max-height: 740px) {
+    .form_input_wrapper,
+    .form_selectbox_wrapper{
+        margin-top: 2px;
+    } 
+
+    .form_button_wrapper button{
+        margin-top: 5px !important;
+    }
+    .form_bottle_wrapper {
+        width: 90px;
+        top: 98% !important;
+        transform: translate(-50%,-50%);
+    }
+} */
+
+@media only screen and (max-height: 735px) {
+
+    .form_heading_wrapper{
+        margin-top: 40px;
+    }
+    .form_input_wrapper,
+    .form_selectbox_wrapper{
+        margin-top: 1px;
+    } 
+
+    .form_button_wrapper button{
+        margin-top: 1px !important;
+    }
+    .form_custom_input {
+        font-size: 14px;
+        border-radius: 10px;
+    }
+    .form_input_wrapper label,
+    .form_selectbox_wrapper label{
+        margin: 1px 10px;
+        font-size: 14px;
+        line-height: 0;
+    }
+
+
+    .unique_id_wrapper button {
+        padding: 4px 11px !important;
+
+    }
+    .unique_id_wrapper button img{
+        width: 14px;
+    }
+
+    .css-13cymwt-control{
+        border-radius: 10px !important;
+        font-size: 14px !important;
+        padding: 0px 5px !important;
+    }
+    .css-t3ipsp-control{
+        border-radius: 10px !important;
+        font-size: 14px !important;
+        padding: 0px 5px !important;
+    }
+    .form_bottle_wrapper {
+        width: 70px;
+        top: 94% !important;
+        transform: translate(-50%,-50%);
+    }
+}
+
+@media only screen and (max-height: 610px) {
+
+    .form_heading_wrapper{
+        margin-top: 0px;
+    }
+    .form_headerMask,
+    .form_headerLight {
+        width: 100%;
+        height: 85%;
+    }
+    .form_bottle_wrapper {
+       display: none !important;
+    }
+
 }

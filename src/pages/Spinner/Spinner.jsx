@@ -13,7 +13,8 @@ import Wrapper from "../../reusableComponents/Wrapper/Wrapper";
 import SevenUpBottle from "../../assets/images/sevenUp_bottle.webp";
 import BottleImage from "../../assets/images/sevenUp_bottle.webp";
 import { useSelector, useDispatch } from "react-redux";
-
+import HeaderMask from "../../assets/images/new_images/header_mask.webp";
+import HeaderLight from "../../assets/images/new_images/header_lights.webp";
 const inputList = [
   {
     id: uuidv4(),
@@ -145,10 +146,12 @@ const Spinner = () => {
   return (
     <Wrapper>
       <div className="spinner_header_wrapper">
-        <img src={HeaderImage} className="img-fluid" alt="Pakistan" />
+        {/* <img src={HeaderImage} className="img-fluid" alt="Pakistan" /> */}
+        <img src={HeaderMask} className="spinner_headerMask img-fluid" alt="Pakistan" /> 
+        <img src={HeaderLight} className="spinner_headerLight img-fluid" alt="Pakistan" /> 
       </div>
       <div className="spinner_logo_wrapper">
-        <img src={LogoImage} className="img-fluid" alt="7up Logo" />
+    <p>SPIN THE WHEEL!</p>
       </div>
       <div className="spinner_wrapper">
         <div align="center" className="roulette-container">
@@ -157,37 +160,37 @@ const Spinner = () => {
             spinDuration={[0.7]}
             prizeNumber={prizeNumber}
             data={inputList}
-            outerBorderColor={["#00B144"]}
-            outerBorderWidth={[7]}
+            outerBorderColor={["#005d37"]}
+            outerBorderWidth={[15]}
             innerBorderColor={["#00B144"]}
             innerBorderWidth={[9]}
             radiusLineColor={["#00B144"]}
-            radiusLineWidth={[7]}
-            textColors={["#095E39"]}
+            radiusLineWidth={[0]}
+            textColors={["#fff"]}
             textDistance={65}
             fontSize={[17]}
             backgroundColors={[
-              "#697333",
-              "#C9D633",
-              "#F9FF33",
-              "#9AA933",
-              "#697333",
-              "#757F33",
-              "#FFFF9C",
-              "#C9D633",
-              "#F9FF33",
-              "#9AA933",
-              "#FFFF9C",
-              "#697333",
-              "#757F33",
-              "#FFFF9C",
-              "#C9D633",
-              "#F9FF33",
-              "#9AA933",
-              "#757F33",
-              "#FFFF9C",
-              "#C9D633",
-              "#F9FF33",
+              "#a4d925",
+              "#00b451",
+              "#a4d925",
+              "#00b451",
+              "#a4d925",
+              "#00b451",
+              "#a4d925",
+              "#00b451",
+              "#a4d925",
+              "#00b451",
+              "#a4d925",
+              "#00b451",
+              "#a4d925",
+              "#00b451",
+              "#a4d925",
+              "#00b451",
+              "#a4d925",
+              "#00b451",
+              "#a4d925",
+              "#00b451",
+              "#a4d925",
             ]}
             onStopSpinning={() => {
               setMustSpin(false);

@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect } from 'react';
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import LandingPage from '../pages/LandingPage/LandingPage';
 import FormPage from '../pages/Form/FormPage';
@@ -11,17 +11,16 @@ import UsedCap from '../pages/UsedCap/UsedCap';
 import NotFoundPage from '../pages/NotFoundPage/NotFoundPage';
 import TransactionFailedPage from '../pages/TransactionFailedPage/TransactionFailedPage';
 import LayoutRoute from './LayoutRoute';
-import {  useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { canCode, bottleCode } from '../constant/Codes';
-import { useSelector} from "react-redux";
-
+import { useSelector } from "react-redux";
+import AnimationBottle from '../pages/AnimationBottle/AnimationBottle';
+// import VerticalSwiper from './VerticalSwiper'; 
 const Routing = () => {
   const navigate = useNavigate();
   const qrCode = useSelector(state => state?.qrCode?.qrCodeNumber);
 
   // useEffect(() => {
-
-
   //   if (qrCode === `/${bottleCode}`) {
   //     navigate('/');
   //   }
@@ -31,10 +30,11 @@ const Routing = () => {
   // }, [qrCode]);
 
   return (
-    <div>
+    // <VerticalSwiper>
       <Routes>
         <Route element={<LayoutRoute />} path='/'>
           <Route element={<LandingPage />} path='/' />
+          <Route element={<AnimationBottle />} path='/animation' />
           <Route element={<FormPage />} path='/form' />
           <Route element={<Spinner />} path='/spin' />
           <Route element={<WinningPage />} path='/winner' />
@@ -46,7 +46,7 @@ const Routing = () => {
           <Route element={<NotFoundPage />} path='*' />
         </Route>
       </Routes>
-    </div>
+    // </VerticalSwiper>
   );
 };
 

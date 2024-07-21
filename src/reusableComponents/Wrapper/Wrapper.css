@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--primary-bg-color);
+    background-color: black;
     overflow: hidden !important;
 
 }
@@ -18,12 +18,14 @@
     position: relative;
     border-left: 3px solid green;
     border-right: 3px solid green;
-    overflow: hidden !important;
-
+    background-image: url("../../assets/images/new_images/background.webp");
+    background-position: center;
+    background-size: cover;
+overflow: hidden;
 
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 500px) {
    .Wrapper_container {
        padding: 0 !important;
    }
@@ -31,5 +33,6 @@
    .Wrapper_container .wrapper_col {
     border-left:none;
     border-right: none;
+    width: 100% !important;
 }
 }

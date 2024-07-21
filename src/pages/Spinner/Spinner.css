@@ -1,13 +1,37 @@
 .spinner_header_wrapper {
-    padding: 20px 5px 10px 5px !important;
-    width: 410px;
+    padding:  0;
+    width: 500px !important;
     height: auto;
+    animation: formFadeIn 3.5s ease-in-out;
+    position: relative;
 }
-.spinner_logo_wrapper {
-    width: 110px;
+.spinner_header_wrapper .spinner_headerLight {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+}
+
+.spinner_header_wrapper .spinner_headerMask,
+.spinner_header_wrapper .spinner_headerLight {
+    width: 100%;
     height: auto;
 }
 
+
+
+.spinner_logo_wrapper {
+    width: 100% !important;
+    height: auto;
+    text-align: center;
+    margin-top: 80px;
+}
+.spinner_logo_wrapper p{
+font-size: 22px;
+font-family: var(--banton-font);
+color: white;
+}
 .spinner_wrapper {
     width: 100%;
     height: auto;
@@ -26,7 +50,7 @@
 
 .spiner_button {
     font-size: larger;
-    border: 5px solid var(--primary-bg-color) !important;
+    /* border: 5px solid var(--primary-bg-color) !important; */
     outline: none;
     background: transparent;
     color: black;
@@ -69,7 +93,10 @@
     transform: rotate(45deg) !important;
 }
 .roulette-button span img{
-
+/* margin-top: -20px; */
+/* position: absolute; */
+/* top: 30px; */
+overflow: visible;
     width: 55%;    
 }
 
@@ -81,19 +108,23 @@
 }
 
 .spin_result_wrapper .prize-message {
-    text-align: center;
-    border: 1px solid #dcdcdc;
-    padding: 10px 30px;
-    border-radius: 1.5rem;
+
+    border-radius: .5rem;
     font-size: 20px;
-    background-color: white;
-    color: var(--primary-text-color);
     font-weight: 800;
     text-align: center;
     cursor: pointer;
-    font-family: var(--gothic-font) !important;
     letter-spacing: 2px;
-    margin-top: 0px;
+    margin-top: 12px;
+    width: 100%;
+    padding: 4px 40px !important;
+    border-radius: 15px !important;
+    background-color: var(--button-bg-color);
+    border-bottom: 4px solid darkgreen;
+    font-size: 28px !important;
+    font-family: var(--gothic-font);
+    letter-spacing: 1px;
+    color: white;
 }
 
 .sc-gsTCUz {
@@ -107,38 +138,34 @@
     display: none !important;
 }
 
-@media only screen and (max-width: 1300px) {
-    .spinner_header_wrapper {
-        padding: 25px 0 15px 0 !important;
-        width: 400px !important;
-        height: auto !important;
+@keyframes formFadeIn {
+    from {
+        opacity: 0;
     }
-    .spinner_logo_wrapper {
-        width: 110px !important;
-        height: auto !important;
+    to {
+        opacity: 1;
     }
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 500px) {
     .spinner_header_wrapper {
-        padding: 20px 0 10px 0 !important;
-        width: 70% !important;
+    width: 100vw;
     }
-    .spinner_logo_wrapper {
-        width: 100px !important;
+    .spin_result_wrapper .prize-message {
+
+        width:85%;
+  
     }
+    
+
     .spinner_wrapper {
         width: 70% !important;
         height: auto !important;
     }
 }
 @media only screen and (max-width: 480px) {
-    .spinner_header_wrapper {
-        width: 75% !important;
-    }
-    .spinner_logo_wrapper {
-        width: 100px !important;
-    }
+
+
     .spinner_wrapper {
         width: 400px !important;
         min-width: 90% !important ;
@@ -146,16 +173,28 @@
     }
 }
 
+
+@media only screen and (max-width: 350px) {
+    .spinner_header_wrapper {
+    width: 100vw;
+    }
+    .spin_result_wrapper .prize-message {
+
+        width:70% !important;
+  
+    }
+    
+
+    .spinner_wrapper {
+        width: 70% !important;
+        height: auto !important;
+    }
+}
+
 /* ///////////////  Max Height  ///////////////// */
 
 @media (max-width: 500px) and (max-height: 950px) {
-    .spinner_header_wrapper {
-        padding: 30px 0 15px 0 !important;
-    }
 
-    .spinner_logo_wrapper {
-        width: 135px !important;
-    }
     .spinner_wrapper {
         width: 430px !important;
         min-width: 90% !important ;
@@ -164,13 +203,8 @@
 }
 
 @media (max-width: 500px) and (max-height: 800px) {
-    .spinner_header_wrapper {
-        padding: 20px 0 5px 0 !important;
-    }
 
-    .spinner_logo_wrapper {
-        width: 90px !important;
-    }
+
     .spinner_wrapper {
         width: 345px !important;
         min-width: 80% !important ;
@@ -179,14 +213,7 @@
 }
 
 @media screen and (max-width: 350px) and (max-height: 610px) {
-    .spinner_header_wrapper {
-        padding: 10px 0 5px 0 !important;
-        width: 60% !important;
-    }
 
-    .spinner_logo_wrapper {
-        width: 60px !important;
-    }
     .spinner_wrapper {
         width: 280px !important;
         min-width: 40% !important ;
