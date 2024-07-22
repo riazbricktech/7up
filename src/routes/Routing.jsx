@@ -5,9 +5,9 @@ import FormPage from '../pages/Form/FormPage';
 import Spinner from '../pages/Spinner/Spinner';
 import WinningPage from '../pages/WinningPage/WinningPage';
 import JazzCash from '../pages/JazzCash/JazzCash';
-import LossPage from '../pages/LossPage/LossPage';
+// import LossPage from '../pages/LossPage/LossPage';
 import CongratulationPage from '../pages/CongratulationPage/CongratulationPage';
-import UsedCap from '../pages/UsedCap/UsedCap';
+// import UsedCap from '../pages/UsedCap/UsedCap';
 import NotFoundPage from '../pages/NotFoundPage/NotFoundPage';
 import TransactionFailedPage from '../pages/TransactionFailedPage/TransactionFailedPage';
 import LayoutRoute from './LayoutRoute';
@@ -43,9 +43,9 @@ const Routing = () => {
           <Route element={<Spinner />} path='/spin' />
           <Route element={<WinningPage />} path='/winner' />
           <Route element={<JazzCash />} path='/jazzcash' />
-          <Route element={<LossPage />} path='/loss' />
+          {/* <Route element={<LossPage />} path='/loss' /> */}
           <Route element={<CongratulationPage />} path='/congrats' />
-          <Route element={<UsedCap />} path='/usedcap' />
+          {/* <Route element={<UsedCap />} path='/usedcap' /> */}
           <Route element={<TransactionFailedPage />} path='/transactionfailed' />
           <Route element={<NotFoundPage />} path='*' />
         </Route>

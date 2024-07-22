@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useLayoutEffect } from "react";
 import "./FormPage.css";
 import BottleImage from "../../assets/images/sevenUp_bottle.webp";
-import HeaderImage from "../../assets/images/header_image.webp";
 import Wrapper from "../../reusableComponents/Wrapper/Wrapper";
 import {
   validatePakistaniPhoneNumber,
@@ -23,7 +22,9 @@ import HeaderLight from "../../assets/images/new_images/header_lights.webp";
 import LeftCircle from "../../assets/images/new_images/form_left_circle.webp";
 import RightCircle from "../../assets/images/new_images/form_right_circle.webp";
 import QuestionMark from "../../assets/images/new_images/question_mark.webp";
-import UniqueIdModal from "../../components/UniqueIdModal/UniqueIdModal";
+import CapModal from "../../components/CapModal/CapModal";
+import TermsAndCondition from "../../components/Term&Condition/TermsAndCondition";
+import PrivacyPolicy from "../../components/PrivacyPolicy/PrivacyPolicy";
 
 function FormPage() {
   const navigate = useNavigate();
@@ -56,7 +57,8 @@ function FormPage() {
     privacy: false,
   });
   const [showModal, setShowModal] = useState(false);
-
+  const [isTCOpen, setTCOpen] = useState(false);
+  const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
   const [formattedPhoneNumber, setFormattedPhoneNumber] = useState("");
   const [errors, setErrors] = useState({
     name: "",
@@ -211,6 +213,22 @@ function FormPage() {
   useEffect(() => {
     dispatch(getCities());
   }, [dispatch]);
+
+  const openTermsCon = () => {
+    setTCOpen(true);
+  };
+
+  const closeTermsCon = () => {
+    setTCOpen(false);
+  };
+
+  const handleOpenPrivacyPolicy = () => {
+    setIsPrivacyOpen(true);
+  };
+
+  const handleClosePrivacyPolicy = () => {
+    setIsPrivacyOpen(false);
+  };
 
   return (
     <Wrapper>
@@ -369,6 +387,7 @@ function FormPage() {
                 <label
                   className="form-check-label"
                   htmlFor="validationServerTerms"
+                  onClick={openTermsCon}
                 >
                   Terms & <br /> Conditions
                 </label>
@@ -387,6 +406,7 @@ function FormPage() {
                 <label
                   className="form-check-label"
                   htmlFor="validationServerPrivacy"
+                  onClick={handleOpenPrivacyPolicy}
                 >
                   Privacy <br /> Policy
                 </label>
@@ -433,7 +453,9 @@ function FormPage() {
           <img src={BottleImage} className="img-fluid" alt="7up Bottle" />
         </div>
       </div>
-      <UniqueIdModal showModal={showModal} closeModal={closeModal} />
+      <CapModal showModal={showModal} closeModal={closeModal} />
+      <TermsAndCondition isOpen={isTCOpen} onClose={closeTermsCon} />
+      <PrivacyPolicy show={isPrivacyOpen} handleClose={handleClosePrivacyPolicy} />
     </Wrapper>
   );
 }

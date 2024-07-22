@@ -4,6 +4,8 @@ import LogoImage from "../../assets/images/sevenUp_logo.webp";
 import LeftHand from "../../assets/images/new_images/left_hand.webp";
 import RightHand from "../../assets/images/new_images/right_hand.webp";
 import Frame from "../../assets/images/new_images/frame.webp";
+import Samosa from "../../assets/images/meal_images/samosa.webp";
+
 
 import "./WinningPage.css";
 import Confetti from "react-confetti";
@@ -25,7 +27,7 @@ const WinningPage = () => {
     // Confetti Time Out
     const confettiTimer = setTimeout(() => {
       setConfettiOn(true);
-    }, 2700);
+    }, 1300);
 
     // Button Show Time Out
     const buttonTimer = setTimeout(() => {
@@ -33,8 +35,8 @@ const WinningPage = () => {
       // Show modal 2 seconds after the button is shown
       setTimeout(() => {
         setShowModal(true);
-      }, 2000);
-    }, 5000); // Adjust the time as needed
+      }, 500);
+    }, 2500); // Adjust the time as needed
 
     // Clean up the timeouts when the component is unmounted
     return () => {
@@ -59,8 +61,9 @@ const WinningPage = () => {
 
 
       {/* ///// Header Wrapper    ////// */}
-        <div className="winner_logo_wrapper">
-          {/* <img src={LogoImage} className="img-fluid" alt="Logo" /> */}
+        <div className="winner_meal_wrapper">
+          <img src={Samosa} className="img-fluid" alt="Logo" />
+          <p>CHICKEN SAMOSA</p>
         </div>
 
 

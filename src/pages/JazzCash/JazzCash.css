@@ -10,20 +10,32 @@
     align-items: center;
 }
 
-.jazzcash_form_wrapper .jazzcash_form_logo_wrapper {
-    margin-top: 60px;
-    width: 140px !important;
+.jazzcash_header_wrapper {
+    padding: 0;
+    width: 100% !important;
+    height: auto;
+    animation: formFadeIn 2s ease-in-out;
+    position: relative;
+}
+.jazzcash_header_wrapper .spinner_headerLight {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+}
+
+.jazzcash_header_wrapper .spinner_headerMask,
+.jazzcash_header_wrapper .spinner_headerLight {
+    width: 100%;
     height: auto;
 }
 
-.jazzcash_form_wrapper .jazzcash_form_logo_wrapper img {
-    width: 100% !important;
-    height: auto;
-}
 .jazzcash_form_wrapper .jazzcash_form_Heading_wrapper {
     width: 100%;
     text-align: center;
     padding: 10px 0;
+    margin-top: 70px;
 }
 .jazzcash_form_wrapper .jazzcash_form_Heading_wrapper p {
     color: white;
@@ -161,14 +173,12 @@
     border-bottom: 4px solid gray !important;
 }
 
-.jazzcash_form_wrapper .jazzCash_button_wrapper{
-
+.jazzcash_form_wrapper .jazzCash_button_wrapper {
     text-align: center;
-    margin-top: 40px !important;
+    width: 400px;
 }
 
-.jazzcash_form_wrapper .jazzCash_button_wrapper button{
-
+.jazzcash_form_wrapper .jazzCash_button_wrapper button {
     padding: 0px 20px !important;
     border-radius: 10px !important;
     background-color: var(--button-bg-color);
@@ -181,9 +191,15 @@
     border-bottom: 4px solid var(--green-color);
     line-height: 48px;
     width: 100% !important;
-
 }
 
+.jazzcash_form_wrapper .or_para {
+    padding-top: 20px;
+    color: white;
+    font-family: var(--gothic-font);
+    font-size: 32px;
+    font-weight: 700;
+}
 
 @media only screen and (max-width: 480px) {
     .jazzcash_form_wrapper {
@@ -194,29 +210,30 @@
     .jazzcash_form_wrapper .form_wrapper {
         width: 340px !important;
     }
-    /* .jazzcash_form_wrapper .form_button_wrapper button {
-        padding: 4px 30px !important;
-        color: var(--primary-text-color);
-        font-size: 20px !important;
-    }
- */
-}
-@media only screen and (max-width: 380px) {
-    .jazzcash_form_wrapper .jazzcash_form_logo_wrapper {
-        margin-top: 30px !important;
-        width: 120px !important;
-    }
-    .jazzcash_form_wrapper {
-        /* width: 100%; */
-        width: 360px !important;
+    .jazzcash_form_wrapper .jazzCash_button_wrapper {
+        width: 340px;
     }
 
+    .jazzcash_form_wrapper .jazzCash_button_wrapper button,
+    .jazzcash_form_wrapper .form_button_wrapper button{
+        font-size: 28px !important;
+    }
+
+}
+@media only screen and (max-width: 380px) {
     .jazzcash_form_wrapper .form_wrapper {
-        width: 310px !important;
+        width: 85% !important;
     }
     .jazzcash_form_wrapper .form_button_wrapper button {
-        padding: 4px 30px !important;
-        color: var(--primary-text-color);
+        padding: 0px 30px !important;
         font-size: 20px !important;
+    }
+
+    .jazzcash_form_wrapper .jazzCash_button_wrapper {
+        width: 85% !important;
+    }
+    .jazzcash_form_wrapper .jazzCash_button_wrapper button {
+        font-size: 20px !important;
+        width: 100% !important;
     }
 }

@@ -1,17 +1,23 @@
 /* Modal.css */
 .unique_modal-overlay {
-    position: fixed;
+    /* position: fixed;
     top: 0;
     left: 0;
     width: 100%;
+    height: 100%; */
+    position: fixed;
+    top: 0;
+    left: 50%;
+    width: 500px;
     height: 100%;
+    transform: translate(-50%,-0%);
     background: #00d36687;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
     flex-direction: column;
     z-index: 1000;
-  
+    overflow: hidden;
   }
   
  .unique_modal-overlay .modal-content {

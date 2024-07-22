@@ -1,11 +1,5 @@
 import React, { useState, useEffect, useLayoutEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import HeaderImage from "../../assets/images/header_image.webp";
-import LogoImage from "../../assets/images/sevenUp_logo.webp";
-import BetterLuck from "../../assets/images/better_luck.webp";
-import Tikka from "../../assets/images/tikka.webp";
-import Zinger from "../../assets/images/zinger.webp";
-import RollParatha from "../../assets/images/roll_paratha.webp";
 import "./Spinner.css";
 import { v4 as uuidv4 } from "uuid";
 import { Wheel } from "react-custom-roulette";
@@ -15,91 +9,61 @@ import BottleImage from "../../assets/images/sevenUp_bottle.webp";
 import { useSelector, useDispatch } from "react-redux";
 import HeaderMask from "../../assets/images/new_images/header_mask.webp";
 import HeaderLight from "../../assets/images/new_images/header_lights.webp";
-import UniqueIdModal from "../../components/UniqueIdModal/UniqueIdModal";
+
 const inputList = [
-  {
-    id: uuidv4(),
-    option: "Samosa"
-  },
-  // {
-  //   id: uuidv4(),
-  //   option: "Pakoras"
-  // },
-  {
-    id: uuidv4(),
-    option: "Chicken Patties"
-  },
-  {
-    id: uuidv4(),
-    option: "Chana Chaat"
-  },
-  {
-    id: uuidv4(),
-    option: "Paratha Roll"
-  },
-  {
-    id: uuidv4(),
-    option: "Dahi Bhalay"
-  },
-  {
-    id: uuidv4(),
-    option: "Gol Gappay"
-  },
-  {
-    id: uuidv4(),
-    option: "Anda Burger"
-  },
-  {
-    id: uuidv4(),
-    option: "Chicken Paratha"
-  },
-  {
-    id: uuidv4(),
-    option: "Sandwich"
-  },
-  {
-    id: uuidv4(),
-    option: "Burger"
-  },
-  {
-    id: uuidv4(),
-    option: "Biryani"
-  },
-  {
-    id: uuidv4(),
-    option: "Chicken Qeema"
-  },
-  {
-    id: uuidv4(),
-    option: "Haleem"
-  },
-  {
-    id: uuidv4(),
-    option: "Pizza"
-  },
-  {
-    id: uuidv4(),
-    option: "Chicken Broast"
-  },
-  {
-    id: uuidv4(),
-    option: "Steak"
-  },
+
   {
     id: uuidv4(),
     option: "BBQ"
   },
   {
     id: uuidv4(),
-    option: "Sushi"
+    option: "PASTA"
+  },
+
+  {
+    id: uuidv4(),
+    option: "HALEEM"
+  },
+  
+  {
+    id: uuidv4(),
+    option: "TRY AGAIN"
+  },
+
+  {
+    id: uuidv4(),
+    option: "ANDA BURGER"
   },
   {
     id: uuidv4(),
-    option: "Pasta"
+    option: "SUSHI"
   },
   {
     id: uuidv4(),
-    option: "Next Time"
+    option: "BURGER"
+  },
+  {
+    id: uuidv4(),
+    option: "BIRYANI"
+  },
+  {
+    id: uuidv4(),
+    option: "STEAK"
+  },
+  
+  {
+    id: uuidv4(),
+    option: "TRY AGAIN"
+  },
+  {
+    id: uuidv4(),
+    option: "BROAST"
+  },
+  
+  {
+    id: uuidv4(),
+    option: "SAMOSA"
   },
 ];
 
@@ -164,7 +128,7 @@ const Spinner = () => {
             prizeNumber={prizeNumber}
             data={inputList}
             outerBorderColor={["#005d37"]}
-            outerBorderWidth={[15]}
+            outerBorderWidth={[17]}
             innerBorderColor={["#00B144"]}
             innerBorderWidth={[9]}
             radiusLineColor={["#00B144"]}
@@ -174,7 +138,6 @@ const Spinner = () => {
             fontSize={[16]}
             backgroundColors={[
               "#00b451",
-              // "#00b451",
               "#a4d925",
               "#00b451",
               "#a4d925",
@@ -187,17 +150,11 @@ const Spinner = () => {
               "#00b451",
               "#a4d925",
               "#00b451",
-              "#a4d925",
-              "#00b451",
-              "#a4d925",
-              "#00b451",
-              "#a4d925",
-              "#00b451",
-              "#a4d925",
+              
             ]}
             onStopSpinning={() => {
               setMustSpin(false);
-              navigate("/winner");
+              // navigate("/winner");
             }}
           />
           <button className="spiner_button roulette-button" onClick={handleSpinClick}>

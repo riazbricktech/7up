@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Wrapper from "../../reusableComponents/Wrapper/Wrapper";
-import LogoImage from "../../assets/images/sevenUp_logo.webp";
 import "./JazzCash.css";
 import { useNavigate } from "react-router-dom";
 import { validatePakistaniPhoneNumber } from '../../services/NumberValidation';
-
+import HeaderMask from "../../assets/images/new_images/header_mask.webp";
+import HeaderLight from "../../assets/images/new_images/header_lights.webp";
 const JazzCash = () => {
   const navigate = useNavigate();
   const [formValues, setFormValues] = useState({
@@ -76,8 +76,9 @@ const JazzCash = () => {
   return (
     <Wrapper>
       <div className="jazzcash_form_wrapper">
-        <div className="jazzcash_form_logo_wrapper">
-          <img src={LogoImage} className="img-fluid" alt="Logo" />
+        <div className="jazzcash_header_wrapper">
+          <img src={HeaderMask} className="img-fluid spinner_headerMask" alt="Header Mask" />
+          <img src={HeaderLight} className="img-fluid spinner_headerLight" alt="Lights" />
         </div>
         <div className="jazzcash_form_Heading_wrapper">
           <p>Enter jazzcash number <br />
@@ -108,7 +109,7 @@ const JazzCash = () => {
             </button>
           </div>
         </form>
-        <p>OR</p>
+        <p className="or_para">OR</p>
         <div className="jazzCash_button_wrapper">
             <button className="btn btn-primary">
             CREATE JAZZCASH ACCOUNT

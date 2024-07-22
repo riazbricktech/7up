@@ -1,29 +1,44 @@
-import React from "react";
-import "./TransactionFailedPage.css";
-import Wrapper from "../../reusableComponents/Wrapper/Wrapper";
-import LogoImage from "../../assets/images/sevenUp_logo.webp";
-import { useNavigate } from "react-router-dom";
 
+
+import React, { useState } from "react";
+import Wrapper from "../../reusableComponents/Wrapper/Wrapper";
+import "./TransactionFailedPage.css";
+import { useNavigate } from "react-router-dom";
+import { validatePakistaniPhoneNumber } from "../../services/NumberValidation";
+import HeaderMask from "../../assets/images/new_images/header_mask.webp";
+import HeaderLight from "../../assets/images/new_images/header_lights.webp";
+import SevenUPLogo from "../../assets/images/new_images/seven_up_bottom.webp";
 const TransactionFailedPage = () => {
-    const navigate = useNavigate();
   return (
     <Wrapper>
-      {/*  Not Found Wrapper */}
       <div className="failedPage_wrapper">
-        {/* Logo Wrapper */}
-        <div className="failedPage_logo_wrapper">
-          <img src={LogoImage} className="img-fluid" alt="Logo" />
+        {/* Images wrapper */}
+        <div className="failedPage_header_wrapper">
+          <img
+            src={HeaderMask}
+            className="img-fluid failedPage_headerMask"
+            alt="Header Mask"
+          />
+          <img
+            src={HeaderLight}
+            className="img-fluid failedPage_headerLight"
+            alt="Lights"
+          />
         </div>
 
-        {/* Not Found Content */}
-        <div className="failedPage_content_wrapper">
-          <h5>Transaction Failed</h5>
-          <p>Try a different number</p>
+        {/* Para wrapper */}
+        <div className="failedPage_heading_wrapper">
+          <p>TRANSACTION FAILED</p>
         </div>
 
-        {/* Redirect Button */}
+        {/* Button wrapper */}
         <div className="failedPage_button_wrapper">
-          <button className="failedPage_button"  onClick={() => navigate("/")}>Next</button>
+          <button className="btn btn-primary">TRY A DIFFERENT NUMBER</button>
+        </div>
+
+               {/* Button wrapper */}
+               <div className="failedPage_bottomLogo_wrapper">
+          <img src={SevenUPLogo} alt="Seven Bottom" />
         </div>
       </div>
     </Wrapper>
