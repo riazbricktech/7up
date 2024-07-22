@@ -9,6 +9,7 @@ import {
   validateCity,
   validateUniqueId,
   validateName,
+  validatePrivacy,
 } from "../../services/NumberValidation";
 import { useNavigate } from "react-router-dom";
 import Select from "react-select";
@@ -22,6 +23,8 @@ import HeaderLight from "../../assets/images/new_images/header_lights.webp";
 import LeftCircle from "../../assets/images/new_images/form_left_circle.webp";
 import RightCircle from "../../assets/images/new_images/form_right_circle.webp";
 import QuestionMark from "../../assets/images/new_images/question_mark.webp";
+import UniqueIdModal from "../../components/UniqueIdModal/UniqueIdModal";
+
 function FormPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -32,7 +35,7 @@ function FormPage() {
   const qrCode = useSelector((state) => state?.qrCode?.qrCodeNumber);
   const userData = useSelector((state) => state?.user?.createUserData);
 
-  console.log(userData, "userData");
+  console.log(userData?.response?.return_value, "userData11");
 
   const cityOptions = cityData
     ? cityData?.map((city) => ({
@@ -42,13 +45,17 @@ function FormPage() {
     : undefined;
 
   const [isQrCode, setIsQrCode] = useState(false);
+  const [apiResponse, setApiResponse] = useState("");
+
   const [formValues, setFormValues] = useState({
     name: "",
     phone_user: "",
     qr_code_user: "",
     city_name: "",
     terms: false,
+    privacy: false,
   });
+  const [showModal, setShowModal] = useState(false);
 
   const [formattedPhoneNumber, setFormattedPhoneNumber] = useState("");
   const [errors, setErrors] = useState({
@@ -58,7 +65,13 @@ function FormPage() {
     city_id: "",
     city_name: "",
     terms: "",
+    privacy: "",
   });
+  function formatName(name) {
+    return name.replace(/\w\S*/g, (txt) => {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+  }
   useLayoutEffect(() => {
     if (qrCode === `/${bottleCode}`) {
       setIsQrCode(true);
@@ -100,6 +113,9 @@ function FormPage() {
         qr_code_user: errorMessage,
       }));
     } else {
+      if (name === "name") {
+        updatedValue = formatName(value);
+      }
       setErrors((prevErrors) => ({
         ...prevErrors,
         [name]: validateField(name, updatedValue),
@@ -136,6 +152,8 @@ function FormPage() {
         return validateCity(value);
       case "terms":
         return validateTerms(value);
+      case "privacy":
+        return validatePrivacy(value);
       default:
         return "";
     }
@@ -146,30 +164,50 @@ function FormPage() {
 
     const newErrors = {
       name: validateName(formValues.name),
-      qr_code_user: isQrCode ? validateUniqueId(formValues.qr_code_user) : "",
+      phone_user: validatePakistaniPhoneNumber(formValues.phone_user),
       city_name: validateCity(formValues.city_name),
+      qr_code_user: isQrCode ? validateUniqueId(formValues.qr_code_user) : "",
       terms: validateTerms(formValues.terms),
+      privacy: validatePrivacy(formValues.privacy),
     };
+    const { phone_user, name, qr_code_user, city_name, city_id } = formValues;
+    const data = { phone_user, name, qr_code_user, city_name, city_id };
 
-    const phoneError = validatePakistaniPhoneNumber(formValues.phone_user);
-    newErrors.phone_user = phoneError;
-
-    if (Object.values(newErrors).every((error) => error === "")) {
-      alert("Form is valid!");
-      const { phone_user, name, qr_code_user, city_name, city_id } = formValues;
-      const data = { phone_user, name, qr_code_user, city_name, city_id };
-      console.log(data, "data====");
-      console.log(formValues, "formValues");
-      if (data) {
-        console.log(data, "111111111111");
-        dispatch(createUser(data));
+    for (const key in newErrors) {
+      if (newErrors[key]) {
+        console.log({ [key]: newErrors[key] }, "{ [key]: newErrors[key] }");
+        setErrors({ [key]: newErrors[key] });
+        return;
       }
-      // navigate("/spin");
-    } else {
-      setErrors(newErrors);
+    }
+
+    if (data) {
+      console.log(data, "111111111111");
+      dispatch(createUser(data)).then((res) => {
+        console.log(res?.payload?.response?.return_value, "ffsdfdsf");
+        // setApiResponse(userData)
+        if (res?.payload?.response?.return_value === 0) {
+          setApiResponse(res?.payload?.response);
+          return;
+        }
+        if (res?.payload?.response?.return_value === 1) {
+          setApiResponse(res?.payload?.response);
+          setTimeout(() => {
+            alert("Form is valid!");
+            navigate("/spin");
+          }, 2000);
+        }
+      });
     }
   };
 
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
   useEffect(() => {
     dispatch(getCities());
   }, [dispatch]);
@@ -177,166 +215,226 @@ function FormPage() {
   return (
     <Wrapper>
       <div className="form_page_wrapper">
-
-
-    {/* Header Wrapper */}
-    <div className="form_header_wrapper">
-      {/* <img src={HeaderImage} className="img-fluid" alt="Pakistan" /> */}
-      <img src={HeaderMask} className="form_headerMask img-fluid" alt="Pakistan" /> 
-      <img src={HeaderLight} className="form_headerLight img-fluid" alt="Pakistan" /> 
-    </div>
-
-    <div className="form_heading_wrapper">
-      <p>Please fill in the form <br />
-      to win Prize</p> 
-    </div>
-
-    {/* Form Wrapper */}
-    <form onSubmit={handleSubmit} className="form_wrapper" noValidate>
-  <div className="form_input_wrapper">
-    <label htmlFor="validationServerName">Name</label>
-    <input
-      type="text"
-      className={`form-control form_custom_input ${
-        errors.name ? "is-invalid" : ""
-      }`}
-      id="validationServerName"
-      name="name"
-      placeholder="Name"
-      value={formValues.name}
-      onChange={handleChange}
-    />
-    {errors.name && (
-      <div className="invalid-feedback error_message d-block">
-        {errors.name}
-      </div>
-    )}
-  </div>
-
-  <div className="form_input_wrapper">
-    <label htmlFor="validationServerPhone">Phone Number</label>
-    <input
-      type="text"
-      className={`form-control form_custom_input ${
-        errors.phone_user ? "is-invalid" : ""
-      }`}
-      id="validationServerPhone"
-      aria-describedby="inputGroupPrepend3 validationServerPhoneFeedback"
-      name="phone_user"
-      placeholder="0312 1234567"
-      value={formattedPhoneNumber}
-      onChange={handleChange}
-    />
-    {errors.phone_user && (
-      <div className="invalid-feedback error_message d-block">
-        {errors.phone_user}
-      </div>
-    )}
-  </div>
-  <div className="form_selectbox_wrapper">
-    <label htmlFor="validationServerCity">City</label>
-    <Select
-      isSearchable={true}
-      value={cityOptions?.find(option => option?.name === formValues.city_name)}
-      onChange={handleSelectChange}
-      id="validationServerCity"
-      name="city_name"
-      options={cityOptions}
-      placeholder="Select City"
-
-    />
-    {errors.city_name && (
-      <div className="invalid-feedback selectBox_error_message d-block" style={{marginLeft:"10px"}}>
-        {errors.city_name}
-      </div>
-    )}
-  </div>
-  {isQrCode && (
-    <div className="form_input_wrapper">
-      <label htmlFor="validationServerUniqueId">Unique Id</label>
-      <div className="unique_id_wrapper">
-
-      <input
-        type="text"
-        className={`form-control form_custom_input unique_input_field ${
-          errors.qr_code_user ? "is-invalid" : ""
-          }`}
-          id="validationServerUniqueId"
-          name="qr_code_user"
-          placeholder="Unique Id"
-          value={formValues?.qr_code_user}
-          onChange={handleChange}
+        {/* Header Wrapper */}
+        <div className="form_header_wrapper">
+          {/* <img src={HeaderImage} className="img-fluid" alt="Pakistan" /> */}
+          <img
+            src={HeaderMask}
+            className="form_headerMask img-fluid"
+            alt="Pakistan"
           />
-      <button><img src={QuestionMark} className="img-fluid" alt="Question Marl" /></button>
+          <img
+            src={HeaderLight}
+            className="form_headerLight img-fluid"
+            alt="Pakistan"
+          />
+        </div>
+
+        <div className="form_heading_wrapper">
+          <p>
+            Please fill in the form <br />
+            to win Prize
+          </p>
+        </div>
+
+        {/* Form Wrapper */}
+        <form onSubmit={handleSubmit} className="form_wrapper" noValidate>
+          <div className="form_input_wrapper">
+            <label
+              htmlFor="validationServerName"
+              style={!isQrCode ? { padding: "17px 0" } : { padding: "0" }}
+            >
+              Name
+            </label>
+            <input
+              type="text"
+              className={`form-control form_custom_input ${
+                errors.name ? "is-invalid" : ""
+              }`}
+              id="validationServerName"
+              name="name"
+              placeholder="Name"
+              value={formValues.name}
+              onChange={handleChange}
+            />
+            {errors.name && (
+              <div className="invalid-feedback error_message d-block">
+                {errors.name}
+              </div>
+            )}
           </div>
-      {errors.qr_code_user && (
-        <div className="invalid-feedback error_message d-block">
-          {errors.qr_code_user}
+
+          <div className="form_input_wrapper">
+            <label
+              htmlFor="validationServerPhone"
+              style={!isQrCode ? { padding: "17px 0" } : { padding: "0" }}
+            >
+              Phone Number
+            </label>
+            <input
+              type="text"
+              className={`form-control form_custom_input ${
+                errors.phone_user ? "is-invalid" : ""
+              }`}
+              id="validationServerPhone"
+              aria-describedby="inputGroupPrepend3 validationServerPhoneFeedback"
+              name="phone_user"
+              placeholder="0312 1234567"
+              value={formattedPhoneNumber}
+              onChange={handleChange}
+            />
+            {errors.phone_user && (
+              <div className="invalid-feedback error_message d-block">
+                {errors.phone_user}
+              </div>
+            )}
+          </div>
+          <div className="form_selectbox_wrapper">
+            <label
+              htmlFor="validationServerCity"
+              style={!isQrCode ? { padding: "17px 0" } : { padding: "0" }}
+            >
+              City
+            </label>
+            <Select
+              isSearchable={true}
+              value={cityOptions?.find(
+                (option) => option?.name === formValues.city_name
+              )}
+              onChange={handleSelectChange}
+              id="validationServerCity"
+              name="city_name"
+              options={cityOptions}
+              placeholder="Select City"
+            />
+            {errors.city_name && (
+              <div
+                className="invalid-feedback selectBox_error_message d-block"
+                style={{ marginLeft: "10px" }}
+              >
+                {errors.city_name}
+              </div>
+            )}
+          </div>
+          {isQrCode && (
+            <div className="form_input_wrapper">
+              <label htmlFor="validationServerUniqueId">Unique Id</label>
+              <div className="unique_id_wrapper">
+                <input
+                  type="text"
+                  className={`form-control form_custom_input unique_input_field ${
+                    errors.qr_code_user ? "is-invalid" : ""
+                  }`}
+                  id="validationServerUniqueId"
+                  name="qr_code_user"
+                  placeholder="Unique Id"
+                  value={formValues?.qr_code_user}
+                  onChange={handleChange}
+                />
+                <button onClick={openModal}>
+                  <img
+                    src={QuestionMark}
+                    className="img-fluid"
+                    alt="Question Marl"
+                  />
+                </button>
+              </div>
+              {errors.qr_code_user && (
+                <div className="invalid-feedback error_message d-block">
+                  {errors.qr_code_user}
+                </div>
+              )}
+              <div className="description_unique_id">
+                <p>Find your unique ID inside the cap</p>
+              </div>
+            </div>
+          )}
+
+          <div
+            className="form_checkbox_wrapper"
+            style={!isQrCode ? { marginTop: "20px" } : {}}
+          >
+            <div className="tc_wrapper">
+              <div>
+                <input
+                  type="checkbox"
+                  className={`form-check-input ${
+                    errors.terms ? "is-invalid" : ""
+                  }`}
+                  id="validationServerTerms"
+                  name="terms"
+                  checked={formValues.terms}
+                  onChange={handleChange}
+                />
+                <label
+                  className="form-check-label"
+                  htmlFor="validationServerTerms"
+                >
+                  Terms & <br /> Conditions
+                </label>
+              </div>
+              <div>
+                <input
+                  type="checkbox"
+                  className={`form-check-input ${
+                    errors.privacy ? "is-invalid" : ""
+                  }`}
+                  id="validationServerPrivacy"
+                  name="privacy"
+                  checked={formValues.privacy}
+                  onChange={handleChange}
+                />
+                <label
+                  className="form-check-label"
+                  htmlFor="validationServerPrivacy"
+                >
+                  Privacy <br /> Policy
+                </label>
+              </div>
+            </div>
+            {errors.terms && (
+              <div className="invalid-feedback error_message error_message d-block">
+                {errors.terms}
+              </div>
+            )}
+            {errors.privacy && (
+              <div className="invalid-feedback error_message error_message d-block">
+                {errors.privacy}
+              </div>
+            )}
+          </div>
+
+          {apiResponse?.return_value === 0 ? (
+            <p className="response_error">{apiResponse?.return_message}</p>
+          ) : (
+            <p className="response_success">{apiResponse?.return_message}</p>
+          )}
+          <div className="form_button_wrapper">
+            <button type="submit" className="btn btn-primary">
+              Next
+            </button>
+          </div>
+        </form>
+
+        {/* Circle  */}
+        <img
+          src={LeftCircle}
+          className="img-fluid form_left_circle"
+          alt="Cutted Circle"
+        />
+        <img
+          src={RightCircle}
+          className="img-fluid form_right_circle"
+          alt="Cutted Circle"
+        />
+
+        {/* Bottle Wrapper */}
+        <div className="form_bottle_wrapper">
+          <img src={BottleImage} className="img-fluid" alt="7up Bottle" />
         </div>
-      )}
-           <div className="description_unique_id">
-          <p>Find your unique ID inside the cap</p>
-        </div>
-    </div>
-  )}
-
-
-
-  <div className="form_checkbox_wrapper">
-    <div className="tc_wrapper">
-      <div>
-
-      <input
-        type="checkbox"
-        className={`form-check-input ${errors.terms ? "is-invalid" : ""}`}
-        id="validationServerTerms"
-        name="terms"
-        checked={formValues.terms}
-        onChange={handleChange}
-      />
-      <label className="form-check-label" htmlFor="validationServerTerms">
-        Terms & <br /> Conditions
-      </label>
       </div>
-<div>
-      <input
-        type="checkbox"
-        className={`form-check-input ${errors.terms ? "is-invalid" : ""}`}
-        id="validationServerTerms"
-        name="terms"
-        checked={formValues.terms}
-        onChange={handleChange}
-      />
-      <label className="form-check-label" htmlFor="validationServerTerms">
-        Privacy <br /> Policy
-      </label>
-      </div>
-    </div>
-    {errors.terms && (
-      <div className="invalid-feedback error_message error_message d-block">
-        {errors.terms}
-      </div>
-    )}
-  </div>
-
-  <div className="form_button_wrapper">
-    <button type="submit" className="btn btn-primary">
-      Next
-    </button>
-  </div>
-</form>
-
-{/* Circle  */}
-<img src={LeftCircle} className="img-fluid form_left_circle" alt="Cutted Circle" />
-<img src={RightCircle}  className="img-fluid form_right_circle" alt="Cutted Circle" />
-
-    {/* Bottle Wrapper */}
-    <div className="form_bottle_wrapper">
-      <img src={BottleImage} className="img-fluid" alt="7up Bottle" />
-    </div>
-      </div>
-
-  </Wrapper>
+      <UniqueIdModal showModal={showModal} closeModal={closeModal} />
+    </Wrapper>
   );
 }
 

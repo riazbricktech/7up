@@ -85,6 +85,12 @@ export function validateTerms(terms) {
   }
   return "";
 }
+export function validatePrivacy(privacy) {
+  if (!privacy) {
+    return "You must agree to the Privacy Policy.";
+  }
+  return "";
+}
 
 export function nicValidate(nic) {
   nic = nic.trim();
@@ -99,6 +105,30 @@ export function nicValidate(nic) {
 
   if (nic.length !== 13) {
     return "NIC should be exactly 13 digits long.";
+  }
+
+  return "";
+}
+
+
+export function validJazzCashNumber(number) {
+  const regex = /^03\d{9}$/;
+
+  if (!regex.test(number)) {
+    if (!number.startsWith("03")) {
+      return "Number must start with 03.";
+    }
+    if (number.startsWith("00")) {
+      return "Number should not start with 00.";
+    }
+    if (/[^0-9]/.test(number)) {
+      return "Number should not contain alphabets or special characters.";
+    }
+    if (number.length !== 11) {
+      return "Number length must be 11 digits.";
+    }
+
+    return "*This number is not on JazzCash";
   }
 
   return "";

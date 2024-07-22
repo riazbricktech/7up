@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Wrapper from "../../reusableComponents/Wrapper/Wrapper";
 import LogoImage from "../../assets/images/sevenUp_logo.webp";
-import LeftHand from "../../assets/images/winningBottle.webp";
-import RightHand from "../../assets/images/winningBottle2.webp";
-import HotalImage from "../../assets/images/hotel_image.webp";
+import LeftHand from "../../assets/images/new_images/left_hand.webp";
+import RightHand from "../../assets/images/new_images/right_hand.webp";
+import Frame from "../../assets/images/new_images/frame.webp";
 
 import "./WinningPage.css";
 import Confetti from "react-confetti";
@@ -45,12 +45,26 @@ const WinningPage = () => {
   }, []);
   return (
     <Wrapper>
-      {/* ///// Header Wrapper    ////// */}
+
+      {/*  WinninG Wrapper */}
       <div className="winner_wrapper">
-        <div className="winner_logo_wrapper">
-          <img src={LogoImage} className="img-fluid" alt="Logo" />
+
+      <div className="winner_frame_wrapper">
+          <img src={Frame} className="img-fluid" alt="Logo" />
+        <p>YOU WON!</p>
         </div>
-        {/* ///////////  Celebration Wrapper   ///////////// */}
+
+
+
+
+
+      {/* ///// Header Wrapper    ////// */}
+        <div className="winner_logo_wrapper">
+          {/* <img src={LogoImage} className="img-fluid" alt="Logo" /> */}
+        </div>
+
+
+        {/* ///////  Celebration Wrapper   /////// */}
         <div className="celebration_wrapper">
           <img
             src={LeftHand}
@@ -75,20 +89,20 @@ const WinningPage = () => {
 
         {showButton && (
           <div className="you-won-button-wrapper">
-            <button className="you-won-button">YOU WON</button>
+            <button className="you-won-button">RS 500</button>
           </div>
         )}
 
 {showModal && (
     <>
-          <div className="modal-overlay">
+          {/* <div className="modal-overlay">
             <div className="modal-content">
               <h2>You Won</h2>
               <img src={HotalImage} alt="Hotel" />
               <div className="modal-description">Dinner Deal</div>
-            </div>
-              <button className="claim-button" onClick={()=> navigate("/cnic") }>claim price</button>
-          </div>
+            </div> */}
+              <button className="claim-button" onClick={()=> navigate("/jazzcash") }>claim price</button>
+          {/* </div> */}
     </>
         )}
       </div>

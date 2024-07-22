@@ -4,22 +4,22 @@ import "./LandingPage.css";
 import Wrapper from "../../reusableComponents/Wrapper/Wrapper";
 import { useNavigate } from "react-router-dom";
 
-import LogoImage from "../../assets/images/new_images/center_logo.png";
-import FooterPlaces from "../../assets/images/new_images/places.png";
-import FooterWave from "../../assets/images/new_images/waves.png";
+import LogoImage from "../../assets/images/new_images/center_logo.webp";
+import FooterPlaces from "../../assets/images/new_images/places.webp";
+import FooterWave from "../../assets/images/new_images/waves.webp";
 
-import CTikka from "../../assets/images/new_images/c_tikka.png";
-import Biryani from "../../assets/images/new_images/biryani.png";
-import CheesyFries from "../../assets/images/new_images/cheesy_fires.png";
-import DChilli from "../../assets/images/new_images/d_chilli.png";
-import DLemon from "../../assets/images/new_images/d_lemon_slice.png";
-import FLemon from "../../assets/images/new_images/f_lemon.png";
-import GolGappy from "../../assets/images/new_images/gol_gappy.png";
-import GreenChilli from "../../assets/images/new_images/green_chilli.png";
-import Tomoto from "../../assets/images/new_images/tomato.png";
-import UChilli from "../../assets/images/new_images/u_chilli.png";
-import ULemon from "../../assets/images/new_images/u_lemon_slice.png";
-import Oat from "../../assets/images/new_images/oats.png";
+import CTikka from "../../assets/images/new_images/c_tikka.webp";
+import Biryani from "../../assets/images/new_images/biryani.webp";
+import CheesyFries from "../../assets/images/new_images/cheesy_fires.webp";
+import DChilli from "../../assets/images/new_images/d_chilli.webp";
+import DLemon from "../../assets/images/new_images/d_lemon_slice.webp";
+import FLemon from "../../assets/images/new_images/f_lemon.webp";
+import GolGappy from "../../assets/images/new_images/gol_gappy.webp";
+import GreenChilli from "../../assets/images/new_images/green_chilli.webp";
+import Tomoto from "../../assets/images/new_images/tomato.webp";
+import UChilli from "../../assets/images/new_images/u_chilli.webp";
+import ULemon from "../../assets/images/new_images/u_lemon_slice.webp";
+import Oat from "../../assets/images/new_images/oats.webp";
 
 const LandingPage = () => {
   const navigate = useNavigate();

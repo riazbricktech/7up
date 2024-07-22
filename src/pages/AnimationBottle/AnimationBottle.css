@@ -29,22 +29,29 @@
 .animation_pak_wrapper {
     width: 100%;
     position: absolute;
-    top: 33%;
+    top: 37%;
     left: 50%;
     transform: translate(-50%, -50%);
     animation: growCircle 1.5s forwards;
+    text-align: center;
+}
+
+
+.animation_pak_wrapper img{
+    width: 90%;
 }
 
 .animation_meal_wrapper {
     position: absolute;
-    top: 65%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
     animation: growCircle 1.5s forwards;
+    text-align: center;
 }
 
 .animation_meal_wrapper img {
-    width: 90%;
+    width: 75%;
 }
 
 .animation_bottle_wrapper {
@@ -55,7 +62,7 @@
 }
 
 .animation_bottle_wrapper img {
-    width: 90%;
+    width: 100%;
 }
 
 .containerww {

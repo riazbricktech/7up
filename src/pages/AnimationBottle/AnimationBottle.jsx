@@ -5,7 +5,7 @@ import Wrapper from "../../reusableComponents/Wrapper/Wrapper";
 import PakImage from "../../assets/images/new_images/pak_image.webp";
 import HeaderMask from "../../assets/images/new_images/header_mask.webp";
 import HeaderLight from "../../assets/images/new_images/header_lights.webp";
-import MealImage from "../../assets/images/new_images/collection_of_meal.png";
+import MealImage from "../../assets/images/new_images/collection_of_meal.webp";
 import BottleImage from "../../assets/images/sevenUp_bottle.webp";
 import { useNavigate } from "react-router-dom";
 const AnimationBottle = () => {

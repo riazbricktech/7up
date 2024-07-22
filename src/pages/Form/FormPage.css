@@ -5,7 +5,7 @@
     align-items: center;
     flex-direction: column;
     width: 500px;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .form_wrapper {
@@ -14,17 +14,18 @@
 .form-control{
     color: var(--primary-text-color) !important;
 }
+
 .form-control.is-invalid{
     background-image: none !important;
 }
 
   .form-control:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px var(--secondary-bg-color)  inset !important;
+    -webkit-box-shadow: 0 0 0px 1000px white  inset !important;
     -webkit-text-fill-color: var(--primary-text-color) !important;
    
   }
   .form-control:focus {
-    background-color: var(--secondary-bg-color) !important; 
+    background-color: white !important; 
     color: var(--primary-text-color) !important;
   }
 
@@ -59,7 +60,7 @@
     animation: formFadeIn 2s ease-in-out;
     position: relative;
 text-align: center !important;
-margin-top: 55px ;
+margin-top: 65px ;
 }
 
 .form_heading_wrapper p{
@@ -239,7 +240,12 @@ color: var(--primary-bg-color) !important;
 .css-w9q2zk-Input2 input{
 color: var(--primary-text-color) !important;
 }
-
+.css-151sz6c-indicatorContainer{
+    color: var(--primary-bg-color) !important;
+}
+.css-151sz6c-indicatorContainer svg{
+    color: var(--primary-bg-color) !important;
+}
 .form_custom_select {
     border-radius: 15px !important;
     background-color:white !important;
@@ -484,6 +490,18 @@ margin-top: 0px !important;
     to {
         opacity: 1;
     }
+}
+.response_error{
+    color:red;
+     text-align: center;
+      font-weight: 600;
+      font-family: var(--banton-font);
+}
+.response_success{
+    color:green;
+     text-align: center;
+      font-weight: 600;
+      font-family: var(--banton-font);
 }
 @media only screen and (max-width: 500px) {
 

@@ -15,15 +15,16 @@ import BottleImage from "../../assets/images/sevenUp_bottle.webp";
 import { useSelector, useDispatch } from "react-redux";
 import HeaderMask from "../../assets/images/new_images/header_mask.webp";
 import HeaderLight from "../../assets/images/new_images/header_lights.webp";
+import UniqueIdModal from "../../components/UniqueIdModal/UniqueIdModal";
 const inputList = [
   {
     id: uuidv4(),
     option: "Samosa"
   },
-  {
-    id: uuidv4(),
-    option: "Pakoras"
-  },
+  // {
+  //   id: uuidv4(),
+  //   option: "Pakoras"
+  // },
   {
     id: uuidv4(),
     option: "Chicken Patties"
@@ -126,6 +127,7 @@ const Spinner = () => {
     const newPrizeNumber = 1;
     setPrizeNumber(newPrizeNumber);
     setMustSpin(true);
+    console.log("trigger")
   };
 
   useEffect(() => {
@@ -145,6 +147,7 @@ const Spinner = () => {
 
   return (
     <Wrapper>
+   
       <div className="spinner_header_wrapper">
         {/* <img src={HeaderImage} className="img-fluid" alt="Pakistan" /> */}
         <img src={HeaderMask} className="spinner_headerMask img-fluid" alt="Pakistan" /> 
@@ -168,10 +171,10 @@ const Spinner = () => {
             radiusLineWidth={[0]}
             textColors={["#fff"]}
             textDistance={65}
-            fontSize={[17]}
+            fontSize={[16]}
             backgroundColors={[
-              "#a4d925",
               "#00b451",
+              // "#00b451",
               "#a4d925",
               "#00b451",
               "#a4d925",
@@ -206,7 +209,7 @@ const Spinner = () => {
           <button
             className="prize-message"
             onClick={handleSpinClick}
-            disabled={mustSpin}
+            // disabled={mustSpin}
             style={{ textAlign: "center" }}
           >
             Spin
