@@ -10,14 +10,15 @@ import Samosa from "../../assets/images/meal_images/samosa.webp";
 import "./WinningPage.css";
 import Confetti from "react-confetti";
 import { useNavigate } from "react-router-dom";
-
+import { useSelector } from "react-redux";
 const WinningPage = () => {
   const navigate = useNavigate();
   const [animate, setAnimate] = useState(false);
   const [confettiOn, setConfettiOn] = useState(false);
   const [showButton, setShowButton] = useState(false);
   const [showModal, setShowModal] = useState(false);
-
+  const prizeName = useSelector((state) => state?.prizeDetail?.mealPrizeName);
+  console.log(prizeName,"win page prizename 21")
   useEffect(() => {
     // Animation Time Out
     const timer = setTimeout(() => {

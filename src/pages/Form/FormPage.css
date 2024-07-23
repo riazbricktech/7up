@@ -111,6 +111,7 @@ line-height:  0;
     font-family: var(--gothic-font) ;
     letter-spacing: 1px;
     padding: 10px 15px  !important;
+    text-transform: capitalize !important; 
 }
 .unique_id_wrapper{
     display: flex;
@@ -380,6 +381,7 @@ select{
     font-size: 14px;
     font-family: var(--banton-font);
     margin: 0 10px;
+    cursor: pointer;
 }
 .form_checkbox_wrapper label:nth-child(2) {
 /* margin-right: 40px; */
@@ -430,8 +432,12 @@ margin-top: 0px !important;
     font-family: var(--gothic-font);
     letter-spacing: 1px;
     color: white;
+}
 
-
+.form_button_wrapper button:disabled {
+background-color: gray;
+color: white;
+cursor: no-drop;
 }
 .form_button_wrapper button:focus {
     background-color: var(--secondary-bg-color) !important;

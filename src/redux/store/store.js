@@ -4,8 +4,10 @@ import storage from 'redux-persist/lib/storage';
 import SpinSlice from '../slice/SpinSlice';
 import CitySlice from '../slice/CitySlice';
 import QrCodeSlice from '../slice/QrCodeSlice';
+
 import CreateUserSlice from '../slice/CreateUserSlice';
 import { combineReducers } from 'redux';
+import WinPrizeSlice from '../slice/WinPrizeSlice';
 
 
 // Combine all your slices into a rootReducer
@@ -13,7 +15,8 @@ const rootReducer = combineReducers({
   spin: SpinSlice,
   cities: CitySlice,
   user: CreateUserSlice,
-  qrCode: QrCodeSlice
+  qrCode: QrCodeSlice,
+  prizeDetail :WinPrizeSlice
 });
 
 // Configuration for redux-persist

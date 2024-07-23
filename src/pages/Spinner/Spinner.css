@@ -30,6 +30,13 @@
     font-family: var(--banton-font);
     color: white;
 }
+
+.spinner_logo_wrapper span{
+    color: red;
+    font-weight: 800;
+    font-size: 14px;
+    text-align: center;
+}
 .spinner_wrapper {
     width: 100%;
     height: auto;

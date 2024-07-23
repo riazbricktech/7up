@@ -13,7 +13,6 @@ const App = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const qrCode = useSelector(state => state?.qrCode?.qrCodeNumber);
-console.log(qrCode)
   useEffect(() => {
     if (qrCode === "" && "/5TJ7qu" === location.pathname || "/yzZI3Z" === location.pathname) {
       dispatch(qrCodeFunction(location.pathname));

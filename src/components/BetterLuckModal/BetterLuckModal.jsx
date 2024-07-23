@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './BetterLuckModal.css';
 import Emoji from "../../assets/images/new_images/emoji.webp";
-const BetterLuckModal = ({ showModal, closeModal }) => {
+const BetterLuckModal = ({ showBetterLuckModal, closeBetterLuckModal }) => {
 
   const [image, setImage] = useState(null);
 
@@ -10,13 +10,13 @@ const BetterLuckModal = ({ showModal, closeModal }) => {
     const imageUrl = URL.createObjectURL(file);
     setImage(imageUrl);
   };
-  if (!showModal) {
+  if (!showBetterLuckModal) {
     return null;
   }
 
 //   const handleOverlayClick = (e) => {
 //     if (e.target === e.currentTarget) {
-//       closeModal();
+//       closeBetterLuckModal();
 //     }
 //   };
 
@@ -30,9 +30,9 @@ const BetterLuckModal = ({ showModal, closeModal }) => {
       
     //   onClick={(e) => e.stopPropagation()}
       >
-        {/* <button className="close-button" onClick={closeModal}>×</button> */}
+        {/* <button className="close-button" onClick={closeBetterLuckModal}>×</button> */}
         <div className="modal-body">
-          <div className="modal-icon" onClick={closeModal}><img src={Emoji} className='emoji' alt="Emoji"/></div>
+          <div className="modal-icon" onClick={closeBetterLuckModal}><img src={Emoji} className='emoji' alt="Emoji"/></div>
           <div className="modal-message">
             <p>BETTER LUCK</p>
             <p>NEXT TIME</p>

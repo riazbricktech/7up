@@ -1,12 +1,13 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-// import api from "../../constant/Api_url"; --------------------------- must add api url 
+ import api from "../../constant/Api_url";
 import { postData } from "../../services/AxiosFunction";
 
-export const postPrice = createAsyncThunk(
-  "postPrice",
-  async ({ data }, { rejectWithValue }) => {
+export const spinPrice = createAsyncThunk(
+  "Spin",
+  async (data , { rejectWithValue }) => {
     try {
-      const responseData = await postData(`${api}`, data);
+      const responseData = await postData(`${api}start`, data);
+
       return responseData;
     } catch (error) {
       // Check if it's a network error

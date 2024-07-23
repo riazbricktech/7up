@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { postPrice } from "../actions/SpinAction";
+import { spinPrice } from "../actions/SpinAction";
 
 
 
@@ -18,14 +18,14 @@ const SpinSlice = createSlice({
     },
     extraReducers:(builder)=> {
 
-        builder.addCase(postPrice.pending,(state,action)=>{
+        builder.addCase(spinPrice.pending,(state,action)=>{
             state.isLoading= true;
         });
-        builder.addCase(postPrice.fulfilled,(state,action)=>{
+        builder.addCase(spinPrice.fulfilled,(state,action)=>{
             state.isLoading= false;
             state.spinData = action.payload;
         });
-        builder.addCase(postPrice.rejected,(state,action)=>{
+        builder.addCase(spinPrice.rejected,(state,action)=>{
             state.isLoading=false;
             state.spinData = action.payload;
         });

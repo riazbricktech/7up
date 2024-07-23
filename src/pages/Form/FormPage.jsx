@@ -25,18 +25,20 @@ import QuestionMark from "../../assets/images/new_images/question_mark.webp";
 import CapModal from "../../components/CapModal/CapModal";
 import TermsAndCondition from "../../components/Term&Condition/TermsAndCondition";
 import PrivacyPolicy from "../../components/PrivacyPolicy/PrivacyPolicy";
+import UniqueIdModal from "../../components/UniqueIdModal/UniqueIdModal";
 
 function FormPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const location = useLocation();
   const cityData = useSelector((state) => state?.cities?.citesData);
-  const isLoading = useSelector((state) => state?.cities?.isLoading);
+  const citiesLoading = useSelector((state) => state?.cities?.isLoading);
 
   const qrCode = useSelector((state) => state?.qrCode?.qrCodeNumber);
   const userData = useSelector((state) => state?.user?.createUserData);
+  const userInfoLoading = useSelector((state) => state?.user?.isLoading);
 
-  console.log(userData?.response?.return_value, "userData11");
+
 
   const cityOptions = cityData
     ? cityData?.map((city) => ({
@@ -58,6 +60,8 @@ function FormPage() {
   });
   const [showModal, setShowModal] = useState(false);
   const [isTCOpen, setTCOpen] = useState(false);
+  const [isUniqueQrCode, setIsUniqueQrCode] = useState(false);
+
   const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
   const [formattedPhoneNumber, setFormattedPhoneNumber] = useState("");
   const [errors, setErrors] = useState({
@@ -131,7 +135,6 @@ function FormPage() {
   };
 
   const handleSelectChange = (selectedOption) => {
-    console.log(selectedOption, "selectedOption");
     setFormValues((prevValues) => ({
       ...prevValues,
       city_name: selectedOption?.label,
@@ -184,10 +187,12 @@ function FormPage() {
     }
 
     if (data) {
-      console.log(data, "111111111111");
       dispatch(createUser(data)).then((res) => {
-        console.log(res?.payload?.response?.return_value, "ffsdfdsf");
         // setApiResponse(userData)
+        if (res?.payload?.response?.return_value === 0 && res?.payload?.response?.return_message === "This code is already used") {
+          setIsUniqueQrCode(true);
+          return;
+        }
         if (res?.payload?.response?.return_value === 0) {
           setApiResponse(res?.payload?.response);
           return;
@@ -210,6 +215,14 @@ function FormPage() {
   const closeModal = () => {
     setShowModal(false);
   };
+
+  const handleUniqueQrModal = () => {
+    setIsUniqueQrCode(false);
+  };
+
+  
+
+
   useEffect(() => {
     dispatch(getCities());
   }, [dispatch]);
@@ -430,7 +443,7 @@ function FormPage() {
             <p className="response_success">{apiResponse?.return_message}</p>
           )}
           <div className="form_button_wrapper">
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" disabled={userInfoLoading} className="btn btn-primary">
               Next
             </button>
           </div>
@@ -456,6 +469,8 @@ function FormPage() {
       <CapModal showModal={showModal} closeModal={closeModal} />
       <TermsAndCondition isOpen={isTCOpen} onClose={closeTermsCon} />
       <PrivacyPolicy show={isPrivacyOpen} handleClose={handleClosePrivacyPolicy} />
+      <UniqueIdModal  showUniqueQrModal={isUniqueQrCode}  closeQrModalModal={handleUniqueQrModal} />
+
     </Wrapper>
   );
 }

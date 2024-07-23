@@ -9,21 +9,25 @@ import BottleImage from "../../assets/images/sevenUp_bottle.webp";
 import { useSelector, useDispatch } from "react-redux";
 import HeaderMask from "../../assets/images/new_images/header_mask.webp";
 import HeaderLight from "../../assets/images/new_images/header_lights.webp";
+import { spinPrice } from "../../redux/actions/SpinAction";
+import BetterLuckModal from "../../components/BetterLuckModal/BetterLuckModal";
+import { prizeName } from "../../redux/slice/WinPrizeSlice";
+
 
 const inputList = [
 
   {
     id: uuidv4(),
-    option: "BBQ"
+    option: "SAMOSA"
   },
   {
     id: uuidv4(),
-    option: "PASTA"
+    option: "PARATHA ROLL"
   },
 
   {
     id: uuidv4(),
-    option: "HALEEM"
+    option: "ANDA BURGER"
   },
   
   {
@@ -33,15 +37,11 @@ const inputList = [
 
   {
     id: uuidv4(),
-    option: "ANDA BURGER"
-  },
-  {
-    id: uuidv4(),
-    option: "SUSHI"
-  },
-  {
-    id: uuidv4(),
     option: "BURGER"
+  },
+  {
+    id: uuidv4(),
+    option: "HALEEM"
   },
   {
     id: uuidv4(),
@@ -49,7 +49,11 @@ const inputList = [
   },
   {
     id: uuidv4(),
-    option: "STEAK"
+    option: "CHICKEN BROAST"
+  },
+  {
+    id: uuidv4(),
+    option: "BBQ"
   },
   
   {
@@ -58,12 +62,12 @@ const inputList = [
   },
   {
     id: uuidv4(),
-    option: "BROAST"
+    option: "SUSHI"
   },
   
   {
     id: uuidv4(),
-    option: "SAMOSA"
+    option: "PASTA"
   },
 ];
 
@@ -71,15 +75,40 @@ const Spinner = () => {
   const [mustSpin, setMustSpin] = useState(false);
   const [prizeNumber, setPrizeNumber] = useState(0);
   const [rouletteData, setRouletteData] = useState(inputList);
-  const cityData = useSelector(state => state?.cities?.citesData);
-  const navigate = useNavigate();
+  const [isBetterLuck, setIsBetterLuck] = useState(false);
 
+  const userData = useSelector((state) => state?.user?.createUserData);
+  const spinData = useSelector((state) => state?.spin?.spinData);
+  const spinLoading = useSelector((state) => state?.spin?.isLoading);
+const lossOption =[3,9];
+  const fiftyOptions = [0];
+  const hundredOptions = [1,2];
+  const thousandOptions = [4, 5, 6, 7];
+  const tenThousandOptions = [8,10,11];
+const spinValue = spinData?.response?.return_value;
+const spinPrize = spinData?.response?.return_prize_amount;
+const spinMessage = spinData?.response?.return_message;
+
+
+// console.log(spinData?.response?.return_value , "spinData?response?.return_value");
+// console.log(spinData?.response?.return_prize_amount , "spinData?response?.return_prize_amount");
+// console.log(spinData?.response?.return_message , "spinData?response?.return_prize_amount");
+
+
+    const userIDs = {
+      transaction_id :  userData?.response?.return_transaction_id,
+      city_id : userData?.response?.return_city_id
+      };
+
+  const navigate = useNavigate();
+const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
+  const [prizeValue, setPrizeValue] = useState(0);
+
 
   const handleOk = () => {
     setOpen(false);
   };
-
   useLayoutEffect(() => {
     const imgElement = document.querySelector('.sc-bdfBwQ');
     if (imgElement) {
@@ -88,11 +117,13 @@ const Spinner = () => {
   }, []);
 
   const handleSpinClick = (e) => {
-    const newPrizeNumber = 1;
+    const newPrizeNumber = prizeValue;
     setPrizeNumber(newPrizeNumber);
     setMustSpin(true);
-    console.log("trigger")
+    console.log(e, "trigger");
   };
+
+
 
   useEffect(() => {
     const addShortString = inputList.map((item, index) => {
@@ -103,12 +134,71 @@ const Spinner = () => {
     setRouletteData(addShortString);
   }, [inputList]);
 
+  //  spin  ==============================
   useEffect(() => {
     if (mustSpin) {
       setOpen(true);
     }
   }, [mustSpin]);
 
+
+//  Modal ==================================
+  const handleBetterLuckModal = () => {
+    setIsBetterLuck(false);
+  };
+
+
+
+  // Disptach ==============================================
+  useEffect(()=>{
+    dispatch(spinPrice(userIDs)).then((data)=>{
+      console.log(data?.payload?.response?.return_prize_amount,"155")
+
+           //  IF WIN 0 Rupees
+           if(data?.payload?.response?.return_prize_amount === 0){
+            setPrizeValue(() => {
+              const randomIndex = Math.floor(Math.random() * lossOption.length);
+              return lossOption[randomIndex];
+            })
+          }
+
+      //  IF WIN 50 Rupees
+      if(data?.payload?.response?.return_prize_amount === 50){
+        setPrizeValue(0)
+      }
+      //  IF WIN 100 Rupees
+      if(data?.payload?.response?.return_prize_amount === 100){
+        setPrizeValue(() => {
+          const randomIndex = Math.floor(Math.random() * hundredOptions.length);
+          return hundredOptions[randomIndex];
+        })
+      }
+         //  IF WIN 1,000 Rupees
+
+
+      if(data?.payload?.response?.return_prize_amount === 1000){
+        setPrizeValue(() => {
+          const randomIndex = Math.floor(Math.random() * thousandOptions.length);
+          return thousandOptions[randomIndex];
+        })
+      }
+
+          //  IF WIN 10,000 Rupees
+
+
+          if(data?.payload?.response?.return_prize_amount === 10000){
+            setPrizeValue(() => {
+              const randomIndex = Math.floor(Math.random() * tenThousandOptions.length);
+              return tenThousandOptions[randomIndex];
+            })
+          }
+
+    //       if(data?.payload?.response?.return_value === 0){
+    //         setIsBetterLuck(true);
+    //       }
+    })
+  },[])
+console.log(prizeValue,"200")
   return (
     <Wrapper>
    
@@ -119,6 +209,7 @@ const Spinner = () => {
       </div>
       <div className="spinner_logo_wrapper">
     <p>SPIN THE WHEEL!</p>
+    {/* <span>Already Used</span> */}
       </div>
       <div className="spinner_wrapper">
         <div align="center" className="roulette-container">
@@ -154,7 +245,40 @@ const Spinner = () => {
             ]}
             onStopSpinning={() => {
               setMustSpin(false);
-              // navigate("/winner");
+              //  if QR code is unique and user did not won 
+              if(spinValue === 1 && spinPrize === 0 ){
+                console.log(spinValue,"249")
+                console.log(spinPrize,"250")
+                const selectedItem = inputList[prizeNumber];
+                console.log("252", selectedItem);
+
+                setTimeout(function() {
+                  setIsBetterLuck(true);
+                }, 3000);
+              }
+
+              //  if QR code is already used ///   OR  some other Error
+              if(spinValue === 0){
+                console.log(spinValue,"261")
+
+                const selectedItem = inputList[prizeNumber];
+                console.log("264", selectedItem);
+                setTimeout(function() {
+                  setIsBetterLuck(true);
+                }, 3000);
+              }
+
+              //  if User won prize
+              if(spinValue === 1 && spinPrize !== 0 ){
+                console.log(spinValue,"272")
+                console.log(spinPrize,"273")
+                const selectedItem = inputList[prizeNumber];
+                console.log("276", selectedItem);
+                dispatch(prizeName(selectedItem?.option))
+                setTimeout(function() {
+                navigate("/winner");
+              }, 3000);
+              }
             }}
           />
           <button className="spiner_button roulette-button" onClick={handleSpinClick}>
@@ -173,6 +297,8 @@ const Spinner = () => {
           </button>
         </div>
       </div>
+
+      <BetterLuckModal  showBetterLuckModal={isBetterLuck}  closeBetterLuckModal={handleBetterLuckModal} />
     </Wrapper>
   );
 };

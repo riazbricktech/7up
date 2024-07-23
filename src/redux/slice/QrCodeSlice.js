@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const QrCodeSlice = createSlice({
-    name: "Spin",
+    name: "QrCode",
     initialState: {
         isLoading: false,
         qrCodeNumber: ""
