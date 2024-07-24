@@ -24,7 +24,23 @@ const App = () => {
       dispatch(qrCodeFunction(location.pathname));
     }
   },[]);
+
+  
   // }, [qrCode, dispatch, location.pathname]);
+
+  
+  // when tab Close, Remove data from localStorage
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      localStorage.clear();
+    };
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, []);
+
+
 
   return (
     <div className='main_container'>

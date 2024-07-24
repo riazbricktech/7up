@@ -215,7 +215,7 @@ console.log(prizeValue,"200")
         <div align="center" className="roulette-container">
           <Wheel
             mustStartSpinning={mustSpin}
-            spinDuration={[0.7]}
+            spinDuration={[0.9]}
             prizeNumber={prizeNumber}
             data={inputList}
             outerBorderColor={["#005d37"]}

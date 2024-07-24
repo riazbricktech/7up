@@ -8,6 +8,18 @@
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
+    animation: ppModalFadeIn 0.5s ease-in-out;
+
+  }
+  
+  @keyframes ppModalFadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  
   }
   
   .pp_modal.pp_show {

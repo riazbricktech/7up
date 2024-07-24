@@ -18,6 +18,18 @@
     flex-direction: column;
     z-index: 11111111111;
     overflow: hidden;
+    animation: betterLuckModalFadeIn 0.5s ease-in-out;
+
+  }
+
+  @keyframes betterLuckModalFadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  
   }
   
  .betterLuck_modal_overlay .modal-content {

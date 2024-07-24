@@ -18,10 +18,12 @@
   left: 0;
   transform: translate(-0%, -0%);
   width: 100%;
+  z-index: 1;
 }
 .winner_frame_wrapper img {
   width: 100% !important;
-  height: 50%;
+  height: 100vh !important;
+
 }
 .winner_frame_wrapper p {
   position: absolute;
@@ -38,7 +40,7 @@
 
 .winner_wrapper .winner_meal_wrapper {
   position: absolute;
-  top: 43%;
+  top: 40%;
   left: 0%;
   transform: translate(-0%, -50%);
   width: 100%;
@@ -48,9 +50,14 @@
   align-items: center;
 }
 
-.winner_wrapper .winner_meal_wrapper img {
-  width: 30%;
+.winner_wrapper .winner_meal_wrapper .meal_lottie{
+
+  width: 65%;
 }
+
+/* .winner_wrapper .winner_meal_wrapper img {
+  width: 30%;
+} */
 
 .winner_meal_wrapper P {
   text-align: center;
@@ -69,50 +76,22 @@
 
 .winner_wrapper .celebration_wrapper {
   width: 100% !important;
+  position: relative;
+  left: 0%;
+  top: 75%;
+  transform: translate(-0%,-50%);
+  z-index: 11111;
 
   /* background-color: bisque !important; */
 }
+
+.celebration_wrapper .animated_can_lottie{
+  width: 100% !important; 
+
+} 
+
+
 /* 
-.winner_wrapper .celebration_wrapper .leftHand {
-    width: 45% !important;
-    position: absolute;
-    top: 55%;
-    left: 0%;
-    transform: translate(-0%, -50%) rotate(0deg);
-    z-index: 111;
- 
-}
-
-.winner_wrapper .celebration_wrapper .rightHand {
-    width: 68% !important;
-    position: absolute;
-    top: 55%;
-    right: 0%;
-    transform: translate(-0%, -50%) rotate(0deg);
-    z-index: 1111;
- 
-}
-
-
-.winner_wrapper .celebration_wrapper .leftHand {
-    width: 45% !important;
-    position: absolute;
-    top: 57%;
-    left: -26%;
-    transform: translate(-0%, -50%) rotate(-40deg);
-    z-index: 111;
- 
-}
-
-.winner_wrapper .celebration_wrapper .rightHand {
-    width: 68% !important;
-    position: absolute;
-    top: 57%;
-    right: -32%;
-    transform: translate(-0%, -50%) rotate(43deg);
-    z-index: 1111;
- 
-} */
 @keyframes animateLeftHand {
   0% {
     top: 70%;
@@ -173,7 +152,7 @@
 
 .animate-rightHand {
   animation: animateRightHand 2s forwards;
-}
+} */
 
 /* ////// Won Button Wrapper /////// */
 .you-won-button-wrapper {
@@ -181,8 +160,14 @@
   top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 2000;
+  z-index: 0;
   transition: all 0.5s ease-in-out;
+  width: 100%;
+}
+
+.you-won-button-wrapper  .price_lottie{
+  width: 80%;
+  height: 80%;
 }
 
 .you-won-button {
@@ -253,23 +238,17 @@
 }
 
 .claim-button {
-  background-color: var(--button-bg-color); /* Gold color */
-  border: none;
-  width: 55%;
-  padding: 10px 20px;
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
-  cursor: pointer;
-  border-radius: 15px;
-  border-bottom: 4px solid rgb(1, 65, 1);
-  border-right: 3px solid rgb(1, 65, 1);
 
-  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
-  margin: calc(100vh - 30vh) 0;
-  font-family: var(--gothic-font) !important;
-  letter-spacing: 2px;
+  width: 100%;
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%,-50%);  
 }
+
+
+
+
 @keyframes formFadeIn {
   0% {
     opacity: 0;
@@ -305,7 +284,7 @@
     font-weight: bold;
   }
   .claim-button {
-    width: 55%;
+    width: 90%;
     font-size: 18px;
   }
 }
@@ -321,79 +300,47 @@
   }
 }
 
+
+/*  MAX HEIGHT */
+
 @media only screen and (max-height: 670px) {
   .winner_wrapper .winner_meal_wrapper {
-    top: 50%;
+    top: 45% !important;
     transform: translate(-0%, -50%);
   }
   .you-won-button-wrapper {
-    top: 67%;
+    top: 62%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
+
   .claim-button {
-    margin: calc(100vh - 20vh);
-  }
 
-
-  @keyframes animateLeftHand {
-    0% {
-      top: 73%;
-      left: -36%;
-      transform: translate(-0%, -50%) rotate(-40deg);
-    }
-    50% {
-      top: 73%;
-      left: -0%;
-      transform: translate(-0%, -50%) rotate(0deg);
-    }
-    100% {
-      top: 73%;
-      left: -36%;
-      transform: translate(-0%, -50%) rotate(-40deg);
-    }
-  }
-  
-  @keyframes animateRightHand {
-    0% {
-      top: 73%;
-      right: -32%;
-      transform: translate(-0%, -50%) rotate(43deg);
-    }
-    50% {
-      top: 73%;
-      right: -2%;
-      transform: translate(-0%, -50%) rotate(0deg);
-    }
-    100% {
-      top: 73%;
-      right: -32%;
-      transform: translate(-0%, -50%) rotate(43deg);
-    }
-  }
-  .winner_wrapper .celebration_wrapper .leftHand {
-    width: 55% !important;
-    position: absolute;
-    top: 73%;
-  }
-  
-  .winner_wrapper .celebration_wrapper .rightHand {
-    width: 50% !important;
-    top: 73%;
+    width: 100%;
+    top: 92%;
+    left: 50%;
+    transform: translate(-50%,-50%);  
   }
 }
 
 @media only screen and (max-height: 600px) {
-  .winner_wrapper .winner_meal_wrapper {
-    top: 55%;
+  
+
+  /* .winner_wrapper .winner_meal_wrapper {
+    top: 45% !important;
     transform: translate(-0%, -50%);
   }
   .you-won-button-wrapper {
-    top: 72%;
+    top: 62%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
+
   .claim-button {
-    margin: calc(100vh - 20vh);
-  }
+
+    width: 100%;
+    top: 92%;
+    left: 50%;
+    transform: translate(-50%,-50%);  
+  } */
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef } from "react";
 import Wrapper from "../../reusableComponents/Wrapper/Wrapper";
 import "./CongratulationPage.css";
 import { useNavigate } from "react-router-dom";
@@ -6,8 +6,19 @@ import { validatePakistaniPhoneNumber } from '../../services/NumberValidation';
 import HeaderMask from "../../assets/images/new_images/header_mask.webp";
 import HeaderLight from "../../assets/images/new_images/header_lights.webp";
 import PakImage from "../../assets/images/new_images/congrats_image.webp";
-const CongratulationPage = () => {
+import HeartLottie from  "../../assets/images/lottie_files/hearts.json";
 
+import Lottie from 'lottie-react';
+
+
+const CongratulationPage = () => {
+  const lottieRef = useRef();
+  useEffect(() => {
+    const instance = lottieRef.current;
+    if (instance) {
+      // instance.setSpeed(0.5); 
+    }
+  }, []);
 
   return (
     <Wrapper>
@@ -28,6 +39,16 @@ const CongratulationPage = () => {
 
         <div className="congrats_image_wrapper">
            <img src={PakImage} alt="Pakistan Image" />
+        </div>
+        {/* Heart Lottie */}
+        <div className="congrats_heart_wrapper">
+
+        <Lottie animationData={HeartLottie}
+            autoPlay={true} loop={true} 
+            className="heart_lottie"
+            lottieRef={lottieRef}
+            />
+           {/* <img src={PakImage} alt="Pakistan Image" /> */}
         </div>
       </div>
     </Wrapper>

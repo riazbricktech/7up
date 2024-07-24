@@ -8,7 +8,9 @@ import QrCodeSlice from '../slice/QrCodeSlice';
 import CreateUserSlice from '../slice/CreateUserSlice';
 import { combineReducers } from 'redux';
 import WinPrizeSlice from '../slice/WinPrizeSlice';
+import HealthSlice from '../slice/HealthSlice';
 
+import healthCheckSlice from "../slice/HealthSlice";
 
 // Combine all your slices into a rootReducer
 const rootReducer = combineReducers({
@@ -16,14 +18,15 @@ const rootReducer = combineReducers({
   cities: CitySlice,
   user: CreateUserSlice,
   qrCode: QrCodeSlice,
-  prizeDetail :WinPrizeSlice
+  prizeDetail :WinPrizeSlice,
+  health:healthCheckSlice,
 });
 
 // Configuration for redux-persist
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['cities'], // Exclude CitySlice from persisting
+  blacklist: ['cities','health'], // Exclude CitySlice from persisting
 };
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

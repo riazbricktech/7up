@@ -12,7 +12,19 @@
     align-items: center !important;
     flex-direction: column;
     z-index: 1000;
+    animation: capModalFadeIn 0.5s ease-in-out;
 }
+
+
+@keyframes capModalFadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  
+  }
 
 .cap_modal_overlay .modal-icon {
     display: inline-block;

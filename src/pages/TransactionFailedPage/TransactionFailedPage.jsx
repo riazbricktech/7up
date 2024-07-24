@@ -2,12 +2,16 @@
 
 import React, { useState } from "react";
 import Wrapper from "../../reusableComponents/Wrapper/Wrapper";
+import Lottie from "lottie-react";
 import "./TransactionFailedPage.css";
 import { useNavigate } from "react-router-dom";
 import { validatePakistaniPhoneNumber } from "../../services/NumberValidation";
 import HeaderMask from "../../assets/images/new_images/header_mask.webp";
 import HeaderLight from "../../assets/images/new_images/header_lights.webp";
 import SevenUPLogo from "../../assets/images/new_images/seven_up_bottom.webp";
+
+import SevenUpLottie from "../../assets/images/lottie_files/7UP_anim.json";
+
 const TransactionFailedPage = () => {
   return (
     <Wrapper>
@@ -37,8 +41,12 @@ const TransactionFailedPage = () => {
         </div>
 
                {/* Button wrapper */}
-               <div className="failedPage_bottomLogo_wrapper">
-          <img src={SevenUPLogo} alt="Seven Bottom" />
+               <div className="failedPage_bottom_img_wrapper">
+          {/* <img src={SevenUPLogo} alt="Seven Bottom" /> */}
+          <Lottie animationData={SevenUpLottie}
+            autoPlay={true} loop={false} 
+            className="failedPage_bottom_img"
+            />
         </div>
       </div>
     </Wrapper>

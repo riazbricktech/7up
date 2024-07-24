@@ -80,15 +80,16 @@
     line-height: 48px;
     width: 100% !important;
 }
-.failedPage_wrapper .failedPage_bottomLogo_wrapper {
+.failedPage_wrapper .failedPage_bottom_img_wrapper {
 }
-.failedPage_bottomLogo_wrapper img {
+.failedPage_bottom_img_wrapper .failedPage_bottom_img {
     position: absolute;
-
     bottom: 0;
     right: 0;
-    width: 65%;
+    width: 100%;
 }
+
+
 
 /* Add keyframes for the animations */
 @keyframes sliderIn {
@@ -148,12 +149,22 @@
     }
 }
 
+
+/*  MAX HEIGHT */
+@media only screen and (max-height: 700px) {
+
+    .failedPage_bottom_img_wrapper .failedPage_bottom_img {
+        width: 80%;
+    }
+}
+
+
 @media only screen and (max-height: 600px) {
     .failedPage_wrapper .failedPage_button_wrapper {
         width: 80%;
         margin-top: 40px;
     }
-    .failedPage_bottomLogo_wrapper img {
-        width: 60%;
+    .failedPage_bottom_img_wrapper .failedPage_bottom_img {
+        width: 70%;
     }
 }

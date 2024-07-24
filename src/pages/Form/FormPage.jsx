@@ -208,7 +208,8 @@ function FormPage() {
     }
   };
 
-  const openModal = () => {
+  const openModal = (e) => {
+    e.preventDefault()
     setShowModal(true);
   };
 

@@ -15,6 +15,7 @@ import { useNavigate } from 'react-router-dom';
 import { canCode, bottleCode } from '../constant/Codes';
 import { useSelector } from "react-redux";
 import AnimationBottle from '../pages/AnimationBottle/AnimationBottle';
+import HealthPage from '../pages/HealthPage/HealthPage';
 // import VerticalSwiper from './VerticalSwiper'; 
 const Routing = () => {
   const navigate = useNavigate();
@@ -47,6 +48,7 @@ const Routing = () => {
           <Route element={<CongratulationPage />} path='/congrats' />
           {/* <Route element={<UsedCap />} path='/usedcap' /> */}
           <Route element={<TransactionFailedPage />} path='/transactionfailed' />
+          <Route element={<HealthPage />} path='/health' />
           <Route element={<NotFoundPage />} path='*' />
         </Route>
       </Routes>

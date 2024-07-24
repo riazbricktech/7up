@@ -8,6 +8,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    z-index: 11111;
+
 }
 
 .congrats_header_wrapper {
@@ -71,6 +74,16 @@
     width: 70% !important;
 }
 
+.congrats_wrapper .congrats_heart_wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-0%,-0%);
+    width: 500px;
+    height: 100vh;
+    z-index: -1;
+}
+
 /* Add keyframes for the animations */
 @keyframes sliderIn {
     from {
@@ -92,11 +105,19 @@
     }
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 500px) {
     .congrats_wrapper {
         width: 100vw !important;
     }
+
+    
+.congrats_wrapper .congrats_heart_wrapper {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
 }
+}
+
 @media only screen and (max-width: 380px) {
     .congrats_wrapper .congrats_heading_wrapper {
         margin-top: calc(100vh - 86vh);
