@@ -1,36 +1,28 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./LandingPage.css";
 
 import Wrapper from "../../reusableComponents/Wrapper/Wrapper";
-import { useNavigate } from "react-router-dom";
 
 import LogoImage from "../../assets/images/new_images/center_logo.webp";
 import FooterPlaces from "../../assets/images/new_images/places.webp";
 import FooterWave from "../../assets/images/new_images/waves.webp";
 
-import CTikka from "../../assets/images/new_images/c_tikka.webp";
+import Lottie from "react-lottie";
 import Biryani from "../../assets/images/new_images/biryani.webp";
+import CTikka from "../../assets/images/new_images/c_tikka.webp";
 import CheesyFries from "../../assets/images/new_images/cheesy_fires.webp";
 import DChilli from "../../assets/images/new_images/d_chilli.webp";
 import DLemon from "../../assets/images/new_images/d_lemon_slice.webp";
 import FLemon from "../../assets/images/new_images/f_lemon.webp";
 import GolGappy from "../../assets/images/new_images/gol_gappy.webp";
 import GreenChilli from "../../assets/images/new_images/green_chilli.webp";
+import Oat from "../../assets/images/new_images/oats.webp";
 import Tomoto from "../../assets/images/new_images/tomato.webp";
 import UChilli from "../../assets/images/new_images/u_chilli.webp";
 import ULemon from "../../assets/images/new_images/u_lemon_slice.webp";
-import Oat from "../../assets/images/new_images/oats.webp";
+import SevenUpAnim from "../../lottie/7UP_anim.json";
 
 const LandingPage = () => {
-  const navigate = useNavigate();
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      navigate("/animation");
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, [navigate]);
-
   return (
     <Wrapper>
       <div className="landing_page_wrapper">
@@ -38,6 +30,10 @@ const LandingPage = () => {
         <div className="landing_logo_wrapper">
           <img src={LogoImage} className="img-fluid" alt="7up Logo" />
           <img src="" alt="" />
+        </div>
+
+        <div>
+          <Lottie options={{ animationData: SevenUpAnim, loop: false }} />
         </div>
 
         {/* /////////  Footer Wrapper  /////////// */}
