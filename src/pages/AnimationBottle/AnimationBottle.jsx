@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import "./AnimationBottle.css";
 import Wrapper from "../../reusableComponents/Wrapper/Wrapper";
@@ -7,16 +7,28 @@ import HeaderMask from "../../assets/images/new_images/header_mask.webp";
 import HeaderLight from "../../assets/images/new_images/header_lights.webp";
 import MealImage from "../../assets/images/new_images/collection_of_meal.webp";
 import BottleImage from "../../assets/images/sevenUp_bottle.webp";
+import groovyWalkAnimation from "./bottle-littie.json";
+import Lottie from "lottie-react";
+
 import { useNavigate } from "react-router-dom";
 const AnimationBottle = () => {
+  const [bottleClass, setBottleClass] = useState("animate__animated animate__rollIn");
   const navigate = useNavigate();
   useEffect(() => {
     const timer = setTimeout(() => {
       navigate("/form");
-    }, 3000);
+    }, 4900);
 
     return () => clearTimeout(timer);
   }, [navigate]);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      
+      setBottleClass("slideDown");
+    }, 1000); // 10 seconds
+
+    return () => clearTimeout(timer);
+  },  [navigate]);
   return (
     <Wrapper>
       <div className="animation_page_wrapper">
@@ -40,7 +52,7 @@ const AnimationBottle = () => {
 
         {/* Image Wrapper */}
         <div className="animation_bottle_wrapper">
-          <img src={BottleImage} className="img-fluid" alt="Meal Image " />
+          <img className={`img-fluid ${bottleClass}`} src={BottleImage} alt="Bottle Image " />
         </div>
 
       </div>

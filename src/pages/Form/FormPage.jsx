@@ -232,8 +232,13 @@ function FormPage() {
 
   return (
     <Wrapper>
+       <div className="form_bottle_wrapper">
+          <img src={BottleImage} className="img-fluid" alt="7up Bottle" />
+        </div>
       <div className="form_page_wrapper">
         {/* Header Wrapper */}
+           {/* Bottle Wrapper */}
+          
         <div className="form_header_wrapper">
           {/* <img src={HeaderImage} className="img-fluid" alt="Pakistan" /> */}
           <img
@@ -448,10 +453,7 @@ function FormPage() {
           alt="Cutted Circle"
         />
 
-        {/* Bottle Wrapper */}
-        <div className="form_bottle_wrapper">
-          <img src={BottleImage} className="img-fluid" alt="7up Bottle" />
-        </div>
+     
       </div>
       <CapModal showModal={showModal} closeModal={closeModal} />
       <TermsAndCondition isOpen={isTCOpen} onClose={closeTermsCon} />

@@ -1,5 +1,49 @@
 
 
+@keyframes slideInFromBottom {
+    0% {
+      transform: translateY(-180%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideInFromTop {
+    0% {
+      transform: translateY(-400%);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-20%);
+      opacity: 1;
+    }
+  }
+  /* Form wrapper animation */
+  .form_wrapper {
+  }
+  
+  /* Bottle image animation */
+  .form_bottle_wrapper img {
+    animation: slideInFromTop 8s ease-out;
+    transform: translateY(-20%);
+
+  }
+  
+  .form_page_wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    animation: slideInFromBottom 8s ease-out;
+
+    width: 500px;
+  }
+  
+  .form_wrapper {
+    width: 400px !important;
+  }
 .form_page_wrapper{
     display: flex;
     align-items: center;
