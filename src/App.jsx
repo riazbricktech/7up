@@ -24,6 +24,17 @@ const App = () => {
     }
   },[]);
 
+  const setFullHeight = () => {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  };
+
+  useEffect(() => {
+    setFullHeight();
+    window.addEventListener('resize', setFullHeight);
+    return () => window.removeEventListener('resize', setFullHeight);
+  }, []);
+
   
   // }, [qrCode, dispatch, location.pathname]);
 

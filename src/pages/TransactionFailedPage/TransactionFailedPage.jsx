@@ -5,13 +5,13 @@ import Wrapper from "../../reusableComponents/Wrapper/Wrapper";
 import Lottie from "lottie-react";
 import "./TransactionFailedPage.css";
 import { useNavigate } from "react-router-dom";
-import { validatePakistaniPhoneNumber } from "../../services/NumberValidation";
-import HeaderMask from "../../assets/images/new_images/header_mask.webp";
-import HeaderLight from "../../assets/images/new_images/header_lights.webp";
-import SevenUPLogo from "../../assets/images/new_images/seven_up_bottom.webp";
+// import { validatePakistaniPhoneNumber } from "../../services/NumberValidation";
+// import HeaderMask from "../../assets/images/new_images/header_mask.webp";
+// import HeaderLight from "../../assets/images/new_images/header_lights.webp";
+// import SevenUPLogo from "../../assets/images/new_images/seven_up_bottom.webp";
 import SevenUpLottie from "../../assets/images/lottie_files/7UP_anim.json";
 import { useSelector } from "react-redux";
-
+import HeaderLights from "../../assets/images/lottie_files/lights_anim.json";
 const TransactionFailedPage = () => {
   const transactionData = useSelector((state) => state?.taction?.transactionData);
   return (
@@ -19,7 +19,7 @@ const TransactionFailedPage = () => {
       <div className="failedPage_wrapper">
         {/* Images wrapper */}
         <div className="failedPage_header_wrapper">
-          <img
+          {/* <img
             src={HeaderMask}
             className="img-fluid failedPage_headerMask"
             alt="Header Mask"
@@ -28,6 +28,13 @@ const TransactionFailedPage = () => {
             src={HeaderLight}
             className="img-fluid failedPage_headerLight"
             alt="Lights"
+          /> */}
+          
+          <Lottie
+            animationData={HeaderLights}
+            autoPlay={true}
+            loop={false}
+            className="spinner_header_lottie"
           />
         </div>
 

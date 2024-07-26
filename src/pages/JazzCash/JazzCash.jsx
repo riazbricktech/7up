@@ -7,6 +7,8 @@ import HeaderMask from "../../assets/images/new_images/header_mask.webp";
 import HeaderLight from "../../assets/images/new_images/header_lights.webp";
 import { useDispatch,useSelector } from "react-redux";
 import { transaction } from "../../redux/actions/TransactionAction";
+import Lottie from "lottie-react";
+import HeaderLights from "../../assets/images/lottie_files/lights_anim.json";
 
 const JazzCash = () => {
   const dispatch = useDispatch();
@@ -128,23 +130,30 @@ if (/android/i.test(userAgent)) {
     <Wrapper>
       <div className="jazzcash_form_wrapper">
         <div className="jazzcash_header_wrapper">
-          <img src={HeaderMask} className="img-fluid spinner_headerMask" alt="Header Mask" />
-          <img src={HeaderLight} className="img-fluid spinner_headerLight" alt="Lights" />
+        <Lottie
+            animationData={HeaderLights}
+            autoPlay={true}
+            loop={false}
+            className="jazzcash_headerMask"
+          />
+          {/* <img src={HeaderMask} className="img-fluid spinner_headerMask" alt="Header Mask" />
+          <img src={HeaderLight} className="img-fluid spinner_headerLight" alt="Lights" /> */}
         </div>
         <div className="jazzcash_form_Heading_wrapper">
           <p>Enter jazzcash number <br /> to receive your prize</p>
         </div>
         <form onSubmit={handleSubmit} className="form_wrapper" noValidate>
-          <div className="form_input_wrapper">
+          <div className="jazzcash_input_wrapper">
             <input
               type="text"
-              className={`form-control form_custom_input phone_input ${errors.phoneNumber ? "is-invalid" : ""}`}
+              className={`form-control jazzcash_custom_input phone_input ${errors.phoneNumber ? "is-invalid" : ""}`}
               id="validationServerPhone"
               aria-describedby="inputGroupPrepend3 validationServerPhoneFeedback"
               name="phoneNumber"
-              placeholder="0301 1234567"
+              placeholder="03XX XXXX XXX"
               value={formattedPhoneNumber}
               onChange={handleChange}
+              style={{fontWeight:"800"}}
             />
             {errors.phoneNumber ? (
               <div className="invalid-feedback error_message d-block">

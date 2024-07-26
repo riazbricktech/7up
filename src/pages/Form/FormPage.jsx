@@ -290,9 +290,10 @@ console.log(data,"data");
               }`}
               id="validationServerName"
               name="name"
-              placeholder="Name"
+              placeholder="Full Name"
               value={formValues.name}
               onChange={handleChange}
+              style={{fontWeight:"lighter !important"}}
             />
             {errors.name && (
               <div className="invalid-feedback error_message d-block">
@@ -316,7 +317,7 @@ console.log(data,"data");
               id="validationServerPhone"
               aria-describedby="inputGroupPrepend3 validationServerPhoneFeedback"
               name="phone_user"
-              placeholder="0312 1234567"
+              placeholder="03XX XXXX XXX"
               value={formattedPhoneNumber}
               onChange={handleChange}
             />
@@ -342,7 +343,7 @@ console.log(data,"data");
               id="validationServerCity"
               name="city_name"
               options={cityOptions}
-              placeholder="Select City"
+              placeholder="Select Your City"
             />
             {errors.city_name && (
               <div
@@ -364,7 +365,7 @@ console.log(data,"data");
                   }`}
                   id="validationServerUniqueId"
                   name="qr_code_user"
-                  placeholder="Unique Id"
+                  placeholder="Enter 8 Digit Code"
                   value={formValues?.qr_code_user}
                   onChange={handleChange}
                 />

@@ -9,7 +9,7 @@ import PakImage from "../../assets/images/new_images/congrats_image.webp";
 import HeartLottie from  "../../assets/images/lottie_files/hearts.json";
 
 import Lottie from 'lottie-react';
-
+import HeaderLights from "../../assets/images/lottie_files/lights_anim.json";
 
 const CongratulationPage = () => {
   const lottieRef = useRef();
@@ -26,8 +26,14 @@ localStorage.clear();
     <Wrapper>
       <div className="congrats_wrapper">
         <div className="congrats_header_wrapper">
-          <img src={HeaderMask} className="img-fluid congrats_headerMask" alt="Header Mask" />
-          <img src={HeaderLight} className="img-fluid congrats_headerLight" alt="Lights" />
+          {/* <img src={HeaderMask} className="img-fluid congrats_headerMask" alt="Header Mask" />
+          <img src={HeaderLight} className="img-fluid congrats_headerLight" alt="Lights" /> */}
+            <Lottie
+            animationData={HeaderLights}
+            autoPlay={true}
+            loop={false}
+            className="spinner_header_lottie"
+          />
         </div>
         <div className="congrats_heading_wrapper">
       <span>CONGRATULATIONS!</span>

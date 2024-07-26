@@ -26,19 +26,16 @@
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
-}
-
-.congrats_header_wrapper .congrats_headerMask,
-.congrats_header_wrapper .congrats_headerLight {
-    width: 100%;
     height: auto;
 }
+
+
 
 .congrats_wrapper .congrats_heading_wrapper {
     width: 100%;
     text-align: center;
     padding: 10px 0;
-    margin-top: calc(100vh - 83vh);
+    margin-top: 30px;
 }
 .congrats_wrapper .congrats_heading_wrapper span {
     color: #fde021;
@@ -120,7 +117,7 @@
 
 @media only screen and (max-width: 380px) {
     .congrats_wrapper .congrats_heading_wrapper {
-        margin-top: calc(100vh - 86vh);
+        margin-top: 0px !important;
     }
     .congrats_wrapper .congrats_heading_wrapper span {
         color: #fde021;

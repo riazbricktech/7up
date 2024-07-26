@@ -140,6 +140,11 @@
     z-index: 1111111111111111111;
 }
 
+.spin_result_wrapper .prize-message:disabled {
+    background-color: #aaaaaa !important;
+    color: var(--button-bg-color) !important;
+}
+
 .sc-gsTCUz {
     overflow: hidden !important;
 }

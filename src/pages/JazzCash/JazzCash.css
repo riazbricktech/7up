@@ -17,16 +17,11 @@
     animation: formFadeIn 2s ease-in-out;
     position: relative;
 }
-.jazzcash_header_wrapper .spinner_headerLight {
+.jazzcash_header_wrapper .jazzcash_headerMask {
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 100%;
-}
-
-.jazzcash_header_wrapper .spinner_headerMask,
-.jazzcash_header_wrapper .spinner_headerLight {
     width: 100%;
     height: auto;
 }
@@ -35,7 +30,7 @@
     width: 100%;
     text-align: center;
     padding: 10px 0;
-    margin-top: 90px;
+    margin-top: calc(100vh - 80vh);
 }
 .jazzcash_form_wrapper .jazzcash_form_Heading_wrapper p {
     color: white;
@@ -90,18 +85,18 @@
 
 /*  ////////   Input Box   /////// */
 
-.jazzcash_form_wrapper .form_input_wrapper {
+.jazzcash_form_wrapper .jazzcash_input_wrapper {
     margin: 10px 0;
 }
 
-.jazzcash_form_wrapper .form_custom_input {
+.jazzcash_form_wrapper .jazzcash_custom_input {
     box-shadow: 0 0 0 0 !important;
     border: none;
     /* background: none; */
     border-radius: 10px;
     color: var(--primary-text-color) !important;
     /* color: gray !important; */
-    font-weight: bolder !important;
+    font-weight: 700 !important;
     font-size: 22px;
     padding: 10px;
     text-align: center;
@@ -132,16 +127,16 @@
    -webkit-text-size-adjust: 22px !important;
    
   }
-.jazzcash_form_wrapper .form_input_wrapper .invalid-feedback {
+.jazzcash_form_wrapper .jazzcash_input_wrapper .invalid-feedback {
     margin-top: 0 !important;
     background: transparent;
     box-shadow: 0 0 0 0 !important;
     text-align: start;
 }
-.jazzcash_form_wrapper .form_custom_input::placeholder {
+.jazzcash_form_wrapper .jazzcash_custom_input::placeholder {
     color: var(--primary-text-color);
 }
-.jazzcash_form_wrapper .form_custom_input:focus {
+.jazzcash_form_wrapper .jazzcash_custom_input:focus {
     background-color: white;
     outline: none;
     box-shadow: none;
@@ -254,7 +249,8 @@
 @media only screen and (max-height: 600px) {
 
     .jazzcash_form_wrapper .jazzcash_form_Heading_wrapper {
-        margin-top: 60px !important;
+        margin-top: calc(100vh - 80vh);
+
     }
 
 }
