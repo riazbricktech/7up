@@ -25,6 +25,7 @@ export const postData = async (api, body) => {
         url: api,
         headers: {
             Authorization: "Bearer " + token,
+            'Content-Type': 'application/x-www-form-urlencoded',
         },
         data: body,
     });

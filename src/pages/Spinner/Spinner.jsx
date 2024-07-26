@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect,useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Spinner.css";
 import { v4 as uuidv4 } from "uuid";
@@ -12,7 +12,8 @@ import HeaderLight from "../../assets/images/new_images/header_lights.webp";
 import { spinPrice } from "../../redux/actions/SpinAction";
 import BetterLuckModal from "../../components/BetterLuckModal/BetterLuckModal";
 import { prizeName } from "../../redux/slice/WinPrizeSlice";
-
+import Lottie from 'lottie-react';
+import HeaderLights from  "../../assets/images/lottie_files/lights_anim.json";
 
 const inputList = [
 
@@ -49,7 +50,7 @@ const inputList = [
   },
   {
     id: uuidv4(),
-    option: "CHICKEN BROAST"
+    option: "CHICKEN BROAST",
   },
   {
     id: uuidv4(),
@@ -76,6 +77,7 @@ const Spinner = () => {
   const [prizeNumber, setPrizeNumber] = useState(0);
   const [rouletteData, setRouletteData] = useState(inputList);
   const [isBetterLuck, setIsBetterLuck] = useState(false);
+  const hasDispatched = useRef(false);
 
   const userData = useSelector((state) => state?.user?.createUserData);
   const spinData = useSelector((state) => state?.spin?.spinData);
@@ -90,9 +92,9 @@ const spinPrize = spinData?.response?.return_prize_amount;
 const spinMessage = spinData?.response?.return_message;
 
 
-// console.log(spinData?.response?.return_value , "spinData?response?.return_value");
-// console.log(spinData?.response?.return_prize_amount , "spinData?response?.return_prize_amount");
-// console.log(spinData?.response?.return_message , "spinData?response?.return_prize_amount");
+console.log(spinData?.response?.return_value , "spinData?response?.return_value");
+console.log(spinData?.response?.return_prize_amount , "spinData?response?.return_prize_amount");
+console.log(spinData?.response?.return_message , "spinData?response?.return_prize_amount");
 
 
     const userIDs = {
@@ -117,6 +119,7 @@ const dispatch = useDispatch();
   }, []);
 
   const handleSpinClick = (e) => {
+    console.log(prizeValue,"prizeValue")
     const newPrizeNumber = prizeValue;
     setPrizeNumber(newPrizeNumber);
     setMustSpin(true);
@@ -151,6 +154,8 @@ const dispatch = useDispatch();
 
   // Disptach ==============================================
   useEffect(()=>{
+    if (userData  && !hasDispatched.current) {
+      hasDispatched.current = true;
     dispatch(spinPrice(userIDs)).then((data)=>{
       console.log(data?.payload?.response?.return_prize_amount,"155")
 
@@ -197,15 +202,21 @@ const dispatch = useDispatch();
     //         setIsBetterLuck(true);
     //       }
     })
+  }
   },[])
 console.log(prizeValue,"200")
   return (
     <Wrapper>
-   
+   <div className="spinner_spin_wrapper">
+
       <div className="spinner_header_wrapper">
-        {/* <img src={HeaderImage} className="img-fluid" alt="Pakistan" /> */}
-        <img src={HeaderMask} className="spinner_headerMask img-fluid" alt="Pakistan" /> 
-        <img src={HeaderLight} className="spinner_headerLight img-fluid" alt="Pakistan" /> 
+      <Lottie animationData={HeaderLights}
+            autoPlay={true} loop={false} 
+            className="spinner_header_lottie" 
+            />
+
+        {/* <img src={HeaderMask} className="spinner_headerMask img-fluid" alt="Pakistan" /> 
+        <img src={HeaderLight} className="spinner_headerLight img-fluid" alt="Pakistan" />  */}
       </div>
       <div className="spinner_logo_wrapper">
     <p>SPIN THE WHEEL!</p>
@@ -214,6 +225,7 @@ console.log(prizeValue,"200")
       <div className="spinner_wrapper">
         <div align="center" className="roulette-container">
           <Wheel
+          style={{}}
             mustStartSpinning={mustSpin}
             spinDuration={[0.9]}
             prizeNumber={prizeNumber}
@@ -226,7 +238,7 @@ console.log(prizeValue,"200")
             radiusLineWidth={[0]}
             textColors={["#fff"]}
             textDistance={65}
-            fontSize={[16]}
+            fontSize={[13]}
             backgroundColors={[
               "#00b451",
               "#a4d925",
@@ -299,6 +311,8 @@ console.log(prizeValue,"200")
       </div>
 
       <BetterLuckModal  showBetterLuckModal={isBetterLuck}  closeBetterLuckModal={handleBetterLuckModal} />
+   </div>
+
     </Wrapper>
   );
 };

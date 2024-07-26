@@ -11,6 +11,20 @@
   position: relative;
   /* background-color: greenyellow; */
 }
+.winner_header_wrapper {
+  padding: 0;
+  width: 500px !important;
+  height: auto;
+  position: relative;
+}
+.winner_header_wrapper .winner_header_lottie {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 11;
+}
 
 .winner_frame_wrapper {
   position: absolute;
@@ -244,6 +258,8 @@
   top: 85%;
   left: 50%;
   transform: translate(-50%,-50%);  
+  z-index: 11111;
+  cursor: pointer;
 }
 
 

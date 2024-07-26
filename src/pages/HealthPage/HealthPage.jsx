@@ -7,7 +7,6 @@ import { healthCheck } from '../../redux/actions/HealthAction';
 const HealthPage = () => {
     const dispatch =useDispatch();
     const healthData = useSelector((state) => state?.health?.healthData);
-    console.log(healthData,"healthData")
 useEffect(() => {
   
     dispatch(healthCheck())

@@ -9,10 +9,11 @@ import { validatePakistaniPhoneNumber } from "../../services/NumberValidation";
 import HeaderMask from "../../assets/images/new_images/header_mask.webp";
 import HeaderLight from "../../assets/images/new_images/header_lights.webp";
 import SevenUPLogo from "../../assets/images/new_images/seven_up_bottom.webp";
-
 import SevenUpLottie from "../../assets/images/lottie_files/7UP_anim.json";
+import { useSelector } from "react-redux";
 
 const TransactionFailedPage = () => {
+  const transactionData = useSelector((state) => state?.taction?.transactionData);
   return (
     <Wrapper>
       <div className="failedPage_wrapper">
@@ -35,6 +36,13 @@ const TransactionFailedPage = () => {
           <p>TRANSACTION FAILED</p>
         </div>
 
+        
+        {/* Para wrapper */}
+        {transactionData?.response &&
+        <div className="failedPage_error_wrapper">
+          <p>{transactionData?.response}</p>
+        </div>
+}
         {/* Button wrapper */}
         <div className="failedPage_button_wrapper">
           <button className="btn btn-primary">TRY A DIFFERENT NUMBER</button>

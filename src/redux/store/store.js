@@ -11,6 +11,7 @@ import WinPrizeSlice from '../slice/WinPrizeSlice';
 import HealthSlice from '../slice/HealthSlice';
 
 import healthCheckSlice from "../slice/HealthSlice";
+import TransactionSlice from '../slice/TransactionSlice';
 
 // Combine all your slices into a rootReducer
 const rootReducer = combineReducers({
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
   qrCode: QrCodeSlice,
   prizeDetail :WinPrizeSlice,
   health:healthCheckSlice,
+  taction: TransactionSlice
 });
 
 // Configuration for redux-persist

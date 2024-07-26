@@ -14,10 +14,12 @@ import Lottie from 'lottie-react';
 const CongratulationPage = () => {
   const lottieRef = useRef();
   useEffect(() => {
+
     const instance = lottieRef.current;
     if (instance) {
       // instance.setSpeed(0.5); 
     }
+localStorage.clear();
   }, []);
 
   return (

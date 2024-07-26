@@ -26,6 +26,8 @@ import CapModal from "../../components/CapModal/CapModal";
 import TermsAndCondition from "../../components/Term&Condition/TermsAndCondition";
 import PrivacyPolicy from "../../components/PrivacyPolicy/PrivacyPolicy";
 import UniqueIdModal from "../../components/UniqueIdModal/UniqueIdModal";
+import Lottie from 'lottie-react';
+import HeaderLottie from  "../../assets/images/lottie_files/lights_anim.json";
 
 function FormPage() {
   const navigate = useNavigate();
@@ -177,10 +179,9 @@ function FormPage() {
     };
     const { phone_user, name, qr_code_user, city_name, city_id } = formValues;
     const data = { phone_user, name, qr_code_user, city_name, city_id };
-
+console.log(data,"data");
     for (const key in newErrors) {
       if (newErrors[key]) {
-        console.log({ [key]: newErrors[key] }, "{ [key]: newErrors[key] }");
         setErrors({ [key]: newErrors[key] });
         return;
       }
@@ -200,9 +201,8 @@ function FormPage() {
         if (res?.payload?.response?.return_value === 1) {
           setApiResponse(res?.payload?.response);
           setTimeout(() => {
-            alert("Form is valid!");
             navigate("/spin");
-          }, 2000);
+          }, 1500);
         }
       });
     }
@@ -250,7 +250,12 @@ function FormPage() {
         {/* Header Wrapper */}
         <div className="form_header_wrapper">
           {/* <img src={HeaderImage} className="img-fluid" alt="Pakistan" /> */}
-          <img
+
+          <Lottie animationData={HeaderLottie}
+            autoPlay={true} loop={false} 
+            className="form_header_lottie" 
+            />
+          {/* <img
             src={HeaderMask}
             className="form_headerMask img-fluid"
             alt="Pakistan"
@@ -259,7 +264,7 @@ function FormPage() {
             src={HeaderLight}
             className="form_headerLight img-fluid"
             alt="Pakistan"
-          />
+          /> */}
         </div>
 
         <div className="form_heading_wrapper">

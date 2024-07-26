@@ -10,6 +10,8 @@
 
 .form_wrapper {
     width: 400px !important;
+    position: relative;
+    z-index: 1;
 }
 .form-control{
     color: var(--primary-text-color) !important;
@@ -36,8 +38,10 @@
     height: auto;
     animation: formFadeIn 3s ease-in-out;
     position: relative;
+    z-index: 0;
+
 }
-.form_header_wrapper .form_headerLight {
+.form_header_wrapper .form_header_lottie {
     position: absolute;
     top: 0;
     left: 50%;
@@ -45,8 +49,7 @@
     width: 100%;
 }
 
-.form_headerMask,
-.form_headerLight {
+.form_header_lottie {
     width: 100%;
     height: auto;
 }
@@ -60,7 +63,7 @@
     animation: formFadeIn 2s ease-in-out;
     position: relative;
 text-align: center !important;
-margin-top: 65px ;
+margin-top: calc(100vh - 86vh) !important;
 }
 
 .form_heading_wrapper p{
@@ -106,12 +109,11 @@ line-height:  0;
     border-radius: 15px;
     background-color: white !important;
     color: var(--primary-text-color) !important;
-    font-weight: bolder !important;
+    font-weight: 300 !important;
     font-size: 20px;
-    font-family: var(--gothic-font) ;
-    letter-spacing: 1px;
+    font-family: var(--banton-font) ;
+    letter-spacing: .5px;
     padding: 10px 15px  !important;
-    text-transform: capitalize !important; 
 }
 .unique_id_wrapper{
     display: flex;
@@ -146,9 +148,12 @@ line-height:  0;
     margin-top: 0 !important;
     background:transparent;
      box-shadow:0 0 0 0 !important;
+     text-transform: capitalize !important;
+
 }
 .form_custom_input::placeholder {
-    color: var(--primary-text-color);
+    font-weight: 300 !important;
+    color: #ababab;
 }
 .form_custom_input:focus {
     background-color: var(--yellow-text-color);
@@ -165,9 +170,9 @@ line-height:  0;
     color: var(--primary-text-color) !important;
     font-size: 20px !important;
 
-    font-weight: bold !important;
-    font-family: var(--gothic-font);
-    letter-spacing: 1px !important;
+    font-weight: 300 !important;
+    font-family: var(--banton-font);
+    letter-spacing: .5px !important;
     padding: 4px 5px !important;
     width: 100% !important;
     border:none !important;
@@ -177,7 +182,7 @@ line-height:  0;
 }
 
 .css-1jqq78o-placeholder{
-    color: var(--primary-text-color) !important;
+    color: #ababab !important;
 }
 
 .css-t3ipsp-control{
@@ -185,10 +190,10 @@ line-height:  0;
     background-color: white !important;
     color: var(--primary-text-color) !important;
     font-size: 20px !important;
+    letter-spacing: .5px !important;
 
-    font-weight: bold !important;
-    font-family: var(--gothic-font);
-    letter-spacing: 1px !important;
+    font-weight: 300 !important;
+    font-family: var(--banton-font);
     padding: 2px 5px !important;
     width: 100% !important;
     border:none !important;
@@ -214,17 +219,17 @@ color: var(--primary-bg-color) !important;
     font-size: 20px !important;
     color: white !important;
 }
-/* .css-10wo9uf-option:nth-of-type(even) {
-    background-color: darkgreen !important;
+.css-10wo9uf-option:nth-of-type(even) {
+    background-color: #00b451 !important;
     color: white !important;
     border-radius: 10px !important;
-} */
+}
 
 /* Style for odd options */
-/* .css-10wo9uf-option:nth-of-type(odd) {
-    background-color: var(--primary-bg-color) !important;
+.css-10wo9uf-option:nth-of-type(odd) {
+    background-color: #01d366 !important;
     color: white !important;
-} */
+}
 
 
 
@@ -232,6 +237,7 @@ color: var(--primary-bg-color) !important;
     background-color: var(--secondary-bg-color) !important;
     color: var(--primary-text-color) !important;
     font-size: 20px !important;
+    border-radius: 10px !important;
 }
 .css-w9q2zk-Input2,
 .css-1dimb5e-singleValue{
@@ -253,7 +259,7 @@ color: var(--primary-text-color) !important;
     color: var(--primary-text-color) !important;
     font-size: 20px;
 
-    font-weight: bold;
+    font-weight: 300 !important;
     font-family:var(--banton-font) !important;
     letter-spacing: 1px;
     padding: 10px;
@@ -286,7 +292,7 @@ select{
 .form_custom_select option {
     background-color: var(--secondary-bg-color);
     color: var(--primary-text-color);
-    font-weight: bold;
+    font-weight: 300;
     font-family: var(--gothic-font);
     letter-spacing: 1px;
 }
@@ -401,18 +407,21 @@ select{
 .form_input_wrapper .error_message,
 .form_selectbox_wrapper .error_message,
 .form_checkbox_wrapper .error_message{
-    font-weight: 700 !important;
+    font-weight: 500 !important;
     font-family: var(--gothic-font);
     letter-spacing: 1px;
     box-shadow:none !important;
+    text-transform: capitalize !important;
 margin-left: 10px !important;
 }
 
 .selectBox_error_message{
-    font-weight: 700 !important;
+    font-weight: 300 !important;
     font-family: var(--gothic-font);
     letter-spacing: 1px;
     box-shadow:none !important;
+    text-transform: capitalize !important;
+
     
 /* padding-left: 5px !important; */
 margin-top: 0px !important;
@@ -435,7 +444,7 @@ margin-top: 0px !important;
 }
 
 .form_button_wrapper button:disabled {
-background-color: gray;
+background-color: #ababab;
 color: white;
 cursor: no-drop;
 }
@@ -502,12 +511,23 @@ cursor: no-drop;
      text-align: center;
       font-weight: 600;
       font-family: var(--banton-font);
+      text-transform: capitalize !important;
 }
 .response_success{
     color:green;
      text-align: center;
       font-weight: 600;
       font-family: var(--banton-font);
+}
+
+.form_custom_input {
+    text-transform: none !important; /* Ensure text is not automatically transformed to uppercase */
+    /* Other styles */
+}
+
+.form-control {
+    text-transform: none !important; /* Ensure text is not automatically transformed to uppercase */
+    /* Other styles */
 }
 @media only screen and (max-width: 500px) {
 
@@ -558,7 +578,8 @@ cursor: no-drop;
 @media only screen and (max-height: 810px) {
     .form_heading_wrapper{
 
-    margin-top: 60px ;
+        margin-top: calc(100vh - 86vh) !important;
+
     }
     .form_custom_input {
         padding: 7px 15px !important;
@@ -647,7 +668,7 @@ cursor: no-drop;
     }
     .form_bottle_wrapper {
         width: 70px;
-        top: 94% !important;
+        top: 97% !important;
         transform: translate(-50%,-50%);
     }
 }

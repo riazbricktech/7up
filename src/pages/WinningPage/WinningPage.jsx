@@ -35,7 +35,7 @@ import ParathaRoll from "../../assets/images/lottie_files/paratha-roll.json";
 import Pasta from "../../assets/images/lottie_files/pasta.json";
 import Sushi from "../../assets/images/lottie_files/sushi.json";
 import Samosa from  "../../assets/images/lottie_files/samosa.json";
-
+import HeaderLights from  "../../assets/images/lottie_files/lights_anim.json";
 
 const price ={
   50: FiftyPrice,
@@ -63,7 +63,7 @@ const Meal={
 const WinningPage = () => {
   const navigate = useNavigate();
   const [animate, setAnimate] = useState(false);
-  const [confettiOn, setConfettiOn] = useState(false);
+  // const [confettiOn, setConfettiOn] = useState(false);
   const [showButton, setShowButton] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const prizeName = useSelector((state) => state?.prizeDetail?.mealPrizeName);
@@ -71,8 +71,7 @@ const WinningPage = () => {
 
   const prizeValue = spinData?.response?.return_prize_amount;
 
-  console.log(prizeName,"win page prizename ------------- 23")
-  console.log(prizeValue,"prizeValue  ---------- 24");
+
 
 
   // const defaultOptions = {
@@ -118,7 +117,12 @@ const WinningPage = () => {
 
       {/*  WinninG Wrapper */}
       <div className="winner_wrapper">
-
+      <div className="winner_header_wrapper">
+      <Lottie animationData={HeaderLights}
+            autoPlay={true} loop={false} 
+            className="winner_header_lottie" 
+            />
+</div>
       <div className="winner_frame_wrapper">
           <img src={Frame} className="img-fluid" alt="Logo" />
         <p>YOU WON!</p>

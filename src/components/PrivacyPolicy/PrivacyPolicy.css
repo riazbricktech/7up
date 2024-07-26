@@ -9,7 +9,7 @@
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
     animation: ppModalFadeIn 0.5s ease-in-out;
-
+z-index: 111111;
   }
   
   @keyframes ppModalFadeIn {

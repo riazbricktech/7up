@@ -1,2 +1,2 @@
-const token = "HLfcBdJ2S9UmfbTgg1KXYYdef93mhqMFau0DrgBgY60dLhh0bAqd8h6kLbHReA8M";
+const token = "jt1VOpqVSuuJ1AZGeFtdTRGTTVd1Wvz0AXWVXmZcw2aYgSW52vSCFZodjwmU29Sp";
 export default token;
