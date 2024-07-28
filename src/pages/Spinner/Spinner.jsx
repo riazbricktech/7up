@@ -14,7 +14,8 @@ import BetterLuckModal from "../../components/BetterLuckModal/BetterLuckModal";
 import { prizeName } from "../../redux/slice/WinPrizeSlice";
 import Lottie from "lottie-react";
 import HeaderLights from "../../assets/images/lottie_files/lights_anim.json";
-
+import LeftCircle from "../../assets/images/new_images/form_left_circle.webp";
+import RightCircle from "../../assets/images/new_images/form_right_circle.webp";
 const inputList = [
   {
     id: uuidv4(),
@@ -82,7 +83,8 @@ const Spinner = () => {
 
   const userData = useSelector((state) => state?.user?.createUserData);
   const spinData = useSelector((state) => state?.spin?.spinData);
-  const spinLoading = useSelector((state) => state?.spin?.isLoading);
+  const isLoading = useSelector((state) => state?.spin?.isLoading);
+
   const lossOption = [3, 9];
   const fiftyOptions = [0];
   const hundredOptions = [1, 2];
@@ -331,12 +333,27 @@ const Spinner = () => {
               onClick={handleSpinClick}
               // disabled={mustSpin}
               style={{ textAlign: "center" }}
+              disabled={isLoading}
             >
-              Spin
+              
+              {isLoading ? <div class="spinner-border text-warning" style={{fontWeight:"100  !important"}} role="status">
+  <span class="visually-hidden" >Loading...</span>
+</div> : "Spin"}
+              
             </button>
           </div>
         </div>
-
+     {/* Circle  */}
+     <img
+          src={LeftCircle}
+          className="img-fluid form_left_circle"
+          alt="Cutted Circle"
+        />
+        <img
+          src={RightCircle}
+          className="img-fluid form_right_circle"
+          alt="Cutted Circle"
+        />
         <BetterLuckModal
           showBetterLuckModal={isBetterLuck}
           closeBetterLuckModal={handleBetterLuckModal}

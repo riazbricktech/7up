@@ -157,6 +157,25 @@
     display: none !important;
 }
 
+
+
+.spinner_spin_wrapper .form_left_circle{
+    position: absolute;
+    width: 17%;
+    left: 0%;
+    top: 73%;
+    transform: translate(-0%,-50%);
+    z-index: 1111;
+
+}
+.spinner_spin_wrapper .form_right_circle{
+    position: absolute;
+    right: 0%;
+    bottom: 22%;
+    transform: translate(-0%,-50%);
+    width: 12%;
+    z-index: 1111;
+}
 @keyframes formFadeIn {
     from {
         opacity: 0;
@@ -168,6 +187,10 @@
 
 @media only screen and (max-width: 500px) {
 
+    .spinner_spin_wrapper{
+        width: 100vw !important;
+
+    }
       .congrats_wrapper {
         width: 100vw !important;
     }

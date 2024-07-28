@@ -413,12 +413,15 @@ console.log(data,"data");
                   onChange={handleChange}
                 />
                 <label
-                  className="form-check-label"
+                  className={`form-check-label ${errors.terms ? 'errorLabel' : ''}`}
                   // htmlFor="validationServerTerms"
                   htmlFor=""
                   onClick={openTermsCon}
+                  // style={{color: errors.terms ? "#E81D2C" : "white"}}
+                  
                 >
-                  Terms & <br /> Conditions
+                 I have read the <span style={{color: errors.terms ? "#E81D2C !important" : "white"}}>Terms & Conditions</span> and consent to the 
+                  use of my personal data as per the <span style={{color: errors.terms ? "#E81D2C !important" : "white"}}>Privacy Notice</span>. I have the option to opt-out anytime.
                 </label>
               </div>
               <div>
@@ -433,25 +436,26 @@ console.log(data,"data");
                   onChange={handleChange}
                 />
                 <label
-                  className="form-check-label"
+                   className={`form-check-label ${errors.privacy ? 'errorLabel' : ''}`}
                   // htmlFor="validationServerPrivacy"
                   htmlFor=""
                   onClick={handleOpenPrivacyPolicy}
+                  // style={{color: errors.privacy ? "#E81D2C" : "white"}}
                 >
-                  Privacy <br /> Policy
+                 I consent to receiving product information and  promotional offers from PepsiCo, electronically, including,  SMS & WhatsApp
                 </label>
               </div>
             </div>
-            {errors.terms && (
+            {/* {errors.terms && (
               <div className="invalid-feedback error_message error_message d-block">
                 {errors.terms}
               </div>
-            )}
-            {errors.privacy && (
+            )} */}
+            {/* {errors.privacy && (
               <div className="invalid-feedback error_message error_message d-block">
                 {errors.privacy}
               </div>
-            )}
+            )} */}
           </div>
 
           {apiResponse?.return_value === 0 ? (
@@ -461,7 +465,9 @@ console.log(data,"data");
           )}
           <div className="form_button_wrapper">
             <button type="submit" disabled={userInfoLoading} className="btn btn-primary">
-              Next
+              {userInfoLoading ? <div class="spinner-border text-warning mt-1" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div> : "Next"}
             </button>
           </div>
         </form>
