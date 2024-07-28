@@ -55,6 +55,7 @@ z-index: 111111;
     margin-top: 20px;
     max-height: 400px;
     overflow-y: auto;
+    overflow-x: hidden;
   }
   
   .tc_button-container {

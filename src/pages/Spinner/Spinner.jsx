@@ -151,7 +151,7 @@ const Spinner = () => {
 
   //  Modal ==================================
   const handleBetterLuckModal = () => {
-    setIsBetterLuck(false);
+    // setIsBetterLuck(false);
   };
 
   // Disptach ==============================================

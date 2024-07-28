@@ -16,7 +16,7 @@ const CapModal = ({ showModal, closeModal }) => {
 
   return (
     <div className="cap_modal_overlay" onClick={handleOverlayClick}>
-      <div className="modal-icon" onClick={closeModal}>×</div>
+      <div className="modal-icon" onClick={closeModal}><span>x</span></div>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <img src={Header} alt="Header" className="modal-header-image"/>
         <div className="modal-body">

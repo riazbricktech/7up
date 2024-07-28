@@ -31,12 +31,14 @@ z-index: 111111;
   .pp_modal-content {
     background-color: #fefefe;
     margin: auto;
-    padding: 20px;
+    padding: 25px 15px;
     border: 1px solid #888;
-    width: 80%;
+    width: 95%;
     max-width: 400px;
+    /* max-height: 550px; */
     border-radius: 10px;
     text-align: center;
+    overflow-y: scroll;
   }
   
   .pp_modal-header {

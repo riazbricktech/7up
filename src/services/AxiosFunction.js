@@ -33,6 +33,20 @@ export const postData = async (api, body) => {
 
 };
 
+export const jazzCashData = async (api, body) => {
+    const responseData = await Axios.request({
+        method: 'POST',
+        url: api,
+        headers: {
+            Authorization: "Bearer " + `HLfcBdJ2S9UmfbTgg1KXYYdef93mhqMFau0DrgBgY60dLhh0bAqd8h6kLbHReA8M`,
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        data: body,
+    });
+    return await responseData.data;
+
+};
+
 // put request using Axios
 export const updateData = async (api, body) => {
     const res = await Axios.request({

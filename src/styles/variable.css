@@ -7,7 +7,17 @@
   font-family: 'BentonSans_Black';
   src: url('../assets/fonts/BentonSans_Black.woff2') format('woff2');
 }
+@font-face {
+  font-family: 'BentonSans_Black_Regular';
+  src: url('../assets/fonts/BentonSans_Black_Regular.woff2') format('woff2');
+}
 
+
+/* gothic light */
+@font-face {
+  font-family: 'BentonSans_light_Regular';
+  src: url('../assets/fonts/BentonSans_Light_Regular.woff2') format('woff2');
+}
 
 :root {
     /*  //////////////////// background Color ////////////////////////// */
@@ -30,5 +40,7 @@
 
     --gothic-font: 'headline-gothic-atf', sans-serif;
     --banton-font: 'BentonSans_Black', sans-serif;
+    --banton-regular-font: 'BentonSans_Black_Regular', sans-sarif;
+    --banton-light-font: 'BentonSans_light_Regular', sans-sarif;
 
   }

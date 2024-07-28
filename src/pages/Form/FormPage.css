@@ -25,8 +25,10 @@
 }
 
   .form-control:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px white  inset !important;
+    background-color: white !important;
+    -webkit-box-shadow: white !important;
     -webkit-text-fill-color: var(--primary-text-color) !important;
+   
    
   }
   .form-control:focus {
@@ -86,18 +88,11 @@ margin-top: calc(100vh - 86vh) !important;
     margin-top: 5px;
 
 }
-.form_input_wrapper label{
-    color: var(--yellow-text-color);
-    margin: 3px 10px;
-    font-size: 18px;
-    font-family: var(--banton-font);
-font-weight: 600;
-}
 
 .form_input_wrapper label,
 .form_selectbox_wrapper label{
     color: var(--yellow-text-color);
-    margin: 3px 10px;
+    margin: 18px 10px !important;
     font-size: 18px;
     font-family: var(--banton-font);
 font-weight: 300 ; 
@@ -105,16 +100,16 @@ line-height:  0;
 
 }
 
-.form_custom_input {
+.form_page_wrapper .form_custom_input {
     box-shadow:0 0 0 0 !important;
     border: none;
     background: none;
-    border-radius: 15px;
+    border-radius: 10px;
     background-color: white !important;
     color: var(--primary-text-color) !important;
-    font-weight: 300 !important;
+    font-weight: 600 !important;
     font-size: 18px;
-    font-family: var(--banton-font) ;
+    font-family: var(--banton-light-font);
     letter-spacing: .5px;
     padding: 10px 15px  !important;
 }
@@ -155,7 +150,7 @@ line-height:  0;
 
 }
 .form_custom_input::placeholder {
-    font-weight: 300 !important;
+    font-weight: 600 !important;
     color: #ababab;
 }
 .form_custom_input:focus {
@@ -168,13 +163,13 @@ line-height:  0;
 /*  /////////////////   Select Box   //////////////////// */
 
 .css-13cymwt-control{
-    border-radius: 15px !important;
+    border-radius: 12px !important;
     background-color:white !important;
     color: var(--primary-text-color) !important;
     font-size: 18px !important;
 
-    font-weight: 300 !important;
-    font-family: var(--banton-font);
+    font-weight: 600 !important;
+    font-family: var(--banton-light-font);
     letter-spacing: .5px !important;
     padding: 4px 5px !important;
     width: 100% !important;
@@ -189,14 +184,14 @@ line-height:  0;
 }
 
 .css-t3ipsp-control{
-    border-radius: 15px !important;
+    border-radius: 12px !important;
     background-color: white !important;
     color: var(--primary-text-color) !important;
     font-size: 18px !important;
     letter-spacing: .5px !important;
 
-    font-weight: 300 !important;
-    font-family: var(--banton-font);
+    font-weight: 600 !important;
+    font-family: var(--banton-light-font);
     padding: 2px 5px !important;
     width: 100% !important;
     border:none !important;
@@ -256,24 +251,7 @@ color: var(--primary-text-color) !important;
 .css-151sz6c-indicatorContainer svg{
     color: var(--primary-bg-color) !important;
 }
-.form_custom_select {
-    border-radius: 15px !important;
-    background-color:white !important;
-    color: var(--primary-text-color) !important;
-    font-size: 18px;
 
-    font-weight: 300 !important;
-    font-family:var(--banton-font) !important;
-    letter-spacing: 1px;
-    padding: 10px;
-    width: 100%;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    border: none !important;
-    background-image: none !important ;
-    background-size: 0px !important;
-}
 select{
     background-image: none !important ;
 
@@ -431,30 +409,31 @@ margin-top: 0px !important;
 }
 .form_button_wrapper {
     text-align: center;
+    width: 100% !important;
 }
 .form_button_wrapper button {
     margin-top: 12px;
     width: 100%;
     padding: 4px 40px !important;
-    border-radius: 15px !important;
+    border-radius: 12px !important;
     background-color: var(--button-bg-color);
     border: none;
     border-bottom: 4px solid darkgreen;
-    font-size: 28px !important;
+    font-size: 34px !important;
     font-family: var(--gothic-font);
     letter-spacing: 1px;
     color: white;
 }
 
 .form_button_wrapper button:disabled {
-background-color: #ababab;
-color: white;
-cursor: no-drop;
+background-color: #ababab !important;
+color:  var(--button-bg-color) !important;
+cursor: no-drop !important;
 }
 .form_button_wrapper button:focus {
     background-color: var(--secondary-bg-color) !important;
     border-bottom: 4px solid gray !important;
-
+    box-shadow: none;
 }
 .form_button_wrapper .btn:hover {
     background-color: white !important;
@@ -584,16 +563,16 @@ cursor: no-drop;
         margin-top: calc(100vh - 86vh) !important;
 
     }
-    .form_custom_input {
+    /* .form_custom_input {
         padding: 7px 15px !important;
-    }
+    } */
     .unique_id_wrapper button {
         padding: 7px 15px !important;
 
     }
-    .css-13cymwt-control{
+    /* .css-13cymwt-control{
         padding: 1px 5px !important
-    }
+    } */
     
     .form_heading_wrapper p{
         font-size: 22px;
@@ -640,7 +619,7 @@ cursor: no-drop;
         margin-top: 1px !important;
     }
     .form_custom_input {
-        font-size: 14px;
+        font-size: 16px !important;
         border-radius: 10px;
     }
     .form_input_wrapper label,
@@ -652,7 +631,7 @@ cursor: no-drop;
 
 
     .unique_id_wrapper button {
-        padding: 4px 11px !important;
+        padding: 0px 15px !important;
 
     }
     .unique_id_wrapper button img{
@@ -661,8 +640,8 @@ cursor: no-drop;
 
     .css-13cymwt-control{
         border-radius: 10px !important;
-        font-size: 14px !important;
-        padding: 0px 5px !important;
+        font-size: 16px !important;
+        padding: 5px 5px !important;
     }
     .css-t3ipsp-control{
         border-radius: 10px !important;
@@ -671,7 +650,7 @@ cursor: no-drop;
     }
     .form_bottle_wrapper {
         width: 70px;
-        top: 97% !important;
+        top: 102% !important;
         transform: translate(-50%,-50%);
     }
 }

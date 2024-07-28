@@ -1,23 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Wrapper from "../../reusableComponents/Wrapper/Wrapper";
-// import LogoImage from "../../assets/images/sevenUp_logo.webp";
-// import LeftHand from "../../assets/images/new_images/left_hand.webp";
-// import RightHand from "../../assets/images/new_images/right_hand.webp";
 import Frame from "../../assets/images/new_images/frame.webp";
-// import Samosas from "../../assets/images/meal_images/samosa.webp";
 import "./WinningPage.css";
-// import Confetti from "react-confetti";
-import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
 import Lottie from 'lottie-react';
 
 // Animated Can Lottie
 import AnimatedCan from "../../assets/images/lottie_files/Can-animation.json";
-
 // Button Lottie
 import ClaimButton from  "../../assets/images/lottie_files/claim-button.json";
-
-
 // Price Value Lottie
 import FiftyPrice from "../../assets/images/lottie_files/50-pricing.json";
 import HundredPrice from "../../assets/images/lottie_files/100-pricing.json";
@@ -36,6 +26,13 @@ import Pasta from "../../assets/images/lottie_files/pasta.json";
 import Sushi from "../../assets/images/lottie_files/sushi.json";
 import Samosa from  "../../assets/images/lottie_files/samosa.json";
 import HeaderLights from  "../../assets/images/lottie_files/lights_anim.json";
+
+import { useNavigate } from "react-router-dom";
+import { useDispatch,useSelector } from "react-redux";
+import { transaction } from "../../redux/actions/TransactionAction";
+
+
+
 
 const price ={
   50: FiftyPrice,
@@ -62,28 +59,59 @@ const Meal={
 
 const WinningPage = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [animate, setAnimate] = useState(false);
   // const [confettiOn, setConfettiOn] = useState(false);
   const [showButton, setShowButton] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const prizeName = useSelector((state) => state?.prizeDetail?.mealPrizeName);
   const spinData = useSelector((state) => state?.spin?.spinData);
+  const userData = useSelector((state) => state?.user?.createUserData);
+  const {return_transaction_id, return_user_id,return_phone_user}=userData?.response; 
+const {return_prize_amount}=spinData?.response;
 
-  const prizeValue = spinData?.response?.return_prize_amount;
-
-
-
-
-  // const defaultOptions = {
-  //   loop: false,
-  //   autoplay: true,
-  //   animationData: price[100],
-  //   rendererSettings: {
-  //     preserveAspectRatio: 'xMidYMid slice'
-  //   }
+  // console.log(return_transaction_id,"return_transaction_id");
+  // console.log(return_user_id,"return_user_id");
+  // console.log(return_phone_user,"return_phone_user");
+  // console.log(return_prize_amount,"return_prize_amount");
+  // const jazzCashData ={
+  //   receiver_number:return_phone_user,
+  //   amount:`${return_prize_amount}.00`,
+  //   transaction_id: return_transaction_id,
+  //   user_id:return_user_id,
   // };
 
+    const jazzCashData ={
+    receiver_number: `03234182009`,
+    amount:`50.00`,
+    transaction_id: 88,
+    user_id:92,
+  };
 
+console.log(jazzCashData,"jazzCashData");
+
+const handleJazzCashTransaction =()=>{
+
+
+  dispatch(transaction(jazzCashData)).then((data)=>{
+    console.log(data?.payload,"data *-+-*+-*--*/**/*+");
+    if(data?.payload?.status === 1)
+      {
+        navigate("/congrats");
+      }
+      else if(data?.payload?.status === 0 &&  data?.payload?.code === "G2P-T-2001" ){
+        // setTransactionFailedError("*This number is not on JazzCash");
+        navigate("/jazzcash");
+        // alert( "Please Registor your acount on  Jazz Cash ");
+        return
+      }
+      else{
+        // alert( "Transaction Failed please try different account");
+        navigate("/transactionfailed");
+
+      }
+  })
+}
 
 
   useEffect(() => {
@@ -91,11 +119,6 @@ const WinningPage = () => {
     const timer = setTimeout(() => {
       setAnimate(true);
     }, 1200);
-
-    // Confetti Time Out
-    // const confettiTimer = setTimeout(() => {
-    //   setConfettiOn(true);
-    // }, 1300);
 
     // Button Show Time Out
     const buttonTimer = setTimeout(() => {
@@ -167,7 +190,7 @@ const WinningPage = () => {
         {showButton && (
           <div className="you-won-button-wrapper">
                  
-                    <Lottie animationData={price[prizeValue]}
+                    <Lottie animationData={price[return_prize_amount]}
             autoPlay={true} loop={false} 
             className="price_lottie"
             />
@@ -179,7 +202,9 @@ const WinningPage = () => {
     <>
               <Lottie animationData={ClaimButton}
             autoPlay={true} loop={false} 
-            className="claim-button"  onClick={()=> navigate("/jazzcash") }
+            className="claim-button" 
+            onClick={handleJazzCashTransaction}
+            //  onClick={()=> navigate("/jazzcash") }
             />
         
     </>

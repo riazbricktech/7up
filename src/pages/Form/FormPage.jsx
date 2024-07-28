@@ -39,7 +39,7 @@ function FormPage() {
   const qrCode = useSelector((state) => state?.qrCode?.qrCodeNumber);
   const userData = useSelector((state) => state?.user?.createUserData);
   const userInfoLoading = useSelector((state) => state?.user?.isLoading);
-
+console.log(userInfoLoading,"userInfoLoading")
 
 
   const cityOptions = cityData
@@ -189,6 +189,7 @@ console.log(data,"data");
 
     if (data) {
       dispatch(createUser(data)).then((res) => {
+        console.log(res?.payload?.response,"formPage 192")
         // setApiResponse(userData)
         if (res?.payload?.response?.return_value === 0 && res?.payload?.response?.return_message === "This code is already used") {
           setIsUniqueQrCode(true);
@@ -226,13 +227,18 @@ console.log(data,"data");
 
   useEffect(() => {
     dispatch(getCities());
-  }, [dispatch]);
+  }, []);
 
   const openTermsCon = () => {
     setTCOpen(true);
   };
 
-  const closeTermsCon = () => {
+  const closeTermsCon = (response) => {
+    if (response === 1) { 
+      setFormValues({ ...formValues, terms: true });
+    } else if (response === 0) { 
+      setFormValues({ ...formValues, terms: false });
+    }
     setTCOpen(false);
   };
 
@@ -269,8 +275,10 @@ console.log(data,"data");
 
         <div className="form_heading_wrapper">
           <p>
-            Please fill in the form <br />
-            to win Prize
+          Fill in the form to<br />
+          win exciting prizes
+        
+
           </p>
         </div>
 
@@ -406,7 +414,8 @@ console.log(data,"data");
                 />
                 <label
                   className="form-check-label"
-                  htmlFor="validationServerTerms"
+                  // htmlFor="validationServerTerms"
+                  htmlFor=""
                   onClick={openTermsCon}
                 >
                   Terms & <br /> Conditions
@@ -425,7 +434,8 @@ console.log(data,"data");
                 />
                 <label
                   className="form-check-label"
-                  htmlFor="validationServerPrivacy"
+                  // htmlFor="validationServerPrivacy"
+                  htmlFor=""
                   onClick={handleOpenPrivacyPolicy}
                 >
                   Privacy <br /> Policy
