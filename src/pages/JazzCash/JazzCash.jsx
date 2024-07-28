@@ -10,11 +10,14 @@ import HeaderLights from "../../assets/images/lottie_files/lights_anim.json";
 import ErrorIcon from "../../assets/images/new_images/error.webp";
 import CreateAccountModal from "../../components/CreateAccountModal/CreateAccountModal";
 import MaxAttemptModal from "../../components/MaxAttemptModal/MaxAttemptModal";
+import { transactionCountFunction } from "../../redux/slice/TransactionCountSlice";
 
 const JazzCash = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isCreateAccount, setIsCreateAccount] = useState(false);
+  const [isDisabledFields, setIsDisabledFields] = useState(true);
+
   const [isMaxAttempt, setIsMaxAttempt] = useState(false);
 
   const [formValues, setFormValues] = useState({
@@ -31,26 +34,29 @@ const JazzCash = () => {
   const transactionData = useSelector(
     (state) => state?.taction?.transactionData
   );
+  const transactionCount = useSelector(
+    (state) => state?.transactionCount?.transCountNum
+  );
 
+  console.log(transactionCount,"transactionCount");
   const { return_transaction_id, return_user_id, return_phone_user } =
     userData?.response;
   const { return_prize_amount } = spinData?.response;
 
   console.log(transactionData?.code, "transactionData");
 
-  // const jazzCashData ={
-  //   receiver_number:formValues.phoneNumber,
-  //   amount:`${return_prize_amount}.00`,
-  //   transaction_id: return_transaction_id,
-  //   user_id:return_user_id,
-  //   // type:1
-  // }
   const jazzCashData = {
-    receiver_number: `03234182009`,
-    amount: `50.00`,
-    transaction_id: 88,
-    user_id: 92,
+    receiver_number: formValues.phoneNumber,
+    amount: `${return_prize_amount}.00`,
+    transaction_id: return_transaction_id,
+    user_id: return_user_id,
   };
+  // const jazzCashData = {
+  //   receiver_number: `03234182009`,
+  //   amount: `50.00`,
+  //   transaction_id: 88,
+  //   user_id: 92,
+  // };
   const handleChange = (e) => {
     const { name, value } = e.target;
     let updatedValue = value;
@@ -91,18 +97,14 @@ const JazzCash = () => {
         return "";
     }
   };
-  const handleApplication = () => {
-    const userAgent = navigator.userAgent || navigator.vendor;
 
-    if (/android/i.test(userAgent)) {
-      window.location.href =
-        "https://www.google.com/aclk?sa=L&ai=DChcSEwjfouHticKHAxXIkmgJHQgmDl4YABAAGgJ3Zg&ase=2&gclid=CjwKCAjw74e1BhBnEiwAbqOAjJywEfNlb_OkPGlZ-1ELTiyJp93dYS7Mi9GO6Z8jLRJbH-GwYlIlSBoC7aQQAvD_BwE&sig=AOD64_3i9IZynsqNsw21KtCWULPczOHYHA&q=&nis=6&ved=2ahUKEwiM-tnticKHAxWqcKQEHfmOAeEQ3ooFegQIERAB&adurl=";
-    } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-      window.location.href =
-        "https://apps.apple.com/pk/app/jazzcash/id1254853964";
-    } else {
-      console.log("User is using some other device");
-    }
+  
+  const handleCreateAccountAlert = () => {
+    setIsCreateAccount(true);
+
+    setTimeout(() => {
+      setIsDisabledFields(false);
+    }, 4000);
   };
 
   const handleSubmit = (e) => {
@@ -121,23 +123,24 @@ const JazzCash = () => {
           data?.payload?.code === "G2P-T-2001"
         ) {
           // setErrors("*This number is not on JazzCash");
+          dispatch(transactionCountFunction(transactionCount + 1));
           setErrors({
             phoneNumber: "",
           });
           setTransactionFailedError("*This number is not on JazzCash");
           return;
         } else {
-          // navigate("/transactionfailed");
+          navigate("/transactionfailed");
 
-          if (/android/i.test(userAgent)) {
-            window.location.href =
-              "https://www.google.com/aclk?sa=L&ai=DChcSEwjfouHticKHAxXIkmgJHQgmDl4YABAAGgJ3Zg&ase=2&gclid=CjwKCAjw74e1BhBnEiwAbqOAjJywEfNlb_OkPGlZ-1ELTiyJp93dYS7Mi9GO6Z8jLRJbH-GwYlIlSBoC7aQQAvD_BwE&sig=AOD64_3i9IZynsqNsw21KtCWULPczOHYHA&q=&nis=6&ved=2ahUKEwiM-tnticKHAxWqcKQEHfmOAeEQ3ooFegQIERAB&adurl=";
-          } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-            window.location.href =
-              "https://apps.apple.com/pk/app/jazzcash/id1254853964";
-          } else {
-            console.log("User is using some other device");
-          }
+          // if (/android/i.test(userAgent)) {
+          //   window.location.href =
+          //     "https://www.google.com/aclk?sa=L&ai=DChcSEwjfouHticKHAxXIkmgJHQgmDl4YABAAGgJ3Zg&ase=2&gclid=CjwKCAjw74e1BhBnEiwAbqOAjJywEfNlb_OkPGlZ-1ELTiyJp93dYS7Mi9GO6Z8jLRJbH-GwYlIlSBoC7aQQAvD_BwE&sig=AOD64_3i9IZynsqNsw21KtCWULPczOHYHA&q=&nis=6&ved=2ahUKEwiM-tnticKHAxWqcKQEHfmOAeEQ3ooFegQIERAB&adurl=";
+          // } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+          //   window.location.href =
+          //     "https://apps.apple.com/pk/app/jazzcash/id1254853964";
+          // } else {
+          //   console.log("User is using some other device");
+          // }
         }
       });
       // navigate("/congrats");
@@ -147,7 +150,7 @@ const JazzCash = () => {
   };
 
   const handleCreateAccountModal = () => {
-    // setIsCreateAccount(false)
+    setIsCreateAccount(false);
   };
 
   const handleMaxAttemptModal = () => {
@@ -166,14 +169,17 @@ const JazzCash = () => {
   }, [transactionData]);
 
   useEffect(() => {
+    console.log(return_phone_user, "before return_phone_user");
+
     if (return_phone_user) {
-      setFormValues((prevValues) => ({
-        ...prevValues,
-        phoneNumber: "Riaz",
-      }));
+      console.log(return_phone_user, "return_phone_user");
+      setFormattedPhoneNumber(return_phone_user)
+      // setFormValues(() => ({
+      //   phoneNumber: return_phone_user,
+      // }));
     }
   }, [return_phone_user]);
-
+console.log(formValues.phoneNumber,"***********************")
   return (
     <Wrapper>
       <div className="jazzcash_form_wrapper">
@@ -186,16 +192,18 @@ const JazzCash = () => {
           />
         </div>
 
-        {/* <div className="jazzcash_error_wrapper">
-          <img src={ErrorIcon} alt="Error" />
-          <p>
-            You have already tried twice. <br />
-            One last attempt left
-          </p>
-        </div> */}
+        {transactionCount === 2 && (
+          <div className="jazzcash_error_wrapper">
+            <img src={ErrorIcon} alt="Error" />
+            <p>
+              You have already tried twice. <br />
+              One last attempt left
+            </p>
+          </div>
+        )}
 
         <div className="jazzCash_button_wrapper">
-          <button className="btn btn-primary" onClick={handleApplication}>
+          <button className="btn btn-primary" onClick={handleCreateAccountAlert}>
             CREATE JAZZCASH ACCOUNT
           </button>
         </div>
@@ -220,12 +228,10 @@ const JazzCash = () => {
               value={formattedPhoneNumber}
               onChange={handleChange}
               style={{
-                fontWeight: "800",
-                backgroundColor:
-                  transactionData?.code === "" ? "gray" : "white",
-                cursor: transactionData?.code === "" ? "no-drop" : "",
+                color: isDisabledFields ? "gray" : "white",
+                cursor: isDisabledFields ? "no-drop" : "",
               }}
-              disabled={transactionData?.code === ""}
+              disabled={isDisabledFields}
             />
             {errors.phoneNumber ? (
               <div className="invalid-feedback error_message d-block">
@@ -244,19 +250,34 @@ const JazzCash = () => {
             )}
           </div>
           <div className="form_button_wrapper">
-            <button type="submit" className="btn btn-primary">
+            <button
+              type="submit"
+              className="btn btn-primary"
+              disabled={isDisabledFields}
+              style={{
+                backgroundColor: isDisabledFields ? "#aaaaaa" : "#E81D2C",
+                color: isDisabledFields ? "#E81D2C" : "white",
+
+                cursor: isDisabledFields ? "no-drop" : "",
+              }}
+            >
               Next
             </button>
           </div>
         </form>
       </div>
-      {/* <CreateAccountModal
+      {isCreateAccount && (
+        <CreateAccountModal
           showCreateAccountModal={isCreateAccount}
           closeCreateAccountModal={handleCreateAccountModal}
         />
-        <MaxAttemptModal  showMaxAttemptModal={true}
+      )}
+      {transactionCount === 3 && (
+        <MaxAttemptModal
+          showMaxAttemptModal={true}
           closeMaxAttemptModal={handleMaxAttemptModal}
-        /> */}
+        />
+      )}
     </Wrapper>
   );
 };

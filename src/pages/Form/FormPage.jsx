@@ -287,7 +287,7 @@ console.log(data,"data");
           <div className="form_input_wrapper">
             <label
               htmlFor="validationServerName"
-              style={!isQrCode ? { padding: "17px 0" } : { padding: "0" }}
+              style={!isQrCode ? { padding: "3px 0" } : { padding: "0" }}
             >
               Name
             </label>
@@ -313,7 +313,7 @@ console.log(data,"data");
           <div className="form_input_wrapper">
             <label
               htmlFor="validationServerPhone"
-              style={!isQrCode ? { padding: "17px 0" } : { padding: "0" }}
+              style={!isQrCode ? { padding: "3px 0" } : { padding: "0" }}
             >
               Phone Number
             </label>
@@ -338,7 +338,7 @@ console.log(data,"data");
           <div className="form_selectbox_wrapper">
             <label
               htmlFor="validationServerCity"
-              style={!isQrCode ? { padding: "17px 0" } : { padding: "0" }}
+              style={!isQrCode ? { padding: "3px 0" } : { padding: "0" }}
             >
               City
             </label>

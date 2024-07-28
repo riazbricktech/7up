@@ -423,6 +423,7 @@ margin-top: 0px !important;
     font-family: var(--gothic-font);
     letter-spacing: 1px;
     color: white;
+    line-height: 44px;
 }
 
 .form_button_wrapper button:disabled {

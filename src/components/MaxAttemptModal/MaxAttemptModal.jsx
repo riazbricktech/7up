@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React,{useEffect} from 'react';
 import './MaxAttemptModal.css';
 import Emoji from "../../assets/images/new_images/emoji.webp";
+import { useNavigate } from 'react-router-dom';
 
 const MaxAttemptModal = ({ showMaxAttemptModal, closeMaxAttemptModal }) => {
-    const [seconds, setSeconds] = useState(4);
-
+const navigate =useNavigate();
   if (!showMaxAttemptModal) {
     return null;
   }
@@ -15,33 +15,20 @@ const MaxAttemptModal = ({ showMaxAttemptModal, closeMaxAttemptModal }) => {
 //     }
 //   };
 
-
 useEffect(() => {
-  if (seconds > 0) {
-    const timer = setInterval(() => {
-      setSeconds(prevSeconds => prevSeconds - 1);
-    }, 1000);
-
-    return () => clearInterval(timer); 
+  
+  if(showMaxAttemptModal){
+    localStorage.clear();
+    const timer = setTimeout(() => {
+      navigate('/'); 
+    }, 3000);
+  
+    return () => clearTimeout(timer);
   }
-}, [seconds]);
 
-useEffect(()=>{
-if(seconds === 0){
-    const userAgent = navigator.userAgent || navigator.vendor;
+ 
+}, [showMaxAttemptModal])
 
-    if (/android/i.test(userAgent)) {
-      window.location.href =
-        "https://www.google.com/aclk?sa=L&ai=DChcSEwjfouHticKHAxXIkmgJHQgmDl4YABAAGgJ3Zg&ase=2&gclid=CjwKCAjw74e1BhBnEiwAbqOAjJywEfNlb_OkPGlZ-1ELTiyJp93dYS7Mi9GO6Z8jLRJbH-GwYlIlSBoC7aQQAvD_BwE&sig=AOD64_3i9IZynsqNsw21KtCWULPczOHYHA&q=&nis=6&ved=2ahUKEwiM-tnticKHAxWqcKQEHfmOAeEQ3ooFegQIERAB&adurl=";
-    } 
-    else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-      window.location.href =
-        "https://apps.apple.com/pk/app/jazzcash/id1254853964";
-    } else {
-     Alert("Please create account on Jazzcash and return to this screen")
-    }
-}
-},[seconds])
 
   return (
   <>

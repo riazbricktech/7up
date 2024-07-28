@@ -82,11 +82,18 @@ const {return_prize_amount}=spinData?.response;
   // };
 
     const jazzCashData ={
-    receiver_number: `03234182009`,
-    amount:`50.00`,
-    transaction_id: 88,
-    user_id:92,
+    receiver_number:return_phone_user,
+    amount:`${return_prize_amount}.00`,
+    transaction_id: return_transaction_id,
+    user_id:return_user_id,
   };
+
+  //   const jazzCashData ={
+  //   receiver_number: `03234182009`,
+  //   amount:`50.00`,
+  //   transaction_id: 88,
+  //   user_id:92,
+  // };
 
 console.log(jazzCashData,"jazzCashData");
 
@@ -102,11 +109,9 @@ const handleJazzCashTransaction =()=>{
       else if(data?.payload?.status === 0 &&  data?.payload?.code === "G2P-T-2001" ){
         // setTransactionFailedError("*This number is not on JazzCash");
         navigate("/jazzcash");
-        // alert( "Please Registor your acount on  Jazz Cash ");
         return
       }
       else{
-        // alert( "Transaction Failed please try different account");
         navigate("/transactionfailed");
 
       }

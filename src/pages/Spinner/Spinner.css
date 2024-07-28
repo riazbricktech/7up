@@ -129,7 +129,7 @@
     margin-top: 0px;
     width: 75%;
     padding: 0px 40px !important;
-    border-radius: 15px !important;
+    border-radius: 12px !important;
     background-color: var(--button-bg-color);
     border-bottom: 4px solid darkgreen;
     font-size: 28px !important;
@@ -138,6 +138,7 @@
     color: white;
     position: relative;
     z-index: 1111111111111111111;
+    line-height: 45px;
 }
 
 .spin_result_wrapper .prize-message:disabled {

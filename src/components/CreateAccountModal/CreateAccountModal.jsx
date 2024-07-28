@@ -2,28 +2,18 @@ import React, { useEffect, useState } from 'react';
 import './CreateAccountModal.css';
 import WaitingIcon from "../../assets/images/new_images/waiting.webp";
 const CreateAccountModal = ({ showCreateAccountModal, closeCreateAccountModal }) => {
-    const [seconds, setSeconds] = useState(4);
+    const [seconds, setSeconds] = useState(3);
+console.log(closeCreateAccountModal,"closeCreateAccountModal");
+ console.log(showCreateAccountModal,"showCreateAccountModal 7")
 
-  if (!showCreateAccountModal) {
-    return null;
-  }
-
-//   const handleOverlayClick = (e) => {
-//     if (e.target === e.currentTarget) {
-//       closeBetterLuckModal();
-//     }
-//   };
+  const handleOverlayClick = (e) => {
+    if (e.target === e.currentTarget) {
+      closeCreateAccountModal();
+    }
+  };
 
 
-useEffect(() => {
-  if (seconds > 0) {
-    const timer = setInterval(() => {
-      setSeconds(prevSeconds => prevSeconds - 1);
-    }, 1000);
 
-    return () => clearInterval(timer); 
-  }
-}, [seconds]);
 
 useEffect(()=>{
 if(seconds === 0){
@@ -37,15 +27,28 @@ if(seconds === 0){
       window.location.href =
         "https://apps.apple.com/pk/app/jazzcash/id1254853964";
     } else {
-     Alert("Please create account on Jazzcash and return to this screen")
+     console.log("Please create account on Jazzcash and return to this screen")
     }
 }
 },[seconds])
 
+useEffect(() => {
+  if (seconds > 0) {
+    const timer = setInterval(() => {
+      setSeconds(prevSeconds => prevSeconds - 1);
+    }, 1000);
+
+    return () => clearInterval(timer); 
+  }
+}, [seconds]);
+
+if (!showCreateAccountModal) {
+  return null;
+}
   return (
   <>
     <div className="createAccount_modal_overlay" 
-    // onClick={handleOverlayClick}
+    onClick={handleOverlayClick}
     
     >
       <div className="modal-content" 

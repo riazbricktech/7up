@@ -96,11 +96,12 @@ margin-top: 10px;
 
 }
 
+.jazzcash_form_wrapper .jazzcash_form_Heading_wrapper {
+    padding:  0;
+    text-align: center  !important;
+    animation: sliderIn 1s ease-out !important;
 
-
-
-
-
+}
 
 
 
@@ -174,7 +175,7 @@ margin-top: 10px;
     text-align: center;
     margin: 3px 0 !important;
     font-family: var(--banton-font) !important;
-    letter-spacing: -0.5px;
+    letter-spacing: .5px;
 }
 .jazzcash_form_wrapper .phone_input {
     color: var(--primary-text-color) !important;
@@ -221,6 +222,7 @@ margin-top: 10px;
 .jazzcash_form_wrapper .form_button_wrapper {
     text-align: center;
     margin-top: 25px !important;
+    
 }
 .jazzcash_form_wrapper .form_button_wrapper button {
     padding: 0px 55px !important;
@@ -235,13 +237,18 @@ margin-top: 10px;
     border-bottom: 4px solid var(--green-color);
     line-height: 44px;
     width: 100%;
+    
 }
 .jazzcash_form_wrapper .form_button_wrapper button:focus {
-    background-color: var(--secondary-bg-color) !important;
+    background-color: var(--button-bg-color) !important;
+    color: white;
+
+
 }
 .jazzcash_form_wrapper .form_button_wrapper .btn:hover {
     background-color: white !important;
     border-bottom: 4px solid gray !important;
+    color: var(--button-bg-color) !important;
 }
 
 
