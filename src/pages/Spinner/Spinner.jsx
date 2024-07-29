@@ -9,7 +9,7 @@ import BottleImage from "../../assets/images/sevenUp_bottle.webp";
 import { useSelector, useDispatch } from "react-redux";
 import HeaderMask from "../../assets/images/new_images/header_mask.webp";
 import HeaderLight from "../../assets/images/new_images/header_lights.webp";
-
+import SpinBottle from "../../assets/images/gif_images/form-bottle.gif";
 const inputList = [
 
   {
@@ -25,7 +25,7 @@ const inputList = [
     id: uuidv4(),
     option: "HALEEM"
   },
-  
+
   {
     id: uuidv4(),
     option: "TRY AGAIN"
@@ -51,7 +51,7 @@ const inputList = [
     id: uuidv4(),
     option: "STEAK"
   },
-  
+
   {
     id: uuidv4(),
     option: "TRY AGAIN"
@@ -60,7 +60,7 @@ const inputList = [
     id: uuidv4(),
     option: "BROAST"
   },
-  
+
   {
     id: uuidv4(),
     option: "SAMOSA"
@@ -73,7 +73,8 @@ const Spinner = () => {
   const [rouletteData, setRouletteData] = useState(inputList);
   const cityData = useSelector(state => state?.cities?.citesData);
   const navigate = useNavigate();
-
+  const [bottleClass, setBottleClass] = useState("");
+  const [formClass, setFormClass] = useState("");
   const [open, setOpen] = useState(false);
 
   const handleOk = () => {
@@ -111,66 +112,80 @@ const Spinner = () => {
 
   return (
     <Wrapper>
-   
-      <div className="spinner_header_wrapper">
-        {/* <img src={HeaderImage} className="img-fluid" alt="Pakistan" /> */}
-        <img src={HeaderMask} className="spinner_headerMask img-fluid" alt="Pakistan" /> 
-        <img src={HeaderLight} className="spinner_headerLight img-fluid" alt="Pakistan" /> 
+      <div className={`newclass `} onClick={handleSpinClick}>
+      <img className={`bottleToCenter ${bottleClass}`} src={SpinBottle}   alt="Bottle GIF" />
+
       </div>
-      <div className="spinner_logo_wrapper">
-    <p>SPIN THE WHEEL!</p>
-      </div>
-      <div className="spinner_wrapper">
-        <div align="center" className="roulette-container">
-          <Wheel
-            mustStartSpinning={mustSpin}
-            spinDuration={[0.7]}
-            prizeNumber={prizeNumber}
-            data={inputList}
-            outerBorderColor={["#005d37"]}
-            outerBorderWidth={[17]}
-            innerBorderColor={["#00B144"]}
-            innerBorderWidth={[9]}
-            radiusLineColor={["#00B144"]}
-            radiusLineWidth={[0]}
-            textColors={["#fff"]}
-            textDistance={65}
-            fontSize={[16]}
-            backgroundColors={[
-              "#00b451",
-              "#a4d925",
-              "#00b451",
-              "#a4d925",
-              "#00b451",
-              "#a4d925",
-              "#00b451",
-              "#a4d925",
-              "#00b451",
-              "#a4d925",
-              "#00b451",
-              "#a4d925",
-              "#00b451",
-              
-            ]}
-            onStopSpinning={() => {
-              setMustSpin(false);
-              // navigate("/winner");
-            }}
-          />
-          <button className="spiner_button roulette-button" onClick={handleSpinClick}>
-            <span>      <img src={BottleImage}alt="7up Bottle" /></span>
-          </button>
+      <div className={`spinner_upward ${formClass}`}>
+
+
+
+        <div className="spinner_header_wrapper">
+          {/* <img src={HeaderImage} className="img-fluid" alt="Pakistan" /> */}
+          <img src={HeaderMask} className="spinner_headerMask img-fluid" alt="Pakistan" />
+          <img src={HeaderLight} className="spinner_headerLight img-fluid" alt="Pakistan" />
         </div>
-        <br />
-        <div className="spin_result_wrapper">
-          <button
-            className="prize-message"
-            onClick={handleSpinClick}
-            // disabled={mustSpin}
-            style={{ textAlign: "center" }}
-          >
-            Spin
-          </button>
+        <div className="spinner_logo_wrapper">
+          <p>SPIN THE WHEEL!</p>
+        </div>
+        <div className="spinner_wrapper">
+          <div align="center" className="roulette-container">
+            <Wheel
+              mustStartSpinning={mustSpin}
+              spinDuration={[0.7]}
+              prizeNumber={prizeNumber}
+              data={inputList}
+              outerBorderColor={["#005d37"]}
+              outerBorderWidth={[17]}
+              innerBorderColor={["#00B144"]}
+              innerBorderWidth={[9]}
+              radiusLineColor={["#00B144"]}
+              radiusLineWidth={[0]}
+              textColors={["#fff"]}
+              textDistance={65}
+              fontSize={[16]}
+              backgroundColors={[
+                "#00b451",
+                "#a4d925",
+                "#00b451",
+                "#a4d925",
+                "#00b451",
+                "#a4d925",
+                "#00b451",
+                "#a4d925",
+                "#00b451",
+                "#a4d925",
+                "#00b451",
+                "#a4d925",
+                "#00b451",
+
+              ]}
+              onStopSpinning={() => {
+                setMustSpin(false);
+                // navigate("/winner");
+                setBottleClass("spinerrBottleUpward")
+                setFormClass("spinerDownward");
+                setTimeout(() => {
+                  navigate("/winner");
+                }, 2500);
+              }}
+            />
+            <button className="spiner_button roulette-button" onClick={handleSpinClick}>
+              <span>      </span>
+            </button>
+          </div>
+          <br />
+          <div className="spin_result_wrapper">
+            <button
+              className="prize-message"
+              onClick={handleSpinClick}
+              // disabled={mustSpin}
+              style={{ textAlign: "center" }}
+            >
+              Spin
+            </button>
+            
+          </div>
         </div>
       </div>
     </Wrapper>

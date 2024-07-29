@@ -81,13 +81,11 @@
     background: white;
     color: #000;
     font-size: 0.8rem;
-    overflow: hidden;
 
     font-weight: bold;
 }
 
 .roulette-button span {
-    background-color: white;
     transform: rotate(45deg) !important;
 }
 .roulette-button span img {
@@ -153,7 +151,7 @@
     }
 
     .spinner_wrapper {
-        width: 70% !important;
+        width: 100% !important;
         height: auto !important;
     }
 }
@@ -250,3 +248,210 @@
         font-size: 12px !important;
     }
 } */
+
+  /* Bottle image animation */
+  .bottleToCenter {
+    z-index: 9999;
+    animation: bottleToCenter 5s ease-in;
+    width: 25px;
+
+  }
+ .newclass{
+    position: absolute;
+    z-index: 99;
+    top: 46% !important;
+    left: 50%;  
+    transform: translate(-50%, -50%);
+    animation: formFadeIn 3s ease-in-out;
+    cursor: pointer;
+ }
+ @media (max-width: 300px) {
+    .bottleToCenter {
+        width: 25px; 
+    }
+    .newclass {
+        top: 26% !important;
+        left: 47%;  
+    }
+}
+@media (max-width: 500px) {
+    .bottleToCenter {
+        width: 25px; 
+    }
+    .newclass {
+        top: 45% !important;
+        left: 50%;  
+    }
+}
+@media (max-width: 480px) {
+    .bottleToCenter {
+        width: 25px; 
+    }
+    .newclass {
+        top: 40% !important;
+        left: 45%;  
+    }
+}
+@media (max-width: 450px) {
+    .bottleToCenter {
+        width: 25px; 
+    }
+    .newclass {
+        top: 40% !important;
+        left: 45%;  
+    }
+}
+@media (max-width: 445px) {
+    .bottleToCenter {
+        width: 25px; 
+    }
+    .newclass {
+        top: 38% !important;
+        left: 45%;  
+    }
+}
+@media (max-width: 415px) {
+    .bottleToCenter {
+        width: 25px; 
+    }
+    .newclass {
+        top: 37% !important;
+        left: 45%;  
+    }
+}
+@media (max-width: 405px) {
+    .bottleToCenter {
+        width: 25px; 
+    }
+    .newclass {
+        top: 37% !important;
+        left: 47%;  
+    }
+}
+@media (max-width: 370px) {
+    .bottleToCenter {
+        width: 25px; 
+    }
+    .newclass {
+        top: 37% !important;
+        left: 50%;  
+    }
+}
+@media (max-width: 370px) {
+    .bottleToCenter {
+        width: 25px; 
+    }
+    .newclass {
+        top: 37% !important;
+        left: 50%;  
+    }
+}
+@media (max-width: 364px) {
+    .bottleToCenter {
+        width: 25px; 
+    }
+    .newclass {
+        top: 28% !important;
+        left: 38%;  
+    }
+}
+@media (max-width: 360px) {
+    .bottleToCenter {
+        width: 25px; 
+    }
+    .newclass {
+        top: 28% !important;
+        left: 38%;  
+    }
+}
+@media (max-width: 350px) {
+    .bottleToCenter {
+        width: 25px; 
+    }
+    .newclass {
+        top: 28% !important;
+        left: 40%;  
+    }
+}
+@media (max-width: 330px) {
+    .bottleToCenter {
+        width: 25px; 
+    }
+    .newclass {
+        top: 28% !important;
+        left: 42%;  
+    }
+}
+@media (max-width: 300px) {
+    .bottleToCenter {
+        width: 25px; 
+    }
+    .newclass {
+        top: 28% !important;
+        left: 47%;  
+    }
+}
+ @keyframes spinner_upward {
+    0% {
+      transform: translateY(140%);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+  }
+.spinner_upward{
+    animation: spinner_upward 5s ease-in;
+}
+
+@keyframes bottleToCenter {
+    0% {
+      transform: translateY(-340%) rotate(50deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0%) rotate(0deg);
+      opacity: 1;
+    }
+  }
+ /* end */
+  @keyframes spinerDownward {
+    0% {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(600%);
+      opacity: 1;
+    }
+  }
+  @keyframes spinerrBottleUpword {
+    100% {
+      transform: translateY(-600%) rotate(-50deg);
+      opacity: 0;
+    }
+    0% {
+      opacity: 1;
+      transform: translateY(00%) rotate(0deg);
+
+    }
+  }
+  
+
+  
+  
+  .form_page_wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 500px;
+  }
+  .spinerrBottleUpward{
+    animation: spinerrBottleUpword 5s ease-out;
+  }
+
+  .spinerDownward{
+    animation: spinerDownward 20s ease-out;
+  }
+ 

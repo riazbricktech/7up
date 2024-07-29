@@ -7,17 +7,18 @@ import HeaderMask from "../../assets/images/new_images/header_mask.webp";
 import HeaderLight from "../../assets/images/new_images/header_lights.webp";
 import MealImage from "../../assets/images/new_images/collection_of_meal.webp";
 import BottleImage from "../../assets/images/sevenUp_bottle.webp";
-import groovyWalkAnimation from "./bottle-littie.json";
+import BottleGif from "../../assets/images/gif_images/bottle-background.gif";
+
 import Lottie from "lottie-react";
 
 import { useNavigate } from "react-router-dom";
 const AnimationBottle = () => {
-  const [bottleClass, setBottleClass] = useState("animate__animated animate__rollIn");
+  const [bottleClass, setBottleClass] = useState("");
   const navigate = useNavigate();
   useEffect(() => {
     const timer = setTimeout(() => {
       navigate("/form");
-    }, 4900);
+    }, 6500);
 
     return () => clearTimeout(timer);
   }, [navigate]);
@@ -31,31 +32,28 @@ const AnimationBottle = () => {
   },  [navigate]);
   return (
     <Wrapper>
-      <div className="animation_page_wrapper">
+      {/* <div className="animation_page_wrapper"> */}
    {/*  Header Wrapper */}
-   <div className="animation_header_wrapper">
-          <img src={HeaderMask} className="header_mask img-fluid" alt="Mask Image " />
-          <img src={HeaderLight} className="header_lights img-fluid" alt="Lights Image " />
-        </div>
+   {/* <div className="animation_header_wrapper">
+          <img src={HeaderMask} className="header_mask img-fluid animate__animated animate__fadeInBottomRight" alt="Mask Image " />
+          <img src={HeaderLight} className="header_lights img-fluid " alt="Lights Image " />
+        </div> */}
 
 
         {/* Pak Image Wrapper */}
-        <div className="animation_pak_wrapper">
+        {/* <div className="animation_pak_wrapper ">
           <img src={PakImage} className="img-fluid" alt="Meal Image " />
+        </div> */}
+
+      
+
+
+        
+        
+
+      <div className={`animation_bottle_wrapper animate__animated animate__slideInLeft`}>
+          <img className="Bottle-img-fluid " src={BottleGif}  alt="Bottle GIF" />
         </div>
-
-        {/* Meal Wrapper */}
-        <div className="animation_meal_wrapper">
-          <img src={MealImage} className="img-fluid" alt="Meal Image " />
-        </div>
-
-
-        {/* Image Wrapper */}
-        <div className="animation_bottle_wrapper">
-          <img className={`img-fluid ${bottleClass}`} src={BottleImage} alt="Bottle Image " />
-        </div>
-
-      </div>
     </Wrapper>
   );
 };
