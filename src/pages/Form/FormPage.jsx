@@ -29,12 +29,16 @@ import UniqueIdModal from "../../components/UniqueIdModal/UniqueIdModal";
 import Lottie from 'lottie-react';
 import HeaderLottie from  "../../assets/images/lottie_files/lights_anim.json";
 
+import BottleFall from "../../assets/images/gif_images/form-bottle.gif";
 function FormPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const location = useLocation();
   const cityData = useSelector((state) => state?.cities?.citesData);
   const citiesLoading = useSelector((state) => state?.cities?.isLoading);
+  const isLoading = useSelector((state) => state?.cities?.isLoading);
+  const [bottleClass, setBottleClass] = useState("bottledown");
+  const [formClass, setFormClass] = useState("formdown");
 
   const qrCode = useSelector((state) => state?.qrCode?.qrCodeNumber);
   const userData = useSelector((state) => state?.user?.createUserData);
@@ -95,7 +99,6 @@ console.log(userInfoLoading,"userInfoLoading")
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     let updatedValue = type === "checkbox" ? checked : value;
-
     if (name === "phone_user") {
       let phoneValue = value.replace(/\D/g, "");
       if (phoneValue.length > 11) {
@@ -167,6 +170,7 @@ console.log(userInfoLoading,"userInfoLoading")
   };
 
   const handleSubmit = (e) => {
+
     e.preventDefault();
 
     const newErrors = {
@@ -197,10 +201,13 @@ console.log(data,"data");
         }
         if (res?.payload?.response?.return_value === 0) {
           setApiResponse(res?.payload?.response);
+          
           return;
         }
         if (res?.payload?.response?.return_value === 1) {
           setApiResponse(res?.payload?.response);
+          setBottleClass("bottleUpward")
+          setFormClass("formUpward");
           setTimeout(() => {
             navigate("/spin");
           }, 1500);
@@ -252,8 +259,16 @@ console.log(data,"data");
 
   return (
     <Wrapper>
-      <div className="form_page_wrapper">
+      
+    <div className={`form_bottle_wrapper `}>
+    {/* <img src={BottleImage} className={`img-fluid bottledown ${bottleClass}`} alt="7up Bottle" /> */}
+    <img className={`newGif   ${bottleClass}`} src={BottleFall}  alt="Bottle GIF" />
+        </div>
+      <div className={`form_page_wrapper ${formClass}`}>
+
         {/* Header Wrapper */}
+           {/* Bottle Wrapper */}
+          
         <div className="form_header_wrapper">
           {/* <img src={HeaderImage} className="img-fluid" alt="Pakistan" /> */}
 
@@ -263,17 +278,17 @@ console.log(data,"data");
             />
           {/* <img
             src={HeaderMask}
-            className="form_headerMask img-fluid"
+            className="form_headerMask img-fluid class-1"
             alt="Pakistan"
           />
           <img
             src={HeaderLight}
-            className="form_headerLight img-fluid"
+            className="form_headerLight img-fluid class-2"
             alt="Pakistan"
           /> */}
         </div>
 
-        <div className="form_heading_wrapper">
+        <div className="form_heading_wrapper class-3">
           <p>
           Fill in the form to<br />
           win exciting prizes
@@ -284,7 +299,7 @@ console.log(data,"data");
 
         {/* Form Wrapper */}
         <form onSubmit={handleSubmit} className="form_wrapper" noValidate>
-          <div className="form_input_wrapper">
+          <div className="form_input_wrapper class-4">
             <label
               htmlFor="validationServerName"
               style={!isQrCode ? { padding: "3px 0" } : { padding: "0" }}
@@ -310,7 +325,7 @@ console.log(data,"data");
             )}
           </div>
 
-          <div className="form_input_wrapper">
+          <div className="form_input_wrapper class-5">
             <label
               htmlFor="validationServerPhone"
               style={!isQrCode ? { padding: "3px 0" } : { padding: "0" }}
@@ -335,7 +350,7 @@ console.log(data,"data");
               </div>
             )}
           </div>
-          <div className="form_selectbox_wrapper">
+          <div className="form_selectbox_wrapper class-6">
             <label
               htmlFor="validationServerCity"
               style={!isQrCode ? { padding: "3px 0" } : { padding: "0" }}
@@ -363,7 +378,7 @@ console.log(data,"data");
             )}
           </div>
           {isQrCode && (
-            <div className="form_input_wrapper">
+            <div className="form_input_wrapper  class-7">
               <label htmlFor="validationServerUniqueId">Unique ID*</label>
               <div className="unique_id_wrapper">
                 <input
@@ -400,7 +415,7 @@ console.log(data,"data");
             className="form_checkbox_wrapper"
             style={!isQrCode ? { marginTop: "20px" } : {}}
           >
-            <div className="tc_wrapper">
+            <div className="tc_wrapper class-8">
               <div>
                 <input
                   type="checkbox"
@@ -463,7 +478,7 @@ console.log(data,"data");
           ) : (
             <p className="response_success">{apiResponse?.return_message}</p>
           )}
-          <div className="form_button_wrapper">
+          <div className="form_button_wrapper class-9">
             <button type="submit" disabled={userInfoLoading} className="btn btn-primary">
               {userInfoLoading ? <div className="spinner-border text-warning mt-1" role="status">
   <span className="visually-hidden">Loading...</span>
@@ -475,19 +490,16 @@ console.log(data,"data");
         {/* Circle  */}
         <img
           src={LeftCircle}
-          className="img-fluid form_left_circle"
+          className="img-fluid form_left_circle class-10"
           alt="Cutted Circle"
         />
         <img
           src={RightCircle}
-          className="img-fluid form_right_circle"
+          className="img-fluid form_right_circle class-11"
           alt="Cutted Circle"
         />
 
-        {/* Bottle Wrapper */}
-        <div className="form_bottle_wrapper">
-          <img src={BottleImage} className="img-fluid" alt="7up Bottle" />
-        </div>
+     
       </div>
       <CapModal showModal={showModal} closeModal={closeModal} />
       <TermsAndCondition isOpen={isTCOpen} onClose={closeTermsCon} />

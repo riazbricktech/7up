@@ -1,103 +1,149 @@
-.animation_page_wrapper {
-    width: 500px;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+    /* .animation_page_wrapper {
+        width: 500px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    } */
 
-.animation_header_wrapper {
-    width: 100%;
-    height: auto;
-    position: relative;
-}
+    /* .animation_header_wrapper {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+    } */
 
-.animation_header_wrapper .header_lights {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-}
+    /* .animation_header_wrapper .header_lights {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+    } */
 
-.header_mask,
-.header_lights {
-    width: 100%;
-    height: auto;
-}
+    /* .header_mask,
+    .header_lights {
+        width: 100%;
+        height: auto;
+    } */
 
-.animation_pak_wrapper {
-    width: 100%;
-    position: absolute;
-    top: 37%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: growCircle 1.5s forwards;
-    text-align: center;
-}
+    /* .animation_pak_wrapper {
+        width: 100%;
+        position: absolute;
+        top: 34%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: growCircle 1.5s forwards;
+        text-align: center;
+
+    } */
 
 
-.animation_pak_wrapper img{
-    width: 90%;
-}
+    /* .animation_pak_wrapper img {
+        width: 100%;
+    } */
 
-.animation_meal_wrapper {
-    position: absolute;
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: growCircle 1.5s forwards;
-    text-align: center;
-}
+    .Bottle-img-fluid {
+        width: 100%;
 
-.animation_meal_wrapper img {
-    width: 75%;
-}
-
-.animation_bottle_wrapper {
-    position: absolute;
-    top: 65%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.animation_bottle_wrapper img {
-    width: 100%;
-}
-
-.containerww {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.lottie-containerww {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    animation: growCircle 1s forwards;
-}
-
-@keyframes growCircle {
-    0% {
-        width: 0;
-        height: 0;
     }
-    100% {
+
+    .animation_meal_wrapper {
+        width: 100%;
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: growCircle 1.5s forwards;
+        text-align: center;
+    }
+
+    /* .animation_meal_wrapper img {
+        width: 30%;
+        height: 100px;
+    } */
+.animation_bottle_wrapper {
+    width: 100%;
+    height: 100vh;
+
+}
+    /* .animation_bottle_wrapper {
+    
+        
+        width: 100%;
+    } */
+
+    .change-loc {
+
+        animation: slideInFromTopm 3s ease-out;
+
+    }
+
+    @keyframes slideInFromTopm {
+        0% {
+            transform: translateY(-180%);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    /* .animation_bottle_wrapper img {
+        width: 100%;
+    
+    } */
+
+    .containerww {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .lottie-containerww {
         width: 300px;
         height: 300px;
-    }
-}
-
-@media (max-width: 500px) {
-    .animation_page_wrapper,
-    .animation_header_wrapper {
-        width: 100%;
+        border-radius: 50%;
+        animation: growCircle 1s forwards;
     }
 
-    .animation_header_wrapper .header_lights,
-    .header_mask {
-        width: 100%;
+    @keyframes growCircle {
+        0% {
+            width: 0;
+            height: 0;
+        }
+
+        100% {
+            width: 300px;
+            height: 300px;
+        }
     }
-}
+
+    @media (max-width: 500px) {
+
+        .animation_page_wrapper,
+        .animation_header_wrapper {
+            width: 100%;
+        }
+
+        .animation_header_wrapper .header_lights,
+        .header_mask {
+            width: 100%;
+        }
+    }
+
+    .slideDown {
+        animation: slideDown 5s ease-out;
+    }
+
+    @keyframes slideDown {
+        0% {
+            transform: translateY(0);
+        }
+
+        100% {
+            transform: translateY(50%);
+        }
+    }

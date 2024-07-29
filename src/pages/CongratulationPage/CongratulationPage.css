@@ -1,3 +1,24 @@
+
+
+@keyframes moveFromBottomToTop {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .congrats_wrapper {
+    width: 500px !important;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: moveFromBottomToTop 2s ease-out;
+  }
 .wrapper_col {
     padding: 0 !important;
 }

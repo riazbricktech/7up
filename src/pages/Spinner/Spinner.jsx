@@ -16,6 +16,7 @@ import Lottie from "lottie-react";
 import HeaderLights from "../../assets/images/lottie_files/lights_anim.json";
 import LeftCircle from "../../assets/images/new_images/form_left_circle.webp";
 import RightCircle from "../../assets/images/new_images/form_right_circle.webp";
+import SpinBottle from "../../assets/images/gif_images/form-bottle.gif";
 const inputList = [
   {
     id: uuidv4(),
@@ -112,8 +113,11 @@ const Spinner = () => {
     city_id: userData?.response?.return_city_id,
   };
 
-  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const cityData = useSelector(state => state?.cities?.citesData);
+  const navigate = useNavigate();
+  const [bottleClass, setBottleClass] = useState("");
+  const [formClass, setFormClass] = useState("");
   const [open, setOpen] = useState(false);
   const [prizeValue, setPrizeValue] = useState(0);
 
@@ -230,7 +234,12 @@ const Spinner = () => {
   console.log(prizeValue, "200");
   return (
     <Wrapper>
-      <div className="spinner_spin_wrapper">
+      <div className={`newclass `} onClick={handleSpinClick}>
+      <img className={`bottleToCenter ${bottleClass}`} src={SpinBottle}   alt="Bottle GIF" />
+
+      </div>
+      <div className={`spinner_upward ${formClass}`}>
+    
         <div className="spinner_header_wrapper">
           <Lottie
             animationData={HeaderLights}

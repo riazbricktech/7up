@@ -6,6 +6,7 @@ import { useLocation } from 'react-router-dom';
 import { useEffect,useLayoutEffect } from 'react';
 import { qrCodeFunction } from './redux/slice/QrCodeSlice';
 import { useSelector, useDispatch } from "react-redux";
+import 'animate.css';
 
 const App = () => {
   const dispatch = useDispatch();
