@@ -6,8 +6,8 @@ import PakImage from "../../assets/images/new_images/pak_image.webp";
 import HeaderMask from "../../assets/images/new_images/header_mask.webp";
 import HeaderLight from "../../assets/images/new_images/header_lights.webp";
 import MealImage from "../../assets/images/new_images/collection_of_meal.webp";
-import BottleImage from "../../assets/images/sevenUp_bottle.webp";
-import BottleGif from "../../assets/images/gif_images/bottle-background.gif";
+import BottleImage from "../../assets/images/lottie_files/foodelementss.json";
+import BottleGif from "../../assets/images/gif_images/new-bottle.gif";
 
 import Lottie from "lottie-react";
 
@@ -16,11 +16,11 @@ const AnimationBottle = () => {
   const [bottleClass, setBottleClass] = useState("");
   const navigate = useNavigate();
   useEffect(() => {
-    const timer = setTimeout(() => {
-      navigate("/form");
-    }, 6500);
+    // const timer = setTimeout(() => {
+    //   navigate("/form");
+    // }, 6500);
 
-    return () => clearTimeout(timer);
+    // return () => clearTimeout(timer);
   }, [navigate]);
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -32,27 +32,32 @@ const AnimationBottle = () => {
   },  [navigate]);
   return (
     <Wrapper>
-      {/* <div className="animation_page_wrapper"> */}
+      <div className="animation_page_wrapper">
    {/*  Header Wrapper */}
-   {/* <div className="animation_header_wrapper">
+ 
+  <div className="animation_header_wrapper">
           <img src={HeaderMask} className="header_mask img-fluid animate__animated animate__fadeInBottomRight" alt="Mask Image " />
           <img src={HeaderLight} className="header_lights img-fluid " alt="Lights Image " />
-        </div> */}
+        </div> 
 
 
         {/* Pak Image Wrapper */}
-        {/* <div className="animation_pak_wrapper ">
-          <img src={PakImage} className="img-fluid" alt="Meal Image " />
-        </div> */}
+        
+        <div className="animation-bottle-down ">
+          <img src={BottleGif} className="bottle-img-fluid" alt="Meal Image " />
+        </div> 
 
-      
+        {/* <div className={``}>
+        <Lottie animationData={BottleImage} className="bottle-img-fluid" />
+      </div> */}
 
 
         
         
 
-      <div className={`animation_bottle_wrapper animate__animated animate__slideInLeft`}>
+      {/* <div className={`animation_bottle_wrapper animate__animated animate__slideInLeft`}>
           <img className="Bottle-img-fluid " src={BottleGif}  alt="Bottle GIF" />
+        </div> */}
         </div>
     </Wrapper>
   );

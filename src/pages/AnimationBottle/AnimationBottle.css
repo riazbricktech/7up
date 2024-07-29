@@ -1,32 +1,32 @@
-    /* .animation_page_wrapper {
+    .animation_page_wrapper {
         width: 500px;
         height: 100vh;
         display: flex;
         flex-direction: column;
         align-items: center;
-    } */
+    } 
 
-    /* .animation_header_wrapper {
+     .animation_header_wrapper {
         width: 100%;
         height: 100vh;
         position: relative;
-    } */
+    } 
 
-    /* .animation_header_wrapper .header_lights {
+   .animation_header_wrapper .header_lights {
         position: absolute;
         top: 0;
         left: 50%;
         transform: translateX(-50%);
         width: 100%;
-    } */
+    } 
 
-    /* .header_mask,
+   .header_mask,
     .header_lights {
         width: 100%;
         height: auto;
-    } */
+    } 
 
-    /* .animation_pak_wrapper {
+   .animation_pak_wrapper {
         width: 100%;
         position: absolute;
         top: 34%;
@@ -35,17 +35,24 @@
         animation: growCircle 1.5s forwards;
         text-align: center;
 
-    } */
-
-
-    /* .animation_pak_wrapper img {
-        width: 100%;
-    } */
-
-    .Bottle-img-fluid {
-        width: 100%;
-
+    } 
+    @media (max-height: 667px) {
+      
+        .bottle-img-fluid {
+            height: 72% !important;
+            z-index: 9999;
+    
+        }
+        .animation_pak_wrapper  .img-fluid{
+            height: 35%;
+            margin-top: 60px;
+        }
+    
     }
+   
+
+  
+  
 
     .animation_meal_wrapper {
         width: 100%;
@@ -57,20 +64,21 @@
         text-align: center;
     }
 
-    /* .animation_meal_wrapper img {
+   .animation_meal_wrapper img {
         width: 30%;
         height: 100px;
-    } */
+    } 
+
 .animation_bottle_wrapper {
     width: 100%;
     height: 100vh;
 
 }
-    /* .animation_bottle_wrapper {
+   .animation_bottle_wrapper {
     
         
         width: 100%;
-    } */
+    } 
 
     .change-loc {
 
@@ -90,10 +98,10 @@
         }
     }
 
-    /* .animation_bottle_wrapper img {
+   .animation_bottle_wrapper img {
         width: 100%;
     
-    } */
+    } 
 
     .containerww {
         display: flex;

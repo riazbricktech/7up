@@ -201,16 +201,16 @@ console.log(data,"data");
         }
         if (res?.payload?.response?.return_value === 0) {
           setApiResponse(res?.payload?.response);
-          
-          return;
-        }
-        if (res?.payload?.response?.return_value === 1) {
-          setApiResponse(res?.payload?.response);
           setBottleClass("bottleUpward")
           setFormClass("formUpward");
           setTimeout(() => {
             navigate("/spin");
-          }, 1500);
+          }, 3100);
+          return;
+        }
+        if (res?.payload?.response?.return_value === 1) {
+          setApiResponse(res?.payload?.response);
+        
         }
       });
     }

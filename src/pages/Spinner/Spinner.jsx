@@ -330,10 +330,7 @@ const Spinner = () => {
               className="spiner_button roulette-button"
               onClick={handleSpinClick}
             >
-              <span>
-                {" "}
-                <img src={BottleImage} alt="7up Bottle" />
-              </span>
+            
             </button>
           </div>
           <br />

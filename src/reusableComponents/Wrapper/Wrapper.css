@@ -27,9 +27,10 @@ overflow: hidden;
 
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (min-width: 500px) {
    .Wrapper_container {
        padding: 0 !important;
+    
    }
 
    .Wrapper_container .wrapper_col {

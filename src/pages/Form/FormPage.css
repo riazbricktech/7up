@@ -584,7 +584,9 @@ cursor: no-drop !important;
     left: 50%;  
     transform: translate(-50%, -50%);
     animation: formFadeIn 3s ease-in-out;
-
+    display: flex;
+    justify-content: center;
+    z-index: 999;
 }
 
 
