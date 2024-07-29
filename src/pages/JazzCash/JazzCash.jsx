@@ -47,7 +47,7 @@ const JazzCash = () => {
 
   const jazzCashData = {
     receiver_number: formValues.phoneNumber,
-    amount: `${return_prize_amount}.00`,
+    amount: return_prize_amount,
     transaction_id: return_transaction_id,
     user_id: return_user_id,
   };

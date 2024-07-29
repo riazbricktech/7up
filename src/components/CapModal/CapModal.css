@@ -37,19 +37,13 @@
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    border: 4px solid red;
+    /* border: 4px solid red; */
     margin-bottom: 40px;
 }
 
-.cap_modal_overlay .modal-icon span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.cap_modal_overlay .modal-icon img {
 
-    font-size: 36px;
-    font-weight: 700;
-    color: red;
-
+    width: 45px;
 }
 
 
@@ -68,7 +62,10 @@
     width: 100%;
     height: auto;
     margin: 0;
-    margin-top: -10px;
+    background-size:cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat;
+    object-fit: fill !important;
 }
 
 .cap_modal_overlay .close-button {
@@ -87,6 +84,14 @@
     justify-content: space-between;
     margin-top: 20px;
     padding: 15px 0 0px 20px;
+    position: relative;
+}
+
+.cap_modal_overlay .modal-body  .arrowWrapper{
+    position: absolute;
+    width: 35px;
+    left: 43%;
+    top: 53%;
 }
 
 .cap_modal_overlay .modal-body .modal-message {
@@ -97,7 +102,7 @@
 
 .cap_modal_overlay .modal-message p {
     margin: 5px 0 7px 0;
-    font-weight: bold;
+    font-weight: 300 !important;
     font-size: 38px;
     font-family: var(--gothic-font);
     font-weight: 800;

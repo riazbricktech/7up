@@ -14,12 +14,14 @@ const TermsAndCondition = ({ isOpen, onClose }) => {
           </div>
           <div className="tc_modal-content">
             <b>Terms & Conditions for 7UP Flavours of Pakistan Campaign</b>
+            <hr/>
             <p>
               By entering into the Promotion, the participant agrees to be bound
               by the following Terms & Conditions:
             </p>
 
             <b>About the Promotion</b>
+            <hr/>
             <p>
               1. The Promotion is operated by Pepsi-Cola International Pvt Ltd{" "}
               <span style={{ fontWeight: "800" }}>{`(we, us, our)`}</span>{" "}
@@ -34,6 +36,7 @@ const TermsAndCondition = ({ isOpen, onClose }) => {
               3. Entries received after the closing date will not be processed.
             </p>
             <b>How to enter</b>
+            <hr/>
             <p>
               4. PCI <span style={{ backgroundColor:"yellow" }}>participant</span> shall scan the QR code on the label of the
               purchased CAN or PET bottle
@@ -85,6 +88,7 @@ const TermsAndCondition = ({ isOpen, onClose }) => {
               manner or otherwise in breach of these Terms & Conditions.
             </p>
             <b>Prizes</b>
+            <hr/>
             <p>
               9. Prizes will be as follows: <br />
               Cashback rewards of the following denominations: Rs.50, Rs,100,
@@ -93,7 +97,7 @@ const TermsAndCondition = ({ isOpen, onClose }) => {
             <p>
               10. Winners will interactively………they’ll play and notified
               immediately on the 7UP website. Our decision is final and no
-              correspondence or discussion will be entered into.{" "}
+              correspondence or discussion will be entered into.
             </p>
             <p>
               11. In the event of unforeseen circumstances or circumstances
@@ -106,6 +110,7 @@ const TermsAndCondition = ({ isOpen, onClose }) => {
               reallocated at our sole discretion.
             </p>
             <b>Limitation of liability</b>
+            <hr/>
             <p>
               14. By entering a Promotion or submitting any video, image, audio
               file or other materials {`(Content)`} in relation to a Promotion:
@@ -139,22 +144,16 @@ const TermsAndCondition = ({ isOpen, onClose }) => {
               </ol>
             </ol>
             <b>Publicity and data protection</b>
+            <hr/>
                     <p>15.	If you win a prize, you may be required to participate in reasonable publicity. We and the prize provider may publish and use any Content and your name/username, image, likeness, voice and video footage in any and all media for publicity purposes after the Promotion ends. You will sign an appropriate release form for this purpose if requested by us.</p>
                     <p>16.	All personal information that you provide to us or which we obtain during the Promotion shall be handled by us in accordance with these Terms & Conditions and the PepsiCo privacy policy available at <a href="https://platformassets.wspprod.com/pepsiredemptionpolicy-static/privacypolicy-eng.html" target="_blank" rel="noopener noreferrer">https://platformassets.wspprod.com/pepsiredemptionpolicy-static/privacypolicy-eng.html</a>. See also paragraph 14 above with regard to publicity of winners.</p>
 
                     <b>General</b>
+                    <hr/>
                     <p>17.	The Promotion is subject to the laws of the Islamic Republic of Pakistan and any disputes arising in connection with them shall be subject to the exclusive jurisdiction of the courts of the Islamic Republic of Pakistan.</p>
                     <p>18.	We reserve the right to hold void, suspend or cancel this Promotion and/or change these Terms & Conditions from time to time if we consider it necessary or appropriate to do so. It is your responsibility to review these Terms & Conditions for any changes.</p>
                     <p>19.	For all enquiries in relation to a Promotion or these Terms & Conditions, please contact us at {`[@7uppakistan Direct Messages]`}.</p>
-            {/* <p>
-              IMPORTANT: Please read the following terms before using your iOS device. By using your iOS device, you are agreeing to be bound by the iOS Terms and Conditions.
-            </p>
-            <p>
-              PLEASE READ THIS SOFTWARE LICENSE AGREEMENT ("LICENSE") CAREFULLY BEFORE USING YOUR IOS DEVICE OR DOWNLOADING THE SOFTWARE UPDATE ACCOMPANYING THIS LICENSE. BY USING YOUR IOS DEVICE OR DOWNLOADING A SOFTWARE UPDATE, AS APPLICABLE, YOU ARE AGREEING TO BE BOUND BY THE TERMS OF THIS LICENSE.
-            </p>
-            <p>
-              IF YOU DO NOT AGREE TO THE TERMS OF THIS LICENSE, DO NOT USE THE IOS DEVICE OR DOWNLOAD THE SOFTWARE UPDATE. IF YOU HAVE RECENTLY PURCHASED AN IOS DEVICE AND YOU DO NOT AGREE TO THE TERMS OF THE LICENSE, YOU MAY RETURN THE IOS DEVICE WITHIN THE RETURN PERIOD TO THE APPLE STORE OR AUTHORIZED DISTRIBUTOR WHERE YOU OBTAINED IT FOR A REFUND, SUBJECT TO APPLE'S RETURN POLICY FOUND AT [http://www.apple.com/legal/sales_policies/](http://www.apple.com/legal/sales_policies/).
-            </p> */}
+          
           </div>
           <div className="tc_button-container">
             <button className="tc_button" onClick={()=> onClose(0)}>

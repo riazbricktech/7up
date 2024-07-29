@@ -54,7 +54,7 @@
 
 .winner_wrapper .winner_meal_wrapper {
   position: absolute;
-  top: 40%;
+  top: 45%;
   left: 0%;
   transform: translate(-0%, -50%);
   width: 100%;
@@ -172,11 +172,12 @@
 .you-won-button-wrapper {
   position: absolute;
   top: 60%;
-  left: 50%;
+  left: 54%;
   transform: translate(-50%, -50%);
   z-index: 0;
   transition: all 0.5s ease-in-out;
-  width: 100%;
+  width: 110%;
+  height: auto;
 }
 
 .you-won-button-wrapper  .price_lottie{
@@ -254,6 +255,7 @@
 .claim-button {
 
   width: 100%;
+  height: auto;
   position: absolute;
   top: 85%;
   left: 50%;

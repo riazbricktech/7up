@@ -289,7 +289,7 @@ console.log(data,"data");
               htmlFor="validationServerName"
               style={!isQrCode ? { padding: "3px 0" } : { padding: "0" }}
             >
-              Name
+              Name*
             </label>
             <input
               type="text"
@@ -315,7 +315,7 @@ console.log(data,"data");
               htmlFor="validationServerPhone"
               style={!isQrCode ? { padding: "3px 0" } : { padding: "0" }}
             >
-              Phone Number
+              Phone Number*
             </label>
             <input
               type="text"
@@ -340,7 +340,7 @@ console.log(data,"data");
               htmlFor="validationServerCity"
               style={!isQrCode ? { padding: "3px 0" } : { padding: "0" }}
             >
-              City
+              City*
             </label>
             <Select
               isSearchable={true}
@@ -364,7 +364,7 @@ console.log(data,"data");
           </div>
           {isQrCode && (
             <div className="form_input_wrapper">
-              <label htmlFor="validationServerUniqueId">Unique Id</label>
+              <label htmlFor="validationServerUniqueId">Unique ID*</label>
               <div className="unique_id_wrapper">
                 <input
                   type="text"
@@ -465,8 +465,8 @@ console.log(data,"data");
           )}
           <div className="form_button_wrapper">
             <button type="submit" disabled={userInfoLoading} className="btn btn-primary">
-              {userInfoLoading ? <div class="spinner-border text-warning mt-1" role="status">
-  <span class="visually-hidden">Loading...</span>
+              {userInfoLoading ? <div className="spinner-border text-warning mt-1" role="status">
+  <span className="visually-hidden">Loading...</span>
 </div> : "Next"}
             </button>
           </div>

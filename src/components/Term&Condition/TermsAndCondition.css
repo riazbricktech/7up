@@ -12,6 +12,10 @@
     animation: tcModalFadeIn 0.5s ease-in-out;
 z-index: 111111;
   }
+  .tc_modal-overlay hr{
+    margin-top: 5px !important;
+    margin-bottom: 16px !important;
+  }
   
   @keyframes tcModalFadeIn {
     0% {

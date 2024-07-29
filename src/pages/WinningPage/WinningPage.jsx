@@ -83,7 +83,7 @@ const {return_prize_amount}=spinData?.response;
 
     const jazzCashData ={
     receiver_number:return_phone_user,
-    amount:`${return_prize_amount}.00`,
+    amount:return_prize_amount,
     transaction_id: return_transaction_id,
     user_id:return_user_id,
   };

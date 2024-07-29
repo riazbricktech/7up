@@ -11,11 +11,41 @@
 
 .form_wrapper {
     width: 400px !important;
-    /* height: 100vh !important;
-    overflow: hidden; */
     position: relative;
     z-index: 1;
+    padding: 0 10px;
+    /* overflow-x: hidden;
+    overflow-y: auto; */
 }
+
+
+/* .form_wrapper::-webkit-scrollbar {
+    width: 10px;
+}
+
+.form_wrapper::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 5px; 
+}
+
+.form_wrapper::-webkit-scrollbar-thumb:hover {
+    background: #555;  
+}
+
+.form_wrapper::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+} */
+
+/* Firefox */
+/* .form_wrapper {
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+} */
+
+/* Edge */
+/* .form_wrapper {
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+} */
 .form-control{
     color: var(--primary-text-color) !important;
 }
@@ -92,7 +122,7 @@ margin-top: calc(100vh - 90vh) !important;
 .form_input_wrapper label,
 .form_selectbox_wrapper label{
     color: var(--yellow-text-color);
-    margin: 18px 10px !important;
+    margin: 18px 10px 17px 10px !important;
     font-size: 18px;
     font-family: var(--banton-font);
 font-weight: 300 ; 
@@ -128,8 +158,11 @@ line-height:  0;
     width: 18px;
 }
 .description_unique_id{
-    margin-top: 5px;
+    margin-top: 10px;
     margin-left: 5px;
+    text-decoration: underline;
+    text-decoration-color: white;
+
 
 }
 .description_unique_id p{
@@ -149,6 +182,7 @@ line-height:  0;
      text-transform: capitalize !important;
 
 }
+
 .form_custom_input::placeholder {
     font-weight: 600 !important;
     color: #ababab;
@@ -359,6 +393,10 @@ select{
     align-items: start;
     margin-bottom:18px;
 }
+
+.form_checkbox_wrapper .tc_wrapper div:nth-child(1){
+margin-top: 10px;
+}
 .form_checkbox_wrapper .tc_wrapper div:nth-child(2){
     margin-bottom:0px !important;
 
@@ -380,7 +418,9 @@ select{
     margin: 0 10px;
     cursor: pointer;
     text-decoration: underline;
-    width: 80%;
+    width: 95%;
+    padding-top: 7px;
+ 
 }
 .form_checkbox_wrapper label span{
     font-family: var(--banton-font);
@@ -418,17 +458,19 @@ select{
 .form_selectbox_wrapper .error_message,
 .form_checkbox_wrapper .error_message{
     font-weight: 500 !important;
-    font-family: var(--gothic-font);
-    letter-spacing: 1px;
+    font-family: var(--banton-font);
+    letter-spacing: 0px;
     box-shadow:none !important;
     text-transform: capitalize !important;
 margin-left: 10px !important;
+margin-top: 2px !important;
+color: var(--button-bg-color);
 }
 
 .selectBox_error_message{
     font-weight: 300 !important;
-    font-family: var(--gothic-font);
-    letter-spacing: 1px;
+    font-family: var(--banton-font);
+    letter-spacing: 0px;
     box-shadow:none !important;
     text-transform: capitalize !important;
 
@@ -484,15 +526,15 @@ cursor: no-drop !important;
 .form_left_circle{
     position: absolute;
     width: 11%;
-    left: -1%;
+    left: 0%;
     bottom: 0%;
     transform: translate(-0%,-50%);
 
 }
 .form_right_circle{
     position: absolute;
-    right: -2%;
-    bottom: 15%;
+    right: -0.5%;
+    bottom: 26%;
     transform: translate(-0%,-50%);
     width: 10%;
     z-index: 0;
@@ -532,13 +574,11 @@ cursor: no-drop !important;
 }
 
 .form_custom_input {
-    text-transform: none !important; /* Ensure text is not automatically transformed to uppercase */
-    /* Other styles */
+    text-transform: none !important; 
 }
 
 .form-control {
-    text-transform: none !important; /* Ensure text is not automatically transformed to uppercase */
-    /* Other styles */
+    text-transform: none !important;
 }
 @media only screen and (max-width: 500px) {
 
@@ -560,38 +600,52 @@ cursor: no-drop !important;
         font-size: 12px !important;
     }
     .form_button_wrapper button {
-        width: 90%;
+        width: 95%;
         padding: 4px 24px !important;
-        font-size: 22px !important;
+        font-size: 34px !important;
     }
 
 
 }
 
-@media only screen and (max-width: 380px) {
-    /* .form_bottle_wrapper {
-        width: 43% !important;
-        top: 100% !important;
-    } */
+@media only screen and (max-width: 400px) {
+    .form_bottle_wrapper {
+    width: 100px !important;
+        /* width: 43% !important; */
+        top: 105% !important;
+    }
 }
 
 /* ///////////////  Max Height  ///////////////// */
 
 @media only screen and (max-height: 950px) {
 
-    .form_bottle_wrapper {
+    /* .form_bottle_wrapper {
         width: 90px;
         top: 101% !important;
-    }
+    } */
 
 }
 
-@media only screen and (max-height: 810px) {
-    .form_heading_wrapper{
+@media only screen and (max-height: 820px) {
 
-        margin-top: calc(100vh - 86vh) !important;
+    .form_page_wrapper{
 
+        height: auto !important;
+        overflow-x: hidden !important;
+        overflow-y:  scroll !important;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
     }
+    .form_page_wrapper::-webkit-scrollbar {
+        display: none;
+      }
+
+    
+    .form_heading_wrapper{
+        margin-top: calc(100vh - 90vh) !important;
+    }
+
     /* .form_custom_input {
         padding: 7px 15px !important;
     } */

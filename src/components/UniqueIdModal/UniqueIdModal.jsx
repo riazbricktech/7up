@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React  from 'react';
 import './UniqueIdModal.css';
-
+import Cross from "../../assets/images/new_images/cross.webp";
 const UniqueIdModal = ({ showUniqueQrModal, closeQrModalModal }) => {
   if (!showUniqueQrModal) {
     return null;
@@ -14,10 +14,9 @@ const UniqueIdModal = ({ showUniqueQrModal, closeQrModalModal }) => {
 
   return (
     <div className="unique_modal-overlay" onClick={handleOverlayClick}>
+        <div className="modal-icon" onClick={closeQrModalModal}><img src={Cross} alt="Cut" /></div>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        {/* <button className="close-button" onClick={closeQrModalModal}>×</button> */}
         <div className="modal-body">
-          <div className="modal-icon" onClick={closeQrModalModal}>×</div>
           <div className="modal-message">
             <p>YOUR UNIQUE ID</p>
             <p>HAS ALREADY </p>

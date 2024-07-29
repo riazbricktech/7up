@@ -34,6 +34,7 @@
     height: auto;
     text-align: center;
     margin-top: calc(100vh - 85vh) !important;
+    margin-bottom: 25px;
 }
 .spinner_logo_wrapper p {
     font-size: 22px;
@@ -126,7 +127,7 @@
     font-weight: 800;
     text-align: center;
     cursor: pointer;
-    margin-top: 0px;
+    margin-top: 25px;
     width: 75%;
     padding: 0px 40px !important;
     border-radius: 12px !important;
@@ -163,7 +164,7 @@
     position: absolute;
     width: 17%;
     left: 0%;
-    top: 73%;
+    top: 78%;
     transform: translate(-0%,-50%);
     z-index: 1111;
 
@@ -171,9 +172,9 @@
 .spinner_spin_wrapper .form_right_circle{
     position: absolute;
     right: 0%;
-    bottom: 22%;
+    bottom: 17%;
     transform: translate(-0%,-50%);
-    width: 12%;
+    width: 11%;
     z-index: 1111;
 }
 @keyframes formFadeIn {
@@ -198,12 +199,7 @@
         width: 100vw !important;
     }
     .spin_result_wrapper .prize-message {
-        width: 75%;
-    }
-
-    .spinner_wrapper {
         width: 75% !important;
-        height: auto !important;
     }
 }
 @media only screen and (max-width: 480px) {
@@ -216,8 +212,7 @@
         color: white;
     }
     .spinner_wrapper {
-        width: 380px !important;
-        min-width: 85% !important ;
+        min-width: 100% !important ;
         height: auto !important;
     }
 }

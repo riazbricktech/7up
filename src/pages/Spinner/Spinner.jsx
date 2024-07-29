@@ -261,8 +261,9 @@ const Spinner = () => {
               radiusLineColor={["#00B144"]}
               radiusLineWidth={[0]}
               textColors={["#fff"]}
-              textDistance={65}
-              fontSize={[13]}
+              textDistance={60}
+              fontSize={[14]}
+              fontFamily="BentonSans_Black"
               backgroundColors={[
                 "#00b451",
                 "#a4d925",
@@ -336,8 +337,8 @@ const Spinner = () => {
               disabled={isLoading}
             >
               
-              {isLoading ? <div class="spinner-border text-warning" style={{fontWeight:"100  !important"}} role="status">
-  <span class="visually-hidden" >Loading...</span>
+              {isLoading ? <div className="spinner-border text-warning" style={{fontWeight:"100  !important"}} role="status">
+  <span className="visually-hidden" >Loading...</span>
 </div> : "Spin"}
               
             </button>
