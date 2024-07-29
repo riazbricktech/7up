@@ -30,6 +30,14 @@ import Lottie from 'lottie-react';
 import HeaderLottie from  "../../assets/images/lottie_files/lights_anim.json";
 
 import BottleFall from "../../assets/images/gif_images/form-bottle.gif";
+
+// const customStyles = {
+
+//   menuList: (provided) => ({
+//     ...provided,
+//     maxHeight: '400px',  // Increase menu max height
+//   }),
+// };
 function FormPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -257,6 +265,7 @@ console.log(data,"data");
     setIsPrivacyOpen(false);
   };
 
+
   return (
     <Wrapper>
       
@@ -359,6 +368,7 @@ console.log(data,"data");
             </label>
             <Select
               isSearchable={true}
+              menuPlacement="auto"
               value={cityOptions?.find(
                 (option) => option?.name === formValues.city_name
               )}
@@ -367,6 +377,7 @@ console.log(data,"data");
               name="city_name"
               options={cityOptions}
               placeholder="Select Your City"
+              // styles={customStyles}
             />
             {errors.city_name && (
               <div
@@ -490,12 +501,12 @@ console.log(data,"data");
         {/* Circle  */}
         <img
           src={LeftCircle}
-          className="img-fluid form_left_circle class-10"
+          className="img-fluid form_lefts_circle class-10"
           alt="Cutted Circle"
         />
         <img
           src={RightCircle}
-          className="img-fluid form_right_circle class-11"
+          className="img-fluid form_rights_circle class-11"
           alt="Cutted Circle"
         />
 

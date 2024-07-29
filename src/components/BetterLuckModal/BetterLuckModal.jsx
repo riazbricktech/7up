@@ -32,7 +32,7 @@ const BetterLuckModal = ({ showBetterLuckModal, closeBetterLuckModal }) => {
       >
         {/* <button className="close-button" onClick={closeBetterLuckModal}>×</button> */}
         <div className="modal-body">
-          <div className="modal-icon" onClick={closeBetterLuckModal}><img src={Emoji} className='emoji' alt="Emoji"/></div>
+          <div className="modal-icon" onClick={closeBetterLuckModal}><img src={Emoji} className='emoji img-fluid' alt="Emoji" /></div>
           <div className="modal-message">
             <p>BETTER LUCK</p>
             <p>NEXT TIME</p>

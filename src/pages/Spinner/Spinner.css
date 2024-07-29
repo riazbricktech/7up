@@ -1,4 +1,4 @@
-.spinner_spin_wrapper{
+.spinner_spin_wrapper {
     width: 500px !important;
     height: 100vh;
     display: flex;
@@ -37,12 +37,12 @@
     margin-bottom: 25px;
 }
 .spinner_logo_wrapper p {
-    font-size: 22px;
-    font-family: var(--banton-font);
+    font-size: 32px !important;
+    font-family: var(--gothic-font) !important;
     color: white;
 }
 
-.spinner_logo_wrapper span{
+.spinner_logo_wrapper span {
     /* color: red; */
     font-weight: 800;
     font-size: 14px;
@@ -156,22 +156,19 @@
     display: none !important;
 }
 
-
-
-.spinner_spin_wrapper .form_left_circle{
+.spinner_left_circle {
     position: absolute;
     width: 17%;
     left: 0%;
     top: 78%;
-    transform: translate(-0%,-50%);
+    transform: translate(-0%, -50%);
     z-index: 1111;
-
 }
-.spinner_spin_wrapper .form_right_circle{
+.spinner_right_circle {
     position: absolute;
     right: 0%;
     bottom: 17%;
-    transform: translate(-0%,-50%);
+    transform: translate(-0%, -50%);
     width: 11%;
     z-index: 1111;
 }
@@ -185,12 +182,10 @@
 }
 
 @media only screen and (max-width: 500px) {
-
-    .spinner_spin_wrapper{
+    .spinner_spin_wrapper {
         width: 100vw !important;
-
     }
-      .congrats_wrapper {
+    .congrats_wrapper {
         width: 100vw !important;
     }
     .spinner_header_wrapper {
@@ -220,14 +215,24 @@
         height: auto !important;
     }
 }
+@media only screen and (max-width: 395px) {
+    .spinner_logo_wrapper {
+        margin-bottom: 45px !important;
+    }
+
+    .spinner_logo_wrapper p {
+        font-size: 22px;
+        font-family: var(--banton-font);
+        color: white;
+    }
+}
 
 @media only screen and (max-width: 365px) {
-    .spinner_header_wrapper {
-        width: 100vw;
+    .bottleToCenter {
+        width: 20px !important;
     }
     .spinner_logo_wrapper {
         margin-top: calc(100vh - 92vh);
-
     }
     .spinner_logo_wrapper p {
         font-size: 18px !important;
@@ -237,7 +242,7 @@
         width: 65% !important;
         padding: 2px 40px !important;
         font-size: 18px !important;
-        border-radius:10px !important;
+        border-radius: 10px !important;
         margin-top: 0px !important;
     }
     .roulette-button {
@@ -245,15 +250,16 @@
         height: 4.5rem;
     }
     .roulette-button span img {
-        width:51% !important;
+        width: 51% !important;
     }
 
-    .spinner_wrapper {
+    /* .spinner_wrapper {
         width: 380px !important;
         min-width: auto !important ;
-    }
+    } */
 }
-
+@media only screen and (max-width: 350px) {
+}
 @media only screen and (max-width: 300px) {
     .spin_result_wrapper .prize-message {
         width: 50% !important;
@@ -267,243 +273,152 @@
 
 /* ///////////////  Max Height  ///////////////// */
 
-/* @media (max-width: 500px) and (max-height: 950px) {
+/* Bottle image animation */
 
-    .spinner_wrapper {
-        width: 430px !important;
-        min-width: 90% !important ;
-        height: auto !important;
-    }
-} */
-/* 
-@media (max-width: 500px) and (max-height: 800px) {
-
-
-    .spinner_wrapper {
-        width: 345px !important;
-        min-width: 80% !important ;
-        height: auto !important;
-    }
-}
-
-@media screen and (max-width: 350px) and (max-height: 610px) {
-
-    .spinner_wrapper {
-        width: 280px !important;
-        min-width: 40% !important ;
-        height: auto !important;
-    }
-
-    .spin_result_wrapper .prize-message {
-        padding: 5px 15px !important;
-        border-radius: 1.5rem !important;
-        font-size: 12px !important;
-    }
-} */
-
-  /* Bottle image animation */
-  .bottleToCenter {
-    z-index: 9999;
-    animation: bottleToCenter 5s ease-in;
-    width: 25px;
-
-  }
- .newclass{
+.newclass {
     position: absolute;
     z-index: 99;
-    top: 46% !important;
-    left: 50%;  
+    top: 41.5% !important;
+    left: 50%;
     transform: translate(-50%, -50%);
     animation: formFadeIn 3s ease-in-out;
     cursor: pointer;
- }
- @media (max-width: 300px) {
-    .bottleToCenter {
-        width: 25px; 
-    }
-    .newclass {
-        top: 26% !important;
-        left: 47%;  
-    }
 }
-@media (max-width: 500px) {
-    .bottleToCenter {
-        width: 25px; 
-    }
-    .newclass {
-        top: 45% !important;
-        left: 50%;  
-    }
+.bottleToCenter {
+    z-index: 9999;
+    animation: bottleToCenter 5s ease-in;
+    width: 25px;
 }
-@media (max-width: 480px) {
-    .bottleToCenter {
-        width: 25px; 
-    }
+
+@media only screen and (max-width: 450px) {
     .newclass {
         top: 40% !important;
-        left: 45%;  
+        left: 50%;
     }
 }
-@media (max-width: 450px) {
-    .bottleToCenter {
-        width: 25px; 
+
+@media only screen and (max-width: 415px) {
+    .newclass {
+        top: 39% !important;
+        left: 50%;
+    }
+}
+
+@media only screen and (max-width: 395px) {
+    .spin_result_wrapper .prize-message {
+        margin-top: 40px !important;
     }
     .newclass {
-        top: 40% !important;
-        left: 45%;  
+        top: 41% !important;
+        left: 50%;
     }
 }
-@media (max-width: 445px) {
-    .bottleToCenter {
-        width: 25px; 
-    }
+
+@media only screen and (max-width: 370px) {
     .newclass {
-        top: 38% !important;
-        left: 45%;  
+        top: 40.5% !important;
+        left: 50%;
     }
 }
-@media (max-width: 415px) {
-    .bottleToCenter {
-        width: 25px; 
-    }
+
+@media only screen and (max-width: 350px) {
     .newclass {
-        top: 37% !important;
-        left: 45%;  
+        top: 35% !important;
+        left: 50%;
     }
 }
-@media (max-width: 405px) {
-    .bottleToCenter {
-        width: 25px; 
-    }
-    .newclass {
-        top: 37% !important;
-        left: 47%;  
-    }
-}
-@media (max-width: 370px) {
-    .bottleToCenter {
-        width: 25px; 
-    }
-    .newclass {
-        top: 37% !important;
-        left: 50%;  
-    }
-}
-@media (max-width: 370px) {
-    .bottleToCenter {
-        width: 25px; 
-    }
-    .newclass {
-        top: 37% !important;
-        left: 50%;  
-    }
-}
-@media (max-width: 364px) {
-    .bottleToCenter {
-        width: 25px; 
-    }
-    .newclass {
-        top: 28% !important;
-        left: 38%;  
-    }
-}
-@media (max-width: 360px) {
-    .bottleToCenter {
-        width: 25px; 
-    }
-    .newclass {
-        top: 28% !important;
-        left: 38%;  
-    }
-}
-@media (max-width: 350px) {
-    .bottleToCenter {
-        width: 25px; 
-    }
-    .newclass {
-        top: 28% !important;
-        left: 40%;  
-    }
-}
-@media (max-width: 330px) {
-    .bottleToCenter {
-        width: 25px; 
-    }
-    .newclass {
-        top: 28% !important;
-        left: 42%;  
-    }
-}
-@media (max-width: 300px) {
-    .bottleToCenter {
-        width: 25px; 
-    }
-    .newclass {
-        top: 28% !important;
-        left: 47%;  
-    }
-}
- @keyframes spinner_upward {
+
+@keyframes spinner_upward {
     0% {
-      transform: translateY(140%);
-      opacity: 1;
+        transform: translateY(140%);
+        opacity: 1;
     }
     100% {
-      transform: translateY(0%);
-      opacity: 1;
+        transform: translateY(0%);
+        opacity: 1;
     }
-  }
-.spinner_upward{
+}
+.spinner_upward {
     animation: spinner_upward 5s ease-in;
 }
 
 @keyframes bottleToCenter {
     0% {
-      transform: translateY(-340%) rotate(50deg);
-      opacity: 1;
+        transform: translateY(-340%) rotate(50deg);
+        opacity: 1;
     }
     100% {
-      transform: translateY(0%) rotate(0deg);
-      opacity: 1;
+        transform: translateY(0%) rotate(0deg);
+        opacity: 1;
     }
-  }
- /* end */
-  @keyframes spinerDownward {
+}
+/* end */
+@keyframes spinerDownward {
     0% {
-      transform: translateY(0%);
-      opacity: 1;
+        transform: translateY(0%);
+        opacity: 1;
     }
     100% {
-      transform: translateY(600%);
-      opacity: 1;
+        transform: translateY(600%);
+        opacity: 1;
     }
-  }
-  @keyframes spinerrBottleUpword {
+}
+@keyframes spinerrBottleUpword {
     100% {
-      transform: translateY(-600%) rotate(-50deg);
-      opacity: 0;
+        transform: translateY(-600%) rotate(-50deg);
+        opacity: 0;
     }
     0% {
-      opacity: 1;
-      transform: translateY(00%) rotate(0deg);
-
+        opacity: 1;
+        transform: translateY(00%) rotate(0deg);
     }
-  }
-  
+}
 
-  
-  
-  .form_page_wrapper {
+.form_page_wrapper {
     display: flex;
     align-items: center;
     flex-direction: column;
     width: 500px;
-  }
-  .spinerrBottleUpward{
+}
+.spinerrBottleUpward {
     animation: spinerrBottleUpword 5s ease-out;
-  }
+}
 
-  .spinerDownward{
+.spinerDownward {
     animation: spinerDownward 20s ease-out;
-  }
- 
+}
+
+
+@media only screen and (max-height: 810px) {
+
+    .newclass {
+        top: 42% !important;
+        left: 50%;
+    }
+
+
+}
+
+@media only screen and (max-height: 785px) {
+
+    .newclass {
+        top: 44% !important;
+        left: 50%;
+    }
+}
+
+@media only screen and (max-height: 730px) {
+    .newclass {
+        top: 46% !important;
+        left: 50%;
+    }
+
+}
+
+@media only screen and (max-height: 700px) {
+    .newclass {
+        top: 47.5% !important;
+        left: 50%;
+    }
+
+}

@@ -67,8 +67,19 @@ const WinningPage = () => {
   const prizeName = useSelector((state) => state?.prizeDetail?.mealPrizeName);
   const spinData = useSelector((state) => state?.spin?.spinData);
   const userData = useSelector((state) => state?.user?.createUserData);
-  const {return_transaction_id, return_user_id,return_phone_user}=userData?.response; 
-const {return_prize_amount}=spinData?.response;
+  // const {return_prize_amount}=spinData?.response;
+  // const {return_transaction_id, return_user_id,return_phone_user}=userData?.response; 
+
+  const {
+    return_transaction_id = null,
+    return_user_id = null,
+    return_phone_user = null
+  } = userData?.response || {};
+
+  const {
+    return_prize_amount = null
+  } = spinData?.response || {};
+
 
   // console.log(return_transaction_id,"return_transaction_id");
   // console.log(return_user_id,"return_user_id");

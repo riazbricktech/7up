@@ -120,7 +120,10 @@ const Spinner = () => {
   const [formClass, setFormClass] = useState("");
   const [open, setOpen] = useState(false);
   const [prizeValue, setPrizeValue] = useState(0);
-
+  const [windowDimensions, setWindowDimensions] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight
+  });
   const handleOk = () => {
     setOpen(false);
   };
@@ -159,6 +162,23 @@ const Spinner = () => {
   const handleBetterLuckModal = () => {
     // setIsBetterLuck(false);
   };
+
+
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight
+      });
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   // Disptach ==============================================
   useEffect(() => {
@@ -234,10 +254,10 @@ const Spinner = () => {
   console.log(prizeValue, "200");
   return (
     <Wrapper>
-      <div className={`newclass `} onClick={handleSpinClick}>
+      {windowDimensions.width > 350 && <div className={`newclass `} onClick={handleSpinClick}>
       <img className={`bottleToCenter ${bottleClass}`} src={SpinBottle}   alt="Bottle GIF" />
 
-      </div>
+      </div>}
       <div className={`spinner_upward ${formClass}`}>
     
         <div className="spinner_header_wrapper">
@@ -270,8 +290,9 @@ const Spinner = () => {
               radiusLineColor={["#00B144"]}
               radiusLineWidth={[0]}
               textColors={["#fff"]}
-              textDistance={60}
+              textDistance={62}
               fontSize={[14]}
+            
               fontFamily="BentonSans_Black"
               backgroundColors={[
                 "#00b451",
@@ -330,10 +351,9 @@ const Spinner = () => {
               className="spiner_button roulette-button"
               onClick={handleSpinClick}
             >
-              <span>
-                {" "}
+              {windowDimensions.width <= 350 && <span>
                 <img src={BottleImage} alt="7up Bottle" />
-              </span>
+              </span>}
             </button>
           </div>
           <br />
@@ -356,12 +376,12 @@ const Spinner = () => {
      {/* Circle  */}
      <img
           src={LeftCircle}
-          className="img-fluid form_left_circle"
+          className="img-fluid spinner_left_circle"
           alt="Cutted Circle"
         />
         <img
           src={RightCircle}
-          className="img-fluid form_right_circle"
+          className="img-fluid spinner_right_circle"
           alt="Cutted Circle"
         />
         <BetterLuckModal
