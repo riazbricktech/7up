@@ -177,11 +177,11 @@ const Spinner = () => {
         }
 
         //  IF WIN 50 Rupees
-       else if (data?.payload?.response?.return_prize_amount === 50) {
+        else if (data?.payload?.response?.return_prize_amount === 50) {
           setPrizeValue(0);
         }
         //  IF WIN 100 Rupees
-       else if (data?.payload?.response?.return_prize_amount === 100) {
+        else if (data?.payload?.response?.return_prize_amount === 100) {
           setPrizeValue(() => {
             const randomIndex = Math.floor(
               Math.random() * hundredOptions.length
@@ -191,7 +191,7 @@ const Spinner = () => {
         }
         //  IF WIN 1,000 Rupees
 
-       else if (data?.payload?.response?.return_prize_amount === 1000) {
+        else if (data?.payload?.response?.return_prize_amount === 1000) {
           setPrizeValue(() => {
             const randomIndex = Math.floor(
               Math.random() * thousandOptions.length
@@ -202,7 +202,7 @@ const Spinner = () => {
 
         //  IF WIN 10,000 Rupees
 
-       else if (data?.payload?.response?.return_prize_amount === 10000) {
+        else if (data?.payload?.response?.return_prize_amount === 10000) {
           setPrizeValue(() => {
             const randomIndex = Math.floor(
               Math.random() * tenThousandOptions.length
@@ -212,7 +212,7 @@ const Spinner = () => {
         }
 
         // IF RESPONSE IN 0 OR RETURN VALUE IN 0
-       else if (data?.payload?.response?.return_value === 0) {
+        else if (data?.payload?.response?.return_value === 0) {
           setPrizeValue(() => {
             console.log(" when return value is 0")
 
@@ -235,11 +235,11 @@ const Spinner = () => {
   return (
     <Wrapper>
       <div className={`newclass `} onClick={handleSpinClick}>
-      <img className={`bottleToCenter ${bottleClass}`} src={SpinBottle}   alt="Bottle GIF" />
+        <img className={`bottleToCenter ${bottleClass}`} src={SpinBottle} alt="Bottle GIF" />
 
       </div>
       <div className={`spinner_upward ${formClass}`}>
-    
+
         <div className="spinner_header_wrapper">
           <Lottie
             animationData={HeaderLights}
@@ -330,7 +330,7 @@ const Spinner = () => {
               className="spiner_button roulette-button"
               onClick={handleSpinClick}
             >
-            
+
             </button>
           </div>
           <br />
@@ -342,25 +342,27 @@ const Spinner = () => {
               style={{ textAlign: "center" }}
               disabled={isLoading}
             >
-              
-              {isLoading ? <div className="spinner-border text-warning" style={{fontWeight:"100  !important"}} role="status">
-  <span className="visually-hidden" >Loading...</span>
-</div> : "Spin"}
-              
+
+              {isLoading ? <div className="spinner-border text-warning" style={{ fontWeight: "100  !important" }} role="status">
+                <span className="visually-hidden" >Loading...</span>
+              </div> : "Spin"}
+
             </button>
           </div>
         </div>
-     {/* Circle  */}
-     <img
+        {/* Circle  */}
+        <div className="bottom-shapes">
+        <img
           src={LeftCircle}
-          className="img-fluid form_left_circle"
+          className="img-fluid form_left_circle_spinner"
           alt="Cutted Circle"
         />
         <img
           src={RightCircle}
-          className="img-fluid form_right_circle"
+          className="img-fluid form_right_circle_spinner"
           alt="Cutted Circle"
         />
+        </div>
         <BetterLuckModal
           showBetterLuckModal={isBetterLuck}
           closeBetterLuckModal={handleBetterLuckModal}

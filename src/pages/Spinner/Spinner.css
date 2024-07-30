@@ -17,8 +17,7 @@
 .spinner_header_wrapper .spinner_header_lottie {
     position: absolute;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
     width: 100%;
     z-index: 111;
 }
@@ -157,23 +156,23 @@
 }
 
 
-
-.spinner_spin_wrapper .form_left_circle{
+.bottom-shapes{
+    position: relative;
+}
+.form_left_circle_spinner{
     position: absolute;
     width: 17%;
     left: 0%;
-    top: 78%;
     transform: translate(-0%,-50%);
-    z-index: 1111;
+    z-index: 0;
 
 }
-.spinner_spin_wrapper .form_right_circle{
+.form_right_circle_spinner{
     position: absolute;
     right: 0%;
-    bottom: 17%;
     transform: translate(-0%,-50%);
     width: 11%;
-    z-index: 1111;
+    z-index: 0;
 }
 @keyframes formFadeIn {
     from {
@@ -188,9 +187,7 @@
     .spinner_spin_wrapper {
         width: 100vw !important;
     }
-    .congrats_wrapper, .spinner_header_wrapper {
-        width: 100vw !important;
-    }
+
     .spin_result_wrapper .prize-message {
         width: 75% !important;
     }
@@ -218,7 +215,7 @@
         width: 100vw;
     }
     .spinner_logo_wrapper {
-        margin-top: calc(100vh - 92vh);
+        margin-top:120px;
     }
     .spinner_logo_wrapper p {
         font-size: 18px !important;
@@ -252,15 +249,15 @@
 }
 
 /* ///////////////  Max Height  ///////////////// */
-
-/* @media (max-width: 500px) and (max-height: 950px) {
+/* /*  */
+@media (max-height: 680px) and (min-height: 1950px) {
 
     .spinner_wrapper {
         width: 430px !important;
         min-width: 90% !important ;
         height: auto !important;
     }
-} */
+} 
 /* 
 @media (max-width: 500px) and (max-height: 800px) {
 
@@ -291,21 +288,81 @@
   .bottleToCenter {
     z-index: 9999;
     animation: bottleToCenter 5s ease-in;
-    width: 25px;
+    height: 75px;
 
   }
- .newclass{
+
+  .newclass{
     position: absolute;
     z-index: 99;
-    top: 42% !important;
+    top: 50% ;
     left: 50%;  
     transform: translate(-50%, -50%);
     animation: formFadeIn 3s ease-in-out;
     cursor: pointer;
  }
+  @media (min-height: 1180px) {
+  
+    .newclass{
+  
+        top: 35% ;
+     
+     }
+
+}
+@media (max-height:650px)  {
+  
+    .newclass{
+  
+        top: 55% ;
+     
+     }
+
+}
+@media (min-height: 750px) and (max-height:800px) {
+  
+    .newclass{
+  
+        top: 48% ;
+     
+     }
+
+}
+@media (min-height: 801px) and (max-height:900px) {
+  
+    .newclass{
+  
+        top: 44% ;
+     
+     }
+
+}
+@media (min-height: 901px){
+  
+    .newclass{
+  
+        top: 40% ;
+     
+     }
+
+}
+
+/* @media (max-height: 667px) {
+      
+    .bottle-img-fluid {
+        height: 72% ;
+        z-index: 9999;
+
+    }
+    .animation_pak_wrapper  .img-fluid{
+        height: 35%;
+        margin-top: 60px;
+    }
+
+} */
 
 /* Apply styles for viewport widths 300px and below */
-@media (max-width: 300px) {
+/* @media (max-width: 300px) {
     .bottleToCenter {
         width: 25px; 
     }
@@ -313,10 +370,10 @@
         top: 26% !important;
         left: 47%;  
     }
-}
+} */
 
 /* Apply styles for viewport widths between 301px and 370px */
-@media (min-width: 301px) and (max-width: 370px) {
+/* @media (min-width: 301px) and (max-width: 370px) {
     .bottleToCenter {
         width: 25px; 
     }
@@ -324,10 +381,10 @@
         top: 47% !important;
         left: 50%;  
     }
-}
+} */
 
 /* Apply styles for viewport widths between 371px and 388px */
-@media (min-width: 371px) and (max-width: 388px) {
+/* @media (min-width: 371px) and (max-width: 388px) {
     .bottleToCenter {
         width: 25px; 
     }
@@ -335,10 +392,10 @@
         top: 52% !important;
         left: 50%;  
     }
-}
+} */
 
 /* Apply styles for viewport widths between 389px and 404px */
-@media (min-width: 389px) and (max-width: 404px) {
+/* @media (min-width: 389px) and (max-width: 404px) {
     .bottleToCenter {
         width: 25px; 
     }
@@ -346,10 +403,10 @@
         top: 45% !important;
         left: 50%;  
     }
-}
+} */
 
 /* Apply styles for viewport widths between 405px and 500px */
-@media (min-width: 405px) and (max-width: 500px) {
+/* @media (min-width: 405px) and (max-width: 500px) {
     .bottleToCenter {
         width: 25px; 
     }
@@ -357,7 +414,7 @@
         top: 43% !important;
         left: 50%;  
     }
-}
+} */
 
 /* @media (max-width: 330px) {
     .bottleToCenter {
@@ -370,8 +427,9 @@
 } */
  .spinner_upward{
     width: 100%;
+    /* display: contents; */
  }
-@media (max-width: 300px) {
+/* @media (max-width: 300px) {
     .bottleToCenter {
         width: 25px; 
     }
@@ -379,7 +437,7 @@
         top: 34% !important;
         left: 46%;  
     }
-}
+} */
  @keyframes spinner_upward {
     0% {
       transform: translateY(140%);
@@ -443,4 +501,75 @@
   .spinerDownward{
     animation: spinerDownward 20s ease-out;
   }
- 
+  @media only screen and (max-width: 500px) {
+    .spinner_header_wrapper {
+        width: 100vw !important;
+    }
+    .spin_result_wrapper .prize-message {
+        width: 85%;
+    }
+
+    .spinner_wrapper {
+        width: 70% !important;
+        height: auto !important;
+    }
+}
+@media only screen and (max-width: 480px) {
+    .spinner_logo_wrapper {
+        margin-top: 60px;
+    }
+    .spinner_logo_wrapper p {
+        font-size: 22px;
+        font-family: var(--banton-font);
+        color: white;
+    }
+    .spinner_wrapper {
+        width: 370px !important;
+        min-width: 90% !important ;
+        height: auto !important;
+    }
+}
+
+@media only screen and (max-width: 365px) {
+    .spinner_header_wrapper {
+        width: 100vw;
+    }
+    .spinner_logo_wrapper {
+        
+    }
+    .spinner_logo_wrapper p {
+        font-size: 18px !important;
+    }
+
+    .spin_result_wrapper .prize-message {
+        width: 70% !important;
+        padding: 2px 40px !important;
+        font-size: 18px !important;
+        margin-top: 0px !important;
+    }
+    .roulette-button {
+        width: 4.5rem;
+        height: 4.5rem;
+    }
+    .roulette-button span img {
+        width:51% !important;
+    }
+
+    .spinner_wrapper {
+        width: 330px !important;
+        min-width: auto !important ;
+        position: absolute;
+        top: 30%;
+    }
+}
+
+@media only screen and (max-width: 275px) {
+    .spin_result_wrapper .prize-message {
+        width: 50% !important;
+    }
+
+    .spinner_wrapper {
+        width: 280px !important;
+        min-width: auto !important ;
+    }
+}
