@@ -11,20 +11,24 @@ const TermsAndCondition = ({ isOpen, onClose }) => {
         >
           <div className="tc_modal-header">
             <h2 className="tc_modal-title">Terms and Conditions</h2>
+
+            <p style={{textAlign:"center", padding:"20px 0 30px 0",borderBottom:"1px solid gray"}}>
+              By entering into the Promotion, the participant agrees to be bound
+              by the following Terms & Conditions:
+            </p>
           </div>
           <div className="tc_modal-content">
-            <b>Terms & Conditions for 7UP Flavours of Pakistan Campaign</b>
-            <hr/>
+            <b style={{textAlign:"center"}}>Terms & Conditions for 7UP Flavours of Pakistan Campaign</b>
             <p>
               By entering into the Promotion, the participant agrees to be bound
               by the following Terms & Conditions:
             </p>
 
-            <b>About the Promotion</b>
+            <b style={{textAlign:"center"}}>About the Promotion</b>
             <hr/>
             <p>
-              1. The Promotion is operated by Pepsi-Cola International Pvt Ltd{" "}
-              <span style={{ fontWeight: "800" }}>{`(we, us, our)`}</span>{" "}
+              1. The Promotion is operated by Pepsi-Cola International Pvt Ltd
+              <span style={{ fontWeight: "800" }}>{`(we, us, our)`}</span>
             </p>
             <p>
               2. The Promotion runs from ……… to ………………on <span style={{backgroundColor:"yellow", fontStyle:"italic"}}> across stores in the
@@ -38,7 +42,7 @@ const TermsAndCondition = ({ isOpen, onClose }) => {
             <b>How to enter</b>
             <hr/>
             <p>
-              4. PCI <span style={{ backgroundColor:"yellow" }}>participant</span> shall scan the QR code on the label of the
+              4.<span style={{ backgroundColor:"#00ff00" }}>participant</span> shall scan the QR code on the label of the
               purchased CAN or PET bottle
             </p>
             <ol style={{ listStyleType: "lower-alpha" }}>

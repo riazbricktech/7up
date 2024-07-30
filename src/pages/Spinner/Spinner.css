@@ -37,7 +37,7 @@
     margin-bottom: 25px;
 }
 .spinner_logo_wrapper p {
-    font-size: 32px !important;
+    font-size: 40px !important;
     font-family: var(--gothic-font) !important;
     color: white;
 }
@@ -127,7 +127,7 @@
     cursor: pointer;
     margin-top: 25px;
     width: 75%;
-    padding: 0px 40px !important;
+    padding: 2px 40px 0px 40px !important;
     border-radius: 12px !important;
     background-color: var(--button-bg-color);
     border-bottom: 4px solid darkgreen;
@@ -142,7 +142,7 @@
 
 .spin_result_wrapper .prize-message:disabled {
     background-color: #aaaaaa !important;
-    color: var(--button-bg-color) !important;
+    color: white !important;
 }
 
 .sc-gsTCUz {
@@ -240,7 +240,7 @@
 
     .spin_result_wrapper .prize-message {
         width: 65% !important;
-        padding: 2px 40px !important;
+        padding: 4px 40px 2px 40px !important;
         font-size: 18px !important;
         border-radius: 10px !important;
         margin-top: 0px !important;

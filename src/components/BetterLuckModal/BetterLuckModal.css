@@ -37,7 +37,7 @@
     padding: 0 !important;
     padding-top: 15px !important;
     border-radius: 10px !important;
-    width: 70% !important;
+    width: 60% !important;
     /* max-width: 400px; */
     text-align: center;
     position: relative;
@@ -98,8 +98,8 @@ margin-top: 20px;
     color: white;
     border: none;
     width: 65% !important;
-    padding: 2px 20px;
-    margin-top: 60px;
+    padding: 4px 20px 2px 20px;
+    margin-top: 75px;
     border-radius: 13px;
     font-size: 30px;
     letter-spacing: 1px;

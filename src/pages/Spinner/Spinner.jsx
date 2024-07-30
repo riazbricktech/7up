@@ -51,7 +51,7 @@ const inputList = [
   },
   {
     id: uuidv4(),
-    option: "CHICKEN BROAST",
+    option: "BROAST",
   },
   {
     id: uuidv4(),
@@ -120,6 +120,7 @@ const Spinner = () => {
   const [formClass, setFormClass] = useState("");
   const [open, setOpen] = useState(false);
   const [prizeValue, setPrizeValue] = useState(0);
+  const [isDisabled, setisDisabled] = useState(false);
   const [windowDimensions, setWindowDimensions] = useState({
     width: window.innerWidth,
     height: window.innerHeight
@@ -135,6 +136,7 @@ const Spinner = () => {
   }, []);
 
   const handleSpinClick = (e) => {
+    setisDisabled(true)
     console.log(prizeValue, "prizeValue");
     const newPrizeNumber = prizeValue;
     setPrizeNumber(newPrizeNumber);
@@ -179,6 +181,8 @@ const Spinner = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+
 
   // Disptach ==============================================
   useEffect(() => {
@@ -251,6 +255,15 @@ const Spinner = () => {
       });
     }
   }, []);
+
+
+  useEffect(()=>{
+    if(!userData){
+      navigate("/form")
+      console.log("navigate")
+    }
+      },[userData])
+  
   console.log(prizeValue, "200");
   return (
     <Wrapper>
@@ -349,7 +362,7 @@ const Spinner = () => {
             />
             <button
               className="spiner_button roulette-button"
-              onClick={handleSpinClick}
+              // onClick={handleSpinClick}
             >
               {windowDimensions.width <= 350 && <span>
                 <img src={BottleImage} alt="7up Bottle" />
@@ -363,7 +376,7 @@ const Spinner = () => {
               onClick={handleSpinClick}
               // disabled={mustSpin}
               style={{ textAlign: "center" }}
-              disabled={isLoading}
+              disabled={isLoading || isDisabled}
             >
               
               {isLoading ? <div className="spinner-border text-warning" style={{fontWeight:"100  !important"}} role="status">

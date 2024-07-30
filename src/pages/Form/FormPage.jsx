@@ -272,9 +272,9 @@ if(!cityOptions || cityOptions === undefined ){
     setTCOpen(false);
   };
 
-  const handleOpenPrivacyPolicy = () => {
-    setIsPrivacyOpen(true);
-  };
+  // const handleOpenPrivacyPolicy = () => {
+  //   setIsPrivacyOpen(true);
+  // };
 
   const handleClosePrivacyPolicy = () => {
     setIsPrivacyOpen(false);
@@ -285,7 +285,7 @@ if(!cityOptions || cityOptions === undefined ){
   return (
     <Wrapper>
       
-    <div className={`form_bottle_wrapper`}>
+    <div className={`form_bottle_wrapper`} > 
     <img className={`newGif   ${bottleClass}`} src={BottleFall}  alt="Bottle GIF" />
         </div>
       <div className={`form_page_wrapper ${formClass}`}>
@@ -429,7 +429,7 @@ if(!cityOptions || cityOptions === undefined ){
                 </div>
               ):""}
               <div className="description_unique_id">
-                <p>Find your unique ID inside the cap</p>
+                <p>Find your Unique ID inside the cap</p>
               </div>
             </div>
           )}
@@ -454,12 +454,12 @@ if(!cityOptions || cityOptions === undefined ){
                   className={`form-check-label ${errors.terms ? 'errorLabel' : ''}`}
                   // htmlFor="validationServerTerms"
                   htmlFor=""
-                  onClick={openTermsCon}
+                 
                   // style={{color: errors.terms ? "#E81D2C" : "white"}}
                   
                 >
-                 I have read the <span style={{color: errors.terms ? "#E81D2C !important" : "white"}}>Terms & Conditions</span> and consent to the 
-                  use of my personal data as per the <span style={{color: errors.terms ? "#E81D2C !important" : "white"}}>Privacy Notice</span>. I have the option to opt-out anytime.
+                 I have read the <span style={{color: errors.terms ? "#E81D2C !important" : "white"}}  onClick={openTermsCon}>Terms & Conditions</span> and consent to the 
+                  use of my personal data as per the Privacy Notice. I have the option to opt-out anytime.
                 </label>
               </div>
               <div>
@@ -477,7 +477,7 @@ if(!cityOptions || cityOptions === undefined ){
                    className={`form-check-label ${errors.privacy ? 'errorLabel' : ''}`}
                   // htmlFor="validationServerPrivacy"
                   htmlFor=""
-                  onClick={handleOpenPrivacyPolicy}
+                  // onClick={handleOpenPrivacyPolicy}
                   // style={{color: errors.privacy ? "#E81D2C" : "white"}}
                 >
                  I consent to receiving product information and  promotional offers from PepsiCo, electronically, including,  SMS & WhatsApp
@@ -511,7 +511,15 @@ if(!cityOptions || cityOptions === undefined ){
         </form>
 
         {/* Circle  */}
-        <img
+ 
+
+     
+      </div>
+      <CapModal showModal={showModal} closeModal={closeModal} />
+      <TermsAndCondition isOpen={isTCOpen} onClose={closeTermsCon} />
+      <PrivacyPolicy show={isPrivacyOpen} handleClose={handleClosePrivacyPolicy} />
+      <UniqueIdModal  showUniqueQrModal={isUniqueQrCode}  closeQrModalModal={handleUniqueQrModal} />
+      <img
           src={LeftCircle}
           className="img-fluid form_lefts_circle class-10"
           alt="Cutted Circle"
@@ -521,14 +529,6 @@ if(!cityOptions || cityOptions === undefined ){
           className="img-fluid form_rights_circle class-11"
           alt="Cutted Circle"
         />
-
-     
-      </div>
-      <CapModal showModal={showModal} closeModal={closeModal} />
-      <TermsAndCondition isOpen={isTCOpen} onClose={closeTermsCon} />
-      <PrivacyPolicy show={isPrivacyOpen} handleClose={handleClosePrivacyPolicy} />
-      <UniqueIdModal  showUniqueQrModal={isUniqueQrCode}  closeQrModalModal={handleUniqueQrModal} />
-
     </Wrapper>
   );
 }

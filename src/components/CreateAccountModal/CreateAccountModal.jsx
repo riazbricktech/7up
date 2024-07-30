@@ -25,7 +25,7 @@ if(seconds === 0){
     } 
     else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
       window.location.href =
-        "https://apps.apple.com/pk/app/jazzcash/id1254853964";
+        "https://apps.apple.com/pk/app/jazzcash-your-mobile-account/id1224617688";
     } else {
      console.log("Please create account on Jazzcash and return to this screen")
     }

@@ -18,7 +18,7 @@ const JazzCash = () => {
   const [isCreateAccount, setIsCreateAccount] = useState(false);
   const [isDisabledFields, setIsDisabledFields] = useState(true);
 
-  const [isMaxAttempt, setIsMaxAttempt] = useState(false);
+
 
   const [formValues, setFormValues] = useState({
     phoneNumber: "",
@@ -35,9 +35,23 @@ const JazzCash = () => {
     (state) => state?.taction?.transactionData
   );
 
-  const { return_transaction_id, return_user_id, return_phone_user } =
-    userData?.response;
-  const { return_prize_amount } = spinData?.response || null;
+  const isLoader = useSelector(
+    (state) => state?.taction?.isLoading
+  );
+
+  // const { return_transaction_id, return_user_id, return_phone_user } =
+  //   userData?.response;
+
+  // const { return_prize_amount } = spinData?.response || null;
+
+    const return_transaction_id = userData?.response?.return_transaction_id;
+    const return_user_id = userData?.response?.return_user_id;
+    const return_phone_user =   userData?.response?.return_phone_user;
+    const return_prize_amount = spinData?.response?.return_prize_amount;
+  
+
+
+
 
   console.log(transactionData?.code, "transactionData");
   console.log(transactionData?.attempt_counter, "attempt_counter");
@@ -188,7 +202,7 @@ console.log(formValues.phoneNumber,"***********************")
             CREATE JAZZCASH ACCOUNT
           </button>
         </div>
-        <p className="and_para">AND</p>
+        <p className="and_para">  {transactionData?.attempt_counter === 0 ? "OR" : "AND" }</p>
 
         <div className="jazzcash_form_Heading_wrapper">
           <p>
@@ -234,15 +248,18 @@ console.log(formValues.phoneNumber,"***********************")
             <button
               type="submit"
               className="btn btn-primary"
-              disabled={isDisabledFields}
+              disabled={isDisabledFields || isLoader}
               style={{
                 backgroundColor: isDisabledFields ? "#aaaaaa" : "#E81D2C",
                 color: isDisabledFields ? "#E81D2C" : "white",
 
                 cursor: isDisabledFields ? "no-drop" : "",
+
               }}
             >
-              Next
+          {isLoader ? <div className="spinner-border text-warning mt-1" role="status">
+  <span className="visually-hidden">Loading...</span>
+</div> : "Next"}
             </button>
           </div>
         </form>
