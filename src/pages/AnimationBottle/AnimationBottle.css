@@ -1,98 +1,117 @@
+/* AnimationBottle.css */
+/* .foodElements{
+    height: 500px;
+} */
 .animation_page_wrapper {
     width: 500px;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-} 
+}
 
- .animation_header_wrapper {
+.animation_header_wrapper {
     width: 100%;
     height: 100vh;
     position: relative;
-} 
+}
 
 .animation_header_wrapper .header_lights {
     position: absolute;
-    top: 0;
+    /* top: 0;
     left: 0;
-    transform: translateX(-50%);
+    transform: translateX(-50%); */
     width: 100%;
-} 
+}
 
 .header_mask,
 .header_lights {
     width: 100%;
     height: auto;
-} 
+}
 
 .animation_pak_wrapper {
     position: absolute;
-    top: 18% !important;
-    left: 50% !important;
-    transform: translate(-50%,-50%);
+    top: 5% !important;
+    /* left: 0% !important; */
+    transform: translate(-50%, -50%);
     text-align: center;
     z-index: 9999;
     margin-top: 15px;
     width: 60%;
+}
 
-} 
-.animation_pak_wrapper img{
-
+.animation_pak_wrapper img {
     width: 100%;
 }
+
+/* Animation for PakImage appearance */
 .pakClass {
-    
-    animation: growCircle .5s forwards;
-
-
-} 
-.pakClassExit{
-    animation: pakClassExit .5s ;
-
+    animation: appear 2s ease-in-out forwards;
 }
-@keyframes pakClassExit {
+
+/* Animation for PakImage moving upwards */
+.pakClassExit {
+    animation: pakClassExit 2s ease-in-out forwards;
+}
+
+.bottle-img-fluid{
+    margin-top: 40px;
+}
+
+.headerMaskExit {
+    animation: headerMaskExit 2s ease-in-out forwards;
+}
+
+@keyframes headerMaskExit {
     0% {
-      opacity: 1;
-      width: 100%;
-      height: 100%;
-      transform: translateY(0%);
-
-
+        opacity: 1;
+        transform: translateY(0);
     }
     100% {
-      opacity: 1;
-      width: 100%;
-      height: 100%;
-      transform: translateY(-240%);
-
-
+        opacity: 1;
+        transform: translateY(-100px); /* Adjust to your needs */
     }
-  
-  }
+}
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(0); /* Start from below */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(50px); /* End at original position */
+    }
+}
 
+@keyframes pakClassExit {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(-940px); /* Adjust to your needs */
+    }
+}
 
-  @media (max-height: 750px) {
-  
+@media (max-height: 750px) {
     .bottle-img-fluid {
         height: 90% !important;
         z-index: 9999;
-
     }
+}
 
-} 
+
 @media (max-height: 667px) {
-  
     .bottle-img-fluid {
         height: 90% !important;
         z-index: 9999;
-
     }
-    .animation_pak_wrapper  .img-fluid{
+    .animation_pak_wrapper {
         height: 35%;
-        margin-top: 60px;
+        margin-top: 20px;
     }
-
 }
 
 .animation_meal_wrapper {
@@ -108,23 +127,15 @@
 .animation_meal_wrapper img {
     width: 30%;
     height: 100px;
-} 
-
-.animation_bottle_wrapper {
-width: 100%;
-height: 100vh;
-
 }
-.animation_bottle_wrapper {
 
-    
+.animation_bottle_wrapper {
     width: 100%;
-} 
+    height: 100vh;
+}
 
 .change-loc {
-
     animation: slideInFromTopm 3s ease-out;
-
 }
 
 @keyframes slideInFromTopm {
@@ -132,7 +143,6 @@ height: 100vh;
         transform: translateY(-180%);
         opacity: 0;
     }
-
     100% {
         transform: translateY(0);
         opacity: 1;
@@ -141,8 +151,7 @@ height: 100vh;
 
 .animation_bottle_wrapper img {
     width: 100%;
-
-} 
+}
 
 .containerww {
     display: flex;
@@ -162,14 +171,12 @@ height: 100vh;
     0% {
         width: 0%;
     }
-
     100% {
         width: 60%;
     }
 }
 
 @media (max-width: 500px) {
-
     .animation_page_wrapper {
         width: 100vw !important;
         height: 100vh;
@@ -189,7 +196,6 @@ height: 100vh;
     0% {
         transform: translateY(0);
     }
-
     100% {
         transform: translateY(50%);
     }

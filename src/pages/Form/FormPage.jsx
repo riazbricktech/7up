@@ -84,6 +84,9 @@ function FormPage() {
     terms: "",
     privacy: "",
   });
+  const handleDataFromChild = (childData) => {
+    setData(childData);
+  };
   function formatName(name) {
     return name.replace(/\w\S*/g, (txt) => {
       return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
@@ -202,16 +205,16 @@ function FormPage() {
 
         if (res?.payload?.response?.return_value === 1) {
           setApiResponse(res?.payload?.response);
-          setBottleClass("bottleUpward")
-          setFormClass("formUpward");
-          setTimeout(() => {
-            navigate("/spin");
-          }, 1500);
+          
           return;
         }
 
         if(res?.payload?.response?.return_value === 0){
-
+          setBottleClass("bottleUpward")
+          setFormClass("formUpward");
+          setTimeout(() => {
+            navigate("/spin");
+          }, 3000);
           if(res?.payload?.response?.return_message ===  "Code not found"){
             setIsCodeFound(true);
             return;
