@@ -6,13 +6,13 @@ import { useNavigate } from "react-router-dom";
 
 import Lottie from 'react-lottie';
 import animationData from "../../assets/images/lottie_files/heartbeatlogo.json";
-import foodElementsJson from "../../assets/images/lottie_files/new.json";
+import foodElementsJson from "../../assets/images/lottie_files/foodelements.json";
 import architectureJson from "../../assets/images/lottie_files/architecture-nobg.json";
 const LandingPage = () => {
   const navigate = useNavigate();
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigate("/animation");
+      // navigate("/animation");
     }, 3500);
 
     return () => clearTimeout(timer);
@@ -49,7 +49,7 @@ const LandingPage = () => {
       <div className="landing_page_wrapper">
       <div className="foodElements" >
 
-<Lottie options={foodElements}  width='100%'/>
+<Lottie options={foodElements}  width='100%' height='auto' />
 </div>
         <div className="landing_logo_wrapper ">
         
