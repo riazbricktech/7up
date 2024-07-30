@@ -83,10 +83,6 @@ const WinningPage = () => {
 
 
 
-  // console.log(return_transaction_id,"return_transaction_id");
-  // console.log(return_user_id,"return_user_id");
-  // console.log(return_phone_user,"return_phone_user");
-  // console.log(return_prize_amount,"return_prize_amount");
   // const jazzCashData ={
   //   receiver_number:return_phone_user,
   //   amount:`${return_prize_amount}.00`,
@@ -108,13 +104,11 @@ const WinningPage = () => {
   //   user_id:92,
   // };
 
-console.log(jazzCashData,"jazzCashData");
 
 const handleJazzCashTransaction =()=>{
 
 
   dispatch(transaction(jazzCashData)).then((data)=>{
-    console.log(data?.payload,"data *-+-*+-*--*/**/*+");
     if(data?.payload?.status === 1)
       {
         navigate("/congrats");

@@ -53,8 +53,7 @@ const JazzCash = () => {
 
 
 
-  console.log(transactionData?.code, "transactionData");
-  console.log(transactionData?.attempt_counter, "attempt_counter");
+
 
   const jazzCashData = {
     receiver_number: formValues.phoneNumber,
@@ -154,27 +153,22 @@ const JazzCash = () => {
 
   useEffect(() => {
     if (transactionData?.code === "G2P-T-2001") {
-      console.log("iiiiiiiiiiiiiiiiiiiiiifffffff");
 
       setTransactionFailedError("*This number is not on JazzCash");
     } else {
-      console.log("eeeeeeeeeeeeeeeeeeeeelse");
       setTransactionFailedError(transactionData?.response);
     }
   }, [transactionData]);
 
   useEffect(() => {
-    console.log(return_phone_user, "before return_phone_user");
 
     if (return_phone_user) {
-      console.log(return_phone_user, "return_phone_user");
       setFormattedPhoneNumber(return_phone_user)
       // setFormValues(() => ({
       //   phoneNumber: return_phone_user,
       // }));
     }
   }, [return_phone_user]);
-console.log(formValues.phoneNumber,"***********************")
   return (
     <Wrapper>
       <div className="jazzcash_form_wrapper">

@@ -7,7 +7,6 @@ export const healthCheck = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const responseData = await getData(`${api}health`);
-      console.log('health', responseData);
       return responseData;
     } catch (error) {
       console.log('Error caught', error);

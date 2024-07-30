@@ -49,7 +49,6 @@ function FormPage() {
   const qrCode = useSelector((state) => state?.qrCode?.qrCodeNumber);
   const userData = useSelector((state) => state?.user?.createUserData);
   const userInfoLoading = useSelector((state) => state?.user?.isLoading);
-console.log(userInfoLoading,"userInfoLoading")
 
 
   const cityOptions = cityData
@@ -190,7 +189,6 @@ console.log(userInfoLoading,"userInfoLoading")
     };
     const { phone_user, name, qr_code_user, city_name, city_id } = formValues;
     const data = { phone_user, name, qr_code_user, city_name, city_id };
-console.log(data,"data");
     for (const key in newErrors) {
       if (newErrors[key]) {
         setErrors({ [key]: newErrors[key] });
@@ -200,7 +198,6 @@ console.log(data,"data");
 
     if (data) {
       dispatch(createUser(data)).then((res) => {
-        console.log(res?.payload?.response,"formPage 192")
         // setApiResponse(userData)
 
         if (res?.payload?.response?.return_value === 1) {
@@ -280,7 +277,6 @@ if(!cityOptions || cityOptions === undefined ){
     setIsPrivacyOpen(false);
   };
 
-  console.log(isCodeFound,"isCodeFound")
 
   return (
     <Wrapper>

@@ -8,7 +8,6 @@ export const transaction = createAsyncThunk(
     try {
       // const responseData = await postData(`${api}jc/tpi/v1/payment`,data);
       const responseData = await jazzCashData(`http://192.168.10.251:3000/api/jc/tpi/payment`,data);
-      console.log('Tranaction APi', responseData);
       return responseData;
     } catch (error) {
       console.log('Error caught transaction', error);

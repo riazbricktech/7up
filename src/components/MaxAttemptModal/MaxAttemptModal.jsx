@@ -18,7 +18,6 @@ const navigate =useNavigate();
 useEffect(() => {
   
   if(showMaxAttemptModal){
-    console.log(showMaxAttemptModal,"showMaxAttemptModal");
     localStorage.clear();
     const timer = setTimeout(() => {
       navigate('/'); 

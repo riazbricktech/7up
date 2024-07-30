@@ -3,8 +3,7 @@ import './CreateAccountModal.css';
 import WaitingIcon from "../../assets/images/new_images/waiting.webp";
 const CreateAccountModal = ({ showCreateAccountModal, closeCreateAccountModal }) => {
     const [seconds, setSeconds] = useState(3);
-console.log(closeCreateAccountModal,"closeCreateAccountModal");
- console.log(showCreateAccountModal,"showCreateAccountModal 7")
+
 
   const handleOverlayClick = (e) => {
     if (e.target === e.currentTarget) {
