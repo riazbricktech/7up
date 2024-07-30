@@ -1,43 +1,41 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./AnimationBottle.css";
 import Wrapper from "../../reusableComponents/Wrapper/Wrapper";
 import PakImage from "../../assets/images/new_images/pak-logo.webp";
-import foodyy from "../../assets/images/lottie_files/shabbir-neww.json";
+import food from "../../assets/images/lottie_files/shabbir-neww.json";
 import BottleGif from "../../assets/images/gif_images/bottle-anim.gif";
 import HeaderLottie from "../../assets/images/lottie_files/lights_anim.json";
 import Lottie from "lottie-react";
 import { useNavigate } from "react-router-dom";
 
 const AnimationBottle = () => {
-  const [bottleClass, setBottleClass] = useState("");
   const [pakClass, setPakClass] = useState("pakClass");
   const [headerClass, setHeaderClass] = useState("");
+  const [foodTranslateClass, setFoodTranslateClass] = useState("translateX(-50%)");
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      // navigate("/form");
+    const navigate_timer = setTimeout(() => {
+      navigate("/form");
     }, 6000);
 
-    const timerr = setTimeout(() => {
+    const animate_end_timer = setTimeout(() => {
       setPakClass("pakClassExit");
       setHeaderClass("headerMaskExit");
     }, 5500);
 
+    const food_translate_timer = setTimeout(() => {
+      setFoodTranslateClass("translateX(-50%) translateY(20%)");
+    }, 2250)
+
     return () => {
-      clearTimeout(timer);
-      clearTimeout(timerr);
+      clearTimeout(navigate_timer);
+      clearTimeout(animate_end_timer);
+      clearTimeout(food_translate_timer);
     };
   }, [navigate]);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setBottleClass("slideDown");
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <Wrapper>
@@ -52,8 +50,8 @@ const AnimationBottle = () => {
           <img src={PakImage} className="img-fluid" alt="Meal Image" />
         </div>
 
-        <div className="foodElem" style={{ width: "100%", zIndex: "0", position: "absolute", top: "8%", left: "50%", transform: "translateX(-50%)" }}>
-          <Lottie animationData={foodyy} width="100%" className="" />
+        <div style={{ width: "100%", height: "auto", zIndex: "0", position: "absolute", top: "9%", left: "50%", transform: foodTranslateClass, transition: "transform 1.0s"}}>
+          <Lottie animationData={food} />
         </div>
 
         <div className="" style={{ zIndex: "0" }}>
