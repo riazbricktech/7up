@@ -21,7 +21,7 @@ useEffect(() => {
     localStorage.clear();
     const timer = setTimeout(() => {
       navigate('/'); 
-    }, 3000);
+    }, 2000);
   
     return () => clearTimeout(timer);
   }

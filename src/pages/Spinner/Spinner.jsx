@@ -51,7 +51,7 @@ const inputList = [
   },
   {
     id: uuidv4(),
-    option: "CHICKEN BROAST",
+    option: "BROAST",
   },
   {
     id: uuidv4(),
@@ -95,18 +95,6 @@ const Spinner = () => {
   const spinPrize = spinData?.response?.return_prize_amount;
   const spinMessage = spinData?.response?.return_message;
 
-  console.log(
-    spinData?.response?.return_value,
-    "spinData?response?.return_value"
-  );
-  console.log(
-    spinData?.response?.return_prize_amount,
-    "spinData?response?.return_prize_amount"
-  );
-  console.log(
-    spinData?.response?.return_message,
-    "spinData?response?.return_prize_amount"
-  );
 
   const userIDs = {
     transaction_id: userData?.response?.return_transaction_id,
@@ -120,6 +108,7 @@ const Spinner = () => {
   const [formClass, setFormClass] = useState("");
   const [open, setOpen] = useState(false);
   const [prizeValue, setPrizeValue] = useState(0);
+  const [isDisabled, setisDisabled] = useState(false);
   const [windowDimensions, setWindowDimensions] = useState({
     width: window.innerWidth,
     height: window.innerHeight
@@ -135,11 +124,10 @@ const Spinner = () => {
   }, []);
 
   const handleSpinClick = (e) => {
-    console.log(prizeValue, "prizeValue");
+    setisDisabled(true)
     const newPrizeNumber = prizeValue;
     setPrizeNumber(newPrizeNumber);
     setMustSpin(true);
-    console.log(e, "trigger");
   };
 
   useEffect(() => {
@@ -180,13 +168,14 @@ const Spinner = () => {
     };
   }, []);
 
+
+
   // Disptach ==============================================
   useEffect(() => {
     if (userData && !hasDispatched.current) {
       hasDispatched.current = true;
       dispatch(spinPrice(userIDs)).then((data) => {
-        console.log(data?.payload?.response, "155");
-        console.log("pawan");
+    
 
         //  IF WIN 0 Rupees
         if (data?.payload?.response?.return_prize_amount === 0) {
@@ -234,7 +223,6 @@ const Spinner = () => {
         // IF RESPONSE IN 0 OR RETURN VALUE IN 0
        else if (data?.payload?.response?.return_value === 0) {
           setPrizeValue(() => {
-            console.log(" when return value is 0")
 
             const randomIndex = Math.floor(Math.random() * lossOption.length);
             return lossOption[randomIndex];
@@ -243,7 +231,6 @@ const Spinner = () => {
         // FURTHER ELSE USER WILL LOSS
         else {
           setPrizeValue(() => {
-            console.log("else")
             const randomIndex = Math.floor(Math.random() * lossOption.length);
             return lossOption[randomIndex];
           });
@@ -251,7 +238,14 @@ const Spinner = () => {
       });
     }
   }, []);
-  console.log(prizeValue, "200");
+
+
+  useEffect(()=>{
+    if(!userData){
+      navigate("/form")
+    }
+      },[userData])
+  
   return (
     <Wrapper>
       {windowDimensions.width > 350 && <div className={`newclass `} onClick={handleSpinClick}>
@@ -313,10 +307,8 @@ const Spinner = () => {
                 setMustSpin(false);
                 //  if QR code is unique and user did not won
                 if (spinValue === 1 && spinPrize === 0) {
-                  console.log(spinValue, "249");
-                  console.log(spinPrize, "250");
+
                   const selectedItem = inputList[prizeNumber];
-                  console.log("252", selectedItem);
 
                   setTimeout(function () {
                     setIsBetterLuck(true);
@@ -325,10 +317,8 @@ const Spinner = () => {
 
                 //  if QR code is already used ///   OR  some other Error
                 if (spinValue === 0) {
-                  console.log(spinValue, "261");
 
                   const selectedItem = inputList[prizeNumber];
-                  console.log("264", selectedItem);
                   setTimeout(function () {
                     setIsBetterLuck(true);
                   }, 3000);
@@ -336,10 +326,7 @@ const Spinner = () => {
 
                 //  if User won prize
                 if (spinValue === 1 && spinPrize !== 0) {
-                  console.log(spinValue, "272");
-                  console.log(spinPrize, "273");
                   const selectedItem = inputList[prizeNumber];
-                  console.log("276", selectedItem);
                   dispatch(prizeName(selectedItem?.option));
                   setTimeout(function () {
                     navigate("/winner");
@@ -349,7 +336,7 @@ const Spinner = () => {
             />
             <button
               className="spiner_button roulette-button"
-              onClick={handleSpinClick}
+              // onClick={handleSpinClick}
             >
               {windowDimensions.width <= 350 && <span>
                 <img src={BottleImage} alt="7up Bottle" />
@@ -363,7 +350,7 @@ const Spinner = () => {
               onClick={handleSpinClick}
               // disabled={mustSpin}
               style={{ textAlign: "center" }}
-              disabled={isLoading}
+              disabled={isLoading || isDisabled}
             >
               
               {isLoading ? <div className="spinner-border text-warning" style={{fontWeight:"100  !important"}} role="status">

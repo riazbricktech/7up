@@ -60,7 +60,7 @@
 }
 .congrats_wrapper .congrats_heading_wrapper span {
     color: #fde021;
-    font-size: 50px;
+    font-size: 43px;
     font-weight: 700;
     font-family: var(--gothic-font) !important;
     letter-spacing: 1.5px;
@@ -76,7 +76,7 @@
 
 .congrats_wrapper .congrats_para_wrapper p {
     color: white;
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 700;
     font-family: var(--banton-font) !important;
     letter-spacing: 0;
@@ -142,7 +142,7 @@
     }
     .congrats_wrapper .congrats_heading_wrapper span {
         color: #fde021;
-        font-size: 42px;
+        font-size: 38px;
         font-weight: 500;
     }
 

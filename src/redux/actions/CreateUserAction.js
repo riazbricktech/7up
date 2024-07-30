@@ -7,7 +7,6 @@ export const createUser = createAsyncThunk(
   async (data, { rejectWithValue }) => {
     try {
       const responseData = await postData(`${api}create-user`,data);
-      console.log('After API call', responseData);
       return responseData;
     } catch (error) {
       console.log('Error caught', error);

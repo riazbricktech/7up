@@ -47,17 +47,19 @@ z-index: 111111;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     padding-bottom: 10px;
     border-bottom: 1px solid #ddd;
   }
   
   .tc_modal-title {
-    margin: 0;
+    font-family: var(--gothic-font);
+    margin: 20px  0;
   }
   
   .tc_modal-content {
     margin-top: 20px;
-    max-height: 400px;
+    max-height: 450px;
     overflow-y: auto;
     overflow-x: hidden;
   }

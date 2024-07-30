@@ -70,7 +70,7 @@
 }
 .winner_frame_wrapper p {
   position: absolute;
-  font-size: 66px;
+  font-size: 58px !important;
   font-weight: 900;
   letter-spacing: 1px;
   font-family: var(--gothic-font);
@@ -79,6 +79,8 @@
   transform: translate(-50%, -50%);
   z-index: 11111;
   color: white;
+  width: 100%;
+  text-align: center;
 }
 
 .winner_wrapper .winner_meal_wrapper {
@@ -137,7 +139,7 @@
 .you-won-button-wrapper {
   position: absolute;
   top: 60%;
-  left: 54%;
+  left: 55%;
   transform: translate(-50%, -50%);
   z-index: 0;
   transition: all 0.5s ease-in-out;
@@ -217,17 +219,46 @@
   letter-spacing: 2px;
 }
 
-.claim-button {
+/* .claim-button {
 
   width: 100%;
   height: auto;
   position: absolute;
-  top: 85%;
+  top: 82%;
   left: 50%;
   transform: translate(-50%,-50%);  
   z-index: 11111;
   cursor: pointer;
+} */
+
+.claim-button {
+  background-color: var(--button-bg-color); /* Gold color */
+  border: none;
+  width: 55%;
+  padding: 5px 20px;
+  font-size: 34px;
+  /* font-weight: bold; */
+  color: white;
+  cursor: pointer;
+  border-radius: 15px !important;
+  border-bottom: 4px solid var(--green-color);
+  border-right: 5px solid var(--green-color);
+  position: absolute;
+  top: 82%;
+  left: 50%;
+  transform: translate(-50%,-50%);  
+  z-index: 11111;
+  cursor: pointer;
+  font-family: var(--gothic-font) !important;
+  letter-spacing: 1.5px;
 }
+
+.claim-button:disabled {
+  background-color: #ababab !important;
+  color: white !important;
+  cursor: no-drop !important;
+}
+
 
 
 
@@ -261,7 +292,7 @@
     letter-spacing: 0.8px;
   }
   .winner_frame_wrapper p {
-    font-size: 60px;
+    font-size: 57px;
     font-weight: 800 !important;
   }
 
@@ -273,7 +304,7 @@
 }
 @media only screen and (max-width: 355px) {
   .winner_frame_wrapper p {
-    font-size: 53px !important;
+    font-size: 48px !important;
     font-weight: 800 !important;
   }
   .winner_meal_wrapper P {
@@ -299,8 +330,8 @@
 
   .claim-button {
 
-    width: 100%;
-    top: 92%;
+    /* width: 100%; */
+    top: 86%;
     left: 50%;
     transform: translate(-50%,-50%);  
   }

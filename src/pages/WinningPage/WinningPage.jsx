@@ -67,24 +67,22 @@ const WinningPage = () => {
   const prizeName = useSelector((state) => state?.prizeDetail?.mealPrizeName);
   const spinData = useSelector((state) => state?.spin?.spinData);
   const userData = useSelector((state) => state?.user?.createUserData);
+
+  const isLoading = useSelector(
+    (state) => state?.taction?.isLoading
+  );
   // const {return_prize_amount}=spinData?.response;
   // const {return_transaction_id, return_user_id,return_phone_user}=userData?.response; 
 
-  const {
-    return_transaction_id = null,
-    return_user_id = null,
-    return_phone_user = null
-  } = userData?.response || {};
-
-  const {
-    return_prize_amount = null
-  } = spinData?.response || {};
 
 
-  // console.log(return_transaction_id,"return_transaction_id");
-  // console.log(return_user_id,"return_user_id");
-  // console.log(return_phone_user,"return_phone_user");
-  // console.log(return_prize_amount,"return_prize_amount");
+  const return_transaction_id = userData?.response?.return_transaction_id;
+  const return_user_id = userData?.response?.return_user_id;
+  const return_phone_user =   userData?.response?.return_phone_user;
+  const return_prize_amount = spinData?.response?.return_prize_amount;
+
+
+
   // const jazzCashData ={
   //   receiver_number:return_phone_user,
   //   amount:`${return_prize_amount}.00`,
@@ -106,13 +104,11 @@ const WinningPage = () => {
   //   user_id:92,
   // };
 
-console.log(jazzCashData,"jazzCashData");
 
 const handleJazzCashTransaction =()=>{
 
 
   dispatch(transaction(jazzCashData)).then((data)=>{
-    console.log(data?.payload,"data *-+-*+-*--*/**/*+");
     if(data?.payload?.status === 1)
       {
         navigate("/congrats");
@@ -216,12 +212,16 @@ const handleJazzCashTransaction =()=>{
 
 {showModal && (
     <>
-              <Lottie animationData={ClaimButton}
+ <button className="claim-button" disabled={isLoading}  onClick={handleJazzCashTransaction}> {isLoading ? <div className="spinner-border text-warning mt-1" role="status">
+  <span className="visually-hidden">Loading...</span>
+</div> : "claim price"}</button>
+
+              {/* <Lottie animationData={ClaimButton}
             autoPlay={true} loop={false} 
             className="claim-button" 
             onClick={handleJazzCashTransaction}
             //  onClick={()=> navigate("/jazzcash") }
-            />
+            /> */}
         
     </>
         )}
