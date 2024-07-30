@@ -67,7 +67,7 @@ export function validateUniqueId(uniqueId) {
     return "*Unique ID is required.";
   }
   if (!/^\d{8}$/.test(uniqueId)) {
-    return "*Unique ID should be exactly 8 digits.";
+    return "*Unique ID must be exactly 8 characters.";
   }
   return "";
 }

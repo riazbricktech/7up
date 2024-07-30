@@ -27,7 +27,7 @@ transactionCount:TransactionCountSlice
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['cities','health'], // Exclude CitySlice from persisting
+  blacklist: ['health'], // Exclude CitySlice from persisting
 };
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

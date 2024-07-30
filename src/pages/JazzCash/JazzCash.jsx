@@ -34,16 +34,13 @@ const JazzCash = () => {
   const transactionData = useSelector(
     (state) => state?.taction?.transactionData
   );
-  const transactionCount = useSelector(
-    (state) => state?.transactionCount?.transCountNum
-  );
 
-  console.log(transactionCount,"transactionCount");
   const { return_transaction_id, return_user_id, return_phone_user } =
     userData?.response;
-  const { return_prize_amount } = spinData?.response;
+  const { return_prize_amount } = spinData?.response || null;
 
   console.log(transactionData?.code, "transactionData");
+  console.log(transactionData?.attempt_counter, "attempt_counter");
 
   const jazzCashData = {
     receiver_number: formValues.phoneNumber,
@@ -51,12 +48,6 @@ const JazzCash = () => {
     transaction_id: return_transaction_id,
     user_id: return_user_id,
   };
-  // const jazzCashData = {
-  //   receiver_number: `03234182009`,
-  //   amount: `50.00`,
-  //   transaction_id: 88,
-  //   user_id: 92,
-  // };
   const handleChange = (e) => {
     const { name, value } = e.target;
     let updatedValue = value;
@@ -123,7 +114,7 @@ const JazzCash = () => {
           data?.payload?.code === "G2P-T-2001"
         ) {
           // setErrors("*This number is not on JazzCash");
-          dispatch(transactionCountFunction(transactionCount + 1));
+          // dispatch(transactionCountFunction(transactionCount + 1));
           setErrors({
             phoneNumber: "",
           });
@@ -131,16 +122,6 @@ const JazzCash = () => {
           return;
         } else {
           navigate("/transactionfailed");
-
-          // if (/android/i.test(userAgent)) {
-          //   window.location.href =
-          //     "https://www.google.com/aclk?sa=L&ai=DChcSEwjfouHticKHAxXIkmgJHQgmDl4YABAAGgJ3Zg&ase=2&gclid=CjwKCAjw74e1BhBnEiwAbqOAjJywEfNlb_OkPGlZ-1ELTiyJp93dYS7Mi9GO6Z8jLRJbH-GwYlIlSBoC7aQQAvD_BwE&sig=AOD64_3i9IZynsqNsw21KtCWULPczOHYHA&q=&nis=6&ved=2ahUKEwiM-tnticKHAxWqcKQEHfmOAeEQ3ooFegQIERAB&adurl=";
-          // } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-          //   window.location.href =
-          //     "https://apps.apple.com/pk/app/jazzcash/id1254853964";
-          // } else {
-          //   console.log("User is using some other device");
-          // }
         }
       });
       // navigate("/congrats");
@@ -192,7 +173,7 @@ console.log(formValues.phoneNumber,"***********************")
           />
         </div>
 
-        {transactionCount === 2 && (
+        {transactionData?.attempt_counter === 1 && (
           <div className="jazzcash_error_wrapper">
             <img src={ErrorIcon} alt="Error" />
             <p>
@@ -272,7 +253,7 @@ console.log(formValues.phoneNumber,"***********************")
           closeCreateAccountModal={handleCreateAccountModal}
         />
       )}
-      {transactionCount === 3 && (
+      {transactionData?.attempt_counter === 2 && (
         <MaxAttemptModal
           showMaxAttemptModal={true}
           closeMaxAttemptModal={handleMaxAttemptModal}

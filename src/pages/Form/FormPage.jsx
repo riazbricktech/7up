@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useLayoutEffect } from "react";
 import "./FormPage.css";
-import BottleImage from "../../assets/images/sevenUp_bottle.webp";
 import Wrapper from "../../reusableComponents/Wrapper/Wrapper";
 import {
   validatePakistaniPhoneNumber,
@@ -17,8 +16,6 @@ import { getCities } from "../../redux/actions/CityAction";
 import { createUser } from "../../redux/actions/CreateUserAction";
 import { useLocation } from "react-router-dom";
 import { canCode, bottleCode } from "../../constant/Codes";
-import HeaderMask from "../../assets/images/new_images/header_mask.webp";
-import HeaderLight from "../../assets/images/new_images/header_lights.webp";
 import LeftCircle from "../../assets/images/new_images/form_left_circle.webp";
 import RightCircle from "../../assets/images/new_images/form_right_circle.webp";
 import QuestionMark from "../../assets/images/new_images/question_mark.webp";
@@ -47,6 +44,7 @@ function FormPage() {
   const isLoading = useSelector((state) => state?.cities?.isLoading);
   const [bottleClass, setBottleClass] = useState("bottledown");
   const [formClass, setFormClass] = useState("formdown");
+  const [isCodeFound, setIsCodeFound] = useState(false);
 
   const qrCode = useSelector((state) => state?.qrCode?.qrCodeNumber);
   const userData = useSelector((state) => state?.user?.createUserData);
@@ -107,6 +105,7 @@ console.log(userInfoLoading,"userInfoLoading")
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     let updatedValue = type === "checkbox" ? checked : value;
+    setIsCodeFound(false);
     if (name === "phone_user") {
       let phoneValue = value.replace(/\D/g, "");
       if (phoneValue.length > 11) {
@@ -203,15 +202,7 @@ console.log(data,"data");
       dispatch(createUser(data)).then((res) => {
         console.log(res?.payload?.response,"formPage 192")
         // setApiResponse(userData)
-        if (res?.payload?.response?.return_value === 0 && res?.payload?.response?.return_message === "This code is already used") {
-          setIsUniqueQrCode(true);
-          return;
-        }
-        if (res?.payload?.response?.return_value === 0) {
-          setApiResponse(res?.payload?.response);
-          
-          return;
-        }
+
         if (res?.payload?.response?.return_value === 1) {
           setApiResponse(res?.payload?.response);
           setBottleClass("bottleUpward")
@@ -219,7 +210,28 @@ console.log(data,"data");
           setTimeout(() => {
             navigate("/spin");
           }, 1500);
+          return;
         }
+
+        if(res?.payload?.response?.return_value === 0){
+
+          if(res?.payload?.response?.return_message ===  "Code not found"){
+            setIsCodeFound(true);
+            return;
+          }
+          else if (res?.payload?.response?.return_message === "This code is already used") {
+            setIsUniqueQrCode(true);
+            return;
+          }
+
+          setApiResponse(res?.payload?.response);
+          return;
+
+        }
+        
+        
+
+
       });
     }
   };
@@ -241,8 +253,11 @@ console.log(data,"data");
 
 
   useEffect(() => {
-    dispatch(getCities());
-  }, []);
+if(!cityOptions || cityOptions === undefined ){
+
+  dispatch(getCities());
+}
+  }, [cityOptions]);
 
   const openTermsCon = () => {
     setTCOpen(true);
@@ -265,12 +280,12 @@ console.log(data,"data");
     setIsPrivacyOpen(false);
   };
 
+  console.log(isCodeFound,"isCodeFound")
 
   return (
     <Wrapper>
       
-    <div className={`form_bottle_wrapper `}>
-    {/* <img src={BottleImage} className={`img-fluid bottledown ${bottleClass}`} alt="7up Bottle" /> */}
+    <div className={`form_bottle_wrapper`}>
     <img className={`newGif   ${bottleClass}`} src={BottleFall}  alt="Bottle GIF" />
         </div>
       <div className={`form_page_wrapper ${formClass}`}>
@@ -279,22 +294,11 @@ console.log(data,"data");
            {/* Bottle Wrapper */}
           
         <div className="form_header_wrapper">
-          {/* <img src={HeaderImage} className="img-fluid" alt="Pakistan" /> */}
 
           <Lottie animationData={HeaderLottie}
             autoPlay={true} loop={false} 
             className="form_header_lottie" 
             />
-          {/* <img
-            src={HeaderMask}
-            className="form_headerMask img-fluid class-1"
-            alt="Pakistan"
-          />
-          <img
-            src={HeaderLight}
-            className="form_headerLight img-fluid class-2"
-            alt="Pakistan"
-          /> */}
         </div>
 
         <div className="form_heading_wrapper class-3">
@@ -396,7 +400,9 @@ console.log(data,"data");
                   type="text"
                   className={`form-control form_custom_input unique_input_field ${
                     errors.qr_code_user ? "is-invalid" : ""
-                  }`}
+                  } ${
+                    isCodeFound ? "codeFound" : ""
+                  } `}
                   id="validationServerUniqueId"
                   name="qr_code_user"
                   placeholder="Enter 8 Digit Code"
@@ -411,11 +417,17 @@ console.log(data,"data");
                   />
                 </button>
               </div>
-              {errors.qr_code_user && (
+              {errors.qr_code_user ? (
                 <div className="invalid-feedback error_message d-block">
                   {errors.qr_code_user}
                 </div>
-              )}
+              ):""}
+
+{!errors.qr_code_user && isCodeFound ? (
+                <div className="invalid-feedback error_message d-block">
+                  Enter a valid Unique ID
+                </div>
+              ):""}
               <div className="description_unique_id">
                 <p>Find your unique ID inside the cap</p>
               </div>
