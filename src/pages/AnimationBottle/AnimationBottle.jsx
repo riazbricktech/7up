@@ -17,12 +17,12 @@ const AnimationBottle = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigate("/form");
+      // navigate("/form");
     }, 6000);
 
     const timerr = setTimeout(() => {
       setPakClass("pakClassExit");
-      setHeaderClass("headerMaskExit"); 
+      setHeaderClass("headerMaskExit");
     }, 5500);
 
     return () => {
@@ -52,11 +52,11 @@ const AnimationBottle = () => {
           <img src={PakImage} className="img-fluid" alt="Meal Image" />
         </div>
 
-        <div className="foodElem " style={{ width: '100%', zIndex: '0', position: 'absolute', top:'8%' }}>
-          <Lottie animationData={foodyy} width="100%" className="bottle-img-fluid" />
+        <div className="foodElem" style={{ width: "100%", zIndex: "0", position: "absolute", top: "8%", left: "50%", transform: "translateX(-50%)" }}>
+          <Lottie animationData={foodyy} width="100%" className="" />
         </div>
 
-        <div className="" style={{ zIndex: '0' }}>
+        <div className="" style={{ zIndex: "0" }}>
           <img src={BottleGif} className="bottle-img-fluid" alt="Meal Image" />
         </div>
       </div>

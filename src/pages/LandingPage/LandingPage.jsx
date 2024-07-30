@@ -51,9 +51,8 @@ const LandingPage = () => {
           <Lottie className="" options={defaultOptions} style={{ objectFit: "cover" }} />
         </div>
 
-        <div className="landing_footer_wrapper">
-          <Lottie className="" options={architecture} />
-        </div>
+        <Lottie className="" options={architecture} />
+        <div className="landing_footer_wrapper"></div>
       </div>
     </Wrapper>
   );
