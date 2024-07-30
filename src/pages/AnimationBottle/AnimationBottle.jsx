@@ -20,7 +20,7 @@ const AnimationBottle = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
 
-      // navigate("/form");
+      navigate("/form");
     }, 7000);
 
     const timerr = setTimeout(() => {

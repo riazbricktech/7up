@@ -28,7 +28,7 @@ const LandingPage = () => {
   const navigate = useNavigate();
   useEffect(() => {
     const timer = setTimeout(() => {
-      // navigate("/animation");
+      navigate("/animation");
     }, 3500);
 
     return () => clearTimeout(timer);
