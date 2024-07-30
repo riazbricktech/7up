@@ -30,12 +30,12 @@
     /* background-color: greenyellow; */
 }
 
-.landing_logo_wrapper {
+.landing_logo_wrapper_dynamic {
     position: absolute;
     top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 200px !important;
+    width: 100%;
     height: auto;
     animation: landingFadeIn 1.2s ease-out;
     display: flex;

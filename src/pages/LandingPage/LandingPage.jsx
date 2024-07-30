@@ -44,11 +44,11 @@ const LandingPage = () => {
   return (
     <Wrapper>
       <div className="landing_page_wrapper">
-        <div style={{ width: "100%", height: "auto", position: "absolute", top: "37%", left: "50%", transform: "translateX(-50%) translateY(-50%)" }}>
+        <div style={{ width: "100%", height: "auto", position: "absolute", top: "35%", left: "50%", transform: "translateX(-50%) translateY(-50%)" }}>
           <Lottie options={foodElements} style={{ objectFit: "cover" }} />
         </div>
-        <div className="landing_logo_wrapper ">
-          <Lottie className="" options={defaultOptions} height="300px" width="200px" />
+        <div className="landing_logo_wrapper_dynamic">
+          <Lottie className="" options={defaultOptions} style={{ objectFit: "cover" }} />
         </div>
 
         <div className="landing_footer_wrapper">
