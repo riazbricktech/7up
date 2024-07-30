@@ -58,7 +58,7 @@
 // export default Routing;
 
 
-import React, { useEffect, Suspense, lazy } from 'react';
+import { useEffect, Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { canCode, bottleCode } from '../constant/Codes';

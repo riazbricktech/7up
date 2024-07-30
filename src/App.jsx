@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Routing from './routes/Routing';
 import { useLocation } from 'react-router-dom';
-import { useEffect,useLayoutEffect } from 'react';
+import { useEffect } from 'react';
 import { qrCodeFunction } from './redux/slice/QrCodeSlice';
 import { useSelector, useDispatch } from "react-redux";
 import 'animate.css';
