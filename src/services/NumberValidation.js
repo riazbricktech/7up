@@ -87,7 +87,7 @@ export function validateTerms(terms) {
 }
 export function validatePrivacy(privacy) {
   if (!privacy) {
-    return "*You must agree to the Privacy Policy.";
+    return "";
   }
   return "";
 }

@@ -232,11 +232,15 @@ const Spinner = () => {
     console.log("Spinner Page Initialize");
   },[])
 
+  const handleConsole =()=>{
+    console.log("start Console");
+  }
+
   return (
-    <Wrapper>
+    <Wrapper> 
       {windowDimensions.width > 350 && (
-        <div className="newclassC" onClick={handleSpinClick}>
-          <img className="bottleToCenter" src={SpinBottle} alt="Bottle GIF" />
+       <div className="newclassC" onClick={handleSpinClick}>
+          {!isBetterLuck  && <img className="bottleToCenter" src={SpinBottle} alt="Bottle GIF" />}
         </div>
       )}
       <div className="spinner_header_wrapper">
@@ -310,11 +314,11 @@ const Spinner = () => {
             />
             <button
               className="spiner_button roulette-button"
-            // onClick={handleSpinClick}
+            onClick={handleConsole}
             >
               {windowDimensions.width <= 350 && (
                 <span>
-                  <img src={BottleImage} alt="7up Bottle" />
+                  <img src={BottleImage} alt="7up Bottle" onClick={handleSpinClick} />
                 </span>
               )}
             </button>

@@ -92,17 +92,22 @@ function FormPage() {
       return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     });
   }
-  useLayoutEffect(() => {
+  useEffect(() => {
+    setIsQrCode(true);
+    
     if (qrCode === `/${bottleCode}`) {
       setIsQrCode(true);
     }
     if (qrCode === `/${canCode}`) {
+
       setIsQrCode(false);
     }
     if (qrCode !== `/${bottleCode}` && qrCode !== `/${canCode}`) {
+
       setIsQrCode(true);
     }
-  }, []);
+  }, [qrCode]);
+
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -211,17 +216,18 @@ function FormPage() {
           setApiResponse(res?.payload?.response);
           setTimeout(() => {
             navigate("/spin");
-          }, 1500);
+          }, 1000);
         }
 
         if(res?.payload?.response?.return_value === 0){
-          setBottleClass("bottleUpward")
-          setFormClass("formUpward");
-          if(res?.payload?.response?.return_message ===  "Code not found"){
+          // setBottleClass("bottleUpward")
+          // setFormClass("formUpward");
+          if(res?.payload?.response?.return_message ===  "You have entered incorrect unique ID"){
             setIsCodeFound(true);
             return;
           }
-          else if (res?.payload?.response?.return_message === "This code is already used") {
+          else if (res?.payload?.response?.return_message === "YOUR UNIQUE ID HAS ALREADY BEEN USED") {
+            console.log("jfdhdfhdjs")
             setIsUniqueQrCode(true);
             return;
           }
@@ -495,11 +501,11 @@ if(!cityOptions || cityOptions === undefined ){
             )} */}
           </div>
 
-          {apiResponse?.return_value === 0 ? (
+          {/* {apiResponse?.return_value === 0 ? (
             <p className="response_error">{apiResponse?.return_message}</p>
           ) : (
             <p className="response_success">{apiResponse?.return_message}</p>
-          )}
+          )} */}
           <div className="form_button_wrapper class-9">
             <button type="submit" disabled={userInfoLoading} className="btn btn-primary">
               {userInfoLoading ? <div className="spinner-border text-warning mt-1" role="status">

@@ -71,7 +71,7 @@
 // export default TransactionFailedPage;
 
 
-import React, { useEffect } from "react";
+import React, { useState,useEffect } from "react";
 import Wrapper from "../../reusableComponents/Wrapper/Wrapper";
 import Lottie from "lottie-react";
 import "./TransactionFailedPage.css";
@@ -83,12 +83,20 @@ import HeaderLights from "../../assets/images/lottie_files/lights_anim.json";
 const TransactionFailedPage = () => {
   const transactionData = useSelector((state) => state?.taction?.transactionData);
   const navigate = useNavigate();
+const [sevenUpDelay,setSevenUpDelay]=useState(false);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      localStorage.clear();
+      navigate('/'); // Navigate to "/"
+    }, 3200); // 3 seconds delay
+
+    return () => clearTimeout(timer); // Cleanup timer on component unmount
+  }, [navigate]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      localStorage.clear(); // Clear localStorage
-      navigate('/'); // Navigate to "/"
-    }, 3000); // 3 seconds delay
+      setSevenUpDelay(true)
+    }, 1400);
 
     return () => clearTimeout(timer); // Cleanup timer on component unmount
   }, [navigate]);
@@ -99,16 +107,18 @@ const TransactionFailedPage = () => {
   },[])
   return (
     <Wrapper>
-      <div className="failedPage_wrapper">
-        {/* Images wrapper */}
         <div className="failedPage_header_wrapper">
           <Lottie
             animationData={HeaderLights}
             autoPlay={true}
             loop={false}
             className="spinner_header_lottie"
+            initialSegment={[100,100]}
           />
         </div>
+      <div className="failedPage_wrapper">
+        {/* Images wrapper */}
+      
 
         {/* Para wrapper */}
         <div className="failedPage_heading_wrapper">
@@ -122,7 +132,13 @@ const TransactionFailedPage = () => {
           </div>
         )}
 
+         {/* Button wrapper */}
+         <div className="failedPage_button_wrapper">
+          <button className="btn btn-primary">TRY A DIFFERENT NUMBER</button>
+        </div>
+
         {/* Bottom Lottie Animation */}
+        {sevenUpDelay &&
         <div className="failedPage_bottom_img_wrapper">
           <Lottie
             animationData={SevenUpLottie}
@@ -130,7 +146,7 @@ const TransactionFailedPage = () => {
             loop={false}
             className="failedPage_bottom_img"
           />
-        </div>
+        </div>}
       </div>
     </Wrapper>
   );

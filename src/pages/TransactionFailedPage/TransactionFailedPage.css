@@ -38,7 +38,7 @@
     padding: 0;
     width: 100% !important;
     height: auto;
-    animation: formFadeIn 2s ease-in-out;
+    /* animation: formFadeIn 2s ease-in-out; */
     position: relative;
 }
 .failedPage_header_wrapper .spinner_header_lottie {

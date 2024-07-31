@@ -84,7 +84,7 @@ const CongratulationPage = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       localStorage.clear(); // Clear localStorage
-      navigate('/'); // Navigate to "/"
+      navigate('/');
     }, 3000); // 3 seconds delay
 
     return () => clearTimeout(timer); // Cleanup timer on component unmount
@@ -94,15 +94,17 @@ const CongratulationPage = () => {
   },[])
   return (
     <Wrapper>
-      <div className="congrats_wrapper">
-        <div className="congrats_header_wrapper">
+          <div className="congrats_header_wrapper">
           <Lottie
             animationData={HeaderLights}
             autoPlay={true}
             loop={false}
             className="spinner_header_lottie"
+            initialSegment={[100,100]}
           />
         </div>
+      <div className="congrats_wrapper">
+    
         <div className="congrats_heading_wrapper">
           <span>CONGRATULATIONS!</span>
         </div>

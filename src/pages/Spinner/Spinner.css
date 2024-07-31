@@ -195,6 +195,7 @@
   display: none !important;
 }
 .bottleToCenter {
+
   width: 25px;
 }
 .spinner_left_circle {
@@ -331,8 +332,8 @@
 }
 
 .newclassC {
-  position: fixed; /* Use fixed positioning to keep the bottle in place relative to the viewport */
-  top: 47%; /* Center vertically */
+  position: absolute; /* Use fixed positioning to keep the bottle in place relative to the viewport */
+  top: 45.5%; /* Center vertically */
   left: 50%; /* Center horizontally */
   transform: translate(-50%, -50%); /* Adjust for exact center */
   animation: bottleToCenter 2.5s ease-in; /* Animation for the bottle */

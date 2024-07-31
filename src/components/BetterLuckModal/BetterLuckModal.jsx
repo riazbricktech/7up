@@ -16,25 +16,25 @@ const BetterLuckModal = ({ showBetterLuckModal, closeBetterLuckModal }) => {
     setImage(imageUrl);
   };
 
-  useEffect(() => {
-    if (showBetterLuckModal) {
-      // Clear localStorage and navigate to "/" when modal is shown
-      localStorage.clear();
-      const timer = setTimeout(() => {
-        navigate('/'); // Navigate to "/"
-      }, 3000); // 3 seconds delay
+  // useEffect(() => {
+  //   if (showBetterLuckModal) {
+
+  //     localStorage.clear();
+  //     const timer = setTimeout(() => {
+  //       navigate('/'); // Navigate to "/"
+  //     }, 3000); // 3 seconds delay
   
-      return () => clearTimeout(timer)
-    }
-  }, [showBetterLuckModal, navigate]);
+  //     return () => clearTimeout(timer)
+  //   }
+  // }, [showBetterLuckModal, navigate]);
 
   if (!showBetterLuckModal) {
     return null;
   }
 
-  useEffect(()=>{
-    console.log("BetterLuck Initialize");
-  },[])
+  // useEffect(()=>{
+  //   console.log("BetterLuck Initialize");
+  // },[])
 
   return (
     <>

@@ -120,6 +120,7 @@ const JazzCash = () => {
 
     if (Object.values(newErrors).every((error) => error === "")) {
       dispatch(transaction(jazzCashData)).then((data) => {
+        setIsDisabledFields(true);
         if (data?.payload?.status === 1) {
           navigate("/congrats");
         } else if (
@@ -190,6 +191,7 @@ useEffect(()=>{
             autoPlay={true}
             loop={false}
             className="jazzcash_headerMask"
+            initialSegment={[100,100]}
           />
         </div>
 

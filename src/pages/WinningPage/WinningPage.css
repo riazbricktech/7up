@@ -261,7 +261,7 @@
   font-family: var(--gothic-font) !important;
   letter-spacing: 1.5px;
   /* transform: scale(0);*/
-  animation: zoom 2s forwards; 
+  animation: zoom .4s forwards; 
 }
 
 .claim-button:disabled {
