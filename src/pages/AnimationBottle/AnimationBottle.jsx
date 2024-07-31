@@ -9,10 +9,6 @@ import Lottie from "lottie-react";
 import { useNavigate } from "react-router-dom";
 
 const AnimationBottle = () => {
-  const [pakClass, setPakClass] = useState("pakClass");
-  const [headerClass, setHeaderClass] = useState("");
-  const [foodTranslateClass, setFoodTranslateClass] = useState("translateX(-50%)");
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,20 +16,8 @@ const AnimationBottle = () => {
       const navigate_timer = setTimeout(() => {
         navigate("/form");
       }, 6000);
-
-      const animate_end_timer = setTimeout(() => {
-        setPakClass("pakClassExit");
-        setHeaderClass("headerMaskExit");
-      }, 5500);
-
-      const food_translate_timer = setTimeout(() => {
-        setFoodTranslateClass("translateX(-50%) translateY(20%)");
-      }, 2250);
-
       return () => {
         clearTimeout(navigate_timer);
-        clearTimeout(animate_end_timer);
-        clearTimeout(food_translate_timer);
       };
     };
 
@@ -51,13 +35,15 @@ const AnimationBottle = () => {
     <Wrapper>
       <div className="animation_page_wrapper">
         <div className="animation_header_wrapper">
-          <div className={`header_mask img-fluid header_lights img-fluid ${headerClass}`}>
+          <div className={`header_mask img-fluid header_lights img-fluid headerMaskExit`}>
             <Lottie animationData={HeaderLottie} autoPlay={true} loop={false} height="120px" />
           </div>
         </div>
 
-        <div className={`animation_pak_wrapper ${pakClass}`}>
-          <img src={PakImage} className="img-fluid" alt="Meal Image" />
+        <div className={`animation_pak_wrapper pakClass`}>
+          <div className="pakClassExit">
+            <img src={PakImage} className="img-fluid" alt="Meal Image" />
+          </div>
         </div>
 
         <div
@@ -68,8 +54,9 @@ const AnimationBottle = () => {
             position: "absolute",
             top: "9%",
             left: "50%",
-            transform: foodTranslateClass,
-            transition: "transform 1.0s",
+            transform: "translateX(-50%)",
+            animation: "foodTranslateAnimation 2s",
+            animationDelay: "2s",
           }}
         >
           <Lottie animationData={food} />

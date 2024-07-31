@@ -2,201 +2,236 @@
 /* .foodElements{
     height: 500px;
 } */
+
+@keyframes foodTranslateAnimation {
+  0% {
+    transform: translateX(-50%) translateY(0%);
+  }
+  100% {
+    transform: translateX(-50%) translateY(25%);
+  }
+}
+
+@keyframes exit {
+  0% {
+    transform: translateX(-50%) translateY(0%);
+  }
+  100% {
+    transform: translateX(-50%) translateY(25%);
+  }
+}
+.exit {
+  animation: pakClassExit 1s forwards;
+  animation-delay: 5.5s;
+}
+.food_translte {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 9%;
+  left: 50%;
+  z-index: 0;
+  transform: translateX(-50%);
+  background-color: red;
+  animation-delay: 2s;
+  animation: food_translte 6s forwards;
+}
 .animation_page_wrapper {
-    width: 500px;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 500px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .animation_header_wrapper {
-    width: 100%;
-    height: 100vh;
-    position: relative;
+  width: 100%;
+  height: 100vh;
+  position: relative;
 }
 
 .animation_header_wrapper .header_lights {
-    position: absolute;
-    /* top: 0;
+  position: absolute;
+  /* top: 0;
     left: 0;
     transform: translateX(-50%); */
-    width: 100%;
+  width: 100%;
 }
 
 .header_mask,
 .header_lights {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
 .animation_pak_wrapper {
-    position: absolute;
-    top: 5% !important;
-    /* left: 0% !important; */
-    transform: translate(-50%, -50%);
-    text-align: center;
-    z-index: 9999;
-    margin-top: 15px;
-    width: 60%;
+  position: absolute;
+  top: 5% !important;
+  /* left: 0% !important; */
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 9999;
+  margin-top: 15px;
+  width: 60%;
 }
 
 .animation_pak_wrapper img {
-    width: 100%;
+  width: 100%;
 }
 
 /* Animation for PakImage appearance */
 .pakClass {
-    animation: appear 2s ease-in-out forwards;
+  animation: appear 2s ease-in-out forwards;
 }
 
 /* Animation for PakImage moving upwards */
 .pakClassExit {
-    animation: pakClassExit 2s ease-in-out forwards;
+  animation: pakClassExit 2s ease-in-out forwards;
+  animation-delay: 5.5s;
 }
 
-.bottle-img-fluid{
-    margin-top: 40px;
+.bottle-img-fluid {
+  margin-top: 40px;
 }
 
 .headerMaskExit {
-    animation: headerMaskExit 2s ease-in-out forwards;
+  animation: headerMaskExit 2s ease-in-out forwards;
+  animation-delay: 5.5s;
 }
 
 @keyframes headerMaskExit {
-    0% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(-100px); /* Adjust to your needs */
-    }
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-100px); /* Adjust to your needs */
+  }
 }
 @keyframes appear {
-    from {
-        opacity: 0;
-        transform: translateY(0); /* Start from below */
-    }
-    to {
-        opacity: 1;
-        transform: translateY(50px); /* End at original position */
-    }
+  from {
+    opacity: 0;
+    transform: translateY(0); /* Start from below */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(50px); /* End at original position */
+  }
 }
 
 @keyframes pakClassExit {
-    0% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(-940px); /* Adjust to your needs */
-    }
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-940px); /* Adjust to your needs */
+  }
 }
 
 @media (max-height: 750px) {
-    .bottle-img-fluid {
-        height: 90% !important;
-        z-index: 9999;
-    }
+  .bottle-img-fluid {
+    height: 90% !important;
+    z-index: 9999;
+  }
 }
 
-
 @media (max-height: 667px) {
-    .bottle-img-fluid {
-        height: 90% !important;
-        z-index: 9999;
-    }
-    .animation_pak_wrapper {
-        height: 35%;
-        margin-top: 20px;
-    }
+  .bottle-img-fluid {
+    height: 90% !important;
+    z-index: 9999;
+  }
+  .animation_pak_wrapper {
+    height: 35%;
+    margin-top: 20px;
+  }
 }
 
 .animation_meal_wrapper {
-    width: 100%;
-    position: absolute;
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: growCircle 1.5s forwards;
-    text-align: center;
+  width: 100%;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: growCircle 1.5s forwards;
+  text-align: center;
 }
 
 .animation_meal_wrapper img {
-    width: 30%;
-    height: 100px;
+  width: 30%;
+  height: 100px;
 }
 
 .animation_bottle_wrapper {
-    width: 100%;
-    height: 100vh;
+  width: 100%;
+  height: 100vh;
 }
 
 .change-loc {
-    animation: slideInFromTopm 3s ease-out;
+  animation: slideInFromTopm 3s ease-out;
 }
 
 @keyframes slideInFromTopm {
-    0% {
-        transform: translateY(-180%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
+  0% {
+    transform: translateY(-180%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .animation_bottle_wrapper img {
-    width: 100%;
+  width: 100%;
 }
 
 .containerww {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .lottie-containerww {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    animation: growCircle 1s forwards;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  animation: growCircle 1s forwards;
 }
 
 @keyframes growCircle {
-    0% {
-        width: 0%;
-    }
-    100% {
-        width: 60%;
-    }
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 60%;
+  }
 }
 
 @media (max-width: 500px) {
-    .animation_page_wrapper {
-        width: 100vw !important;
-        height: 100vh;
-    }
+  .animation_page_wrapper {
+    width: 100vw !important;
+    height: 100vh;
+  }
 
-    .animation_header_wrapper .header_lights,
-    .header_mask {
-        width: 100%;
-    }
+  .animation_header_wrapper .header_lights,
+  .header_mask {
+    width: 100%;
+  }
 }
 
 .slideDown {
-    animation: slideDown 5s ease-out;
+  animation: slideDown 5s ease-out;
 }
 
 @keyframes slideDown {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(50%);
-    }
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(50%);
+  }
 }
