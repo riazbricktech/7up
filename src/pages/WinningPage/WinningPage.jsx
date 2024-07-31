@@ -198,6 +198,7 @@ const handleJazzCashTransaction =()=>{
             className="price_lottie"
             />
          
+         
           </div>
         )}
 
