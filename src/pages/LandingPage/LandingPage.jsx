@@ -8,15 +8,27 @@ import Lottie from "react-lottie";
 import animationData from "../../assets/images/lottie_files/heartbeatlogo.json";
 import foodElementsJson from "../../assets/images/lottie_files/new.json";
 import architectureJson from "../../assets/images/lottie_files/architecture-nobg.json";
+
 const LandingPage = () => {
   const navigate = useNavigate();
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      navigate("/animation");
-    }, 3500);
 
-    return () => clearTimeout(timer);
+  useEffect(() => {
+    const handleLoad = () => {
+      const timer = setTimeout(() => {
+        navigate("/animation");
+      }, 3500);
+
+      return () => clearTimeout(timer);
+    };
+
+    if (document.readyState === "complete") {
+      handleLoad();
+    } else {
+      window.addEventListener("load", handleLoad);
+      return () => window.removeEventListener("load", handleLoad);
+    }
   }, [navigate]);
+
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -41,12 +53,9 @@ const LandingPage = () => {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
-
-  
-useEffect(()=>{
-  console.log("Landing Page Initialize");
-},[])
-
+  useEffect(()=>{
+    console.log("Landing Page Initialize");
+  },[])
   return (
     <Wrapper>
       <div className="landing_page_wrapper">
@@ -56,7 +65,6 @@ useEffect(()=>{
         <div className="landing_logo_wrapper_dynamic">
           <Lottie className="" options={defaultOptions} style={{ objectFit: "cover" }} />
         </div>
-
         <div className="landing_footer_wrapper">
           <Lottie className="" options={architecture} />
         </div>

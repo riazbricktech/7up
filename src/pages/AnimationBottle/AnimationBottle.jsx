@@ -16,29 +16,39 @@ const AnimationBottle = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const navigate_timer = setTimeout(() => {
-      navigate("/form");
-    }, 6000);
+    const handleLoad = () => {
+      const navigate_timer = setTimeout(() => {
+        navigate("/form");
+      }, 6000);
 
-    const animate_end_timer = setTimeout(() => {
-      setPakClass("pakClassExit");
-      // setHeaderClass("headerMaskExit");
-    }, 5500);
+      const animate_end_timer = setTimeout(() => {
+        setPakClass("pakClassExit");
+        setHeaderClass("headerMaskExit");
+      }, 5500);
 
-    const food_translate_timer = setTimeout(() => {
-      setFoodTranslateClass("translateX(-50%) translateY(20%)");
-    }, 2250)
+      const food_translate_timer = setTimeout(() => {
+        setFoodTranslateClass("translateX(-50%) translateY(20%)");
+      }, 2250);
 
-    return () => {
-      clearTimeout(navigate_timer);
-      clearTimeout(animate_end_timer);
-      clearTimeout(food_translate_timer);
+      return () => {
+        clearTimeout(navigate_timer);
+        clearTimeout(animate_end_timer);
+        clearTimeout(food_translate_timer);
+      };
     };
-  }, [navigate]);
-useEffect(()=>{
-  console.log("Animation Initialize");
-},[])
 
+    if (document.readyState === "complete") {
+      handleLoad();
+    } else {
+      window.addEventListener("load", handleLoad);
+      return () => {
+        window.removeEventListener("load", handleLoad);
+      };
+    }
+  }, [navigate]);
+  useEffect(()=>{
+    console.log("Animation Initialize");
+  },[])
   return (
     <Wrapper>
       <div className="animation_page_wrapper">
@@ -52,7 +62,18 @@ useEffect(()=>{
           <img src={PakImage} className="img-fluid" alt="Meal Image" />
         </div>
 
-        <div style={{ width: "100%", height: "auto", zIndex: "0", position: "absolute", top: "9%", left: "50%", transform: foodTranslateClass, transition: "transform 1.0s"}}>
+        <div
+          style={{
+            width: "100%",
+            height: "auto",
+            zIndex: "0",
+            position: "absolute",
+            top: "9%",
+            left: "50%",
+            transform: foodTranslateClass,
+            transition: "transform 1.0s",
+          }}
+        >
           <Lottie animationData={food} />
         </div>
 
