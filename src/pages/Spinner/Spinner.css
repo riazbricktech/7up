@@ -1,280 +1,300 @@
-
-
-.spinner_wrapper, .spin_result_wrapper, .spinner_logo_wrapper {
-    width: 100%;
+.roulette_container {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+}
+.wheel_container {
+  transform: rotate(-45deg);
+  width: auto;
     height: auto;
-    margin: 0 auto;
-    text-align: center;
+  max-width: 550px;
+    max-height: 550px;
+  aspect-ratio: 1;
+}
+
+.spinner_wrapper,
+.spin_result_wrapper,
+.spinner_logo_wrapper {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .spinner_logo_wrapper {
-    margin-top: calc(100vh - 85vh);
+  /* margin-top: calc(100vh - 85vh); */
 }
 
 .spinner_logo_wrapper p {
-    font-size: 32px;
-    color: white;
+  font-size: 32px;
+  color: white;
 }
 
 .spin_result_wrapper .prize-message {
-    font-weight: 800;
-    background-color: var(--button-bg-color);
-    border-bottom: 4px solid darkgreen;
-    font-size: 28px;
+  font-weight: 800;
+  background-color: var(--button-bg-color);
+  border-bottom: 4px solid darkgreen;
+  font-size: 28px;
 }
 .spinner_spin_wrapper {
-    width: 500px !important;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    z-index: 11111;
+  width: 500px !important;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 11111;
 }
 .spinner_header_wrapper {
-    padding: 0;
-    width: 500px !important;
-    height: auto;
-    animation: formFadeIn 2s ease-in-out;
-    position: relative;
+  padding: 0;
+  width: 500px !important;
+  height: auto;
+  animation: formFadeIn 2s ease-in-out;
+  position: relative;
 }
 .spinner_header_wrapper .spinner_header_lottie {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    z-index: 111;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 111;
 }
-
 
 .spinner_logo_wrapper {
-    width: 100% !important;
-    height: auto;
-    text-align: center;
-    margin-top: calc(100vh - 85vh) !important;
-    margin-bottom: 25px;
+  width: 100% !important;
+  height: auto;
+  text-align: center;
+  /* margin-top: calc(100vh - 85vh) !important; */
+  margin-bottom: 25px;
 }
 .spinner_logo_wrapper p {
-    font-size: 40px !important;
-    font-family: var(--gothic-font) !important;
-    color: white;
+  font-size: 40px !important;
+  font-family: var(--gothic-font) !important;
+  color: white;
 }
 
 .spinner_logo_wrapper span {
-    /* color: red; */
-    font-weight: 800;
-    font-size: 14px;
-    text-align: center;
+  /* color: red; */
+  font-weight: 800;
+  font-size: 14px;
+  text-align: center;
 }
 .spinner_wrapper {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 .roulette-container {
-    position: relative;
-    width: 82%;
-    max-width: 550px;
-    aspect-ratio: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: rotate(-45deg) !important;
-    margin: 10px auto 0 auto;
+  position: relative;
+  width: 82%;
+  max-width: 550px;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(-45deg) !important;
+  margin: 10px auto 0 auto;
 }
 
 .spiner_button {
-    font-size: larger;
-    /* border: 5px solid var(--primary-bg-color) !important; */
-    outline: none;
-    background: transparent;
-    color: black;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: fit-content;
-    width: fit-content;
-    padding: 5px;
-    cursor: pointer;
+  font-size: larger;
+  /* border: 5px solid var(--primary-bg-color) !important; */
+  outline: none;
+  background: transparent;
+  color: black;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+  width: fit-content;
+  padding: 5px;
+  cursor: pointer;
 }
 
 .roulette-container > div {
-    width: 100%;
-    height: 100%;
-    max-width: unset;
-    max-height: unset;
+  width: 100%;
+  height: 100%;
+  max-width: unset;
+  max-height: unset;
 }
 
 .roulette-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: +9;
-    border-radius: 5rem;
-    width: 5.5rem;
-    height: 5.5rem;
-    transform: translate(-50%, -50%);
-    background: white;
-    color: #000;
-    font-size: 0.8rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: +9;
+  border-radius: 5rem;
+  width: 5.5rem;
+  height: 5.5rem;
+  transform: translate(-50%, -50%);
+  background: white;
+  color: #000;
+  font-size: 0.8rem;
 
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .roulette-button span {
-    transform: rotate(45deg) !important;
+  transform: rotate(45deg) !important;
 }
 .roulette-button span img {
-    /* margin-top: -20px; */
-    /* position: absolute; */
-    /* top: 30px; */
-    overflow: visible;
-    width: 55%;
+  /* margin-top: -20px; */
+  /* position: absolute; */
+  /* top: 30px; */
+  overflow: visible;
+  width: 55%;
 }
 
 .spin_result_wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .spin_result_wrapper .prize-message {
-    border: none;
-    font-weight: 800;
-    text-align: center;
-    cursor: pointer;
-    margin-top: 25px;
-    width: 75%;
-    padding: 2px 40px 0px 40px !important;
-    border-radius: 12px !important;
-    background-color: var(--button-bg-color);
-    border-bottom: 4px solid darkgreen;
-    font-size: 28px !important;
-    font-family: var(--gothic-font);
-    letter-spacing: 1px;
-    color: white;
-    position: relative;
-    z-index: 1111111111111111111;
-    line-height: 45px;
+  border: none;
+  font-weight: 800;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 25px;
+  width: 75%;
+  padding: 2px 40px 0px 40px !important;
+  border-radius: 12px !important;
+  background-color: var(--button-bg-color);
+  border-bottom: 4px solid darkgreen;
+  font-size: 28px !important;
+  font-family: var(--gothic-font);
+  letter-spacing: 1px;
+  color: white;
+  position: relative;
+  z-index: 1111111111111111111;
+  line-height: 45px;
 }
 
 .spin_result_wrapper .prize-message:disabled {
-    background-color: #aaaaaa !important;
-    color: white !important;
+  background-color: #aaaaaa !important;
+  color: white !important;
 }
 
 .sc-gsTCUz {
-    overflow: hidden !important;
+  overflow: hidden !important;
 }
 
 .sc-bdfBwQ,
 .sc-hKgILt,
 .gTLZXx,
 .cIKpxU {
-    display: none !important;
+  display: none !important;
 }
-.bottleToCenter{
-    width: 25px;
+.bottleToCenter {
+  width: 25px;
 }
 .spinner_left_circle {
-    position: absolute;
-    width: 17%;
-    left: 0%;
-    top: 78%;
-    transform: translate(-0%, -50%);
-    z-index: 1111;
+  position: absolute;
+  width: 17%;
+  left: 0%;
+  top: 78%;
+  transform: translate(-0%, -50%);
+  z-index: 1111;
 }
 .spinner_right_circle {
-    position: absolute;
-    right: 0%;
-    bottom: 17%;
-    transform: translate(-0%, -50%);
-    width: 11%;
-    z-index: 1111;
+  position: absolute;
+  right: 0%;
+  bottom: 17%;
+  transform: translate(-0%, -50%);
+  width: 11%;
+  z-index: 1111;
 }
 @keyframes formFadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @media only screen and (max-width: 500px) {
-    .spinner_spin_wrapper {
-        width: 100vw !important;
-    }
-    .congrats_wrapper {
-        width: 100vw !important;
-    }
-    .spinner_header_wrapper {
-        width: 100vw !important;
-    }
-    .spin_result_wrapper .prize-message {
-        width: 75% !important;
-        /* width: 85%; */
-    }
+  .spinner_spin_wrapper {
+    width: 100vw !important;
+  }
+  .congrats_wrapper {
+    width: 100vw !important;
+  }
+  .spinner_header_wrapper {
+    width: 100vw !important;
+  }
+  .spin_result_wrapper .prize-message {
+    width: 75% !important;
+    /* width: 85%; */
+  }
 
-    .spinner_wrapper {
-        width: 100% !important;
-        height: auto !important;
-    }
+  .spinner_wrapper {
+    width: 100% !important;
+    height: auto !important;
+  }
 }
 @media only screen and (max-width: 480px) {
-    .spinner_logo_wrapper {
-        margin-top: calc(100vh - 90vh);
-    }
-    .spinner_logo_wrapper p {
-        font-size: 22px;
-        font-family: var(--banton-font);
-        color: white;
-    }
-    .spinner_wrapper {
-        min-width: 100% !important ;
-        height: auto !important;
-    }
+  .spinner_logo_wrapper {
+    /* margin-top: calc(100vh - 90vh); */
+  }
+  .spinner_logo_wrapper p {
+    font-size: 22px;
+    font-family: var(--banton-font);
+    color: white;
+  }
+  .spinner_wrapper {
+    min-width: 100% !important ;
+    height: auto !important;
+  }
 }
 @media only screen and (max-width: 395px) {
-    .spinner_logo_wrapper {
-        margin-bottom: 45px !important;
-    }
+  .spinner_logo_wrapper {
+    margin-bottom: 45px !important;
+  }
 
-    .spinner_logo_wrapper p {
-        font-size: 22px;
-        font-family: var(--banton-font);
-        color: white;
-    }
+  .spinner_logo_wrapper p {
+    font-size: 22px;
+    font-family: var(--banton-font);
+    color: white;
+  }
 }
 
 @media only screen and (max-width: 365px) {
-    .bottleToCenter {
-        width: 20px !important;
-    }
-    .spinner_logo_wrapper {
-        margin-top: calc(100vh - 92vh);
-    }
-    .spinner_logo_wrapper p {
-        font-size: 18px !important;
-    }
+  .bottleToCenter {
+    width: 20px !important;
+  }
+  .spinner_logo_wrapper {
+    /* margin-top: calc(100vh - 92vh); */
+  }
+  .spinner_logo_wrapper p {
+    /* font-size: 18px !important; */
+  }
 
-    .spin_result_wrapper .prize-message {
-        width: 65% !important;
-        padding: 4px 40px 2px 40px !important;
-        font-size: 18px !important;
-        border-radius: 10px !important;
-        margin-top: 0px !important;
-    }
-    .roulette-button {
-        width: 4.5rem;
-        height: 4.5rem;
-    }
-    .roulette-button span img {
-        width: 51% !important;
-    }
+  .spin_result_wrapper .prize-message {
+    width: 65% !important;
+    padding: 4px 40px 2px 40px !important;
+    font-size: 18px !important;
+    border-radius: 10px !important;
+    margin-top: 0px !important;
+  }
+  .roulette-button {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+  .roulette-button span img {
+    width: 51% !important;
+  }
 
-    /* .spinner_wrapper {
+  /* .spinner_wrapper {
         width: 380px !important;
         min-width: auto !important ;
     } */
@@ -282,190 +302,178 @@
 @media only screen and (max-width: 350px) {
 }
 @media only screen and (max-width: 300px) {
-    .spin_result_wrapper .prize-message {
-        width: 50% !important;
-    }
+  .spin_result_wrapper .prize-message {
+    width: 50% !important;
+  }
 
-    .spinner_wrapper {
-        width: 280px !important;
-        min-width: auto !important ;
-    }
+  .spinner_wrapper {
+    width: 280px !important;
+    min-width: auto !important ;
+  }
 }
 
 /* ///////////////  Max Height  ///////////////// */
 
 /* Bottle image animation */
-.spinNone{
-    display: none;
+.spinNone {
+  display: none;
 }
-.spineBlock{
-    display: block;
+.spineBlock {
+  display: block;
 }
 @keyframes bottleToCenter {
-    0% {
-        transform: translate(-50%, -50%) translateY(-540%) rotate(50deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translate(-50%, -50%) translateY(0%) rotate(0deg);
-        opacity: 1;
-    }
+  0% {
+    transform: translate(-50%, -50%) translateY(-540%) rotate(50deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) translateY(0%) rotate(0deg);
+  }
 }
 
-.newclass {
-    position: fixed; /* Use fixed positioning to keep the bottle in place relative to the viewport */
-    top: 40%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Adjust for exact center */
-    animation: bottleToCenter 5s ease-in; /* Animation for the bottle */
-    opacity: 1; /* Ensure bottle is fully visible */
-    z-index: 9999; /* Ensure the bottle stays on top of other elements */
+.newclassC {
+  position: fixed; /* Use fixed positioning to keep the bottle in place relative to the viewport */
+  top: 45%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust for exact center */
+  animation: bottleToCenter 5s ease-in; /* Animation for the bottle */
+  opacity: 1; /* Ensure bottle is fully visible */
+  z-index: 9999; /* Ensure the bottle stays on top of other elements */
 }
 
 .spinerrBottleUpward {
-    animation: spinerrBottleUpword 5s ease-out;
-    opacity: 1; /* Ensure bottle remains visible */
+  animation: spinerrBottleUpword 5s ease-out;
+  opacity: 1;
 }
 
 @media only screen and (max-width: 450px) {
-    .newclass {
-        top: 33% !important;
-        left: 50%;
-    }
+  .newclass {
+    top: 33% !important;
+    left: 50%;
+  }
 }
 
 @media only screen and (max-width: 415px) {
-    .newclass {
-        top: 39% !important;
-        left: 50%;
-    }
+  .newclass {
+    top: 39% !important;
+    left: 50%;
+  }
 }
 
 @media only screen and (max-width: 395px) {
-    .spin_result_wrapper .prize-message {
-        margin-top: 40px !important;
-    }
-    .newclass {
-        top: 39% !important;
-        left: 50%;
-    }
+  .spin_result_wrapper .prize-message {
+    margin-top: 40px !important;
+  }
+  .newclass {
+    top: 39% !important;
+    left: 50%;
+  }
 }
 
 @media only screen and (max-width: 370px) {
-    .newclass {
-        top: 35.5% !important;
-        left: 50%;
-    }
+  .newclass {
+    top: 35.5% !important;
+    left: 50%;
+  }
 }
 
 @media only screen and (max-width: 350px) {
-    .newclass {
-        top: 35% !important;
-        left: 50%;
-    }
+  .newclass {
+    top: 35% !important;
+    left: 50%;
+  }
 }
 
 @keyframes spinner_upward {
-    0% {
-        transform: translateY(140%);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(0%);
-        opacity: 1;
-    }
+  0% {
+    transform: translateY(140%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
 }
 .spinner_upward {
-    animation: spinner_upward 5s ease-in;
+  animation: spinner_upward 5s ease-in;
 }
 
 @keyframes spinerDownward {
-    0% {
-        transform: translateY(0%);
-        opacity: 5;
-    }
-    100% {
-        transform: translateY(800%);
-        opacity: 5;
-    }
+  0% {
+    transform: translateY(0%);
+    opacity: 5;
+  }
+  100% {
+    transform: translateY(800%);
+    opacity: 5;
+  }
 }
 @keyframes spinerrBottleUpword {
-    100% {
-        transform: translateY(-600%) rotate(-50deg);
-        opacity: 0;
-    }
-    0% {
-        opacity: 1;
-        transform: translateY(00%) rotate(0deg);
-    }
+  100% {
+    transform: translateY(-600%) rotate(-50deg);
+    opacity: 0;
+  }
+  0% {
+    opacity: 1;
+    transform: translateY(00%) rotate(0deg);
+  }
 }
 
 .form_page_wrapper {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 500px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 500px;
 }
 .spinerrBottleUpward {
-    animation: spinerrBottleUpword 5s ease-out;
+  animation: spinerrBottleUpword 5s ease-out;
 }
 
 .spinerDownward {
-    animation: spinerDownward 20s ease-out;
+  animation: spinerDownward 20s ease-out;
 }
-
 
 @media only screen and (max-height: 810px) {
-
-    .newclass {
-        top: 47% !important;
-        left: 50%;
-    }
-
-
+  .newclass {
+    top: 47% !important;
+    left: 50%;
+  }
 }
 @media only screen and (max-width: 450px) {
-
-    .newclass {
-        top: 44% !important;
-        left: 50%;
-    }
+  .newclass {
+    top: 44% !important;
+    left: 50%;
+  }
 }
 
 @media only screen and (max-width: 380px) {
-
-    .newclass {
-        top: 43% !important;
-        left: 50%;
-    }
+  .newclass {
+    top: 43% !important;
+    left: 50%;
+  }
 }
 @media only screen and (max-width: 365px) {
-
-    .newclass {
-        top: 40% !important;
-        left: 50%;
-    }
+  .newclass {
+    top: 40% !important;
+    left: 50%;
+  }
 }
 @media (max-width: 390px) and (max-height: 785px) {
-
-    .newclass {
-        top: 44% !important;
-        left: 50%;
-    }
+  .newclass {
+    top: 44% !important;
+    left: 50%;
+  }
 }
 
 @media only screen and (max-height: 730px) {
-    .newclass {
-        top: 46% !important;
-        left: 50%;
-    }
-
+  .newclass {
+    top: 46% !important;
+    left: 50%;
+  }
 }
 
 @media only screen and (max-height: 700px) {
-    .newclass {
-        top: 47.5% !important;
-        left: 50%;
-    }
-
+  .newclass {
+    top: 47.5% !important;
+    left: 50%;
+  }
 }

@@ -81,7 +81,6 @@ const Spinner = () => {
   const hasDispatched = useRef(false);
   // const prizeValue = useRef(false);
 
-
   const userData = useSelector((state) => state?.user?.createUserData);
   const spinData = useSelector((state) => state?.spin?.spinData);
   const isLoading = useSelector((state) => state?.spin?.isLoading);
@@ -95,14 +94,13 @@ const Spinner = () => {
   const spinPrize = spinData?.response?.return_prize_amount;
   const spinMessage = spinData?.response?.return_message;
 
-
   const userIDs = {
     transaction_id: userData?.response?.return_transaction_id,
     city_id: userData?.response?.return_city_id,
   };
 
   const dispatch = useDispatch();
-  const cityData = useSelector(state => state?.cities?.citesData);
+  const cityData = useSelector((state) => state?.cities?.citesData);
   const navigate = useNavigate();
   const [bottleClass, setBottleClass] = useState("");
   const [formClass, setFormClass] = useState("");
@@ -111,7 +109,7 @@ const Spinner = () => {
   const [isDisabled, setisDisabled] = useState(false);
   const [windowDimensions, setWindowDimensions] = useState({
     width: window.innerWidth,
-    height: window.innerHeight
+    height: window.innerHeight,
   });
   const handleOk = () => {
     setOpen(false);
@@ -124,7 +122,7 @@ const Spinner = () => {
   }, []);
 
   const handleSpinClick = (e) => {
-    setisDisabled(true)
+    setisDisabled(true);
     const newPrizeNumber = prizeValue;
     setPrizeNumber(newPrizeNumber);
     setMustSpin(true);
@@ -151,32 +149,26 @@ const Spinner = () => {
     // setIsBetterLuck(false);
   };
 
-
-
   useEffect(() => {
     const handleResize = () => {
       setWindowDimensions({
         width: window.innerWidth,
-        height: window.innerHeight
+        height: window.innerHeight,
       });
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
-
-
 
   // Disptach ==============================================
   useEffect(() => {
     if (userData && !hasDispatched.current) {
       hasDispatched.current = true;
       dispatch(spinPrice(userIDs)).then((data) => {
-    
-
         //  IF WIN 0 Rupees
         if (data?.payload?.response?.return_prize_amount === 0) {
           setPrizeValue(() => {
@@ -186,44 +178,35 @@ const Spinner = () => {
         }
 
         //  IF WIN 50 Rupees
-       else if (data?.payload?.response?.return_prize_amount === 50) {
+        else if (data?.payload?.response?.return_prize_amount === 50) {
           setPrizeValue(0);
         }
         //  IF WIN 100 Rupees
-       else if (data?.payload?.response?.return_prize_amount === 100) {
+        else if (data?.payload?.response?.return_prize_amount === 100) {
           setPrizeValue(() => {
-            const randomIndex = Math.floor(
-              Math.random() * hundredOptions.length
-            );
+            const randomIndex = Math.floor(Math.random() * hundredOptions.length);
             return hundredOptions[randomIndex];
           });
         }
         //  IF WIN 1,000 Rupees
-
-       else if (data?.payload?.response?.return_prize_amount === 1000) {
+        else if (data?.payload?.response?.return_prize_amount === 1000) {
           setPrizeValue(() => {
-            const randomIndex = Math.floor(
-              Math.random() * thousandOptions.length
-            );
+            const randomIndex = Math.floor(Math.random() * thousandOptions.length);
             return thousandOptions[randomIndex];
           });
         }
 
         //  IF WIN 10,000 Rupees
-
-       else if (data?.payload?.response?.return_prize_amount === 10000) {
+        else if (data?.payload?.response?.return_prize_amount === 10000) {
           setPrizeValue(() => {
-            const randomIndex = Math.floor(
-              Math.random() * tenThousandOptions.length
-            );
+            const randomIndex = Math.floor(Math.random() * tenThousandOptions.length);
             return tenThousandOptions[randomIndex];
           });
         }
 
         // IF RESPONSE IN 0 OR RETURN VALUE IN 0
-       else if (data?.payload?.response?.return_value === 0) {
+        else if (data?.payload?.response?.return_value === 0) {
           setPrizeValue(() => {
-
             const randomIndex = Math.floor(Math.random() * lossOption.length);
             return lossOption[randomIndex];
           });
@@ -239,40 +222,30 @@ const Spinner = () => {
     }
   }, []);
 
-
-  useEffect(()=>{
-    if(!userData){
-      navigate("/form")
+  useEffect(() => {
+    if (!userData) {
+      navigate("/form");
     }
-      },[userData])
-  
+  }, [userData]);
+
   return (
     <Wrapper>
-      {windowDimensions.width > 350 && <div className={`newclass `} onClick={handleSpinClick}>
-      <img className={`bottleToCenter ${bottleClass}`} src={SpinBottle}   alt="Bottle GIF" />
-
-      </div>}
-      <div className={`spinner_upward ${formClass}`}>
-    
-        <div className="spinner_header_wrapper">
-          <Lottie
-            animationData={HeaderLights}
-            autoPlay={true}
-            loop={false}
-            className="spinner_header_lottie"
-          />
-
-          {/* <img src={HeaderMask} className="spinner_headerMask img-fluid" alt="Pakistan" /> 
-        <img src={HeaderLight} className="spinner_headerLight img-fluid" alt="Pakistan" />  */}
+      {windowDimensions.width > 350 && (
+        <div className="newclassC" onClick={handleSpinClick}>
+          <img className="bottleToCenter" src={SpinBottle} alt="Bottle GIF" />
         </div>
-        <div className="spinner_logo_wrapper">
-          <p>SPIN THE WHEEL!</p>
-          {/* <span>Already Used</span> */}
-        </div>
-        <div className="spinner_wrapper">
-          <div align="center" className="roulette-container">
+      )}
+      <div className="spinner_header_wrapper">
+        <Lottie animationData={HeaderLights} autoPlay={true} loop={false} className="spinner_header_lottie" />
+      </div>
+      <div className="roulette_container ">
+        <div className="spinner_upward">
+          <div className="spinner_logo_wrapper">
+            <p>SPIN THE WHEEL!</p>
+          </div>
+
+          <div className="wheel_container">
             <Wheel
-              style={{}}
               mustStartSpinning={mustSpin}
               spinDuration={[0.9]}
               prizeNumber={prizeNumber}
@@ -286,7 +259,6 @@ const Spinner = () => {
               textColors={["#fff"]}
               textDistance={62}
               fontSize={[14]}
-            
               fontFamily="BentonSans_Black"
               backgroundColors={[
                 "#00b451",
@@ -307,19 +279,17 @@ const Spinner = () => {
                 setMustSpin(false);
                 //  if QR code is unique and user did not won
                 if (spinValue === 1 && spinPrize === 0) {
-
                   const selectedItem = inputList[prizeNumber];
 
-                  setTimeout(function () {
+                  setTimeout(function() {
                     setIsBetterLuck(true);
                   }, 3000);
                 }
 
                 //  if QR code is already used ///   OR  some other Error
                 if (spinValue === 0) {
-
                   const selectedItem = inputList[prizeNumber];
-                  setTimeout(function () {
+                  setTimeout(function() {
                     setIsBetterLuck(true);
                   }, 3000);
                 }
@@ -328,7 +298,7 @@ const Spinner = () => {
                 if (spinValue === 1 && spinPrize !== 0) {
                   const selectedItem = inputList[prizeNumber];
                   dispatch(prizeName(selectedItem?.option));
-                  setTimeout(function () {
+                  setTimeout(function() {
                     navigate("/winner");
                   }, 3000);
                 }
@@ -336,14 +306,18 @@ const Spinner = () => {
             />
             <button
               className="spiner_button roulette-button"
-              // onClick={handleSpinClick}
+            // onClick={handleSpinClick}
             >
-              {windowDimensions.width <= 350 && <span>
-                <img src={BottleImage} alt="7up Bottle" />
-              </span>}
+              {windowDimensions.width <= 350 && (
+                <span>
+                  <img src={BottleImage} alt="7up Bottle" />
+                </span>
+              )}
             </button>
           </div>
+
           <br />
+
           <div className="spin_result_wrapper">
             <button
               className="prize-message"
@@ -352,29 +326,20 @@ const Spinner = () => {
               style={{ textAlign: "center" }}
               disabled={isLoading || isDisabled}
             >
-              
-              {isLoading ? <div className="spinner-border text-warning" style={{fontWeight:"100  !important"}} role="status">
-  <span className="visually-hidden" >Loading...</span>
-</div> : "Spin"}
-              
+              {isLoading ? (
+                <div className="spinner-border text-warning" style={{ fontWeight: "100  !important" }} role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+              ) : (
+                "Spin"
+              )}
             </button>
           </div>
         </div>
-     {/* Circle  */}
-     <img
-          src={LeftCircle}
-          className="img-fluid spinner_left_circle"
-          alt="Cutted Circle"
-        />
-        <img
-          src={RightCircle}
-          className="img-fluid spinner_right_circle"
-          alt="Cutted Circle"
-        />
-        <BetterLuckModal
-          showBetterLuckModal={isBetterLuck}
-          closeBetterLuckModal={handleBetterLuckModal}
-        />
+        {/* Circle  */}
+        <img src={LeftCircle} className="img-fluid spinner_left_circle" alt="Cutted Circle" />
+        <img src={RightCircle} className="img-fluid spinner_right_circle" alt="Cutted Circle" />
+        <BetterLuckModal showBetterLuckModal={isBetterLuck} closeBetterLuckModal={handleBetterLuckModal} />
       </div>
     </Wrapper>
   );
