@@ -56,7 +56,7 @@
   padding: 0;
   width: 500px !important;
   height: auto;
-  animation: formFadeIn 2s ease-in-out;
+  animation: formFadeIn 0.5s ease-in-out;
   position: relative;
 }
 .spinner_header_wrapper .spinner_header_lottie {
@@ -335,13 +335,13 @@
   top: 47%; /* Center vertically */
   left: 50%; /* Center horizontally */
   transform: translate(-50%, -50%); /* Adjust for exact center */
-  animation: bottleToCenter 5s ease-in; /* Animation for the bottle */
+  animation: bottleToCenter 2.5s ease-in; /* Animation for the bottle */
   opacity: 1; /* Ensure bottle is fully visible */
   z-index: 9999; /* Ensure the bottle stays on top of other elements */
 }
 
 .spinerrBottleUpward {
-  animation: spinerrBottleUpword 5s ease-out;
+  animation: spinerrBottleUpword 2.5s ease-out;
   opacity: 1;
 }
 
@@ -394,7 +394,7 @@
   }
 }
 .spinner_upward {
-  animation: spinner_upward 5s ease-in;
+  animation: spinner_upward 2.5s ease-in;
 }
 
 @keyframes spinerDownward {
@@ -425,11 +425,11 @@
   width: 500px;
 }
 .spinerrBottleUpward {
-  animation: spinerrBottleUpword 5s ease-out;
+  animation: spinerrBottleUpword 2.5s ease-out;
 }
 
 .spinerDownward {
-  animation: spinerDownward 20s ease-out;
+  animation: spinerDownward 10s ease-out;
 }
 
 @media only screen and (max-height: 810px) {
