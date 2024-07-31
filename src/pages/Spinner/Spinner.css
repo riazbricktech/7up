@@ -331,7 +331,7 @@
 }
 
 .newclassC {
-  position: fixed; /* Use fixed positioning to keep the bottle in place relative to the viewport */
+  position: absolute; /* Use fixed positioning to keep the bottle in place relative to the viewport */
   top: 47%; /* Center vertically */
   left: 50%; /* Center horizontally */
   transform: translate(-50%, -50%); /* Adjust for exact center */
