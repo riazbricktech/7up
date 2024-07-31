@@ -1,7 +1,13 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import './PrivacyPolicy.css';
 
+
+
 const PrivacyPolicy = ({ show, handleClose }) => {
+
+  useEffect(()=>{
+    console.log("Privacy Policy Initialize");
+  },[])
   return (
     <div className={`pp_modal ${show ? 'pp_show' : ''}`} onClick={handleClose}>
       <div className="pp_modal-content" onClick={(e) => e.stopPropagation()}>

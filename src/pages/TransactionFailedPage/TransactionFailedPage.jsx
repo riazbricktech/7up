@@ -93,6 +93,10 @@ const TransactionFailedPage = () => {
     return () => clearTimeout(timer); // Cleanup timer on component unmount
   }, [navigate]);
 
+
+  useEffect(()=>{
+    console.log("TransactionFailed Page Initialize");
+  },[])
   return (
     <Wrapper>
       <div className="failedPage_wrapper">

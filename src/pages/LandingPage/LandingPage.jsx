@@ -12,7 +12,7 @@ const LandingPage = () => {
   const navigate = useNavigate();
   useEffect(() => {
     const timer = setTimeout(() => {
-      // navigate("/animation");
+      navigate("/animation");
     }, 3500);
 
     return () => clearTimeout(timer);
@@ -41,6 +41,12 @@ const LandingPage = () => {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
+
+  
+useEffect(()=>{
+  console.log("Landing Page Initialize");
+},[])
+
   return (
     <Wrapper>
       <div className="landing_page_wrapper">

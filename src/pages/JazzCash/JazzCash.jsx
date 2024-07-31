@@ -169,6 +169,18 @@ const JazzCash = () => {
       // }));
     }
   }, [return_phone_user]);
+
+  useEffect(()=>{
+    if(!spinData){
+      navigate("/form")
+    }
+      },[spinData])
+
+      
+useEffect(()=>{
+  console.log("JazzPage Page Initialize");
+},[])
+
   return (
     <Wrapper>
       <div className="jazzcash_form_wrapper">

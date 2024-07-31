@@ -246,6 +246,11 @@ const Spinner = () => {
     }
       },[userData])
   
+
+
+      useEffect(()=>{
+        console.log("Spinner Page Initialize");
+      },[])
   return (
     <Wrapper>
       {windowDimensions.width > 350 && <div className={`newclass `} onClick={handleSpinClick}>

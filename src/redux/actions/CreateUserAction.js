@@ -7,9 +7,11 @@ export const createUser = createAsyncThunk(
   async (data, { rejectWithValue }) => {
     try {
       const responseData = await postData(`${api}create-user`,data);
+      console.log("page 1-1 Call To an Action");
       return responseData;
     } catch (error) {
-      console.log('Error caught', error);
+      console.log("page 1-1 Call To an Action Failed");
+
       if (!error.response) {
         return rejectWithValue({ message: 'Network Error' });
       }

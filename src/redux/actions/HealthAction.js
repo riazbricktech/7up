@@ -7,9 +7,10 @@ export const healthCheck = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const responseData = await getData(`${api}health`);
+      console.log("page 4 Call To an Action Failed");
       return responseData;
     } catch (error) {
-      console.log('Error caught', error);
+      console.log("page 4 Call To an Action Failed");
       if (!error.response) {
         return rejectWithValue({ message: 'Network Error' });
       }

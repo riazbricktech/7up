@@ -30,6 +30,10 @@ useEffect(() => {
 }, [showMaxAttemptModal])
 
 
+useEffect(()=>{
+  console.log("Max Attempt Initialize");
+},[])
+
   return (
   <>
     <div className="maxAttempt_modal_overlay" 

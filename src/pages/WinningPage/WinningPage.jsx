@@ -61,7 +61,6 @@ const WinningPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [animate, setAnimate] = useState(false);
-  // const [confettiOn, setConfettiOn] = useState(false);
   const [showButton, setShowButton] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const prizeName = useSelector((state) => state?.prizeDetail?.mealPrizeName);
@@ -71,9 +70,6 @@ const WinningPage = () => {
   const isLoading = useSelector(
     (state) => state?.taction?.isLoading
   );
-  // const {return_prize_amount}=spinData?.response;
-  // const {return_transaction_id, return_user_id,return_phone_user}=userData?.response; 
-
 
 
   const return_transaction_id = userData?.response?.return_transaction_id;
@@ -82,28 +78,12 @@ const WinningPage = () => {
   const return_prize_amount = spinData?.response?.return_prize_amount;
 
 
-
-  // const jazzCashData ={
-  //   receiver_number:return_phone_user,
-  //   amount:`${return_prize_amount}.00`,
-  //   transaction_id: return_transaction_id,
-  //   user_id:return_user_id,
-  // };
-
     const jazzCashData ={
     receiver_number:return_phone_user,
     amount:return_prize_amount,
     transaction_id: return_transaction_id,
     user_id:return_user_id,
   };
-
-  //   const jazzCashData ={
-  //   receiver_number: `03234182009`,
-  //   amount:`50.00`,
-  //   transaction_id: 88,
-  //   user_id:92,
-  // };
-
 
 const handleJazzCashTransaction =()=>{
 
@@ -147,6 +127,17 @@ const handleJazzCashTransaction =()=>{
       clearTimeout(buttonTimer);
     };
   }, []);
+
+
+  useEffect(()=>{
+    if(!spinData){
+      navigate("/form")
+    }
+      },[spinData])
+
+      useEffect(()=>{
+        console.log("Winning Page Initialize");
+      },[])
   return (
     <Wrapper>
 

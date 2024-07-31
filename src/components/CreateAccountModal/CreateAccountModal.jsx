@@ -41,6 +41,11 @@ useEffect(() => {
   }
 }, [seconds]);
 
+useEffect(()=>{
+  console.log("Create Account Initialize");
+},[])
+
+
 if (!showCreateAccountModal) {
   return null;
 }

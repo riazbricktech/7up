@@ -49,7 +49,7 @@ z-index: 111111;
     align-items: center;
     flex-direction: column;
     padding-bottom: 10px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 2px solid gray;
   }
   
   .tc_modal-title {
@@ -59,7 +59,7 @@ z-index: 111111;
   
   .tc_modal-content {
     margin-top: 20px;
-    max-height: 450px;
+    max-height: 300px;
     overflow-y: auto;
     overflow-x: hidden;
   }
@@ -81,6 +81,7 @@ z-index: 111111;
   
   .tc_button:hover {
     background: #0056b3;
+    color: white;
   }
 
   @media only screen and (max-width: 500px) {
@@ -88,5 +89,16 @@ z-index: 111111;
         width: 100vw !important;
     }
     
+  }
+  
+  /*  Max Height */
+
+  @media only screen and (max-height: 860px) {
+    .tc_modal-content {
+      margin-top: 20px;
+      max-height: 480px !important; 
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
   }
   

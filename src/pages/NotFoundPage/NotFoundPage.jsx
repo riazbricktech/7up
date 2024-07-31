@@ -1,10 +1,25 @@
-import React from "react";
+import React,{useEffect} from "react";
 import "./NotFoundPage.css";
 import Wrapper from "../../reusableComponents/Wrapper/Wrapper";
 import LogoImage from "../../assets/images/sevenUp_logo.webp";
 import { useNavigate } from "react-router-dom";
+import Lottie from "react-lottie";
+import animationData from "../../assets/images/lottie_files/heartbeatlogo.json";
 const NotFoundPage = () => {
 const navigate = useNavigate();
+
+const architecture = {
+  loop: true,
+  autoplay: true,
+  animationData: animationData,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice",
+  },
+};
+useEffect(()=>{
+  console.log("Not Found Page Initialize");
+},[])
+
   return (
     <>
       <Wrapper>
@@ -12,7 +27,9 @@ const navigate = useNavigate();
         <div className="notFound_wrapper">
           {/* Logo Wrapper */}
           <div className="notFound_logo_wrapper">
-            <img src={LogoImage} className="img-fluid" alt="Logo" />
+
+          <Lottie className="" options={architecture} />
+            {/* <img src={LogoImage} className="img-fluid" alt="Logo" /> */}
           </div>
 
           {/* Not Found Content */}

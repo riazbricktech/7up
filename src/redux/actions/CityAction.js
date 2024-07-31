@@ -7,8 +7,10 @@ export const getCities = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const responseData = await getData(`${api}get-cities`, 'GET');
+        console.log("page 1 Call To an Action");
       return responseData;
     } catch (error) {
+      console.log("page 1 Call To an Action Failed");
       if (!error.response) {
         return rejectWithValue({ message: 'Network Error' });
       }

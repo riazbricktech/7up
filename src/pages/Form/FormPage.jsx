@@ -280,7 +280,9 @@ if(!cityOptions || cityOptions === undefined ){
     setIsPrivacyOpen(false);
   };
 
-
+  useEffect(()=>{
+    console.log("Form Page Initialize");
+  },[])
   return (
     <Wrapper>
       

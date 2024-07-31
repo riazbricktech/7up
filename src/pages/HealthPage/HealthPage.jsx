@@ -10,7 +10,9 @@ const HealthPage = () => {
 useEffect(() => {
   
     dispatch(healthCheck())
-}, [])
+  console.log("Health Page Initialize");
+
+}, []);
 
   return (
     <Wrapper>

@@ -22,7 +22,7 @@ const AnimationBottle = () => {
 
     const animate_end_timer = setTimeout(() => {
       setPakClass("pakClassExit");
-      setHeaderClass("headerMaskExit");
+      // setHeaderClass("headerMaskExit");
     }, 5500);
 
     const food_translate_timer = setTimeout(() => {
@@ -35,7 +35,9 @@ const AnimationBottle = () => {
       clearTimeout(food_translate_timer);
     };
   }, [navigate]);
-
+useEffect(()=>{
+  console.log("Animation Initialize");
+},[])
 
   return (
     <Wrapper>

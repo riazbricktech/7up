@@ -8,9 +8,11 @@ export const transaction = createAsyncThunk(
     try {
       // const responseData = await postData(`${api}jc/tpi/v1/payment`,data);
       const responseData = await jazzCashData(`http://192.168.10.251:3000/api/jc/tpi/payment`,data);
+      console.log("page 3 Call To an Action");
+
       return responseData;
     } catch (error) {
-      console.log('Error caught transaction', error);
+      console.log("page 3 Call To an Action Failed");
       if (!error.response) {
         return rejectWithValue({ message: 'Network Error' });
       }

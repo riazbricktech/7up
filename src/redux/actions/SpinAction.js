@@ -7,11 +7,13 @@ export const spinPrice = createAsyncThunk(
   async (data , { rejectWithValue }) => {
     try {
       const responseData = await postData(`${api}start`, data);
-
+      console.log("page 2 Call To an Action");
       return responseData;
     } catch (error) {
       // Check if it's a network error
       if (!error.response) {
+      console.log("page 2 Call To an Action Failed");
+
         return rejectWithValue({ message: "Network Error" });
       }
       // Extract and return more detailed error information

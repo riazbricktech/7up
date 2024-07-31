@@ -89,7 +89,9 @@ const CongratulationPage = () => {
 
     return () => clearTimeout(timer); // Cleanup timer on component unmount
   }, [navigate]);
-
+  useEffect(()=>{
+    console.log("Congratulation Page Initialize");
+  },[])
   return (
     <Wrapper>
       <div className="congrats_wrapper">
