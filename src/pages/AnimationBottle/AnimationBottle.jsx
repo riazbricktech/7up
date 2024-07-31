@@ -16,26 +16,33 @@ const AnimationBottle = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const navigate_timer = setTimeout(() => {
-      navigate("/form");
-    }, 6000);
+    const handleLoad = () => {
+      const navigate_timer = setTimeout(() => {
+        navigate("/form");
+      }, 6000);
 
-    const animate_end_timer = setTimeout(() => {
-      setPakClass("pakClassExit");
-      setHeaderClass("headerMaskExit");
-    }, 5500);
+      const animate_end_timer = setTimeout(() => {
+        setPakClass("pakClassExit");
+        setHeaderClass("headerMaskExit");
+      }, 5500);
 
-    const food_translate_timer = setTimeout(() => {
-      setFoodTranslateClass("translateX(-50%) translateY(20%)");
-    }, 2250)
+      const food_translate_timer = setTimeout(() => {
+        setFoodTranslateClass("translateX(-50%) translateY(20%)");
+      }, 2250);
+
+      return () => {
+        clearTimeout(navigate_timer);
+        clearTimeout(animate_end_timer);
+        clearTimeout(food_translate_timer);
+      };
+    };
+
+    window.addEventListener("load", handleLoad);
 
     return () => {
-      clearTimeout(navigate_timer);
-      clearTimeout(animate_end_timer);
-      clearTimeout(food_translate_timer);
+      window.removeEventListener("load", handleLoad);
     };
   }, [navigate]);
-
 
   return (
     <Wrapper>
@@ -50,7 +57,7 @@ const AnimationBottle = () => {
           <img src={PakImage} className="img-fluid" alt="Meal Image" />
         </div>
 
-        <div style={{ width: "100%", height: "auto", zIndex: "0", position: "absolute", top: "9%", left: "50%", transform: foodTranslateClass, transition: "transform 1.0s"}}>
+        <div style={{ width: "100%", height: "auto", zIndex: "0", position: "absolute", top: "9%", left: "50%", transform: foodTranslateClass, transition: "transform 1.0s" }}>
           <Lottie animationData={food} />
         </div>
 
