@@ -13,9 +13,9 @@
 .wheel_container {
   transform: rotate(-45deg);
   width: auto;
-    height: auto;
+  height: auto;
   max-width: 550px;
-    max-height: 550px;
+  max-height: 550px;
   aspect-ratio: 1;
 }
 
@@ -332,7 +332,7 @@
 
 .newclassC {
   position: fixed; /* Use fixed positioning to keep the bottle in place relative to the viewport */
-  top: 45%; /* Center vertically */
+  top: 47%; /* Center vertically */
   left: 50%; /* Center horizontally */
   transform: translate(-50%, -50%); /* Adjust for exact center */
   animation: bottleToCenter 5s ease-in; /* Animation for the bottle */
