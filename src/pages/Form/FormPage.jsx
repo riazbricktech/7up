@@ -203,18 +203,20 @@ function FormPage() {
       dispatch(createUser(data)).then((res) => {
         // setApiResponse(userData)
 
+        // if (res?.payload?.response?.return_value === 0) {
+        //   setApiResponse(res?.payload?.response);
+        //   return;
+        // }
         if (res?.payload?.response?.return_value === 1) {
           setApiResponse(res?.payload?.response);
-          
-          return;
+          setTimeout(() => {
+            navigate("/spin");
+          }, 1500);
         }
 
         if(res?.payload?.response?.return_value === 0){
           setBottleClass("bottleUpward")
           setFormClass("formUpward");
-          setTimeout(() => {
-            navigate("/spin");
-          }, 3000);
           if(res?.payload?.response?.return_message ===  "Code not found"){
             setIsCodeFound(true);
             return;
@@ -228,10 +230,6 @@ function FormPage() {
           return;
 
         }
-        
-        
-
-
       });
     }
   };

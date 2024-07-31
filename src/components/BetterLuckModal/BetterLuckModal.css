@@ -16,7 +16,7 @@
     justify-content: center !important;
     align-items: center !important;
     flex-direction: column;
-    z-index: 11111111111;
+    z-index: 11111111111111;
     overflow: hidden;
     animation: betterLuckModalFadeIn 0.5s ease-in-out;
 
@@ -41,6 +41,7 @@
     /* max-width: 400px; */
     text-align: center;
     position: relative;
+    z-index: 111111;
     border: 4px solid #00aa4e;
   }
 

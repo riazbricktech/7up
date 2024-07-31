@@ -231,6 +231,15 @@
   cursor: pointer;
 } */
 
+@keyframes zoom {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
 .claim-button {
   background-color: var(--button-bg-color); /* Gold color */
   border: none;
@@ -245,12 +254,14 @@
   border-right: 5px solid var(--green-color);
   position: absolute;
   top: 82%;
-  left: 50%;
+  left: 25%;
   transform: translate(-50%,-50%);  
   z-index: 11111;
   cursor: pointer;
   font-family: var(--gothic-font) !important;
   letter-spacing: 1.5px;
+  /* transform: scale(0);*/
+  animation: zoom 2s forwards; 
 }
 
 .claim-button:disabled {
@@ -312,6 +323,10 @@
     font-size: 24px !important;
     letter-spacing: 0.8px !important;
   }
+  .claim-button {
+
+  font-size: 28px !important;
+}
 }
 
 
@@ -332,7 +347,7 @@
 
     /* width: 100%; */
     top: 86%;
-    left: 50%;
+    left: 25%;
     transform: translate(-50%,-50%);  
   }
 }
