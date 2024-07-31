@@ -110,7 +110,7 @@ const WinningPage = () => {
     // Animation Time Out
     const timer = setTimeout(() => {
       setAnimate(true);
-    }, 1200);
+    }, 100);
 
     // Button Show Time Out
     const buttonTimer = setTimeout(() => {
