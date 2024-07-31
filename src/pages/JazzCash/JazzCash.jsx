@@ -178,6 +178,7 @@ const JazzCash = () => {
             autoPlay={true}
             loop={false}
             className="jazzcash_headerMask"
+            initialSegment={[100, 100]}
           />
         </div>
 
