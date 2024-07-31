@@ -21,9 +21,12 @@ const LandingPage = () => {
       return () => clearTimeout(timer);
     };
 
-    window.addEventListener("load", handleLoad);
-
-    return () => window.removeEventListener("load", handleLoad);
+    if (document.readyState === "complete") {
+      handleLoad();
+    } else {
+      window.addEventListener("load", handleLoad);
+      return () => window.removeEventListener("load", handleLoad);
+    }
   }, [navigate]);
 
   const defaultOptions = {

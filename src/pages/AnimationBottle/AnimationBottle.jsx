@@ -37,11 +37,14 @@ const AnimationBottle = () => {
       };
     };
 
-    window.addEventListener("load", handleLoad);
-
-    return () => {
-      window.removeEventListener("load", handleLoad);
-    };
+    if (document.readyState === "complete") {
+      handleLoad();
+    } else {
+      window.addEventListener("load", handleLoad);
+      return () => {
+        window.removeEventListener("load", handleLoad);
+      };
+    }
   }, [navigate]);
 
   return (
@@ -57,7 +60,18 @@ const AnimationBottle = () => {
           <img src={PakImage} className="img-fluid" alt="Meal Image" />
         </div>
 
-        <div style={{ width: "100%", height: "auto", zIndex: "0", position: "absolute", top: "9%", left: "50%", transform: foodTranslateClass, transition: "transform 1.0s" }}>
+        <div
+          style={{
+            width: "100%",
+            height: "auto",
+            zIndex: "0",
+            position: "absolute",
+            top: "9%",
+            left: "50%",
+            transform: foodTranslateClass,
+            transition: "transform 1.0s",
+          }}
+        >
           <Lottie animationData={food} />
         </div>
 
