@@ -132,7 +132,7 @@ const WinningPage = () => {
       {/*  WinninG Wrapper */}
       <div className="winner_wrapper">
         <div className="winner_header_wrapper">
-          <Lottie animationData={HeaderLights} autoPlay={true} loop={false} className="winner_header_lottie" />
+          <Lottie animationData={HeaderLights} autoPlay={false} loop={false} className="winner_header_lottie" />
         </div>
         <div className="winner_frame_wrapper">
           <img src={Frame} className="img-fluid" alt="Logo" />
