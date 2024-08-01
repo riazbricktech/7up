@@ -14,7 +14,7 @@ const AnimationBottle = () => {
   useEffect(() => {
     const handleLoad = () => {
       const navigate_timer = setTimeout(() => {
-        navigate("/form");
+        // navigate("/form");
       }, 6000);
       return () => {
         clearTimeout(navigate_timer);
@@ -58,7 +58,7 @@ const AnimationBottle = () => {
             animationDelay: "2s",
           }}
         >
-          <Lottie animationData={food} />
+          <Lottie animationData={food} loop={false}/>
         </div>
 
         <div className="" style={{ zIndex: "0" }}>
