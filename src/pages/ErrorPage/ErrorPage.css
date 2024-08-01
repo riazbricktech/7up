@@ -1,0 +1,20 @@
+.errorWrapper{
+    width: 500px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+.errorWrapper img{
+    width: 80px;
+    margin-bottom: 30px;
+}
+.errorWrapper span{
+    color: white;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 50px;
+    font-family: var(--banton-font) !important;
+}

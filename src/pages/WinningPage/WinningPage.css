@@ -70,7 +70,7 @@
 }
 .winner_frame_wrapper p {
   position: absolute;
-  font-size: 58px !important;
+  font-size: 70px !important;
   font-weight: 900;
   letter-spacing: 1px;
   font-family: var(--gothic-font);
@@ -219,18 +219,6 @@
   letter-spacing: 2px;
 }
 
-/* .claim-button {
-
-  width: 100%;
-  height: auto;
-  position: absolute;
-  top: 82%;
-  left: 50%;
-  transform: translate(-50%,-50%);  
-  z-index: 11111;
-  cursor: pointer;
-} */
-
 @keyframes zoom {
   from {
     transform: scale(0);
@@ -244,16 +232,15 @@
   background-color: var(--button-bg-color); /* Gold color */
   border: none;
   width: 55%;
-  padding: 5px 20px;
+  padding: 4px 20px 2px 20px;
   font-size: 34px;
-  /* font-weight: bold; */
   color: white;
   cursor: pointer;
   border-radius: 15px !important;
   border-bottom: 4px solid var(--green-color);
   border-right: 5px solid var(--green-color);
   position: absolute;
-  top: 82%;
+  top: 79%;
   left: 25%;
   transform: translate(-50%,-50%);  
   z-index: 11111;
@@ -302,10 +289,7 @@
     font-size: 27px;
     letter-spacing: 0.8px;
   }
-  .winner_frame_wrapper p {
-    font-size: 57px;
-    font-weight: 800 !important;
-  }
+
 
   .you-won-button {
     padding: 7px 0px;
@@ -315,7 +299,7 @@
 }
 @media only screen and (max-width: 355px) {
   .winner_frame_wrapper p {
-    font-size: 48px !important;
+    font-size: 62px !important;
     font-weight: 800 !important;
   }
   .winner_meal_wrapper P {

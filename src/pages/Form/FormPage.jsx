@@ -82,9 +82,7 @@ function FormPage() {
     terms: "",
     privacy: "",
   });
-  const handleDataFromChild = (childData) => {
-    setData(childData);
-  };
+
   function formatName(name) {
     return name.replace(/\w\S*/g, (txt) => {
       return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
@@ -110,7 +108,9 @@ function FormPage() {
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     let updatedValue = type === "checkbox" ? checked : value;
+  
     setIsCodeFound(false);
+  
     if (name === "phone_user") {
       let phoneValue = value.replace(/\D/g, "");
       if (phoneValue.length > 11) {
@@ -137,6 +137,10 @@ function FormPage() {
       }));
     } else {
       if (name === "name") {
+        // Allow only alphabets and spaces, and limit to 64 characters
+        if (!/^[a-zA-Z\s]*$/.test(value) || value.length > 64) {
+          return;
+        }
         updatedValue = formatName(value);
       }
       setErrors((prevErrors) => ({
@@ -144,13 +148,12 @@ function FormPage() {
         [name]: validateField(name, updatedValue),
       }));
     }
-
+  
     setFormValues((prevValues) => ({
       ...prevValues,
       [name]: updatedValue,
     }));
   };
-
   const handleSelectChange = (selectedOption) => {
     
     setFormValues((prevValues) => ({

@@ -87,7 +87,6 @@ const handleJazzCashTransaction =()=>{
       {
         navigate("/congrats");
       } else if (data?.payload?.status === 0 && data?.payload?.code === "G2P-T-2001") {
-        // setTransactionFailedError("*This number is not on JazzCash");
         navigate("/jazzcash");
         return;
       } else {
@@ -97,23 +96,18 @@ const handleJazzCashTransaction =()=>{
   };
 
   useEffect(() => {
-    // Animation Time Out
     const timer = setTimeout(() => {
       setAnimate(true);
     }, 100);
-
-    // Button Show Time Out
     const buttonTimer = setTimeout(() => {
       setShowButton(true);
-      // Show modal 2 seconds after the button is shown
       setTimeout(() => {
         setShowModal(true);
       }, 500);
-    }, 2500); // Adjust the time as needed
+    }, 2500); 
 
     return () => {
       clearTimeout(timer);
-      // clearTimeout(confettiTimer);
       clearTimeout(buttonTimer);
     };
   }, []);
@@ -140,26 +134,15 @@ const handleJazzCashTransaction =()=>{
           <p>YOU WON!</p>
         </div>
 
-        {/* ///// Header Wrapper    ////// */}
+        {/*  Header Wrapper     */}
         <div className="winner_meal_wrapper">
           <Lottie animationData={Meal[prizeName]} autoPlay={true} loop={false} className="meal_lottie" />
         </div>
 
-        {/* ///////  Celebration Wrapper   /////// */}
+        {/*   Celebration Wrapper  */}
         <div className="celebration_wrapper">
           {animate && <Lottie animationData={AnimatedCan} autoPlay={true} loop={false} className="animated_can_lottie" />}
         </div>
-
-        {/* confetti */}
-        {/* {confettiOn && (
-          <Confetti
-            width={1700}
-            height={800}
-            colors={["#FFE53F"]}
-            tweenDuration={500}
-            numberOfPieces={800}
-          />
-        )} */}
 
         {showButton && (
           <div className="you-won-button-wrapper">
@@ -176,22 +159,14 @@ const handleJazzCashTransaction =()=>{
         {showModal && (
           <>
             <button className="claim-button" disabled={isLoading} onClick={handleJazzCashTransaction}>
-              {" "}
               {isLoading ? (
                 <div className="spinner-border text-warning mt-1" role="status">
                   <span className="visually-hidden">Loading...</span>
                 </div>
               ) : (
-                "claim price"
+                "claim prize"
               )}
             </button>
-
-            {/* <Lottie animationData={ClaimButton}
-            autoPlay={true} loop={false} 
-            className="claim-button" 
-            onClick={handleJazzCashTransaction}
-            //  onClick={()=> navigate("/jazzcash") }
-            /> */}
           </>
         )}
       </div>

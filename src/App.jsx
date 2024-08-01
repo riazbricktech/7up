@@ -7,12 +7,13 @@ import { useEffect } from 'react';
 import { qrCodeFunction } from './redux/slice/QrCodeSlice';
 import { useSelector, useDispatch } from "react-redux";
 import 'animate.css';
+import ErrorPage from "./pages/ErrorPage/ErrorPage";
 
 const App = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const qrCode = useSelector(state => state?.qrCode?.qrCodeNumber);
-  
+  const error = useSelector(state => state?.error);
   useEffect(() => {
     if (qrCode === "" && "/5TJ7qu" === location.pathname || "/yzZI3Z" === location.pathname) {
       dispatch(qrCodeFunction(location.pathname));
@@ -25,28 +26,28 @@ const App = () => {
     }
   },[]);
 
-  useEffect(() => {
-    const disableContextMenu = (e) => e.preventDefault();
-    const disableKeys = (e) => {
-      if (
-        e.keyCode === 123 || // F12
-        (e.ctrlKey && e.shiftKey && e.keyCode === 'I'.charCodeAt(0)) || // Ctrl+Shift+I
-        (e.ctrlKey && e.shiftKey && e.keyCode === 'C'.charCodeAt(0)) || // Ctrl+Shift+C
-        (e.ctrlKey && e.shiftKey && e.keyCode === 'J'.charCodeAt(0)) || // Ctrl+Shift+J
-        (e.ctrlKey && e.keyCode === 'U'.charCodeAt(0)) // Ctrl+U
-      ) {
-        e.preventDefault();
-      }
-    };
+  // useEffect(() => {
+  //   const disableContextMenu = (e) => e.preventDefault();
+  //   const disableKeys = (e) => {
+  //     if (
+  //       e.keyCode === 123 || // F12
+  //       (e.ctrlKey && e.shiftKey && e.keyCode === 'I'.charCodeAt(0)) || // Ctrl+Shift+I
+  //       (e.ctrlKey && e.shiftKey && e.keyCode === 'C'.charCodeAt(0)) || // Ctrl+Shift+C
+  //       (e.ctrlKey && e.shiftKey && e.keyCode === 'J'.charCodeAt(0)) || // Ctrl+Shift+J
+  //       (e.ctrlKey && e.keyCode === 'U'.charCodeAt(0)) // Ctrl+U
+  //     ) {
+  //       e.preventDefault();
+  //     }
+  //   };
 
-    document.addEventListener('contextmenu', disableContextMenu);
-    document.addEventListener('keydown', disableKeys);
+  //   document.addEventListener('contextmenu', disableContextMenu);
+  //   document.addEventListener('keydown', disableKeys);
 
-    return () => {
-      document.removeEventListener('contextmenu', disableContextMenu);
-      document.removeEventListener('keydown', disableKeys);
-    };
-  }, []);
+  //   return () => {
+  //     document.removeEventListener('contextmenu', disableContextMenu);
+  //     document.removeEventListener('keydown', disableKeys);
+  //   };
+  // }, []);
 
   const setFullHeight = () => {
     const vh = window.innerHeight * 0.01;
@@ -59,42 +60,10 @@ const App = () => {
     return () => window.removeEventListener('resize', setFullHeight);
   }, []);
 
-  
-  // }, [qrCode, dispatch, location.pathname]);
 
-  
-  // when tab Close, Remove data from localStorage
-
-  // useEffect(() => {
-  //   // Function to set flag before the tab is unloaded
-  //   const handleBeforeUnload = () => {
-  //     sessionStorage.setItem('shouldClearLocalStorage', 'true');
-  //   };
-  
-  //   // Function to clear localStorage based on flag
-  //   const clearLocalStorage = () => {
-  //     if (sessionStorage.getItem('shouldClearLocalStorage')) {
-  //       localStorage.clear();
-  //       sessionStorage.removeItem('shouldClearLocalStorage');
-  //     }
-  //   };
-  
-  //   // Add event listeners
-  //   window.addEventListener('beforeunload', handleBeforeUnload);
-  //   window.addEventListener('load', clearLocalStorage);
-  
-  //   // Clean up event listeners
-  //   return () => {
-  //     window.removeEventListener('beforeunload', handleBeforeUnload);
-  //     window.removeEventListener('load', clearLocalStorage);
-  //   };
-  // }, []);
-  
-  
-  
-  
-
-
+  if (error) {
+    return <ErrorPage />;
+  }
 
   return (
     <div className='main_container'>

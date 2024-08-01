@@ -38,21 +38,10 @@ const JazzCash = () => {
   const isLoader = useSelector(
     (state) => state?.taction?.isLoading
   );
-
-  // const { return_transaction_id, return_user_id, return_phone_user } =
-  //   userData?.response;
-
-  // const { return_prize_amount } = spinData?.response || null;
-
     const return_transaction_id = userData?.response?.return_transaction_id;
     const return_user_id = userData?.response?.return_user_id;
     const return_phone_user =   userData?.response?.return_phone_user;
     const return_prize_amount = spinData?.response?.return_prize_amount;
-  
-
-
-
-
 
 
   const jazzCashData = {
@@ -127,8 +116,6 @@ const JazzCash = () => {
           data?.payload?.status === 0 &&
           data?.payload?.code === "G2P-T-2001"
         ) {
-          // setErrors("*This number is not on JazzCash");
-          // dispatch(transactionCountFunction(transactionCount + 1));
           setErrors({
             phoneNumber: "",
           });
@@ -138,7 +125,6 @@ const JazzCash = () => {
           navigate("/transactionfailed");
         }
       });
-      // navigate("/congrats");
     } else {
       setErrors(newErrors);
     }
@@ -146,10 +132,6 @@ const JazzCash = () => {
 
   const handleCreateAccountModal = () => {
     setIsCreateAccount(false);
-  };
-
-  const handleMaxAttemptModal = () => {
-    // setIsMaxAttempt(false)
   };
 
   useEffect(() => {
@@ -165,9 +147,6 @@ const JazzCash = () => {
 
     if (return_phone_user) {
       setFormattedPhoneNumber(return_phone_user)
-      // setFormValues(() => ({
-      //   phoneNumber: return_phone_user,
-      // }));
     }
   }, [return_phone_user]);
 
