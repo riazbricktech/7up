@@ -83,11 +83,11 @@ const CongratulationPage = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      localStorage.clear(); // Clear localStorage
+      localStorage.clear(); 
       navigate('/');
-    }, 3000); // 3 seconds delay
+    }, 3000); 
 
-    return () => clearTimeout(timer); // Cleanup timer on component unmount
+    return () => clearTimeout(timer); 
   }, [navigate]);
   useEffect(()=>{
     console.log("Congratulation Page Initialize");
