@@ -1,6 +1,3 @@
-
-
-
 import React, { useEffect, useState } from 'react';
 import './BetterLuckModal.css';
 import Emoji from "../../assets/images/new_images/emoji.webp";
@@ -16,25 +13,24 @@ const BetterLuckModal = ({ showBetterLuckModal, closeBetterLuckModal }) => {
     setImage(imageUrl);
   };
 
-  // useEffect(() => {
-  //   if (showBetterLuckModal) {
+  useEffect(() => {
+    if (showBetterLuckModal) {
+      localStorage.clear();
+      const timer = setTimeout(() => {
+        navigate('/'); 
+      }, 3000); 
 
-  //     localStorage.clear();
-  //     const timer = setTimeout(() => {
-  //       navigate('/'); // Navigate to "/"
-  //     }, 3000); // 3 seconds delay
-  
-  //     return () => clearTimeout(timer)
-  //   }
-  // }, [showBetterLuckModal, navigate]);
+      return () => clearTimeout(timer);
+    }
+  }, [showBetterLuckModal, navigate]);
+
+  useEffect(()=>{
+    console.log("BetterLuck Initialize");
+  },[]);
 
   if (!showBetterLuckModal) {
     return null;
   }
-
-  // useEffect(()=>{
-  //   console.log("BetterLuck Initialize");
-  // },[])
 
   return (
     <>

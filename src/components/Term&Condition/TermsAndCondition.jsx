@@ -37,7 +37,7 @@ const TermsAndCondition = ({ isOpen, onClose }) => {
               <span style={{ fontWeight: "800" }}>{`(we, us, our)`}</span>
             </p>
             <p>
-            2.	The Promotion runs from ……… to ………………on   <span style={{backgroundColor:"yellow", fontStyle:"italic"}}> across stores in the Islamic Republic of Pakistan </span>. The promotion is valid on 7UP beverage <span  style={{backgroundColor:"#00ff00"}}>PET</span> bottles and cans (250ml Can, 345ml PET, 500ml PET, 1L PET, 1.5L PET, 1.25L PET, 2L PET, 2.25L PET).
+            2.	The Promotion runs from ……… to ………………on   <span > across stores in the Islamic Republic of Pakistan </span>. The promotion is valid on 7UP beverage <span >PET</span> bottles and cans (250ml Can, 345ml PET, 500ml PET, 1L PET, 1.5L PET, 1.25L PET, 2L PET, 2.25L PET).
             </p>
             <p>
             3. Entries received after the closing date will not be processed.
@@ -45,31 +45,31 @@ const TermsAndCondition = ({ isOpen, onClose }) => {
             <p style={{textAlign:"center", fontWeight:"700"}}>How to enter</p>
             <hr/>
             <p>
-              4.<span style={{ backgroundColor:"#00ff00" }}>participant</span> shall scan the QR code on the label of the purchased CAN or PET bottle
+              4.<span>participant</span> shall scan the QR code on the label of the purchased CAN or PET bottle
             </p>
             <ol style={{ listStyleType: "lower-alpha" }}>
               <li>
               Fill in the required data on the form and submit the form
               </li>
               <li>
-              <span style={{ backgroundColor:"#00ff00" }}>Participant</span>  purchasing a PET bottle shall be required to fill in the Unique ID code present inside the cap of PET bottle.
+              <span>Participant</span>  purchasing a PET bottle shall be required to fill in the Unique ID code present inside the cap of PET bottle.
               </li>
               <li>
-              <span style={{ backgroundColor:"#00ff00" }}>Participant</span> purchasing a CAN shall be required to scan the QR code that leads them to <span style={{ backgroundColor:"#00ff00" }}>the form</span>
+              <span>Participant</span> purchasing a CAN shall be required to scan the QR code that leads them to <span>the form</span>
               </li>
-              <li>All participants need to have <span style={{ backgroundColor:"#00ff00" }}>an active</span> Jazzcash e-wallet, and if the participant does not have an <span style={{ backgroundColor:"#00ff00" }}>active Jazzcash e-wallet, they will be required to create one during the process, by following the steps provided</span></li>
+              <li>All participants need to have <span>an active</span> Jazzcash e-wallet, and if the participant does not have an <span >active Jazzcash e-wallet, they will be required to create one during the process, by following the steps provided</span></li>
               <li>
-              <span style={{ backgroundColor:"yellow" }}>Participant</span>s will be instantly notified if they are a winner or not.
+              <span >Participant</span>s will be instantly notified if they are a winner or not.
               </li>
               <li>
-             In the event of winning, cashback reward will be instantly topped up on the shared <span style={{ backgroundColor:"yellow" }}>Jazzcash  e-wallet</span> account
+             In the event of winning, cashback reward will be instantly topped up on the shared <span >Jazzcash  e-wallet</span> account
               </li>
             </ol>
             <p>
-            5.	<span style={{ backgroundColor:"yellow" }}>Participant</span>s may make multiple entries into the Promotion with the Purchase of a new PET Bottle or CAN <span style={{ backgroundColor:"#00ff00" }}>each time.</span>
+            5.	<span>Participant</span>s may make multiple entries into the Promotion with the Purchase of a new PET Bottle or CAN <span>each time.</span>
             </p>
             <p>
-            6.	The Promotion is open to individuals who are resident in Pakistan and aged 18 years or over, and <span style={{ backgroundColor:"#00ff00" }}>hold a valid CNIC,</span> when entering a promotion or claiming a prize, you must use your real name, phone number and city of residence will also be required.
+            6.	The Promotion is open to individuals who are resident in Pakistan and aged 18 years or over, and <span >hold a valid CNIC,</span> when entering a promotion or claiming a prize, you must use your real name, phone number and city of residence will also be required.
             </p>
             <p>
               7. Our employees and those of our affiliates, agents or

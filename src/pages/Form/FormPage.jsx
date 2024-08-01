@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./FormPage.css";
 import Wrapper from "../../reusableComponents/Wrapper/Wrapper";
 import {
@@ -10,11 +10,10 @@ import {
   validatePrivacy,
 } from "../../services/NumberValidation";
 import { useNavigate } from "react-router-dom";
-import Select from "react-select";
+import Select, { components }  from "react-select";
 import { useSelector, useDispatch } from "react-redux";
 import { getCities } from "../../redux/actions/CityAction";
 import { createUser } from "../../redux/actions/CreateUserAction";
-import { useLocation } from "react-router-dom";
 import { canCode, bottleCode } from "../../constant/Codes";
 import LeftCircle from "../../assets/images/new_images/form_left_circle.webp";
 import RightCircle from "../../assets/images/new_images/form_right_circle.webp";
@@ -28,20 +27,19 @@ import HeaderLottie from  "../../assets/images/lottie_files/lights_anim.json";
 
 import BottleFall from "../../assets/images/gif_images/form-bottle.gif";
 
-// const customStyles = {
+const CustomInput = (props) => {
+  const handlePaste = (event) => {
+    event.preventDefault();
+  };
 
-//   menuList: (provided) => ({
-//     ...provided,
-//     maxHeight: '400px',  // Increase menu max height
-//   }),
-// };
+  return <components.Input {...props} onPaste={handlePaste} />;
+};
+
+
 function FormPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const location = useLocation();
   const cityData = useSelector((state) => state?.cities?.citesData);
-  const citiesLoading = useSelector((state) => state?.cities?.isLoading);
-  const isLoading = useSelector((state) => state?.cities?.isLoading);
   const [bottleClass, setBottleClass] = useState("bottledown");
   const [formClass, setFormClass] = useState("formdown");
   const [isCodeFound, setIsCodeFound] = useState(false);
@@ -59,8 +57,8 @@ function FormPage() {
     : undefined;
 
   const [isQrCode, setIsQrCode] = useState(false);
-  const [apiResponse, setApiResponse] = useState("");
-
+  const [apiResponse, setApiResponse] = useState(null);
+  const [zIndex, setZIndex] = useState(10);
   const [formValues, setFormValues] = useState({
     name: "",
     phone_user: "",
@@ -154,6 +152,7 @@ function FormPage() {
   };
 
   const handleSelectChange = (selectedOption) => {
+    
     setFormValues((prevValues) => ({
       ...prevValues,
       city_name: selectedOption?.label,
@@ -206,12 +205,6 @@ function FormPage() {
 
     if (data) {
       dispatch(createUser(data)).then((res) => {
-        // setApiResponse(userData)
-
-        // if (res?.payload?.response?.return_value === 0) {
-        //   setApiResponse(res?.payload?.response);
-        //   return;
-        // }
         if (res?.payload?.response?.return_value === 1) {
           setApiResponse(res?.payload?.response);
           setTimeout(() => {
@@ -220,14 +213,11 @@ function FormPage() {
         }
 
         if(res?.payload?.response?.return_value === 0){
-          // setBottleClass("bottleUpward")
-          // setFormClass("formUpward");
-          if(res?.payload?.response?.return_message ===  "You have entered incorrect unique ID"){
+          if(res?.payload?.response?.return_message ===  'You have entered incorrect unique ID'){
             setIsCodeFound(true);
             return;
           }
-          else if (res?.payload?.response?.return_message === "YOUR UNIQUE ID HAS ALREADY BEEN USED") {
-            console.log("jfdhdfhdjs")
+          else if (res?.payload?.response?.return_message === 'YOUR UNIQUE ID HAS ALREADY BEEN USED') {
             setIsUniqueQrCode(true);
             return;
           }
@@ -276,28 +266,34 @@ if(!cityOptions || cityOptions === undefined ){
     setTCOpen(false);
   };
 
-  // const handleOpenPrivacyPolicy = () => {
-  //   setIsPrivacyOpen(true);
-  // };
-
   const handleClosePrivacyPolicy = () => {
     setIsPrivacyOpen(false);
   };
 
+  const handlePaste = (event) => {
+    event.preventDefault();
+  };
   useEffect(()=>{
     console.log("Form Page Initialize");
   },[])
-  return (
+
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setZIndex(0);
+    }, 4000);
+
+    return () => clearTimeout(timer);
+  }, []);
+  return (  
     <Wrapper>
       
-    <div className={`form_bottle_wrapper`} > 
+    <div className={`form_bottle_wrapper`}  style={{ zIndex }}> 
     <img className={`newGif   ${bottleClass}`} src={BottleFall}  alt="Bottle GIF" />
         </div>
       <div className={`form_page_wrapper ${formClass}`}>
 
         {/* Header Wrapper */}
-           {/* Bottle Wrapper */}
-          
         <div className="form_header_wrapper">
 
           <Lottie animationData={HeaderLottie}
@@ -334,6 +330,10 @@ if(!cityOptions || cityOptions === undefined ){
               placeholder="Full Name"
               value={formValues.name}
               onChange={handleChange}
+              onPaste={handlePaste}
+              onCopy={handlePaste} 
+              onCut={handlePaste} 
+              autoComplete="off" 
               style={{fontWeight:"lighter !important"}}
             />
             {errors.name && (
@@ -361,6 +361,10 @@ if(!cityOptions || cityOptions === undefined ){
               placeholder="03XX XXXX XXX"
               value={formattedPhoneNumber}
               onChange={handleChange}
+              onPaste={handlePaste}
+              onCopy={handlePaste} 
+              onCut={handlePaste} 
+              autoComplete="off" 
             />
             {errors.phone_user && (
               <div className="invalid-feedback error_message d-block">
@@ -376,6 +380,7 @@ if(!cityOptions || cityOptions === undefined ){
               City*
             </label>
             <Select
+            components={{ Input: CustomInput }}
               isSearchable={true}
               menuPlacement="auto"
               value={cityOptions?.find(
@@ -386,7 +391,6 @@ if(!cityOptions || cityOptions === undefined ){
               name="city_name"
               options={cityOptions}
               placeholder="Select Your City"
-              // styles={customStyles}
             />
             {errors.city_name && (
               <div
@@ -403,6 +407,10 @@ if(!cityOptions || cityOptions === undefined ){
               <div className="unique_id_wrapper">
                 <input
                   type="text"
+                  onPaste={handlePaste}
+                  onCopy={handlePaste} 
+                  onCut={handlePaste} 
+                  autoComplete="off" 
                   className={`form-control form_custom_input unique_input_field ${
                     errors.qr_code_user ? "is-invalid" : ""
                   } ${

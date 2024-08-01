@@ -25,6 +25,29 @@ const App = () => {
     }
   },[]);
 
+  useEffect(() => {
+    const disableContextMenu = (e) => e.preventDefault();
+    const disableKeys = (e) => {
+      if (
+        e.keyCode === 123 || // F12
+        (e.ctrlKey && e.shiftKey && e.keyCode === 'I'.charCodeAt(0)) || // Ctrl+Shift+I
+        (e.ctrlKey && e.shiftKey && e.keyCode === 'C'.charCodeAt(0)) || // Ctrl+Shift+C
+        (e.ctrlKey && e.shiftKey && e.keyCode === 'J'.charCodeAt(0)) || // Ctrl+Shift+J
+        (e.ctrlKey && e.keyCode === 'U'.charCodeAt(0)) // Ctrl+U
+      ) {
+        e.preventDefault();
+      }
+    };
+
+    document.addEventListener('contextmenu', disableContextMenu);
+    document.addEventListener('keydown', disableKeys);
+
+    return () => {
+      document.removeEventListener('contextmenu', disableContextMenu);
+      document.removeEventListener('keydown', disableKeys);
+    };
+  }, []);
+
   const setFullHeight = () => {
     const vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);

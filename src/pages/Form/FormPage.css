@@ -234,6 +234,10 @@
 .css-feonkk-Input2 {
   color: var(--primary-text-color) !important;
 }
+.css-13cymwt-control input {
+  color: var(--primary-text-color) !important;
+
+}
 
 .css-1jqq78o-placeholder {
   color: #ababab !important;
@@ -252,10 +256,13 @@
   width: 100% !important;
   border: none !important;
   box-shadow: none !important;
+  
 }
 
 .css-1nmdiq5-menu {
   background-color: var(--primary-bg-color) !important;
+z-index: 1111111111111 !important;
+
 }
 .css-1u9des2-indicatorSeparator {
   background-color: transparent !important;
@@ -499,6 +506,7 @@ select {
   letter-spacing: 1px;
   color: white;
   line-height: 44px;
+  margin-top: 15px;
 }
 
 .form_button_wrapper button:disabled {
@@ -526,7 +534,7 @@ select {
   animation: formFadeIn 3s ease-in-out;
   display: flex;
   justify-content: center;
-  z-index: 1111;
+  z-index: 111;
 }
 
 .form_lefts_circle {
@@ -627,11 +635,7 @@ select {
   .form_checkbox_wrapper label {
     font-size: 12px !important;
   }
-  .form_button_wrapper button {
-    width: 95%;
-    padding: 6px 24px 4px 24px !important;
-    font-size: 34px !important;
-  }
+
 }
 
 @media only screen and (max-width: 400px) {
