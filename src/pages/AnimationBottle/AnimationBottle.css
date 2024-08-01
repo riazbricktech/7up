@@ -3,14 +3,6 @@
     height: 500px;
 } */
 
-@keyframes foodTranslateAnimation {
-  0% {
-    transform: translateX(-50%) translateY(0%);
-  }
-  100% {
-    transform: translateX(-50%) translateY(25%);
-  }
-}
 
 @keyframes exit {
   0% {

@@ -54,8 +54,7 @@ const AnimationBottle = () => {
             position: "absolute",
             top: "9%",
             left: "50%",
-            transform: "translateX(-50%)",
-            animation: "foodTranslateAnimation 2s",
+            transform: "translateX(-50%) translateY(20%)",
             animationDelay: "2s",
           }}
         >
