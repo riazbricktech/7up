@@ -212,7 +212,7 @@ function FormPage() {
           setApiResponse(res?.payload?.response);
           setTimeout(() => {
             navigate("/spin");
-          }, 1000);
+          }, 500);
         }
 
         if(res?.payload?.response?.return_value === 0){

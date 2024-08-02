@@ -8,7 +8,7 @@ export const transaction = createAsyncThunk(
     try {
       // const responseData = await postData(`${api}jc/tpi/v1/payment`,data);
       const responseData = await postData(`${api}jc/tpi/payment`,data);
-      
+      console.log(responseData,"responseData")
       console.log("page 3 Call To an Action");
 
       return responseData;

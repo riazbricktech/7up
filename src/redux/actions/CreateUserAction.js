@@ -8,6 +8,7 @@ export const createUser = createAsyncThunk(
   async (data, {dispatch, rejectWithValue }) => {
     try {
       const responseData = await postData(`${api}create-user`,data);
+      console.log(responseData,"responseData");
       console.log("page 1-1 Call To an Action");
       return responseData;
     } catch (error) {

@@ -63,10 +63,11 @@ const LandingPage = () => {
           <Lottie options={foodElements} style={{ objectFit: "cover" }} />
         </div>
         <div className="landing_logo_wrapper_dynamic">
-          <Lottie className="" options={defaultOptions} style={{ objectFit: "cover" }} />
+          <Lottie options={defaultOptions} style={{ objectFit: "cover" }} />
+          
         </div>
         <div className="landing_footer_wrapper">
-          <Lottie className="" options={architecture} />
+          <Lottie options={architecture} />
         </div>
       </div>
     </Wrapper>
