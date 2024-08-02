@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./AnimationBottle.css";
 import Wrapper from "../../reusableComponents/Wrapper/Wrapper";
 import PakImage from "../../assets/images/new_images/pak-logo.webp";
