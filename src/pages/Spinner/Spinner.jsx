@@ -232,7 +232,7 @@ const Spinner = () => {
     <Wrapper>
       {windowDimensions.width > 350 && (
         <div className="newclassC" onClick={handleSpinClick}>
-          <img className="bottleToCenter" src={SpinBottle} alt="Bottle GIF" />
+          <img className="bottleToCenter" src={"/bottle.gif"} alt="Bottle GIF" />
         </div>
       )}
       <div className="spinner_header_wrapper">
