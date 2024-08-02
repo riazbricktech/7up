@@ -13,7 +13,7 @@ const AnimationBottle = () => {
   useEffect(() => {
     const handleLoad = () => {
       const navigate_timer = setTimeout(() => {
-        // navigate("/form");
+        navigate("/form");
       }, 6000);
       return () => {
         clearTimeout(navigate_timer);
