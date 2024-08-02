@@ -1,12 +1,12 @@
 .bottle-animation{
   position: absolute;
   bottom: 0;
-  left: 50%;
+  left: 0%;
   opacity: 1;
-  height: 60%;
+  height: 100%;
   object-fit: cover;
   z-index: 999;
-  animation: bottleAnimation 6s forwards;
+  /* animation: bottleAnimation 6s forwards; */
 }
 .animate-bottle{
   position: absolute;

@@ -13,7 +13,7 @@ const AnimationBottle = () => {
   useEffect(() => {
     const handleLoad = () => {
       const navigate_timer = setTimeout(() => {
-        navigate("/form");
+        // navigate("/form");
       }, 6000);
       return () => {
         clearTimeout(navigate_timer);
@@ -51,18 +51,18 @@ const AnimationBottle = () => {
             height: "auto",
             zIndex: "0",
             position: "absolute",
-            top: "9%",
+            top: "0%",
             left: "50%",
             transform: "translateX(-50%) translateY(20%)",
-            animationDelay: "2s",
+            objectFit: "cover"
           }}
         >
-          <Lottie animationData={food} loop={false}/>
+          <Lottie animationData={food} loop={false} />
         </div>
 
       </div>
       <div className="animate-bottle">
-        <img src={"/bottle.gif"} className="bottle-animation" alt="Meal Image" />
+        <img src={"/bottle-anim.gif"} className="bottle-animation" alt="Meal Image" />
       </div>
     </Wrapper>
   );
