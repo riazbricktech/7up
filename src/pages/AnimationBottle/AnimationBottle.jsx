@@ -25,10 +25,12 @@ const AnimationBottle = () => {
         </div>
       </div>
 
-      <video autoPlay muted playsInline onEnded={() => navigate("/form")} className="z-20">
+      <div className="z-20 w-full">
+      <video autoPlay muted playsInline  className="z-20 w-full object-cover">
         <source src="/output.webm" type="video/webm" />
         Your browser does not support the video tag.
       </video>
+</div>
 
       <div className="abs z-10 top-10">
         <Lottie animationData={food} loop={false} />
