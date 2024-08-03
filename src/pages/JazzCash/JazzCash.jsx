@@ -10,7 +10,6 @@ import HeaderLights from "../../assets/images/lottie_files/lights_anim.json";
 import ErrorIcon from "../../assets/images/new_images/error.webp";
 import CreateAccountModal from "../../components/CreateAccountModal/CreateAccountModal";
 import MaxAttemptModal from "../../components/MaxAttemptModal/MaxAttemptModal";
-import { transactionCountFunction } from "../../redux/slice/TransactionCountSlice";
 
 const JazzCash = () => {
   const dispatch = useDispatch();
@@ -28,13 +27,11 @@ const JazzCash = () => {
     phoneNumber: "",
   });
   const [transactionFailedError, setTransactionFailedError] = useState("");
-
   const userData = useSelector((state) => state?.user?.createUserData);
   const spinData = useSelector((state) => state?.spin?.spinData);
   const transactionData = useSelector(
     (state) => state?.taction?.transactionData
   );
-
   const isLoader = useSelector(
     (state) => state?.taction?.isLoading
   );
@@ -111,6 +108,7 @@ const JazzCash = () => {
       dispatch(transaction(jazzCashData)).then((data) => {
         setIsDisabledFields(true);
         if (data?.payload?.status === 1) {
+
           navigate("/congrats");
         } else if (
           data?.payload?.status === 0 &&
@@ -130,9 +128,16 @@ const JazzCash = () => {
     }
   };
 
+
+  const handleMaxAttemptModal = () => {
+    console.log("Click Atempt")
+  };
+
+  
   const handleCreateAccountModal = () => {
     setIsCreateAccount(false);
   };
+
 
   useEffect(() => {
     if (transactionData?.code === "G2P-T-2001") {
@@ -257,7 +262,7 @@ useEffect(()=>{
           closeCreateAccountModal={handleCreateAccountModal}
         />
       )}
-      {transactionData?.attempt_counter === 2 && (
+      {transactionData?.attempt_counter === 2 &&  transactionData?.status === 0 && (
         <MaxAttemptModal
           showMaxAttemptModal={true}
           closeMaxAttemptModal={handleMaxAttemptModal}

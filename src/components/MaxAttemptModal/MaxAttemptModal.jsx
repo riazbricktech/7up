@@ -18,10 +18,10 @@ const navigate =useNavigate();
 useEffect(() => {
   
   if(showMaxAttemptModal){
-    localStorage.clear();
     const timer = setTimeout(() => {
+      localStorage.clear();
       navigate('/'); 
-    }, 2000);
+    }, 6000);
   
     return () => clearTimeout(timer);
   }

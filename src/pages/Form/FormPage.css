@@ -388,6 +388,9 @@ select {
   background-color: #ffe53f;
   border-radius: 4px;
 }
+.css-1cfo1cf{
+  color: var(--primary-text-color) !important;
+}
 
 /* Firefox only */
 .css-1jj59y3-MenuList2 {

@@ -18,7 +18,7 @@ const BetterLuckModal = ({ showBetterLuckModal, closeBetterLuckModal }) => {
       localStorage.clear();
       const timer = setTimeout(() => {
         navigate('/'); 
-      }, 5000); 
+      }, 6000); 
 
       return () => clearTimeout(timer);
     }

@@ -178,7 +178,7 @@ margin-top: 10px;
     text-align: center;
     margin: 3px 0 !important;
     font-family: var(--banton-font) !important;
-    letter-spacing: -1px;
+    letter-spacing: 1px;
 }
 .jazzcash_form_wrapper .phone_input {
     color: var(--primary-text-color) !important;

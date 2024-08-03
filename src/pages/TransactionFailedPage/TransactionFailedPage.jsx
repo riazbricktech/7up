@@ -14,10 +14,10 @@ const [sevenUpDelay,setSevenUpDelay]=useState(false);
   useEffect(() => {
     const timer = setTimeout(() => {
       localStorage.clear();
-      navigate('/'); // Navigate to "/"
-    }, 3200); // 3 seconds delay
+      navigate('/'); 
+    }, 6000);
 
-    return () => clearTimeout(timer); // Cleanup timer on component unmount
+    return () => clearTimeout(timer);
   }, [navigate]);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const [sevenUpDelay,setSevenUpDelay]=useState(false);
       setSevenUpDelay(true)
     }, 1400);
 
-    return () => clearTimeout(timer); // Cleanup timer on component unmount
+    return () => clearTimeout(timer);
   }, [navigate]);
 
 

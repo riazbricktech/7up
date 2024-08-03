@@ -17,7 +17,7 @@ useEffect(() => {
   return (
     <Wrapper>
 <div className='health_wrapper'>
-{/* <span>{JSON.stringify(healthData, null, 2)}</span> */}
+      <span>Frontend: Running</span>
       {healthData && Object.keys(healthData).map((key, index) => (
         <span key={index}>
           {key}: {healthData[key]}

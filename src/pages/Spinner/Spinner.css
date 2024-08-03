@@ -17,6 +17,9 @@
   max-width: 550px;
   max-height: 550px;
   aspect-ratio: 1;
+  position: relative;
+  z-index: 11111 !important;
+
 }
 
 .spinner_wrapper,
@@ -204,7 +207,7 @@
   left: 0%;
   top: 78%;
   transform: translate(-0%, -50%);
-  z-index: 1111;
+  z-index: -1;
 }
 .spinner_right_circle {
   position: absolute;
@@ -212,7 +215,7 @@
   bottom: 17%;
   transform: translate(-0%, -50%);
   width: 11%;
-  z-index: 1111;
+  z-index: -1;
 }
 @keyframes formFadeIn {
   from {

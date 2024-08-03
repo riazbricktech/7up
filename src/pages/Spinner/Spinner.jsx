@@ -224,7 +224,7 @@ const Spinner = () => {
 
   useEffect(() => {
     if (!userData) {
-      navigate("/form");
+      // navigate("/form");
     }
   }, [userData]);
   
@@ -239,7 +239,7 @@ const Spinner = () => {
   return (
     <Wrapper> 
       {windowDimensions.width > 350 && (
-       <div className="newclassC" onClick={handleSpinClick}>
+       <div className="newclassC">
           {!isBetterLuck  && <img className="bottleToCenter" src={SpinBottle} alt="Bottle GIF" />}
         </div>
       )}
@@ -318,7 +318,7 @@ const Spinner = () => {
             >
               {windowDimensions.width <= 350 && (
                 <span>
-                  <img src={BottleImage} alt="7up Bottle" onClick={handleSpinClick} />
+                  <img src={BottleImage} alt="7up Bottle" onClick={handleConsole} />
                 </span>
               )}
             </button>

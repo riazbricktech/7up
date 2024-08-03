@@ -8,7 +8,6 @@ import CreateUserSlice from '../slice/CreateUserSlice';
 import WinPrizeSlice from '../slice/WinPrizeSlice';
 import healthCheckSlice from "../slice/HealthSlice";
 import TransactionSlice from '../slice/TransactionSlice';
-import TransactionCountSlice from '../slice/TransactionCountSlice';
 import errorMiddleware from '../../middleware/errorMiddleware';
 import errorSlice from '../slice/errorSlice';
 // Combine all your slices into a rootReducer
@@ -20,7 +19,6 @@ const rootReducer = combineReducers({
   prizeDetail: WinPrizeSlice,
   health: healthCheckSlice,
   taction: TransactionSlice,
-  transactionCount: TransactionCountSlice,
   error: errorSlice,
 });
 
