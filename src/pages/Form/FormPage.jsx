@@ -52,9 +52,9 @@ function FormPage() {
 
   const cityOptions = cityData
     ? cityData?.map((city) => ({
-      value: city?.id,
-      label: city?.name,
-    }))
+        value: city?.id,
+        label: city?.name,
+      }))
     : undefined;
 
   const [isQrCode, setIsQrCode] = useState(false);
@@ -272,7 +272,10 @@ function FormPage() {
     <Wrapper>
       <div className="bottle-wrapper">
         <div className="bottle-inner-wrapper">
-          <img className="bottle-form" src={"/bottle.gif"} alt="bottle falling down" />
+          <video autoPlay muted playsInline loop className="z-20 bottle-form">
+            <source src="/bottle.webm" type="video/webm" />
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
       <div className={`form_page_wrapper ${formClass}`}>
@@ -339,7 +342,7 @@ function FormPage() {
               name="city_name"
               options={cityOptions}
               placeholder="Select Your City"
-            // styles={customStyles}
+              // styles={customStyles}
             />
             {errors.city_name && (
               <div className="invalid-feedback selectBox_error_message d-block" style={{ marginLeft: "10px" }}>
@@ -353,8 +356,9 @@ function FormPage() {
               <div className="unique_id_wrapper">
                 <input
                   type="text"
-                  className={`form-control form_custom_input unique_input_field ${errors.qr_code_user ? "is-invalid" : ""} ${isCodeFound ? "codeFound" : ""
-                    } `}
+                  className={`form-control form_custom_input unique_input_field ${errors.qr_code_user ? "is-invalid" : ""} ${
+                    isCodeFound ? "codeFound" : ""
+                  } `}
                   id="validationServerUniqueId"
                   name="qr_code_user"
                   placeholder="Enter 8 Digit Code"
@@ -390,7 +394,7 @@ function FormPage() {
                   // htmlFor="validationServerTerms"
                   htmlFor=""
 
-                // style={{color: errors.terms ? "#E81D2C" : "white"}}
+                  // style={{color: errors.terms ? "#E81D2C" : "white"}}
                 >
                   I have read the{" "}
                   <span style={{ color: errors.terms ? "#E81D2C !important" : "white" }} onClick={openTermsCon}>
@@ -412,8 +416,8 @@ function FormPage() {
                   className={`form-check-label ${errors.privacy ? "errorLabel" : ""}`}
                   // htmlFor="validationServerPrivacy"
                   htmlFor=""
-                // onClick={handleOpenPrivacyPolicy}
-                // style={{color: errors.privacy ? "#E81D2C" : "white"}}
+                  // onClick={handleOpenPrivacyPolicy}
+                  // style={{color: errors.privacy ? "#E81D2C" : "white"}}
                 >
                   I consent to receiving product information and promotional offers from PepsiCo, electronically, including, SMS & WhatsApp
                 </label>
