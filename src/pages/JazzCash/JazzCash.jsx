@@ -137,7 +137,9 @@ const JazzCash = () => {
   const handleCreateAccountModal = () => {
     setIsCreateAccount(false);
   };
-
+  const handlePaste = (event) => {
+    event.preventDefault();
+  };
 
   useEffect(() => {
     if (transactionData?.code === "G2P-T-2001") {
@@ -214,8 +216,12 @@ useEffect(()=>{
               placeholder="03XX XXXX XXX"
               value={formattedPhoneNumber}
               onChange={handleChange}
+              onPaste={handlePaste}
+              onCopy={handlePaste} 
+              onCut={handlePaste} 
+              autoComplete="off" 
               style={{
-                color: isDisabledFields ? "gray" : "white",
+                color: isDisabledFields ? "#aaaaaa" : "#0fd56f",
                 cursor: isDisabledFields ? "no-drop" : "",
               }}
               disabled={isDisabledFields}
@@ -243,7 +249,7 @@ useEffect(()=>{
               disabled={isDisabledFields || isLoader}
               style={{
                 backgroundColor: isDisabledFields ? "#aaaaaa" : "#E81D2C",
-                color: isDisabledFields ? "#E81D2C" : "white",
+                color: isDisabledFields ? "white" : "white",
 
                 cursor: isDisabledFields ? "no-drop" : "",
 

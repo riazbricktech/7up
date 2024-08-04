@@ -45,16 +45,23 @@ function FormPage() {
   const [isCodeFound, setIsCodeFound] = useState(false);
 
   const qrCode = useSelector((state) => state?.qrCode?.qrCodeNumber);
-  const userData = useSelector((state) => state?.user?.createUserData);
   const userInfoLoading = useSelector((state) => state?.user?.isLoading);
+console.log(cityData,"cityData");
 
-
-  const cityOptions = cityData
-    ? cityData?.map((city) => ({
+const cityOptions = cityData
+  ? Array.isArray(cityData)
+    ? cityData.map((city) => ({
         value: city?.id,
         label: city?.name,
       }))
-    : undefined;
+    : Object.keys(cityData).map((key) => ({
+        value: cityData[key]?.id,
+        label: cityData[key]?.name,
+      }))
+  : undefined;
+
+
+
 
   const [isQrCode, setIsQrCode] = useState(false);
   const [apiResponse, setApiResponse] = useState(null);
