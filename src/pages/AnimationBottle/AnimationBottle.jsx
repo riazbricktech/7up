@@ -5,6 +5,7 @@ import food from "../../assets/images/lottie_files/shabbir-neww.json";
 import HeaderLottie from "../../assets/images/lottie_files/lights_anim.json";
 import Lottie from "lottie-react";
 import { useNavigate } from "react-router-dom";
+import bottleWebm from "../../assets/videos/output.webm"
 
 const AnimationBottle = () => {
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ const AnimationBottle = () => {
 
       <div className="z-20 w-full">
         <video autoPlay muted playsInline onEnded={() => navigate("/form")} className="z-20 w-full object-cover">
-          <source src="/output.webm" type="video/webm" />
+          <source src={bottleWebm} type="video/webm" />
           Your browser does not support the video tag.
         </video>
       </div>
