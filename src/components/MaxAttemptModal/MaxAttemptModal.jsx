@@ -5,9 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 const MaxAttemptModal = ({ showMaxAttemptModal, closeMaxAttemptModal }) => {
 const navigate =useNavigate();
-  if (!showMaxAttemptModal) {
-    return null;
-  }
+
 
 //   const handleOverlayClick = (e) => {
 //     if (e.target === e.currentTarget) {
@@ -21,7 +19,7 @@ useEffect(() => {
     const timer = setTimeout(() => {
       localStorage.clear();
       navigate('/'); 
-    }, 6000);
+    }, 8000);
   
     return () => clearTimeout(timer);
   }
@@ -33,6 +31,11 @@ useEffect(() => {
 useEffect(()=>{
   console.log("Max Attempt Initialize");
 },[])
+
+
+if (!showMaxAttemptModal) {
+  return null;
+}
 
   return (
   <>

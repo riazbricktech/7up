@@ -15,7 +15,7 @@ const [sevenUpDelay,setSevenUpDelay]=useState(false);
     const timer = setTimeout(() => {
       localStorage.clear();
       navigate('/'); 
-    }, 6000);
+    }, 8000);
 
     return () => clearTimeout(timer);
   }, [navigate]);

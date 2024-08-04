@@ -7,7 +7,6 @@ import Lottie from "lottie-react";
 // Animated Can Lottie
 import AnimatedCan from "../../assets/images/lottie_files/Can-animation.json";
 // Button Lottie
-import ClaimButton from "../../assets/images/lottie_files/claim-button.json";
 // Price Value Lottie
 import FiftyPrice from "../../assets/images/lottie_files/50-pricing.json";
 import HundredPrice from "../../assets/images/lottie_files/100-pricing.json";
@@ -39,16 +38,16 @@ const price = {
 };
 
 const Meal = {
-  SAMOSA: Samosa,
+  "SAMOSA": Samosa,
   "PARATHA ROLL": ParathaRoll,
   "ANDA BURGER": AndaBurger,
-  BURGER: Burger,
-  HALEEM: Haleem,
-  BIRYANI: Biryani,
-  "CHICKEN BROAST": Broast,
-  BBQ: BBQ,
-  PASTA: Pasta,
-  SUSHI: Sushi,
+  "BURGER": Burger,
+  "HALEEM": Haleem,
+  "BIRYANI": Biryani,
+  "BROAST": Broast,
+  "BBQ": BBQ,
+  "SUSHI": Sushi,
+  "PASTA": Pasta,
 };
 
 const WinningPage = () => {
@@ -60,6 +59,7 @@ const WinningPage = () => {
   const prizeName = useSelector((state) => state?.prizeDetail?.mealPrizeName);
   const spinData = useSelector((state) => state?.spin?.spinData);
   const userData = useSelector((state) => state?.user?.createUserData);
+  console.log(prizeName,"prizeName");
 
   const isLoading = useSelector(
     (state) => state?.taction?.isLoading
