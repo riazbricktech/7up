@@ -17,6 +17,8 @@ import HeaderLights from "../../assets/images/lottie_files/lights_anim.json";
 import LeftCircle from "../../assets/images/new_images/form_left_circle.webp";
 import RightCircle from "../../assets/images/new_images/form_right_circle.webp";
 import SpinBottle from "../../assets/images/gif_images/form-bottle.gif";
+
+import bottleFallingWebm from "../../assets/videos/bottle.webm"
 const inputList = [
   {
     id: uuidv4(),
@@ -232,7 +234,11 @@ const Spinner = () => {
     <Wrapper>
       {windowDimensions.width > 350 && (
         <div className="newclassC" onClick={handleSpinClick}>
-          <img className="bottleToCenter" src={"/bottle.gif"} alt="Bottle GIF" />
+
+          <video autoPlay muted playsInline loop className="z-20 bottleToCenter">
+            <source src={bottleFallingWebm} type="video/webm" />
+            Your browser does not support the video tag.
+          </video>
         </div>
       )}
       <div className="spinner_header_wrapper">
