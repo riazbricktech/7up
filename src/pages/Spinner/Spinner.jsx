@@ -79,7 +79,6 @@ const Spinner = () => {
   const [rouletteData, setRouletteData] = useState(inputList);
   const [isBetterLuck, setIsBetterLuck] = useState(false);
   const hasDispatched = useRef(false);
-  // const prizeValue = useRef(false);
 
   const userData = useSelector((state) => state?.user?.createUserData);
   const spinData = useSelector((state) => state?.spin?.spinData);
