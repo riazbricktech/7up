@@ -22,8 +22,9 @@ import CapModal from "../../components/CapModal/CapModal";
 import TermsAndCondition from "../../components/Term&Condition/TermsAndCondition";
 import PrivacyPolicy from "../../components/PrivacyPolicy/PrivacyPolicy";
 import UniqueIdModal from "../../components/UniqueIdModal/UniqueIdModal";
-import Lottie from 'lottie-react';
-import HeaderLottie from  "../../assets/images/lottie_files/lights_anim.json";
+import Lottie from "lottie-react";
+import HeaderLottie from "../../assets/images/lottie_files/lights_anim.json";
+import bottleFallingWebm from "../../assets/videos/bottle.webm"
 
 import BottleFall from "../../assets/images/gif_images/form-bottle.gif";
 
@@ -46,7 +47,6 @@ function FormPage() {
 
   const qrCode = useSelector((state) => state?.qrCode?.qrCodeNumber);
   const userInfoLoading = useSelector((state) => state?.user?.isLoading);
-console.log(cityData,"cityData");
 
 const cityOptions = cityData
   ? Array.isArray(cityData)
@@ -193,7 +193,6 @@ const cityOptions = cityData
   };
 
   const handleSubmit = (e) => {
-
     e.preventDefault();
 
     const newErrors = {
@@ -234,14 +233,13 @@ const cityOptions = cityData
 
           setApiResponse(res?.payload?.response);
           return;
-
         }
       });
     }
   };
 
   const openModal = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     setShowModal(true);
   };
 
@@ -253,14 +251,10 @@ const cityOptions = cityData
     setIsUniqueQrCode(false);
   };
 
-  
-
-
   useEffect(() => {
-if(!cityOptions || cityOptions === undefined ){
-
-  dispatch(getCities());
-}
+    if (!cityOptions || cityOptions === undefined) {
+      dispatch(getCities());
+    }
   }, [cityOptions]);
 
   const openTermsCon = () => {
@@ -268,9 +262,9 @@ if(!cityOptions || cityOptions === undefined ){
   };
 
   const closeTermsCon = (response) => {
-    if (response === 1) { 
+    if (response === 1) {
       setFormValues({ ...formValues, terms: true });
-    } else if (response === 0) { 
+    } else if (response === 0) {
       setFormValues({ ...formValues, terms: false });
     }
     setTCOpen(false);
@@ -296,45 +290,40 @@ if(!cityOptions || cityOptions === undefined ){
     return () => clearTimeout(timer);
   }, []);
   return (  
+  
     <Wrapper>
-      
-    <div className={`form_bottle_wrapper`}  style={{ zIndex }}> 
-    <img className={`newGif   ${bottleClass}`} src={BottleFall}  alt="Bottle GIF" />
+      <div className="bottle-wrapper" style={{ zIndex }}>
+        <div className="bottle-inner-wrapper">
+          <video autoPlay muted playsInline loop className="z-20 bottle-form">
+            <source src={bottleFallingWebm} type="video/webm" />
+            Your browser does not support the video tag.
+          </video>
         </div>
+      </div>
       <div className={`form_page_wrapper ${formClass}`}>
-
         {/* Header Wrapper */}
-        <div className="form_header_wrapper">
 
-          <Lottie animationData={HeaderLottie}
-            autoPlay={true} loop={false} 
-            className="form_header_lottie" 
-            />
+        <div className="form_header_wrapper">
+          <Lottie animationData={HeaderLottie} autoPlay={true} loop={false} className="form_header_lottie" />
         </div>
 
         <div className="form_heading_wrapper class-3">
           <p>
-          Fill in the form to<br />
-          win exciting prizes
-        
-
+            Fill in the form to
+            <br />
+            win exciting prizes
           </p>
         </div>
 
         {/* Form Wrapper */}
         <form onSubmit={handleSubmit} className="form_wrapper" noValidate>
           <div className="form_input_wrapper class-4">
-            <label
-              htmlFor="validationServerName"
-              style={!isQrCode ? { padding: "3px 0" } : { padding: "0" }}
-            >
+            <label htmlFor="validationServerName" style={!isQrCode ? { padding: "3px 0" } : { padding: "0" }}>
               Name*
             </label>
             <input
               type="text"
-              className={`form-control form_custom_input ${
-                errors.name ? "is-invalid" : ""
-              }`}
+              className={`form-control form_custom_input ${errors.name ? "is-invalid" : ""}`}
               id="validationServerName"
               name="name"
               placeholder="Full Name"
@@ -346,25 +335,16 @@ if(!cityOptions || cityOptions === undefined ){
               autoComplete="off" 
               style={{fontWeight:"lighter !important"}}
             />
-            {errors.name && (
-              <div className="invalid-feedback error_message d-block">
-                {errors.name}
-              </div>
-            )}
+            {errors.name && <div className="invalid-feedback error_message d-block">{errors.name}</div>}
           </div>
 
           <div className="form_input_wrapper class-5">
-            <label
-              htmlFor="validationServerPhone"
-              style={!isQrCode ? { padding: "3px 0" } : { padding: "0" }}
-            >
+            <label htmlFor="validationServerPhone" style={!isQrCode ? { padding: "3px 0" } : { padding: "0" }}>
               Phone Number*
             </label>
             <input
               type="text"
-              className={`form-control form_custom_input ${
-                errors.phone_user ? "is-invalid" : ""
-              }`}
+              className={`form-control form_custom_input ${errors.phone_user ? "is-invalid" : ""}`}
               id="validationServerPhone"
               aria-describedby="inputGroupPrepend3 validationServerPhoneFeedback"
               name="phone_user"
@@ -376,26 +356,17 @@ if(!cityOptions || cityOptions === undefined ){
               onCut={handlePaste} 
               autoComplete="off" 
             />
-            {errors.phone_user && (
-              <div className="invalid-feedback error_message d-block">
-                {errors.phone_user}
-              </div>
-            )}
+            {errors.phone_user && <div className="invalid-feedback error_message d-block">{errors.phone_user}</div>}
           </div>
           <div className="form_selectbox_wrapper class-6">
-            <label
-              htmlFor="validationServerCity"
-              style={!isQrCode ? { padding: "3px 0" } : { padding: "0" }}
-            >
+            <label htmlFor="validationServerCity" style={!isQrCode ? { padding: "3px 0" } : { padding: "0" }}>
               City*
             </label>
             <Select
             components={{ Input: CustomInput }}
               isSearchable={true}
               menuPlacement="auto"
-              value={cityOptions?.find(
-                (option) => option?.name === formValues.city_name
-              )}
+              value={cityOptions?.find((option) => option?.name === formValues.city_name)}
               onChange={handleSelectChange}
               id="validationServerCity"
               name="city_name"
@@ -403,10 +374,7 @@ if(!cityOptions || cityOptions === undefined ){
               placeholder="Select Your City"
             />
             {errors.city_name && (
-              <div
-                className="invalid-feedback selectBox_error_message d-block"
-                style={{ marginLeft: "10px" }}
-              >
+              <div className="invalid-feedback selectBox_error_message d-block" style={{ marginLeft: "10px" }}>
                 {errors.city_name}
               </div>
             )}
@@ -433,77 +401,60 @@ if(!cityOptions || cityOptions === undefined ){
                   onChange={handleChange}
                 />
                 <button onClick={openModal}>
-                  <img
-                    src={QuestionMark}
-                    className="img-fluid"
-                    alt="Question Marl"
-                  />
+                  <img src={QuestionMark} className="img-fluid" alt="Question Marl" />
                 </button>
               </div>
-              {errors.qr_code_user ? (
-                <div className="invalid-feedback error_message d-block">
-                  {errors.qr_code_user}
-                </div>
-              ):""}
+              {errors.qr_code_user ? <div className="invalid-feedback error_message d-block">{errors.qr_code_user}</div> : ""}
 
-{!errors.qr_code_user && isCodeFound ? (
-                <div className="invalid-feedback error_message d-block">
-                  Enter a valid Unique ID
-                </div>
-              ):""}
+              {!errors.qr_code_user && isCodeFound ? <div className="invalid-feedback error_message d-block">Enter a valid Unique ID</div> : ""}
               <div className="description_unique_id">
                 <p>Find your Unique ID inside the cap</p>
               </div>
             </div>
           )}
 
-          <div
-            className="form_checkbox_wrapper"
-            style={!isQrCode ? { marginTop: "20px" } : {}}
-          >
+          <div className="form_checkbox_wrapper" style={!isQrCode ? { marginTop: "20px" } : {}}>
             <div className="tc_wrapper class-8">
               <div>
                 <input
                   type="checkbox"
-                  className={`form-check-input ${
-                    errors.terms ? "is-invalid" : ""
-                  }`}
+                  className={`form-check-input ${errors.terms ? "is-invalid" : ""}`}
                   id="validationServerTerms"
                   name="terms"
                   checked={formValues.terms}
                   onChange={handleChange}
                 />
                 <label
-                  className={`form-check-label ${errors.terms ? 'errorLabel' : ''}`}
+                  className={`form-check-label ${errors.terms ? "errorLabel" : ""}`}
                   // htmlFor="validationServerTerms"
                   htmlFor=""
-                 
+
                   // style={{color: errors.terms ? "#E81D2C" : "white"}}
-                  
                 >
-                 I have read the <span style={{color: errors.terms ? "#E81D2C !important" : "white"}}  onClick={openTermsCon}>Terms & Conditions</span> and consent to the 
-                  use of my personal data as per the Privacy Notice. I have the option to opt-out anytime.
+                  I have read the{" "}
+                  <span style={{ color: errors.terms ? "#E81D2C !important" : "white" }} onClick={openTermsCon}>
+                    Terms & Conditions
+                  </span>{" "}
+                  and consent to the use of my personal data as per the Privacy Notice. I have the option to opt-out anytime.
                 </label>
               </div>
               <div>
                 <input
                   type="checkbox"
-                  className={`form-check-input ${
-                    errors.privacy ? "is-invalid" : ""
-                  }`}
+                  className={`form-check-input ${errors.privacy ? "is-invalid" : ""}`}
                   id="validationServerPrivacy"
                   name="privacy"
                   checked={formValues.privacy}
                   onChange={handleChange}
                 />
                 <label
-                   className={`form-check-label ${errors.privacy ? 'errorLabel' : ''}`}
+                  className={`form-check-label ${errors.privacy ? "errorLabel" : ""}`}
                   // htmlFor="validationServerPrivacy"
                   htmlFor=""
                   // onClick={handleOpenPrivacyPolicy}
                   // style={{color: errors.privacy ? "#E81D2C" : "white"}}
                 >
-                 I consent to receiving product information and  promotional offers from PepsiCo, electronically, including,  SMS & WhatsApp
+                  I consent to receiving product information and promotional offers from PepsiCo, electronically, including, SMS & WhatsApp
                 </label>
               </div>
             </div>
@@ -526,32 +477,25 @@ if(!cityOptions || cityOptions === undefined ){
           )} */}
           <div className="form_button_wrapper class-9">
             <button type="submit" disabled={userInfoLoading} className="btn btn-primary">
-              {userInfoLoading ? <div className="spinner-border text-warning mt-1" role="status">
-  <span className="visually-hidden">Loading...</span>
-</div> : "Next"}
+              {userInfoLoading ? (
+                <div className="spinner-border text-warning mt-1" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+              ) : (
+                "Next"
+              )}
             </button>
           </div>
         </form>
 
         {/* Circle  */}
- 
-
-     
       </div>
       <CapModal showModal={showModal} closeModal={closeModal} />
       <TermsAndCondition isOpen={isTCOpen} onClose={closeTermsCon} />
       <PrivacyPolicy show={isPrivacyOpen} handleClose={handleClosePrivacyPolicy} />
-      <UniqueIdModal  showUniqueQrModal={isUniqueQrCode}  closeQrModalModal={handleUniqueQrModal} />
-      <img
-          src={LeftCircle}
-          className="img-fluid form_lefts_circle class-10"
-          alt="Cutted Circle"
-        />
-        <img
-          src={RightCircle}
-          className="img-fluid form_rights_circle class-11"
-          alt="Cutted Circle"
-        />
+      <UniqueIdModal showUniqueQrModal={isUniqueQrCode} closeQrModalModal={handleUniqueQrModal} />
+      <img src={LeftCircle} className="img-fluid form_lefts_circle class-10" alt="Cutted Circle" />
+      <img src={RightCircle} className="img-fluid form_rights_circle class-11" alt="Cutted Circle" />
     </Wrapper>
   );
 }

@@ -4,11 +4,8 @@ import "./Spinner.css";
 import { v4 as uuidv4 } from "uuid";
 import { Wheel } from "react-custom-roulette";
 import Wrapper from "../../reusableComponents/Wrapper/Wrapper";
-import SevenUpBottle from "../../assets/images/sevenUp_bottle.webp";
 import BottleImage from "../../assets/images/sevenUp_bottle.webp";
 import { useSelector, useDispatch } from "react-redux";
-import HeaderMask from "../../assets/images/new_images/header_mask.webp";
-import HeaderLight from "../../assets/images/new_images/header_lights.webp";
 import { spinPrice } from "../../redux/actions/SpinAction";
 import BetterLuckModal from "../../components/BetterLuckModal/BetterLuckModal";
 import { prizeName } from "../../redux/slice/WinPrizeSlice";
@@ -16,7 +13,8 @@ import Lottie from "lottie-react";
 import HeaderLights from "../../assets/images/lottie_files/lights_anim.json";
 import LeftCircle from "../../assets/images/new_images/form_left_circle.webp";
 import RightCircle from "../../assets/images/new_images/form_right_circle.webp";
-import SpinBottle from "../../assets/images/gif_images/form-bottle.gif";
+
+import bottleFallingWebm from "../../assets/videos/bottle.webm"
 const inputList = [
   {
     id: uuidv4(),
@@ -238,8 +236,12 @@ const Spinner = () => {
   return (
     <Wrapper> 
       {windowDimensions.width > 350 && (
-       <div className="newclassC">
-          {!isBetterLuck  && <img className="bottleToCenter" src={SpinBottle} alt="Bottle GIF" />}
+        <div className="newclassC" >
+
+{!isBetterLuck &&<video autoPlay muted playsInline loop className="z-20 bottleToCenter">
+            <source src={bottleFallingWebm} type="video/webm" />
+            Your browser does not support the video tag.
+          </video>}
         </div>
       )}
       <div className="spinner_header_wrapper">

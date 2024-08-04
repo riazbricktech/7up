@@ -1,35 +1,14 @@
-import { useEffect, useState } from "react";
 import "./AnimationBottle.css";
 import Wrapper from "../../reusableComponents/Wrapper/Wrapper";
 import PakImage from "../../assets/images/new_images/pak-logo.webp";
 import food from "../../assets/images/lottie_files/shabbir-neww.json";
-import BottleGif from "../../assets/images/gif_images/bottle-anim.gif";
 import HeaderLottie from "../../assets/images/lottie_files/lights_anim.json";
 import Lottie from "lottie-react";
 import { useNavigate } from "react-router-dom";
+import bottleWebm from "../../assets/videos/output.webm"
 
 const AnimationBottle = () => {
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const handleLoad = () => {
-      const navigate_timer = setTimeout(() => {
-        navigate("/form");
-      }, 6000);
-      return () => {
-        clearTimeout(navigate_timer);
-      };
-    };
-
-    if (document.readyState === "complete") {
-      handleLoad();
-    } else {
-      window.addEventListener("load", handleLoad);
-      return () => {
-        window.removeEventListener("load", handleLoad);
-      };
-    }
-  }, [navigate]);
 
   return (
     <Wrapper>
@@ -45,25 +24,17 @@ const AnimationBottle = () => {
             <img src={PakImage} className="img-fluid" alt="Meal Image" />
           </div>
         </div>
+      </div>
 
-        <div
-          style={{
-            width: "100%",
-            height: "auto",
-            zIndex: "0",
-            position: "absolute",
-            top: "9%",
-            left: "50%",
-            transform: "translateX(-50%) translateY(20%)",
-            animationDelay: "2s",
-          }}
-        >
-          <Lottie animationData={food} loop={false}/>
-        </div>
+      <div className="z-20 w-full">
+        <video autoPlay muted playsInline onEnded={() => navigate("/form")} className="z-20 w-full object-cover">
+          <source src={bottleWebm} type="video/webm" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
 
-        <div className="" style={{ zIndex: "0" }}>
-          <img src={BottleGif} className="bottle-img-fluid" alt="Meal Image" />
-        </div>
+      <div className="abs z-10 top-10">
+        <Lottie animationData={food} loop={false} />
       </div>
     </Wrapper>
   );
