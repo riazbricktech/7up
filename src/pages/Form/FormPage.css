@@ -16,9 +16,7 @@
   bottom: -15%;
   left: 50%;
   z-index: 999;
-  transform: translateX(-50%);
   animation: bottleDown 4s ease-out;
-  will-change: transform;
 }
 @keyframes bottleDown {
   from {

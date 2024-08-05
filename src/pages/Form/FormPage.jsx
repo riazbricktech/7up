@@ -294,9 +294,7 @@ const cityOptions = cityData
     <Wrapper>
       <div className="bottle-wrapper" style={{ zIndex }}>
         <div className="bottle-inner-wrapper">
-
           <img src={BottleFall} type="video/webm" className="z-20 bottle-form"></img>
-
         </div>
       </div>
       <div className={`form_page_wrapper ${formClass}`}>
