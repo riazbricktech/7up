@@ -16,6 +16,7 @@
   position: absolute;
   bottom: -15%;
   left: 50%;
+  transform: translate(-50%,-0%);
   animation: bottleDown 4s ease-out;
 }
 @keyframes bottleDown {

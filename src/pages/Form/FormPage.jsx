@@ -292,7 +292,7 @@ const cityOptions = cityData
   return (  
   
     <Wrapper>
-      <div className="bottle-wrapper " >
+      <div className="bottle-wrapper "  style={{ zIndex }}>
         <div className="bottle-inner-wrapper w-full">
           <img src={BottleFall} className="z-20 bottle-form"></img>
         </div>
