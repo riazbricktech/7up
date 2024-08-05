@@ -1,3 +1,4 @@
+
 .roulette_container {
   position: absolute;
   top: 10%;
@@ -198,7 +199,7 @@
   display: none !important;
 }
 .bottleToCenter {
-
+  animation: bottleToCenter 2.5s ease-in; /* Animation for the bottle */
   width: 25px;
 }
 .spinner_left_circle {
@@ -327,21 +328,20 @@
 }
 @keyframes bottleToCenter {
   0% {
-    transform: translate(-50%, -50%) translateY(-540%) rotate(50deg);
+    transform: translate(0%, -540%) rotate(50deg);
   }
   100% {
-    transform: translate(-50%, -50%) translateY(0%) rotate(0deg);
+    transform: translate(0%, 0%) rotate(0deg);
   }
 }
 
 .newclassC {
-  position: absolute; /* Use fixed positioning to keep the bottle in place relative to the viewport */
-  top: 47%; /* Center vertically */
-  left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%); /* Adjust for exact center */
-  animation: bottleToCenter 2.5s ease-in; /* Animation for the bottle */
-  opacity: 1; /* Ensure bottle is fully visible */
-  z-index: 9999; /* Ensure the bottle stays on top of other elements */
+  position: absolute;
+  top: 41%; 
+  left: 47%; 
+  transform: translate(-50%, -50%); 
+  opacity: 1; 
+  z-index: 9999; 
 }
 
 .spinerrBottleUpward {

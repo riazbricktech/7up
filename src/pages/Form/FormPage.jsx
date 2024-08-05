@@ -24,6 +24,7 @@ import PrivacyPolicy from "../../components/PrivacyPolicy/PrivacyPolicy";
 import UniqueIdModal from "../../components/UniqueIdModal/UniqueIdModal";
 import Lottie from "lottie-react";
 import HeaderLottie from "../../assets/images/lottie_files/lights_anim.json";
+import bottleFallingWebm from "../../assets/videos/bottle.webm"
 
 import BottleFall from "../../assets/images/gif_images/form-bottle.gif";
 

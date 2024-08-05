@@ -13,8 +13,6 @@ import Lottie from "lottie-react";
 import HeaderLights from "../../assets/images/lottie_files/lights_anim.json";
 import LeftCircle from "../../assets/images/new_images/form_left_circle.webp";
 import RightCircle from "../../assets/images/new_images/form_right_circle.webp";
-
-import bottleFallingWebm from "../../assets/videos/bottle.webm";
 import BottleFall from "../../assets/images/gif_images/form-bottle.gif";
 
 const inputList = [
