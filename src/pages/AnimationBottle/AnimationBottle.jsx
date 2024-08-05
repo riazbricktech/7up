@@ -6,18 +6,17 @@ import HeaderLottie from "../../assets/images/lottie_files/lights_anim.json";
 import Lottie from "lottie-react";
 import { useNavigate } from "react-router-dom";
 import bottle from "../../assets/images/gif_images/new7upbottle.gif";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const AnimationBottle = () => {
   const navigate = useNavigate();
-  const [gifLoaded, setGifLoaded] = useState(false);
+
   useEffect(() => {
-    if (gifLoaded) {
       // WARN: don't forget to update the timeout when changing the gif file
-      const timeoutId = setTimeout(() => navigate("/form"), 6800);
+      const timeoutId = setTimeout(() => navigate("/form"), 7000);
       return () => clearTimeout(timeoutId); // Clean up timeout on component unmount
-    }
-  }, [gifLoaded, navigate]);
+  }, [navigate]);
+
   return (
     <Wrapper>
       <div className="animation_page_wrapper">
@@ -39,7 +38,6 @@ const AnimationBottle = () => {
           src={`${bottle}`} 
           className="z-20 w-full object-cover" 
           alt="Animated Bottle"
-          onLoad={() => setGifLoaded(true)} // Set GIF loaded state to true when loaded
         />
       </div>
 
