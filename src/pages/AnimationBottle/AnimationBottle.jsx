@@ -5,7 +5,7 @@ import food from "../../assets/images/lottie_files/shabbir-neww.json";
 import HeaderLottie from "../../assets/images/lottie_files/lights_anim.json";
 import Lottie from "lottie-react";
 import { useNavigate } from "react-router-dom";
-import bottle from "../../assets/images/gif_images/bottle-anim-new.gif";
+import bottle from "../../assets/images/gif_images/new7upbottle.gif";
 import { useEffect, useState } from "react";
 
 const AnimationBottle = () => {
