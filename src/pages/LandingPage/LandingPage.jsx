@@ -11,8 +11,8 @@ import architectureJson from "../../assets/images/lottie_files/architecture-nobg
 
 
 // preloader assets
-import bottleAnim from "../../assets/images/gif_images/new7upbottle.gif";
-import bottle from "../../assets/images/gif_images/form-bottle.gif";
+import bottleAnim from "../../assets/images/gif_images/bottle-anim-changed-wh-min.gif";
+import bottle from "../../assets/images/gif_images/new-form-bottle.gif";
 
 const LandingPage = () => {
   const navigate = useNavigate();
