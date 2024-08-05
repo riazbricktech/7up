@@ -25,7 +25,7 @@ import UniqueIdModal from "../../components/UniqueIdModal/UniqueIdModal";
 import Lottie from "lottie-react";
 import HeaderLottie from "../../assets/images/lottie_files/lights_anim.json";
 
-import BottleFall from "../../assets/images/gif_images/form-bottle.gif";
+import BottleFall from "../../assets/images/gif_images/new-form-bottle.gif";
 
 const CustomInput = (props) => {
   const handlePaste = (event) => {

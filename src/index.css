@@ -5,6 +5,7 @@
     
 }
 
-/* body{
-    overflow: hidden !important;
-} */
+body{
+    font-family: var(--banton-font);
+
+}

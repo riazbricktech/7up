@@ -1,49 +1,25 @@
 import "./AnimationBottle.css";
 import Wrapper from "../../reusableComponents/Wrapper/Wrapper";
-import PakImage from "../../assets/images/new_images/pak-logo.webp";
-import food from "../../assets/images/lottie_files/shabbir-neww.json";
-import HeaderLottie from "../../assets/images/lottie_files/lights_anim.json";
-import Lottie from "lottie-react";
 import { useNavigate } from "react-router-dom";
-import bottle from "../../assets/images/gif_images/new7upbottle.gif";
-import { useEffect } from "react";
-
+import { useEffect, useState } from "react";
+import AnimatedGif from "../../assets/images/gif_images/bottle-anim-changed-wh-min.gif"
 const AnimationBottle = () => {
   const navigate = useNavigate();
+  const [gifLoaded, setGifLoaded] = useState(false);
 
   useEffect(() => {
-      // WARN: don't forget to update the timeout when changing the gif file
-      const timeoutId = setTimeout(() => navigate("/form"), 7000);
-      return () => clearTimeout(timeoutId); // Clean up timeout on component unmount
-  }, [navigate]);
+    setGifLoaded(true)
 
+      const timeoutId = setTimeout(() => navigate("/form"), 6400);
+      return () => clearTimeout(timeoutId);
+    // }
+  }, []);
   return (
     <Wrapper>
-      <div className="animation_page_wrapper">
-        <div className="animation_header_wrapper">
-          <div className={`header_mask img-fluid header_lights img-fluid headerMaskExit`}>
-            <Lottie animationData={HeaderLottie} autoPlay={true} loop={false} height="120px" />
-          </div>
-        </div>
+     {gifLoaded &&   <div className="animation_page_wrapper">
+<img src={AnimatedGif} alt="Animation Lottie"  style={{width:"100%", height:"100%"}}/>
+      </div>}
 
-        <div className={`animation_pak_wrapper pakClass`}>
-          <div className="pakClassExit">
-            <img src={PakImage} className="img-fluid" alt="Meal Image" />
-          </div>
-        </div>
-      </div>
-
-      <div className="z-20 w-full">
-        <img 
-          src={`${bottle}`} 
-          className="z-20 w-full object-cover" 
-          alt="Animated Bottle"
-        />
-      </div>
-
-      <div className="abs z-10 top-10">
-        <Lottie animationData={food} loop={false} />
-      </div>
     </Wrapper>
   );
 };
