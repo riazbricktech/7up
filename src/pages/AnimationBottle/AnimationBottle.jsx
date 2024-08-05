@@ -1,3 +1,4 @@
+
 import "./AnimationBottle.css";
 import Wrapper from "../../reusableComponents/Wrapper/Wrapper";
 import PakImage from "../../assets/images/new_images/pak-logo.webp";
@@ -5,10 +6,15 @@ import food from "../../assets/images/lottie_files/shabbir-neww.json";
 import HeaderLottie from "../../assets/images/lottie_files/lights_anim.json";
 import Lottie from "lottie-react";
 import { useNavigate } from "react-router-dom";
-import bottleWebm from "../../assets/videos/output.webm"
+import bottle from "../../assets/images/gif_images/new7upbottle.gif"
+import { useEffect } from "react";
 
 const AnimationBottle = () => {
   const navigate = useNavigate();
+  useEffect(() => {
+    // NOTE: don't forget to update the timeout when changing the gif file
+    setTimeout(() => navigate("/form"), 7000);
+  },[navigate])
 
   return (
     <Wrapper>
@@ -27,10 +33,7 @@ const AnimationBottle = () => {
       </div>
 
       <div className="z-20 w-full">
-        <video autoPlay muted playsInline onEnded={() => navigate("/form")} className="z-20 w-full object-cover">
-          <source src={bottleWebm} type="video/webm" />
-          Your browser does not support the video tag.
-        </video>
+        <img src={bottle} className="z-20 w-full object-cover"></img>
       </div>
 
       <div className="abs z-10 top-10">

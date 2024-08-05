@@ -14,7 +14,9 @@ import HeaderLights from "../../assets/images/lottie_files/lights_anim.json";
 import LeftCircle from "../../assets/images/new_images/form_left_circle.webp";
 import RightCircle from "../../assets/images/new_images/form_right_circle.webp";
 
-import bottleFallingWebm from "../../assets/videos/bottle.webm"
+import bottleFallingWebm from "../../assets/videos/bottle.webm";
+import BottleFall from "../../assets/images/gif_images/form-bottle.gif";
+
 const inputList = [
   {
     id: uuidv4(),
@@ -224,25 +226,19 @@ const Spinner = () => {
       // navigate("/form");
     }
   }, [userData]);
-  
-  useEffect(()=>{
-    console.log("Spinner Page Initialize");
-  },[])
 
-  const handleConsole =()=>{
+  useEffect(() => {
+    console.log("Spinner Page Initialize");
+  }, []);
+
+  const handleConsole = () => {
     console.log("start Console");
-  }
+  };
 
   return (
-    <Wrapper> 
+    <Wrapper>
       {windowDimensions.width > 350 && (
-        <div className="newclassC" >
-
-{!isBetterLuck &&<video autoPlay muted playsInline loop className="z-20 bottleToCenter">
-            <source src={bottleFallingWebm} type="video/webm" />
-            Your browser does not support the video tag.
-          </video>}
-        </div>
+        <div className="newclassC">{!isBetterLuck && <img src={BottleFall} className="z-20 bottleToCenter"></img>}</div>
       )}
       <div className="spinner_header_wrapper">
         <Lottie animationData={HeaderLights} autoPlay={true} loop={false} className="spinner_header_lottie" />
@@ -290,7 +286,7 @@ const Spinner = () => {
                 if (spinValue === 1 && spinPrize === 0) {
                   const selectedItem = inputList[prizeNumber];
 
-                  setTimeout(function() {
+                  setTimeout(function () {
                     setIsBetterLuck(true);
                   }, 3000);
                 }
@@ -298,7 +294,7 @@ const Spinner = () => {
                 //  if QR code is already used ///   OR  some other Error
                 if (spinValue === 0) {
                   const selectedItem = inputList[prizeNumber];
-                  setTimeout(function() {
+                  setTimeout(function () {
                     setIsBetterLuck(true);
                   }, 3000);
                 }
@@ -307,16 +303,13 @@ const Spinner = () => {
                 if (spinValue === 1 && spinPrize !== 0) {
                   const selectedItem = inputList[prizeNumber];
                   dispatch(prizeName(selectedItem?.option));
-                  setTimeout(function() {
+                  setTimeout(function () {
                     navigate("/winner");
                   }, 3000);
                 }
               }}
             />
-            <button
-              className="spiner_button roulette-button"
-            onClick={handleConsole}
-            >
+            <button className="spiner_button roulette-button" onClick={handleConsole}>
               {windowDimensions.width <= 350 && (
                 <span>
                   <img src={BottleImage} alt="7up Bottle" onClick={handleConsole} />
