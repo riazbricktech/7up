@@ -9,6 +9,11 @@ import animationData from "../../assets/images/lottie_files/heartbeatlogo.json";
 import foodElementsJson from "../../assets/images/lottie_files/new.json";
 import architectureJson from "../../assets/images/lottie_files/architecture-nobg.json";
 
+
+// preloader assets
+import bottleAnim from "../../assets/images/gif_images/new7upbottle.gif";
+import bottle from "../../assets/images/gif_images/form-bottle.gif";
+
 const LandingPage = () => {
   const navigate = useNavigate();
 
@@ -58,6 +63,7 @@ const LandingPage = () => {
   },[])
   return (
     <Wrapper>
+      <PreloadAssets/>
       <div className="landing_page_wrapper">
         <div style={{ width: "100%", height: "auto", position: "absolute", top: "35%", left: "50%", transform: "translateX(-50%) translateY(-50%)" }}>
           <Lottie options={foodElements} style={{ objectFit: "cover" }} />
@@ -72,6 +78,20 @@ const LandingPage = () => {
       </div>
     </Wrapper>
   );
+};
+
+const PreloadAssets = () => {
+  useEffect(() => {
+    const preloadImage = (url) => {
+      const img = new Image();
+      img.src = url;
+    };
+
+    preloadImage(bottle);
+    preloadImage(bottleAnim);
+  }, []);
+
+  return null;
 };
 
 export default LandingPage;
