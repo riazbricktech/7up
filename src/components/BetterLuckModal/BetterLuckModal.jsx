@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import './BetterLuckModal.css';
+import React, { useEffect, useState } from "react";
+import "./BetterLuckModal.css";
 import Emoji from "../../assets/images/new_images/emoji.webp";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const BetterLuckModal = ({ showBetterLuckModal, closeBetterLuckModal }) => {
   const [image, setImage] = useState(null);
@@ -17,16 +17,16 @@ const BetterLuckModal = ({ showBetterLuckModal, closeBetterLuckModal }) => {
     if (showBetterLuckModal) {
       localStorage.clear();
       const timer = setTimeout(() => {
-        navigate('/'); 
-      }, 7000); 
+        navigate("/");
+      }, 7000);
 
       return () => clearTimeout(timer);
     }
   }, [showBetterLuckModal, navigate]);
 
-  useEffect(()=>{
+  useEffect(() => {
     console.log("BetterLuck Initialize");
-  },[]);
+  }, []);
 
   if (!showBetterLuckModal) {
     return null;
@@ -38,7 +38,7 @@ const BetterLuckModal = ({ showBetterLuckModal, closeBetterLuckModal }) => {
         <div className="modal-content">
           <div className="modal-body">
             <div className="modal-icon" onClick={closeBetterLuckModal}>
-              <img src={Emoji} className='emoji img-fluid' alt="Emoji" />
+              <img src={Emoji} className="emoji img-fluid" alt="Emoji" />
             </div>
             <div className="modal-message">
               <p>BETTER LUCK</p>
@@ -53,10 +53,16 @@ const BetterLuckModal = ({ showBetterLuckModal, closeBetterLuckModal }) => {
             accept="image/*"
             capture="environment"
             onChange={handleCapture}
-            style={{ display: 'none' }}
+            style={{ display: "none" }}
             id="cameraInput"
           />
-          {image && <img src={image} alt="Captured" style={{ marginTop: '20px', maxWidth: '100%' }} />}
+          {image && (
+            <img
+              src={image}
+              alt="Captured"
+              style={{ marginTop: "20px", maxWidth: "100%" }}
+            />
+          )}
         </label>
       </div>
     </>

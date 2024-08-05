@@ -1,16 +1,15 @@
-
 @keyframes moveFromBottomToTop {
     from {
-      transform: translateY(100%);
-      opacity: 0;
+        transform: translateY(100%);
+        opacity: 0;
     }
     to {
-      transform: translateY(0);
-      opacity: 1;
+        transform: translateY(0);
+        opacity: 1;
     }
-  }
-  
-  .failedPage_wrapper {
+}
+
+.failedPage_wrapper {
     width: 500px !important;
     height: 100vh;
     display: flex;
@@ -19,12 +18,11 @@
     overflow: hidden;
     position: relative;
     animation: moveFromBottomToTop 2s ease-out;
-  }
+}
 .wrapper_col {
     padding: 0 !important;
 }
 .failedPage_wrapper {
-    /* width: 100%; */
     width: 500px !important;
     height: 100dvh;
     display: flex;
@@ -38,7 +36,6 @@
     padding: 0;
     width: 100% !important;
     height: auto;
-    /* animation: formFadeIn 2s ease-in-out; */
     position: relative;
 }
 .failedPage_header_wrapper .spinner_header_lottie {
@@ -50,12 +47,10 @@
     height: auto;
 }
 
-
 .failedPage_wrapper .failedPage_heading_wrapper {
     width: 100%;
     text-align: center;
     padding: 10px 0;
-    /* margin-top:130px */
     margin-top: calc(100vh - 75vh);
 }
 
@@ -67,15 +62,15 @@
     letter-spacing: 2px;
     line-height: 10px;
 }
-.failedPage_wrapper .failedPage_error_wrapper{
+.failedPage_wrapper .failedPage_error_wrapper {
     width: 90%;
     text-align: center;
 }
-.failedPage_wrapper .failedPage_error_wrapper p{
-   font-size: 16px;
-   color: var(--red-bg-color);
-   font-weight: 600;
-   font-family: var(--banton-font);
+.failedPage_wrapper .failedPage_error_wrapper p {
+    font-size: 16px;
+    color: var(--red-bg-color);
+    font-weight: 600;
+    font-family: var(--banton-font);
 }
 
 .failedPage_wrapper .failedPage_image_wrapper {
@@ -91,7 +86,6 @@
     text-align: center;
     width: 80%;
     margin-top: 75px;
-    /* margin-top: calc(100vh - 90vh); */
 }
 
 .failedPage_wrapper .failedPage_button_wrapper button {
@@ -116,8 +110,6 @@
     right: 0;
     width: 90%;
 }
-
-
 
 /* Add keyframes for the animations */
 @keyframes sliderIn {
@@ -176,31 +168,25 @@
         width: 100% !important;
     }
 
-    .failedPage_wrapper .failedPage_error_wrapper p{
+    .failedPage_wrapper .failedPage_error_wrapper p {
         font-size: 12px;
         font-weight: 500;
         line-height: 14px;
-     }
+    }
 }
-
 
 /*  MAX HEIGHT */
 @media only screen and (max-height: 750px) {
-
     .failedPage_bottom_img_wrapper .failedPage_bottom_img {
         width: 80%;
     }
 }
 
-
-
 @media only screen and (max-height: 700px) {
-
     .failedPage_bottom_img_wrapper .failedPage_bottom_img {
         width: 72%;
     }
 }
-
 
 @media only screen and (max-height: 600px) {
     .failedPage_wrapper .failedPage_button_wrapper {

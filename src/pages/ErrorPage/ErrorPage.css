@@ -1,4 +1,4 @@
-.errorWrapper{
+.errorWrapper {
     width: 500px;
     height: 100vh;
     display: flex;
@@ -7,11 +7,11 @@
     text-align: center;
     flex-direction: column;
 }
-.errorWrapper img{
+.errorWrapper img {
     width: 80px;
     margin-bottom: 30px;
 }
-.errorWrapper span{
+.errorWrapper span {
     color: white;
     font-size: 36px;
     font-weight: 700;

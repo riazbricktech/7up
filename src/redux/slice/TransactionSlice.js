@@ -1,9 +1,8 @@
-
-import { createSlice } from '@reduxjs/toolkit';
-import { transaction } from '../actions/TransactionAction';
+import { createSlice } from "@reduxjs/toolkit";
+import { transaction } from "../actions/TransactionAction";
 
 const transactionSlice = createSlice({
-  name: 'user',
+  name: "user",
   initialState: {
     isLoading: false,
     transactionData: null,

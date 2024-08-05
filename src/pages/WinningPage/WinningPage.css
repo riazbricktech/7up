@@ -1,7 +1,3 @@
-
-
-
-
 @keyframes slideIn {
   0% {
     transform: translateY(100%);
@@ -31,14 +27,12 @@
   padding: 0 !important;
 }
 .winner_wrapper {
-  /* width: 100%; */
   width: 500px !important;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  /* background-color: greenyellow; */
 }
 .winner_header_wrapper {
   padding: 0;
@@ -66,7 +60,6 @@
 .winner_frame_wrapper img {
   width: 100% !important;
   height: 100vh !important;
-
 }
 .winner_frame_wrapper p {
   position: absolute;
@@ -95,14 +88,9 @@
   align-items: center;
 }
 
-.winner_wrapper .winner_meal_wrapper .meal_lottie{
-
+.winner_wrapper .winner_meal_wrapper .meal_lottie {
   width: 65%;
 }
-
-/* .winner_wrapper .winner_meal_wrapper img {
-  width: 30%;
-} */
 
 .winner_meal_wrapper P {
   text-align: center;
@@ -124,18 +112,14 @@
   position: relative;
   left: 0%;
   top: 75%;
-  transform: translate(-0%,-50%);
+  transform: translate(-0%, -50%);
   z-index: 11111;
-
-  /* background-color: bisque !important; */
 }
 
-.celebration_wrapper .animated_can_lottie{
-  width: 100% !important; 
+.celebration_wrapper .animated_can_lottie {
+  width: 100% !important;
+}
 
-} 
-
-/* ////// Won Button Wrapper /////// */
 .you-won-button-wrapper {
   position: absolute;
   top: 60%;
@@ -147,7 +131,7 @@
   height: auto;
 }
 
-.you-won-button-wrapper  .price_lottie{
+.you-won-button-wrapper .price_lottie {
   width: 80%;
   height: 80%;
 }
@@ -169,20 +153,17 @@
   animation: formFadeIn 0.5s ease-in-out;
 }
 
-/* ////// Modal Wrapper /////// */
-
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  /* background-color: rgba(0, 0, 0, 0.5); */
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  z-index: 3000; /* Ensure it appears on top of everything */
+  z-index: 3000;
 }
 
 .modal-content {
@@ -190,13 +171,13 @@
   padding: 20px;
   border-radius: 55px;
   text-align: center;
-  width: 300px; /* Adjust the width as needed */
+  width: 300px;
 }
 
 .modal-content h2 {
   margin-bottom: 20px;
   font-size: 24px;
-  color: #28a745; /* Green color */
+  color: #28a745;
 
   font-family: var(--banton-font) !important;
   letter-spacing: 1px;
@@ -229,7 +210,7 @@
 }
 
 .claim-button {
-  background-color: var(--button-bg-color); /* Gold color */
+  background-color: var(--button-bg-color);
   border: none;
   width: 55%;
   padding: 4px 20px 2px 20px;
@@ -242,13 +223,13 @@
   position: absolute;
   top: 79%;
   left: 25%;
-  transform: translate(-50%,-50%);  
+  transform: translate(-50%, -50%);
   z-index: 11111;
   cursor: pointer;
   font-family: var(--gothic-font) !important;
   letter-spacing: 1.5px;
   /* transform: scale(0);*/
-  animation: zoom .4s forwards; 
+  animation: zoom 0.4s forwards;
 }
 
 .claim-button:disabled {
@@ -256,10 +237,6 @@
   color: white !important;
   cursor: no-drop !important;
 }
-
-
-
-
 
 @keyframes formFadeIn {
   0% {
@@ -279,7 +256,6 @@
   }
   .winner_header_wrapper {
     width: 100vw !important;
-    
   }
 }
 
@@ -289,7 +265,6 @@
     font-size: 27px;
     letter-spacing: 0.8px;
   }
-
 
   .you-won-button {
     padding: 7px 0px;
@@ -308,11 +283,9 @@
     letter-spacing: 0.8px !important;
   }
   .claim-button {
-
-  font-size: 28px !important;
+    font-size: 28px !important;
+  }
 }
-}
-
 
 /*  MAX HEIGHT */
 
@@ -328,32 +301,8 @@
   }
 
   .claim-button {
-
-    /* width: 100%; */
     top: 86%;
     left: 25%;
-    transform: translate(-50%,-50%);  
-  }
-}
-
-@media only screen and (max-height: 600px) {
-  
-
-  /* .winner_wrapper .winner_meal_wrapper {
-    top: 45% !important;
-    transform: translate(-0%, -50%);
-  }
-  .you-won-button-wrapper {
-    top: 62%;
-    left: 50%;
     transform: translate(-50%, -50%);
   }
-
-  .claim-button {
-
-    width: 100%;
-    top: 92%;
-    left: 50%;
-    transform: translate(-50%,-50%);  
-  } */
 }

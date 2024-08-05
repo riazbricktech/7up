@@ -1,11 +1,10 @@
-  .jazzcash_form_wrapper {
+.jazzcash_form_wrapper {
     width: 500px !important;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* animation: moveFromBottomToTop 2s ease-out; */
-  }
+}
 .wrapper_col {
     padding: 0 !important;
 }
@@ -34,31 +33,24 @@
     height: auto;
 }
 
-.jazzcash_form_wrapper .jazzcash_error_wrapper{
+.jazzcash_form_wrapper .jazzcash_error_wrapper {
     text-align: center;
     position: absolute;
     top: 20%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     width: 100%;
-
 }
 
-.jazzcash_form_wrapper .jazzcash_error_wrapper img{
-width: 42px;
+.jazzcash_form_wrapper .jazzcash_error_wrapper img {
+    width: 42px;
 }
-.jazzcash_form_wrapper .jazzcash_error_wrapper p{
-
-    color:var(--red-bg-color);
-font-size: 18px;
-font-family: var(--banton-font);
-margin-top: 10px;
-
+.jazzcash_form_wrapper .jazzcash_error_wrapper p {
+    color: var(--red-bg-color);
+    font-size: 18px;
+    font-family: var(--banton-font);
+    margin-top: 10px;
 }
-
-
-
-
 
 .jazzcash_form_wrapper .jazzCash_button_wrapper {
     text-align: center;
@@ -66,11 +58,10 @@ margin-top: 10px;
     position: relative;
     z-index: 1;
     margin-top: calc(100vh - 72vh);
-
 }
 
 .jazzcash_form_wrapper .jazzCash_button_wrapper button {
-    padding:2px 20px 0px 20px !important;
+    padding: 2px 20px 0px 20px !important;
     border-radius: 10px !important;
     background-color: var(--button-bg-color);
     border: none;
@@ -85,41 +76,35 @@ margin-top: 10px;
     animation: sliderIn 1s ease-out;
 }
 .jazzcash_form_wrapper .and_para {
-    padding-top: 30px ;
+    padding-top: 30px;
     color: white;
     font-family: var(--gothic-font);
     font-size: 32px;
     font-weight: 500;
-    letter-spacing:.5px;
+    letter-spacing: 0.5px;
     animation: sliderIn 1s ease-out !important;
-
 }
 
 .jazzcash_form_wrapper .jazzCash_button_wrapper .btn:hover {
     background-color: white !important;
     border-bottom: 4px solid gray !important;
     color: var(--button-bg-color);
-
 }
 
 .jazzcash_form_wrapper .jazzcash_form_Heading_wrapper {
-    padding:  0;
-    text-align: center  !important;
+    padding: 0;
+    text-align: center !important;
     animation: sliderIn 1s ease-out !important;
-
 }
 .jazzcash_form_wrapper .jazzcash_form_Heading_wrapper p {
     color: white;
     font-size: 28px;
     font-weight: 500 !important;
     font-family: var(--gothic-font) !important;
-    letter-spacing: .5px;
+    letter-spacing: 0.5px;
     line-height: 32px;
 }
 
-/* //////// Form Wrapper  //////// */
-
-/* Add keyframes for the animations */
 @keyframes sliderIn {
     from {
         transform: translateY(100px);
@@ -140,8 +125,6 @@ margin-top: 10px;
     }
 }
 
-/* Apply animations to the form */
-
 .jazzcash_form_wrapper .form_wrapper {
     width: 400px !important;
     animation: sliderIn 1s ease-out;
@@ -159,8 +142,6 @@ margin-top: 10px;
     color: var(--primary-text-color) !important;
 }
 
-/*  ////////   Input Box   /////// */
-
 .jazzcash_form_wrapper .jazzcash_input_wrapper {
     margin: 10px 0;
 }
@@ -168,10 +149,8 @@ margin-top: 10px;
 .jazzcash_form_wrapper .jazzcash_custom_input {
     box-shadow: 0 0 0 0 !important;
     border: none;
-    /* background: none; */
     border-radius: 10px;
     color: var(--primary-text-color);
-    /* color: gray !important; */
     font-weight: 600 !important;
     font-size: 22px;
     padding: 10px;
@@ -188,7 +167,6 @@ margin-top: 10px;
     color: gray !important;
 }
 
-
 .jazzcash_form_wrapper .phone_input:active {
     background-color: white !important;
     color: var(--primary-text-color) !important;
@@ -198,9 +176,8 @@ margin-top: 10px;
     background-color: white !important;
     -webkit-box-shadow: white !important;
     -webkit-text-fill-color: var(--primary-text-color) !important;
-   -webkit-text-size-adjust: 22px !important;
-   
-  }
+    -webkit-text-size-adjust: 22px !important;
+}
 .jazzcash_form_wrapper .jazzcash_input_wrapper .invalid-feedback {
     margin-top: 0 !important;
     background: transparent;
@@ -222,14 +199,12 @@ margin-top: 10px;
     color: var(--primary-text-color) !important;
 }
 .jazzcash_form_wrapper .jazzcash_custom_input:disabled {
-
     color: #aaaaaa !important;
 }
 
 .jazzcash_form_wrapper .form_button_wrapper {
     text-align: center;
     margin-top: 25px !important;
-    
 }
 .jazzcash_form_wrapper .form_button_wrapper button {
     padding: 2px 55px 0px 55px !important;
@@ -244,13 +219,10 @@ margin-top: 10px;
     border-bottom: 4px solid var(--green-color);
     line-height: 44px;
     width: 100%;
-    
 }
 .jazzcash_form_wrapper .form_button_wrapper button:focus {
     background-color: var(--button-bg-color) !important;
     color: white;
-
-
 }
 .jazzcash_form_wrapper .form_button_wrapper .btn:hover {
     background-color: white !important;
@@ -259,13 +231,12 @@ margin-top: 10px;
 }
 
 .jazzcash_form_wrapper .form_button_wrapper button:disabled {
-background-color: #aaaaaa !important;
-color: white !important;
+    background-color: #aaaaaa !important;
+    color: white !important;
 }
 
 @media only screen and (max-width: 480px) {
     .jazzcash_form_wrapper {
-        /* width: 100%; */
         width: 100vw !important;
     }
 
@@ -276,15 +247,12 @@ color: white !important;
         width: 80%;
     }
 
-    .jazzcash_form_wrapper .jazzCash_button_wrapper button{
+    .jazzcash_form_wrapper .jazzCash_button_wrapper button {
         font-size: 7vw !important;
     }
-    .jazzcash_form_wrapper .form_button_wrapper button{
+    .jazzcash_form_wrapper .form_button_wrapper button {
         font-size: 7.8vw !important;
-
-
     }
-
 }
 
 @media only screen and (max-width: 380px) {
@@ -293,17 +261,14 @@ color: white !important;
     }
     .jazzcash_form_wrapper .form_button_wrapper button {
         padding: 2px 30px 0px 30px !important;
-        /* font-size: 22px !important; */
     }
 
     .jazzcash_form_wrapper .jazzcash_custom_input {
-
         font-weight: 600 !important;
         font-size: 20px !important;
     }
 
     .jazzcash_form_wrapper .jazzcash_input_wrapper .invalid-feedback {
-
         font-size: 14px !important;
         font-weight: 700;
     }
@@ -312,83 +277,68 @@ color: white !important;
         width: 85% !important;
     }
     .jazzcash_form_wrapper .jazzCash_button_wrapper button {
-        /* font-size: 22px !important; */
         width: 100% !important;
     }
 }
 
 @media only screen and (max-height: 600px) {
-
-    .jazzcash_form_wrapper .jazzcash_error_wrapper{
+    .jazzcash_form_wrapper .jazzcash_error_wrapper {
         top: 23% !important;
     }
-    
-    .jazzcash_form_wrapper .jazzcash_error_wrapper img{
-    width: 35px !important;
+
+    .jazzcash_form_wrapper .jazzcash_error_wrapper img {
+        width: 35px !important;
     }
-    .jazzcash_form_wrapper .jazzcash_error_wrapper p{
-    font-size: 14px !important;
+    .jazzcash_form_wrapper .jazzcash_error_wrapper p {
+        font-size: 14px !important;
     }
-    
-.jazzcash_form_wrapper .jazzCash_button_wrapper {
 
-    margin-top: calc(100vh - 70vh);
+    .jazzcash_form_wrapper .jazzCash_button_wrapper {
+        margin-top: calc(100vh - 70vh);
+    }
 
-}
+    .jazzcash_form_wrapper .jazzCash_button_wrapper button {
+        padding: 0px 15px !important;
+        line-height: 40px;
+    }
 
-.jazzcash_form_wrapper .jazzCash_button_wrapper button {
-    padding: 0px 15px !important;
-    /* font-size: 24px !important; */
-    line-height: 40px;
-}
+    .jazzcash_form_wrapper .and_para {
+        padding-top: 20px !important;
+        font-size: 26px !important;
+        font-weight: 600 !important;
+    }
 
+    .jazzcash_form_wrapper .jazzcash_form_Heading_wrapper {
+        padding: 0;
+        text-align: center !important;
+    }
 
-.jazzcash_form_wrapper .and_para {
-    padding-top: 20px  !important;
-    font-size: 26px !important;
-    font-weight: 600 !important;
-}
+    .jazzcash_form_wrapper .jazzcash_form_Heading_wrapper p {
+        font-size: 26px !important;
+        font-weight: 600 !important;
+        line-height: 30px !important;
+    }
 
-.jazzcash_form_wrapper .jazzcash_form_Heading_wrapper {
-    padding:  0;
-    text-align: center  !important;
-}
+    .jazzcash_form_wrapper .jazzcash_input_wrapper {
+        margin: 5px 0 !important;
+    }
 
-.jazzcash_form_wrapper .jazzcash_form_Heading_wrapper p {
-    font-size: 26px !important;
-    font-weight: 600 !important;
-    line-height: 30px !important;
-} 
+    .jazzcash_form_wrapper .jazzcash_custom_input {
+        font-size: 20px !important;
+        padding: 7px !important;
+    }
 
+    .phone_input:-webkit-autofill {
+        -webkit-text-size-adjust: 20px !important;
+    }
+    .jazzcash_form_wrapper .jazzcash_input_wrapper .invalid-feedback {
+        font-size: 14px !important;
+        font-weight: 700 !important;
+    }
 
-.jazzcash_form_wrapper .jazzcash_input_wrapper {
-    margin: 5px 0 !important;
-}
-
-.jazzcash_form_wrapper .jazzcash_custom_input {
-
-
-    font-size: 20px !important;
-    padding: 7px !important; 
-}
-
-
-.phone_input:-webkit-autofill {
-   -webkit-text-size-adjust: 20px !important;
-  }
-.jazzcash_form_wrapper .jazzcash_input_wrapper .invalid-feedback {
-
-    font-size: 14px !important;
-    font-weight: 700 !important;
-
-}
-
-
-.jazzcash_form_wrapper .form_button_wrapper button {
-    padding: 0px 15px !important;
-    font-size: 24px !important;
-    line-height: 40px !important;
-}
-
-
+    .jazzcash_form_wrapper .form_button_wrapper button {
+        padding: 0px 15px !important;
+        font-size: 24px !important;
+        line-height: 40px !important;
+    }
 }

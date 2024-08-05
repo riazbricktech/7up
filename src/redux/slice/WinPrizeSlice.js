@@ -1,18 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const WinPrizeDetail = createSlice({
-    name: "Spin",
-    initialState: {
-        isLoading: false,
-        mealPrizeName:null
+  name: "Spin",
+  initialState: {
+    isLoading: false,
+    mealPrizeName: null,
+  },
+  reducers: {
+    prizeName: (state, action) => {
+      state.mealPrizeName = action.payload;
     },
-    reducers: {
-
-        prizeName: (state, action) => {
-            state.mealPrizeName = action.payload;
-        }
-    },
-})
+  },
+});
 
 export const { prizeName } = WinPrizeDetail.actions;
 

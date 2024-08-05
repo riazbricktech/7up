@@ -1,16 +1,15 @@
-import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import { persistStore, persistReducer, PERSIST } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
-import SpinSlice from '../slice/SpinSlice';
-import CitySlice from '../slice/CitySlice';
-import QrCodeSlice from '../slice/QrCodeSlice';
-import CreateUserSlice from '../slice/CreateUserSlice';
-import WinPrizeSlice from '../slice/WinPrizeSlice';
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import { persistStore, persistReducer, PERSIST } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import SpinSlice from "../slice/SpinSlice";
+import CitySlice from "../slice/CitySlice";
+import QrCodeSlice from "../slice/QrCodeSlice";
+import CreateUserSlice from "../slice/CreateUserSlice";
+import WinPrizeSlice from "../slice/WinPrizeSlice";
 import healthCheckSlice from "../slice/HealthSlice";
-import TransactionSlice from '../slice/TransactionSlice';
-import errorMiddleware from '../../middleware/errorMiddleware';
-import errorSlice from '../slice/errorSlice';
-// Combine all your slices into a rootReducer
+import TransactionSlice from "../slice/TransactionSlice";
+import errorMiddleware from "../../middleware/errorMiddleware";
+import errorSlice from "../slice/errorSlice";
 const rootReducer = combineReducers({
   spin: SpinSlice,
   cities: CitySlice,
@@ -24,9 +23,9 @@ const rootReducer = combineReducers({
 
 // Configuration for redux-persist
 const persistConfig = {
-  key: 'root',
+  key: "root",
   storage,
-  blacklist: ['health','error'], // Exclude healthCheckSlice from persisting
+  blacklist: ["health", "error"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

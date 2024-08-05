@@ -17,8 +17,6 @@ const JazzCash = () => {
   const [isCreateAccount, setIsCreateAccount] = useState(false);
   const [isDisabledFields, setIsDisabledFields] = useState(true);
 
-
-
   const [formValues, setFormValues] = useState({
     phoneNumber: "",
   });
@@ -32,14 +30,11 @@ const JazzCash = () => {
   const transactionData = useSelector(
     (state) => state?.taction?.transactionData
   );
-  const isLoader = useSelector(
-    (state) => state?.taction?.isLoading
-  );
-    const return_transaction_id = userData?.response?.return_transaction_id;
-    const return_user_id = userData?.response?.return_user_id;
-    const return_phone_user =   userData?.response?.return_phone_user;
-    const return_prize_amount = spinData?.response?.return_prize_amount;
-
+  const isLoader = useSelector((state) => state?.taction?.isLoading);
+  const return_transaction_id = userData?.response?.return_transaction_id;
+  const return_user_id = userData?.response?.return_user_id;
+  const return_phone_user = userData?.response?.return_phone_user;
+  const return_prize_amount = spinData?.response?.return_prize_amount;
 
   const jazzCashData = {
     receiver_number: formValues.phoneNumber,
@@ -88,7 +83,6 @@ const JazzCash = () => {
     }
   };
 
-  
   const handleCreateAccountAlert = () => {
     setIsCreateAccount(true);
 
@@ -108,7 +102,6 @@ const JazzCash = () => {
       dispatch(transaction(jazzCashData)).then((data) => {
         setIsDisabledFields(true);
         if (data?.payload?.status === 1) {
-
           navigate("/congrats");
         } else if (
           data?.payload?.status === 0 &&
@@ -128,12 +121,10 @@ const JazzCash = () => {
     }
   };
 
-
   const handleMaxAttemptModal = () => {
-    console.log("Click Atempt")
+    console.log("Click Atempt");
   };
 
-  
   const handleCreateAccountModal = () => {
     setIsCreateAccount(false);
   };
@@ -143,7 +134,6 @@ const JazzCash = () => {
 
   useEffect(() => {
     if (transactionData?.code === "G2P-T-2001") {
-
       setTransactionFailedError("*This number is not on JazzCash");
     } else {
       setTransactionFailedError(transactionData?.response);
@@ -151,22 +141,20 @@ const JazzCash = () => {
   }, [transactionData]);
 
   useEffect(() => {
-
     if (return_phone_user) {
-      setFormattedPhoneNumber(return_phone_user)
+      setFormattedPhoneNumber(return_phone_user);
     }
   }, [return_phone_user]);
 
-  useEffect(()=>{
-    if(!spinData){
-      navigate("/form")
+  useEffect(() => {
+    if (!spinData) {
+      navigate("/form");
     }
-      },[spinData])
+  }, [spinData]);
 
-      
-useEffect(()=>{
-  console.log("JazzPage Page Initialize");
-},[])
+  useEffect(() => {
+    console.log("JazzPage Page Initialize");
+  }, []);
 
   return (
     <Wrapper>
@@ -177,7 +165,7 @@ useEffect(()=>{
             autoPlay={true}
             loop={false}
             className="jazzcash_headerMask"
-            initialSegment={[100,100]}
+            initialSegment={[100, 100]}
           />
         </div>
 
@@ -192,11 +180,17 @@ useEffect(()=>{
         )}
 
         <div className="jazzCash_button_wrapper">
-          <button className="btn btn-primary" onClick={handleCreateAccountAlert}>
+          <button
+            className="btn btn-primary"
+            onClick={handleCreateAccountAlert}
+          >
             CREATE JAZZCASH ACCOUNT
           </button>
         </div>
-        <p className="and_para">  {transactionData?.attempt_counter === 0 ? "OR" : "AND" }</p>
+        <p className="and_para">
+          {" "}
+          {transactionData?.attempt_counter === 0 ? "OR" : "AND"}
+        </p>
 
         <div className="jazzcash_form_Heading_wrapper">
           <p>
@@ -217,9 +211,9 @@ useEffect(()=>{
               value={formattedPhoneNumber}
               onChange={handleChange}
               onPaste={handlePaste}
-              onCopy={handlePaste} 
-              onCut={handlePaste} 
-              autoComplete="off" 
+              onCopy={handlePaste}
+              onCut={handlePaste}
+              autoComplete="off"
               style={{
                 color: isDisabledFields ? "#aaaaaa" : "#0fd56f",
                 cursor: isDisabledFields ? "no-drop" : "",
@@ -252,12 +246,15 @@ useEffect(()=>{
                 color: isDisabledFields ? "white" : "white",
 
                 cursor: isDisabledFields ? "no-drop" : "",
-
               }}
             >
-          {isLoader ? <div className="spinner-border text-warning mt-1" role="status">
-  <span className="visually-hidden">Loading...</span>
-</div> : "Next"}
+              {isLoader ? (
+                <div className="spinner-border text-warning mt-1" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+              ) : (
+                "Next"
+              )}
             </button>
           </div>
         </form>
@@ -268,12 +265,13 @@ useEffect(()=>{
           closeCreateAccountModal={handleCreateAccountModal}
         />
       )}
-      {transactionData?.attempt_counter === 2 &&  transactionData?.status === 0 && (
-        <MaxAttemptModal
-          showMaxAttemptModal={true}
-          closeMaxAttemptModal={handleMaxAttemptModal}
-        />
-      )}
+      {transactionData?.attempt_counter === 2 &&
+        transactionData?.status === 0 && (
+          <MaxAttemptModal
+            showMaxAttemptModal={true}
+            closeMaxAttemptModal={handleMaxAttemptModal}
+          />
+        )}
     </Wrapper>
   );
 };

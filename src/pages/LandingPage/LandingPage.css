@@ -1,5 +1,4 @@
-
-.foodElements{
+.foodElements {
     width: 100%;
     height: 77vh;
 }
@@ -61,22 +60,7 @@
     width: 100%;
     height: 17vh;
 }
-
-/* .landing_meal_wrapper {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0% !important;
-    left: 0% !important;
-    transform: translate(-0%, -50%) !important;
-    animation: landingFadeIn 1.9s ease-out;
-    z-index: 11111111111111111;
-} */
-
-
-
-/* /////////////  Meals ////////// */
-.landing_page_wrapper .tikka{
+.landing_page_wrapper .tikka {
     position: absolute;
     left: 18%;
     width: 85px;
@@ -84,48 +68,44 @@
     transform: translate(-50%, -50%);
 }
 
-.landing_page_wrapper .d_lemon{
+.landing_page_wrapper .d_lemon {
     position: absolute;
     left: 18%;
     width: 35px;
     top: 41%;
     transform: translate(-50%, -50%);
-
 }
-.landing_page_wrapper .biryani{
+.landing_page_wrapper .biryani {
     position: absolute;
     left: 0%;
     width: 85px;
     top: 20%;
     transform: translate(-0%, -50%);
-
 }
 
-.landing_page_wrapper .u_chilli{
+.landing_page_wrapper .u_chilli {
     position: absolute;
     left: 35%;
     width: 31px;
     top: 11%;
     transform: translate(-50%, -50%);
 }
-.landing_page_wrapper .lemon{
+.landing_page_wrapper .lemon {
     position: absolute;
     left: 55%;
     width: 31px;
     top: 3%;
     transform: translate(-50%, -50%);
-
 }
-.landing_page_wrapper .oats{
+.landing_page_wrapper .oats {
     position: absolute;
     left: 67%;
     width: 41px;
     top: 15%;
     transform: translate(-50%, -50%);
-
 }
 
-.landing_page_wrapper .cheesy_fries{
+.landing_page_wrapper .cheesy_fries {
     position: absolute;
     right: 0%;
     width: 141px;
@@ -133,7 +113,7 @@
     transform: translate(-0%, -50%);
 }
 
-.landing_page_wrapper .f_lemon{
+.landing_page_wrapper .f_lemon {
     position: absolute;
     right: 0%;
     width: 47px;
@@ -141,15 +121,14 @@
     transform: translate(-0%, -50%);
 }
 
-.landing_page_wrapper .gol_gappy{
+.landing_page_wrapper .gol_gappy {
     position: absolute;
     right: 0%;
     width: 52px;
     top: 51%;
     transform: translate(-0%, -50%);
-
 }
-.landing_page_wrapper .d_chilli{
+.landing_page_wrapper .d_chilli {
     position: absolute;
     right: 16%;
     width: 29px;
@@ -157,7 +136,7 @@
     transform: translate(-50%, -50%);
 }
 
-.landing_page_wrapper .green_chilli{
+.landing_page_wrapper .green_chilli {
     position: absolute;
     right: 40%;
     width: 49px;
@@ -165,7 +144,7 @@
     transform: translate(-50%, -50%);
 }
 
-.landing_page_wrapper .tomoto{
+.landing_page_wrapper .tomoto {
     position: absolute;
     right: 58%;
     width: 28px;
@@ -174,35 +153,34 @@
 }
 .landing_footer_wrapper {
     max-height: 250px;
- }
- @media only screen and (max-width: 435px) {
- 
+}
+
+.landing_page_wrapper .foodElement,
+.landing_page_wrapper .heartBeat {
+    object-fit: cover;
+}
+@media only screen and (max-width: 435px) {
     .foodElements {
         margin-top: 20px !important;
     }
 }
 @media only screen and (max-width: 400px) {
- 
     .foodElements {
-        /* margin-top: 40px !important; */
         position: absolute;
         top: 0%;
     }
 }
 
-
 @media only screen and (max-width: 380px) {
- 
     .foodElements {
         margin-top: 150px;
     }
 }
 @media only screen and (max-width: 480px) {
-
     .landing_page_wrapper {
         width: 100vw !important;
     }
-    
+
     .landing_logo_wrapper {
         width: 210px !important;
     }
@@ -217,8 +195,8 @@
     .landing_footer_wrapper .footer_wave {
         height: 15vh;
     }
-    .landing_page_wrapper .lemon{
-        top: 5% !important; 
+    .landing_page_wrapper .lemon {
+        top: 5% !important;
     }
 }
 
@@ -234,39 +212,33 @@
     .landing_footer_wrapper .footer_wave {
         height: 15vh;
     }
-    .landing_page_wrapper .cheesy_fries{
-
+    .landing_page_wrapper .cheesy_fries {
         width: 120px !important;
     }
-    
-    .landing_page_wrapper .f_lemon{
 
+    .landing_page_wrapper .f_lemon {
         width: 40px !important;
     }
-    
-    .landing_page_wrapper .gol_gappy{
+
+    .landing_page_wrapper .gol_gappy {
         width: 45px !important;
-    
     }
 
-    .landing_page_wrapper .tikka{
-
+    .landing_page_wrapper .tikka {
         width: 78px !important;
     }
-    
-    .landing_page_wrapper .d_lemon{
+
+    .landing_page_wrapper .d_lemon {
         left: 15% !important;
         width: 35px !important;
         top: 39% !important;
-    
     }
-    .landing_page_wrapper .biryani{
-        width: 75px !important;    
+    .landing_page_wrapper .biryani {
+        width: 75px !important;
     }
 }
 
 @media only screen and (max-width: 350px) {
-
     .landing_logo_wrapper {
         width: 165px !important;
     }
@@ -278,43 +250,34 @@
     .landing_footer_wrapper .footer_wave {
         height: 12vh !important;
     }
-    .landing_page_wrapper .cheesy_fries{
-
+    .landing_page_wrapper .cheesy_fries {
         width: 100px !important;
     }
-    
-    .landing_page_wrapper .f_lemon{
 
+    .landing_page_wrapper .f_lemon {
         width: 35px !important;
     }
-    
-    .landing_page_wrapper .gol_gappy{
+
+    .landing_page_wrapper .gol_gappy {
         width: 40px !important;
-    
     }
 
-    .landing_page_wrapper .tikka{
-
+    .landing_page_wrapper .tikka {
         width: 75px !important;
     }
-    
-    .landing_page_wrapper .d_lemon{
-        left: 13% !important;
-    
-    }
-    .landing_page_wrapper .biryani{
-        width: 70px !important;    
-    }
 
+    .landing_page_wrapper .d_lemon {
+        left: 13% !important;
+    }
+    .landing_page_wrapper .biryani {
+        width: 70px !important;
+    }
 }
 
-/* ///////////////  Max Height  ///////////////// */
 @media only screen and (max-width: 720px) {
-
     .foodElements {
-height: 72vh;
+        height: 72vh;
     }
-
 }
 
 @media only screen and (max-height: 610px) {
@@ -322,16 +285,14 @@ height: 72vh;
         width: 120px !important;
     }
 
-    .landing_page_wrapper .tikka{
-
+    .landing_page_wrapper .tikka {
         width: 60px !important;
     }
-    
-    .landing_page_wrapper .d_lemon{
+
+    .landing_page_wrapper .d_lemon {
         left: 13% !important;
-    
     }
-    .landing_page_wrapper .biryani{
-        width: 55px !important;    
+    .landing_page_wrapper .biryani {
+        width: 55px !important;
     }
-} 
+}

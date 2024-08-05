@@ -1,138 +1,124 @@
-/* Modal.css */
 .betterLuck_modal_overlay {
-    /* position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%; */
-    position: fixed;
-    top: 0;
-    left: 50%;
-    width: 500px;
-    height: 100%;
-    transform: translate(-50%,-0%);
-    background: #00d36687;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    flex-direction: column;
-    z-index: 11111111111111;
-    overflow: hidden;
-    animation: betterLuckModalFadeIn 0.5s ease-in-out;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  width: 500px;
+  height: 100%;
+  transform: translate(-50%, -0%);
+  background: #00d36687;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-direction: column;
+  z-index: 11111111111111;
+  overflow: hidden;
+  animation: betterLuckModalFadeIn 0.5s ease-in-out;
+}
 
+@keyframes betterLuckModalFadeIn {
+  0% {
+    opacity: 0;
   }
+  100% {
+    opacity: 1;
+  }
+}
 
-  @keyframes betterLuckModalFadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  
-  }
-  
- .betterLuck_modal_overlay .modal-content {
-    background: white;
-    padding: 0 !important;
-    padding-top: 15px !important;
-    border-radius: 10px !important;
+.betterLuck_modal_overlay .modal-content {
+  background: white;
+  padding: 0 !important;
+  padding-top: 15px !important;
+  border-radius: 10px !important;
+  width: 60% !important;
+  text-align: center;
+  position: relative;
+  z-index: 111111;
+  border: 4px solid #00aa4e;
+}
+
+.betterLuck_modal_overlay .close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.betterLuck_modal_overlay .modal-body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.betterLuck_modal_overlay .modal-icon {
+  display: inline-block;
+
+  color: red;
+  width: 65px;
+  height: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-top: 20px;
+}
+
+.modal-content .modal-body .emoji {
+  margin-bottom: 0 !important;
+}
+
+.betterLuck_modal_overlay .modal-message {
+  margin-top: 15px;
+}
+.betterLuck_modal_overlay .modal-message p {
+  margin: 5px 0;
+  font-weight: bold;
+  font-size: 32px;
+  font-family: var(--gothic-font);
+  font-weight: 800;
+  color: var(--green-color);
+  line-height: 32px;
+  letter-spacing: 1.5px;
+}
+
+.betterLuck_modal_overlay .modal-button {
+  background: var(--button-bg-color);
+  color: white;
+  border: none;
+  width: 65% !important;
+  padding: 4px 20px 2px 20px;
+  margin-top: 75px;
+  border-radius: 13px;
+  font-size: 30px;
+  letter-spacing: 1px;
+  font-family: var(--gothic-font);
+  font-weight: 700;
+  cursor: pointer;
+  border-right: 3px solid var(--green-color);
+  border-bottom: 4px solid var(--green-color);
+  text-align: center;
+}
+
+.betterLuck_modal_overlay .open-modal-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 380px) {
+  .betterLuck_modal_overlay .modal-content {
     width: 60% !important;
-    /* max-width: 400px; */
-    text-align: center;
-    position: relative;
-    z-index: 111111;
-    border: 4px solid #00aa4e;
   }
-
- 
- .betterLuck_modal_overlay .close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
+  .betterLuck_modal_overlay .modal-message > p {
+    margin: 0px 0;
+    font-size: 26px;
+    text-transform: uppercase !important;
   }
-  
- .betterLuck_modal_overlay .modal-body {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-bottom: 20px;
+  .betterLuck_modal_overlay .modal-button {
+    width: 60% !important;
+    font-size: 28px;
   }
-  
- .betterLuck_modal_overlay .modal-icon {
-    display: inline-block;
-
-    color: red;
-    width: 65px;
-    height: 65px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-margin-top: 20px;
-  }
-
-  .modal-content  .modal-body .emoji{
-    margin-bottom: 0 !important;
-  }
-  
- .betterLuck_modal_overlay .modal-message{
-    margin-top: 15px;
-  }
- .betterLuck_modal_overlay .modal-message p {
-    margin: 5px 0;
-    font-weight: bold;
-    font-size: 32px;
-    font-family: var(--gothic-font);
-    font-weight: 800;
-    color: var(--green-color);
-    line-height: 32px;
-    letter-spacing: 1.5px;
-  }
-  
- .betterLuck_modal_overlay .modal-button {
-    background: var(--button-bg-color);
-    color: white;
-    border: none;
-    width: 65% !important;
-    padding: 4px 20px 2px 20px;
-    margin-top: 75px;
-    border-radius: 13px;
-    font-size: 30px;
-    letter-spacing: 1px;
-    font-family: var(--gothic-font);
-    font-weight: 700;
-    cursor: pointer;
-    border-right: 3px solid var(--green-color);
-    border-bottom: 4px solid var(--green-color);
-    text-align: center;
-  }
-  
- .betterLuck_modal_overlay .open-modal-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-
-
-  @media only screen and (max-width: 380px) {
-    .betterLuck_modal_overlay .modal-content {
-
-      width: 60% !important;
-
-    }
-    .betterLuck_modal_overlay .modal-message > p {
-      margin: 0px 0;
-      font-size: 26px;
-      text-transform: uppercase !important;
-    }
-    .betterLuck_modal_overlay .modal-button {
-      width: 60% !important;
-      font-size: 28px;
-    }
-  }
-  
+}

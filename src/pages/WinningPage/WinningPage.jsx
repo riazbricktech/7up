@@ -6,7 +6,6 @@ import Lottie from "lottie-react";
 
 // Animated Can Lottie
 import AnimatedCan from "../../assets/images/lottie_files/Can-animation.json";
-// Button Lottie
 // Price Value Lottie
 import FiftyPrice from "../../assets/images/lottie_files/50-pricing.json";
 import HundredPrice from "../../assets/images/lottie_files/100-pricing.json";
@@ -38,16 +37,16 @@ const price = {
 };
 
 const Meal = {
-  "SAMOSA": Samosa,
+  SAMOSA: Samosa,
   "PARATHA ROLL": ParathaRoll,
   "ANDA BURGER": AndaBurger,
-  "BURGER": Burger,
-  "HALEEM": Haleem,
-  "BIRYANI": Biryani,
-  "BROAST": Broast,
-  "BBQ": BBQ,
-  "SUSHI": Sushi,
-  "PASTA": Pasta,
+  BURGER: Burger,
+  HALEEM: Haleem,
+  BIRYANI: Biryani,
+  BROAST: Broast,
+  BBQ: BBQ,
+  SUSHI: Sushi,
+  PASTA: Pasta,
 };
 
 const WinningPage = () => {
@@ -59,34 +58,30 @@ const WinningPage = () => {
   const prizeName = useSelector((state) => state?.prizeDetail?.mealPrizeName);
   const spinData = useSelector((state) => state?.spin?.spinData);
   const userData = useSelector((state) => state?.user?.createUserData);
-  console.log(prizeName,"prizeName");
+  console.log(prizeName, "prizeName");
 
-  const isLoading = useSelector(
-    (state) => state?.taction?.isLoading
-  );
-
+  const isLoading = useSelector((state) => state?.taction?.isLoading);
 
   const return_transaction_id = userData?.response?.return_transaction_id;
   const return_user_id = userData?.response?.return_user_id;
   const return_phone_user = userData?.response?.return_phone_user;
   const return_prize_amount = spinData?.response?.return_prize_amount;
 
-
-    const jazzCashData ={
-    receiver_number:return_phone_user,
-    amount:return_prize_amount,
+  const jazzCashData = {
+    receiver_number: return_phone_user,
+    amount: return_prize_amount,
     transaction_id: return_transaction_id,
     user_id: return_user_id,
   };
 
-const handleJazzCashTransaction =()=>{
-
-
-  dispatch(transaction(jazzCashData)).then((data)=>{
-    if(data?.payload?.status === 1)
-      {
+  const handleJazzCashTransaction = () => {
+    dispatch(transaction(jazzCashData)).then((data) => {
+      if (data?.payload?.status === 1) {
         navigate("/congrats");
-      } else if (data?.payload?.status === 0 && data?.payload?.code === "G2P-T-2001") {
+      } else if (
+        data?.payload?.status === 0 &&
+        data?.payload?.code === "G2P-T-2001"
+      ) {
         navigate("/jazzcash");
         return;
       } else {
@@ -104,7 +99,7 @@ const handleJazzCashTransaction =()=>{
       setTimeout(() => {
         setShowModal(true);
       }, 500);
-    }, 2500); 
+    }, 2500);
 
     return () => {
       clearTimeout(timer);
@@ -112,22 +107,27 @@ const handleJazzCashTransaction =()=>{
     };
   }, []);
 
-
-  useEffect(()=>{
-    if(!spinData){
-      navigate("/form")
+  useEffect(() => {
+    if (!spinData) {
+      navigate("/form");
     }
-      },[spinData])
+  }, [spinData]);
 
-      useEffect(()=>{
-        console.log("Winning Page Initialize");
-      },[])
+  useEffect(() => {
+    console.log("Winning Page Initialize");
+  }, []);
   return (
     <Wrapper>
       {/*  WinninG Wrapper */}
       <div className="winner_wrapper">
         <div className="winner_header_wrapper">
-          <Lottie animationData={HeaderLights} autoPlay={true} loop={false} className="winner_header_lottie" initialSegment={[100, 100]}/>
+          <Lottie
+            animationData={HeaderLights}
+            autoPlay={true}
+            loop={false}
+            className="winner_header_lottie"
+            initialSegment={[100, 100]}
+          />
         </div>
         <div className="winner_frame_wrapper">
           <img src={Frame} className="img-fluid" alt="Logo" />
@@ -136,29 +136,44 @@ const handleJazzCashTransaction =()=>{
 
         {/*  Header Wrapper     */}
         <div className="winner_meal_wrapper">
-          <Lottie animationData={Meal[prizeName]} autoPlay={true} loop={false} className="meal_lottie" />
+          <Lottie
+            animationData={Meal[prizeName]}
+            autoPlay={true}
+            loop={false}
+            className="meal_lottie"
+          />
         </div>
 
         {/*   Celebration Wrapper  */}
         <div className="celebration_wrapper">
-          {animate && <Lottie animationData={AnimatedCan} autoPlay={true} loop={false} className="animated_can_lottie" />}
+          {animate && (
+            <Lottie
+              animationData={AnimatedCan}
+              autoPlay={true}
+              loop={false}
+              className="animated_can_lottie"
+            />
+          )}
         </div>
 
         {showButton && (
           <div className="you-won-button-wrapper">
-                 
-                    <Lottie animationData={price[return_prize_amount]}
-            autoPlay={true} loop={false} 
-            className="price_lottie"
+            <Lottie
+              animationData={price[return_prize_amount]}
+              autoPlay={true}
+              loop={false}
+              className="price_lottie"
             />
-         
-         
           </div>
         )}
 
         {showModal && (
           <>
-            <button className="claim-button" disabled={isLoading} onClick={handleJazzCashTransaction}>
+            <button
+              className="claim-button"
+              disabled={isLoading}
+              onClick={handleJazzCashTransaction}
+            >
               {isLoading ? (
                 <div className="spinner-border text-warning mt-1" role="status">
                   <span className="visually-hidden">Loading...</span>

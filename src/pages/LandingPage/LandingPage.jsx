@@ -9,8 +9,6 @@ import animationData from "../../assets/images/lottie_files/heartbeatlogo.json";
 import foodElementsJson from "../../assets/images/lottie_files/new.json";
 import architectureJson from "../../assets/images/lottie_files/architecture-nobg.json";
 
-
-// preloader assets
 import bottleAnim from "../../assets/images/gif_images/bottle-anim-changed-wh-min.gif";
 import bottle from "../../assets/images/gif_images/new-form-bottle.gif";
 
@@ -58,19 +56,27 @@ const LandingPage = () => {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
-  useEffect(()=>{
+  useEffect(() => {
     console.log("Landing Page Initialize");
-  },[])
+  }, []);
   return (
     <Wrapper>
-      <PreloadAssets/>
+      <PreloadAssets />
       <div className="landing_page_wrapper">
-        <div style={{ width: "100%", height: "auto", position: "absolute", top: "35%", left: "50%", transform: "translateX(-50%) translateY(-50%)" }}>
-          <Lottie options={foodElements} style={{ objectFit: "cover" }} />
+        <div
+          style={{
+            width: "100%",
+            height: "auto",
+            position: "absolute",
+            top: "35%",
+            left: "50%",
+            transform: "translateX(-50%) translateY(-50%)",
+          }}
+        >
+          <Lottie options={foodElements} className="foodElement"  />
         </div>
         <div className="landing_logo_wrapper_dynamic">
-          <Lottie options={defaultOptions} style={{ objectFit: "cover" }} />
-          
+          <Lottie options={defaultOptions} className="heartBeat" />
         </div>
         <div className="landing_footer_wrapper">
           <Lottie options={architecture} />

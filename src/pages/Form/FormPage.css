@@ -16,7 +16,7 @@
   position: absolute;
   bottom: -15%;
   left: 50%;
-  transform: translate(-50%,-0%);
+  transform: translate(-50%, -0%);
   animation: bottleDown 3.8s ease-out;
 }
 @keyframes bottleDown {
@@ -51,16 +51,6 @@
     opacity: 1;
   }
 }
-/* @keyframes formdown {
-    0% {
-      transform: translateY(-150%);
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  } */
 .bottledown {
   animation: bottleDown 4s ease-out;
 }
@@ -110,14 +100,13 @@
   color: var(--primary-text-color) !important;
 }
 
-/* Apply animations to the header image */
 .form_header_wrapper {
-    padding:  0;
-    width: 500px !important;
-    height: auto;
-    animation: formFadeIn 3s ease-in-out;
-    position: fixed;
-    z-index: 11111;
+  padding: 0;
+  width: 500px !important;
+  height: auto;
+  animation: formFadeIn 3s ease-in-out;
+  position: fixed;
+  z-index: 11111;
 }
 .form_header_wrapper .form_header_lottie {
   position: absolute;
@@ -132,7 +121,6 @@
   height: auto;
 }
 
-/* ///////////  Heading Wrapper /////////// */
 .form_heading_wrapper {
   padding: 0;
   width: 500px !important;
@@ -150,8 +138,6 @@
   line-height: 28px;
   margin-bottom: 0;
 }
-
-/*  /////////////////   Input Box   //////////////////// */
 
 .form_input_wrapper {
   margin-top: 5px;
@@ -236,8 +222,6 @@
   color: var(--primary-text-color) !important;
 }
 
-/*  /////////////////   Select Box   //////////////////// */
-
 .css-13cymwt-control {
   border-radius: 12px !important;
   background-color: white !important;
@@ -256,7 +240,6 @@
 }
 .css-13cymwt-control input {
   color: var(--primary-text-color) !important;
-
 }
 
 .css-1jqq78o-placeholder {
@@ -276,13 +259,11 @@
   width: 100% !important;
   border: none !important;
   box-shadow: none !important;
-  
 }
 
 .css-1nmdiq5-menu {
   background-color: var(--primary-bg-color) !important;
-z-index: 1111111111111 !important;
-
+  z-index: 1111111111111 !important;
 }
 .css-1u9des2-indicatorSeparator {
   background-color: transparent !important;
@@ -294,8 +275,6 @@ z-index: 1111111111111 !important;
   color: var(--primary-bg-color) !important;
 }
 .css-10wo9uf-option {
-  /* background-color:var(--primary-text-color)!important;
-    color: var(--yellow-text-color) !important; */
   font-size: 18px !important;
   color: white !important;
 }
@@ -305,7 +284,6 @@ z-index: 1111111111111 !important;
   border-radius: 10px !important;
 }
 
-/* Style for odd options */
 .css-10wo9uf-option:nth-of-type(odd) {
   background-color: #01d366 !important;
   color: white !important;
@@ -351,7 +329,7 @@ select {
 .form_custom_select option {
   background-color: var(--secondary-bg-color);
   color: var(--primary-text-color);
-  font-weight: 300;
+  font-weight: 300 !important;
   font-family: var(--gothic-font);
   letter-spacing: 1px;
 }
@@ -360,7 +338,6 @@ select {
   width: 100% !important;
 }
 
-/* //////////////////  SCROLL DESIGN FOR SELECT BOX       /////////////////////////////// */
 .css-1jj59y3-MenuList2 {
   max-height: 300px;
   overflow-y: auto;
@@ -369,7 +346,7 @@ select {
   padding-bottom: 4px;
   padding-top: 4px;
   box-sizing: border-box;
-  scroll-behavior: smooth; /* Smooth scrolling */
+  scroll-behavior: smooth;
 }
 
 .css-1jj59y3-MenuList2::-webkit-scrollbar {
@@ -377,20 +354,19 @@ select {
 }
 
 .css-1jj59y3-MenuList2::-webkit-scrollbar-thumb {
-  background-color: #00b144; /* Scrollbar thumb color */
-  border-radius: 4px; /* Rounded corners */
+  background-color: #00b144;
+  border-radius: 4px;
 }
 
 .css-1jj59y3-MenuList2::-webkit-scrollbar-thumb:hover {
-  background-color: #009935; /* Thumb color on hover */
+  background-color: #009935;
 }
 
 .css-1jj59y3-MenuList2::-webkit-scrollbar-track {
-  background-color: #ffe53f; /* Scrollbar track color */
-  border-radius: 4px; /* Rounded corners */
+  background-color: #ffe53f;
+  border-radius: 4px;
 }
 
-/* Optional: For other browsers, you can use the following pseudo-elements */
 .css-1jj59y3-MenuList2::-moz-scrollbar {
   width: 8px;
 }
@@ -408,28 +384,20 @@ select {
   background-color: #ffe53f;
   border-radius: 4px;
 }
-.css-1cfo1cf{
+.css-1cfo1cf {
   color: var(--primary-text-color) !important;
 }
 
 /* Firefox only */
 .css-1jj59y3-MenuList2 {
-  scrollbar-width: thin; /* Thin scrollbar */
-  scrollbar-color: #fcdc00 #0fd56f; /* Thumb and track colors */
+  scrollbar-width: thin;
+  scrollbar-color: #fcdc00 #0fd56f;
 }
-
-/*  /////////////////   Check Box   //////////////////// */
 
 .form_checkbox_wrapper {
   width: 100%;
   background-color: transparent;
   padding: 10px 5px 10px 5px;
-}
-.form_checkbox_wrapper .tc_wrapper {
-  /* display: flex;
-       justify-content: center;
-    align-items: center;
-    flex-direction: column; */
 }
 .form_checkbox_wrapper .tc_wrapper div {
   display: flex;
@@ -507,8 +475,6 @@ select {
   letter-spacing: 0px;
   box-shadow: none !important;
   text-transform: capitalize !important;
-
-  /* padding-left: 5px !important; */
   margin-top: 0px !important;
 }
 .form_button_wrapper {
@@ -630,26 +596,12 @@ select {
     width: 100% !important;
   }
 
-    .form_wrapper {
-        width: 90% !important;
-        position: relative;
-        z-index: 11;
-         padding: 0 10px;
-    }
-
-    .form_checkbox_wrapper input {
-        width: 30px !important;
-        height: 30px !important;
-    }
-    .form_checkbox_wrapper label {
-        font-size: 12px !important;
-    }
-    .form_button_wrapper button {
-        width: 95%;
-        padding: 6px 24px 4px 24px !important;
-        font-size: 34px !important;
-    }
-
+  .form_wrapper {
+    width: 90% !important;
+    position: relative;
+    z-index: 11;
+    padding: 0 10px;
+  }
 
   .form_checkbox_wrapper input {
     width: 30px !important;
@@ -658,18 +610,28 @@ select {
   .form_checkbox_wrapper label {
     font-size: 12px !important;
   }
+  .form_button_wrapper button {
+    width: 95%;
+    padding: 6px 24px 4px 24px !important;
+    font-size: 34px !important;
+  }
 
+  .form_checkbox_wrapper input {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  .form_checkbox_wrapper label {
+    font-size: 12px !important;
+  }
 }
 
 @media only screen and (max-width: 400px) {
   .form_bottle_wrapper {
     width: 100px !important;
-    /* width: 43% !important; */
     top: 105% !important;
   }
 }
 
-/* ///////////////  Max Height  ///////////////// */
 @media only screen and (max-height: 820px) {
   .form_input_wrapper label,
   .form_selectbox_wrapper label {
@@ -732,77 +694,66 @@ select {
     width: 10%;
     z-index: 0;
   }
-
-  
-
-    }
-
-    .form_rights_circle{
-        position: absolute;
-        right: -2%;
-        bottom: 28.5%;
-        width: 10%;
-        z-index: 0 !important;
-    }
-
-    .form_input_wrapper label,
-.form_selectbox_wrapper label{
-    margin: 18px 10px 17px 10px !important;
-    font-size: 17px;
-    font-family: var(--banton-font);
-  }
-
-  /* Custom Scrollbar Styles for WebKit Browsers */
-  .form_page_wrapper::-webkit-scrollbar {
-    width: 10px;
-  }
-
-  .form_page_wrapper::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 5px;
-  }
-
-  .form_page_wrapper::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
-
-  .form_page_wrapper::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
-
-  /* Custom Scrollbar Styles for Firefox */
-  .form_page_wrapper {
-    scrollbar-width: thin;
-    scrollbar-color: var(--secondary-bg-color) #f1f1f1;
-  }
-
-  /* Edge */
-  .form_page_wrapper {
-    -ms-overflow-style: scrollbar !important;
-  }
-
-  .form_lefts_circle {
-    position: absolute;
-    width: 11%;
-    left: 0%;
-    bottom: 0%;
-    transform: translate(-0%,-50%);
-z-index: 0;
-}
-.form_rights_circle{
-    position: absolute;
-    right: 0%;
-    bottom: 28.5%;
-    width: 10%;
-    z-index: 0;
 }
 
+.form_rights_circle {
+  position: absolute;
+  right: -2%;
+  bottom: 28.5%;
+  width: 10%;
+  z-index: 0 !important;
+}
 
+.form_input_wrapper label,
+.form_selectbox_wrapper label {
+  margin: 18px 10px 17px 10px !important;
+  font-size: 17px;
+  font-family: var(--banton-font);
+}
 
-@media only screen and (max-height: 680px) {
-  /* .form_wrapper {
-        height: 430px !important;
-    } */
+/* Custom Scrollbar Styles for WebKit Browsers */
+.form_page_wrapper::-webkit-scrollbar {
+  width: 10px;
+}
+
+.form_page_wrapper::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+.form_page_wrapper::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.form_page_wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Custom Scrollbar Styles for Firefox */
+.form_page_wrapper {
+  scrollbar-width: thin;
+  scrollbar-color: var(--secondary-bg-color) #f1f1f1;
+}
+
+/* Edge */
+.form_page_wrapper {
+  -ms-overflow-style: scrollbar !important;
+}
+
+.form_lefts_circle {
+  position: absolute;
+  width: 11%;
+  left: 0%;
+  bottom: 0%;
+  transform: translate(-0%, -50%);
+  z-index: 0;
+}
+.form_rights_circle {
+  position: absolute;
+  right: 0%;
+  bottom: 28.5%;
+  width: 10%;
+  z-index: 0;
 }
 
 @media only screen and (max-height: 600px) {

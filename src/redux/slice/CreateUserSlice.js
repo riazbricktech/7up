@@ -1,9 +1,8 @@
-
-import { createSlice } from '@reduxjs/toolkit';
-import { createUser } from '../actions/CreateUserAction';
+import { createSlice } from "@reduxjs/toolkit";
+import { createUser } from "../actions/CreateUserAction";
 
 const createUserSlice = createSlice({
-  name: 'user',
+  name: "user",
   initialState: {
     isLoading: false,
     createUserData: null,

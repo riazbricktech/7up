@@ -1,10 +1,8 @@
-
-
-import { createSlice } from '@reduxjs/toolkit';
-import { getCities } from '../actions/CityAction';
+import { createSlice } from "@reduxjs/toolkit";
+import { getCities } from "../actions/CityAction";
 
 const CitySlice = createSlice({
-  name: 'cities',
+  name: "cities",
   initialState: {
     isLoading: false,
     citesData: undefined,
@@ -21,7 +19,6 @@ const CitySlice = createSlice({
       })
       .addCase(getCities.rejected, (state, action) => {
         state.isLoading = false;
-        // state.citesData = action.payload;
         state.citesData = undefined;
       });
   },

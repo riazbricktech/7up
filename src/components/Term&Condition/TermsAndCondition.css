@@ -1,125 +1,117 @@
 .tc_modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%,-0%);
-    width: 500px;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    animation: tcModalFadeIn 0.5s ease-in-out;
-z-index: 111111;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -0%);
+  width: 500px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  animation: tcModalFadeIn 0.5s ease-in-out;
+  z-index: 111111;
+}
+.tc_modal-overlay hr {
+  margin-top: 5px !important;
+  margin-bottom: 16px !important;
+}
+
+@keyframes tcModalFadeIn {
+  0% {
+    opacity: 0;
   }
-  .tc_modal-overlay hr{
-    margin-top: 5px !important;
-    margin-bottom: 16px !important;
+  100% {
+    opacity: 1;
   }
-  
-  @keyframes tcModalFadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  
+}
+.tc_modal-container {
+  background: white;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 10px 10px 0 0;
+  padding: 20px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(100%);
+  animation: slide-up 0.5s forwards;
+}
+
+@keyframes slide-up {
+  to {
+    transform: translateY(0);
   }
-  .tc_modal-container {
-    background: white;
-    width: 100%;
-    max-width: 600px;
-    border-radius: 10px 10px 0 0;
-    padding: 20px;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-    transform: translateY(100%);
-    animation: slide-up 0.5s forwards;
+}
+
+.tc_modal-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 10px;
+  border-bottom: 2px solid gray;
+}
+
+.tc_modal-title {
+  font-family: var(--gothic-font);
+  margin: 20px 0;
+}
+
+.tc_modal-content {
+  margin-top: 20px;
+  max-height: 500px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.tc_button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.tc_button {
+  color: #007bff;
+  background-color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.tc_button:hover {
+  background: #0056b3;
+  color: white;
+}
+
+@media only screen and (max-width: 500px) {
+  .tc_modal-overlay {
+    width: 100vw !important;
   }
-  
-  @keyframes slide-up {
-    to {
-      transform: translateY(0);
-    }
-  }
-  
-  .tc_modal-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding-bottom: 10px;
-    border-bottom: 2px solid gray;
-  }
-  
-  .tc_modal-title {
-    font-family: var(--gothic-font);
-    margin: 20px  0;
-  }
-  
+}
+
+@media only screen and (max-height: 860px) {
   .tc_modal-content {
     margin-top: 20px;
-    max-height: 500px;
+    max-height: 460px !important;
     overflow-y: auto;
     overflow-x: hidden;
   }
-  
-  .tc_button-container {
-    display: flex;
-    justify-content: space-between;
+}
+
+@media only screen and (max-height: 750px) {
+  .tc_modal-content {
     margin-top: 20px;
+    max-height: 380px !important;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
-  
-  .tc_button {
-    color: #007bff;
-    background-color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .tc_button:hover {
-    background: #0056b3;
-    color: white;
-  }
+}
 
-  @media only screen and (max-width: 500px) {
-    .tc_modal-overlay {
-        width: 100vw !important;
-    }
-    
+@media only screen and (max-height: 700px) {
+  .tc_modal-content {
+    margin-top: 20px;
+    max-height: 320px !important;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
-  
-  /*  Max Height */
-
-  @media only screen and (max-height: 860px) {
-    .tc_modal-content {
-      margin-top: 20px;
-      max-height: 460px !important; 
-      overflow-y: auto;
-      overflow-x: hidden;
-    }
-  }
-  
-
-
-  @media only screen and (max-height: 750px) {
-    .tc_modal-content {
-      margin-top: 20px;
-      max-height: 380px !important; 
-      overflow-y: auto;
-      overflow-x: hidden;
-    }
-  }
-  
-
-  @media only screen and (max-height: 700px) {
-    .tc_modal-content {
-      margin-top: 20px;
-      max-height: 320px !important; 
-      overflow-y: auto;
-      overflow-x: hidden;
-    }
-  }
-  
+}

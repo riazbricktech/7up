@@ -1,13 +1,12 @@
-import React,{useEffect} from "react";
+import React, { useEffect } from "react";
 import Wrapper from "../Wrapper/Wrapper";
 import UpLoader from "../../assets/images/lottie_files/heartbeatlogo.json";
 import Lottie from "lottie-react";
-import "./Loader.css"
+import "./Loader.css";
 const LoaderPage = () => {
-
-  useEffect(()=>{
+  useEffect(() => {
     console.log("Loader Initialize");
-  },[])
+  }, []);
   return (
     <Wrapper>
       <div className="loaderWrapper">

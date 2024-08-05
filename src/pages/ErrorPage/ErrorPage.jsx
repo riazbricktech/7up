@@ -10,7 +10,6 @@ const ErrorPage = () => {
         <span>
           Oops! Something <br /> went wrong.
         </span>
-        {/* <p>We are working on fixing the problem. Please try again later.</p> */}
       </div>
     </Wrapper>
   );

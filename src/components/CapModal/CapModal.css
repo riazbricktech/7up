@@ -1,11 +1,10 @@
-/* Modal.css */
 .cap_modal_overlay {
     position: fixed;
     top: 0;
     left: 50%;
     width: 500px;
     height: 100%;
-    transform: translate(-50%,-0%);
+    transform: translate(-50%, -0%);
     background: #00d36687;
     display: flex !important;
     justify-content: center !important;
@@ -15,18 +14,16 @@
     animation: capModalFadeIn 0.5s ease-in-out;
 }
 
-
 @keyframes capModalFadeIn {
     0% {
-      opacity: 0;
+        opacity: 0;
     }
     100% {
-      opacity: 1;
+        opacity: 1;
     }
-  
-  }
+}
 
-  .cap_modal_overlay .modal-icon {
+.cap_modal_overlay .modal-icon {
     display: inline-block;
     cursor: pointer;
     font-weight: 700;
@@ -37,15 +34,12 @@
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    /* border: 4px solid red; */
     margin-bottom: 40px;
 }
 
 .cap_modal_overlay .modal-icon img {
-
     width: 45px;
 }
-
 
 .cap_modal_overlay .modal-content {
     background: white;
@@ -56,14 +50,13 @@
     position: relative;
     border: 4px solid #00aa4e;
     padding: 0 !important;
-    
 }
 
 .cap_modal_overlay .modal-content .modal-header-image {
     width: 100%;
     height: auto;
     margin: 0;
-    background-size:cover !important;
+    background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat;
     object-fit: fill !important;
@@ -88,12 +81,12 @@
     position: relative;
 }
 
-.cap_modal_overlay .modal-body  .arrowWrapper{
+.cap_modal_overlay .modal-body .arrowWrapper {
     position: absolute;
     width: 35px;
     left: 50%;
     top: 60%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 }
 
 .cap_modal_overlay .modal-body .modal-message {
@@ -126,9 +119,7 @@
     height: auto;
 }
 
-
 @media only screen and (max-width: 400px) {
-
     .cap_modal_overlay {
         width: 100vw;
     }
@@ -145,8 +136,6 @@
     }
 
     @media only screen and (max-width: 330px) {
-
-
         .cap_modal_overlay .modal-message p {
             margin: 5px 0 5px 0 !important;
             font-size: 24px !important;

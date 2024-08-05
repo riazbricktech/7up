@@ -5,9 +5,7 @@
   justify-content: center;
   align-items: center;
 }
-.loaderWrapper  .loaderWrapper {
-
-
+.loaderWrapper .loaderWrapper {
 }
 
 @media only screen and (max-width: 500px) {

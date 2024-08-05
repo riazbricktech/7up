@@ -1,10 +1,8 @@
-
-import { createSlice } from '@reduxjs/toolkit';
-import { healthCheck } from '../actions/HealthAction';
-
+import { createSlice } from "@reduxjs/toolkit";
+import { healthCheck } from "../actions/HealthAction";
 
 const healthCheckSlice = createSlice({
-  name: 'health',
+  name: "health",
   initialState: {
     isLoading: false,
     healthData: null,

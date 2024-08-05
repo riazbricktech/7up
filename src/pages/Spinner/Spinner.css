@@ -1,5 +1,4 @@
-
-.w-full{
+.w-full {
   width: 100%;
   height: 100%;
 }
@@ -24,7 +23,6 @@
   aspect-ratio: 1;
   position: relative;
   z-index: 11111 !important;
-
 }
 
 .spinner_wrapper,
@@ -34,10 +32,6 @@
   height: auto;
   margin: 0 auto;
   text-align: center;
-}
-
-.spinner_logo_wrapper {
-  /* margin-top: calc(100vh - 85vh); */
 }
 
 .spinner_logo_wrapper p {
@@ -80,7 +74,6 @@
   width: 100% !important;
   height: auto;
   text-align: center;
-  /* margin-top: calc(100vh - 85vh) !important; */
   margin-bottom: 25px;
 }
 .spinner_logo_wrapper p {
@@ -90,7 +83,6 @@
 }
 
 .spinner_logo_wrapper span {
-  /* color: red; */
   font-weight: 800;
   font-size: 14px;
   text-align: center;
@@ -113,7 +105,6 @@
 
 .spiner_button {
   font-size: larger;
-  /* border: 5px solid var(--primary-bg-color) !important; */
   outline: none;
   background: transparent;
   color: black;
@@ -154,9 +145,6 @@
   transform: rotate(45deg) !important;
 }
 .roulette-button span img {
-  /* margin-top: -20px; */
-  /* position: absolute; */
-  /* top: 30px; */
   overflow: visible;
   width: 55%;
 }
@@ -203,7 +191,7 @@
   display: none !important;
 }
 .bottleToCenter {
-  animation: bottleToCenter 2.5s ease-in; /* Animation for the bottle */
+  animation: bottleToCenter 2.5s ease-in;
   width: 25px;
 }
 .spinner_left_circle {
@@ -243,7 +231,6 @@
   }
   .spin_result_wrapper .prize-message {
     width: 75% !important;
-    /* width: 85%; */
   }
 
   .spinner_wrapper {
@@ -253,7 +240,6 @@
 }
 @media only screen and (max-width: 480px) {
   .spinner_logo_wrapper {
-    /* margin-top: calc(100vh - 90vh); */
   }
   .spinner_logo_wrapper p {
     font-size: 22px;
@@ -281,12 +267,6 @@
   .bottleToCenter {
     width: 20px !important;
   }
-  .spinner_logo_wrapper {
-    /* margin-top: calc(100vh - 92vh); */
-  }
-  .spinner_logo_wrapper p {
-    /* font-size: 18px !important; */
-  }
 
   .spin_result_wrapper .prize-message {
     width: 65% !important;
@@ -302,11 +282,6 @@
   .roulette-button span img {
     width: 51% !important;
   }
-
-  /* .spinner_wrapper {
-        width: 380px !important;
-        min-width: auto !important ;
-    } */
 }
 @media only screen and (max-width: 350px) {
 }
@@ -320,10 +295,6 @@
     min-width: auto !important ;
   }
 }
-
-/* ///////////////  Max Height  ///////////////// */
-
-/* Bottle image animation */
 .spinNone {
   display: none;
 }
@@ -341,11 +312,11 @@
 
 .newclassC {
   position: absolute;
-  top: 41%; 
-  left: 47%; 
-  transform: translate(-50%, -50%); 
-  opacity: 1; 
-  z-index: 9999; 
+  top: 41%;
+  left: 47%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  z-index: 9999;
 }
 
 .spinerrBottleUpward {
