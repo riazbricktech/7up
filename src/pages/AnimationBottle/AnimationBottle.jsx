@@ -2,8 +2,8 @@ import "./AnimationBottle.css";
 import Wrapper from "../../reusableComponents/Wrapper/Wrapper";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import AnimatedGif from "../../assets/images/gif_images/bottle-anim-changed-wh-min.gif";
-import AnimatedGif from "../../assets/images/gif_images/bottle-anim-changed-wh-min.gif";
+// import AnimatedGif from "../../assets/images/gif_images/bottle-anim-changed-wh-min.gif";
+import AnimatedGif from "../../assets/images/bottle-anim-changed-wh-min1-ezgif.com-optipng (1).png";
 
 const AnimationBottle = () => {
   const navigate = useNavigate();
