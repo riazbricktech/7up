@@ -25,7 +25,7 @@ const AnimationBottle = () => {
             playsInline
             src={AnimatedGif}
             alt="Animation Lottie"
-            style={{ width: "100%", height: "100%" }}
+            style={{ width: "100%", height: "100%", position: "absolute" }}
           />
         </div>
       )}
