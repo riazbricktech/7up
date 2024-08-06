@@ -8,6 +8,8 @@ import LoaderPage from "../reusableComponents/Loader/Loader";
 
 // Lazy load LandingPage
 const LandingPage = lazy(() => import("../pages/LandingPage/LandingPage"));
+const AnimationBottle = lazy(() => import("../pages/AnimationBottle/AnimationBottle"));
+
 
 // Direct import other components
 import FormPage from "../pages/Form/FormPage";
@@ -17,7 +19,7 @@ import JazzCash from "../pages/JazzCash/JazzCash";
 import CongratulationPage from "../pages/CongratulationPage/CongratulationPage";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import TransactionFailedPage from "../pages/TransactionFailedPage/TransactionFailedPage";
-import AnimationBottle from "../pages/AnimationBottle/AnimationBottle";
+// import AnimationBottle from "../pages/AnimationBottle/AnimationBottle";
 import HealthPage from "../pages/HealthPage/HealthPage";
 
 const Routing = () => {
