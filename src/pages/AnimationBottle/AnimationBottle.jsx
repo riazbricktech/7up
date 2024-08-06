@@ -3,6 +3,7 @@ import Wrapper from "../../reusableComponents/Wrapper/Wrapper";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import AnimatedGif from "../../assets/images/gif_images/bottle-anim-changed-wh-min.gif";
+
 const AnimationBottle = () => {
   const navigate = useNavigate();
   const [gifLoaded, setGifLoaded] = useState(false);
@@ -12,8 +13,7 @@ const AnimationBottle = () => {
 
     const timeoutId = setTimeout(() => navigate("/form"), 6400);
     return () => clearTimeout(timeoutId);
-    // }
-  }, []);
+  }, [navigate]);
   return (
     <Wrapper>
       {gifLoaded && (
