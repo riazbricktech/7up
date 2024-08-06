@@ -7,17 +7,14 @@ import AnimatedGif from "../../assets/images/bottle-anim-changed-wh-min1-ezgif.c
 
 const AnimationBottle = () => {
   const navigate = useNavigate();
-  const [gifLoaded, setGifLoaded] = useState(false);
 
   useEffect(() => {
-    setGifLoaded(true);
 
     const timeoutId = setTimeout(() => navigate("/form"), 6400);
     return () => clearTimeout(timeoutId);
   }, [navigate]);
   return (
     <Wrapper>
-      {gifLoaded && (
         <div className="animation_page_wrapper">
           <img
             src={AnimatedGif}
@@ -25,7 +22,6 @@ const AnimationBottle = () => {
             style={{ width: "100%", height: "100%", position: "absolute" }}
           />
         </div>
-      )}
     </Wrapper>
   );
 };
