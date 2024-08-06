@@ -19,10 +19,7 @@ const AnimationBottle = () => {
     <Wrapper>
       {gifLoaded && (
         <div className="animation_page_wrapper">
-          <video
-            autoPlay
-            muted
-            playsInline
+          <img
             src={AnimatedGif}
             alt="Animation Lottie"
             style={{ width: "100%", height: "100%", position: "absolute" }}
