@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import "./LandingPage.css";
 
@@ -8,10 +9,8 @@ import Lottie from "react-lottie";
 import animationData from "../../assets/images/lottie_files/heartbeatlogo.json";
 import foodElementsJson from "../../assets/images/lottie_files/new.json";
 import architectureJson from "../../assets/images/lottie_files/architecture-nobg.json";
-
-// import bottleAnim from "../../assets/images/gif_images/final_bottle_anim.gif";
-// import bottle from "../../assets/images/gif_images/new-form-bottle.gif";
-
+import BottleGif from "../../assets/images/gif_images/new7upbottle.gif";
+import BottleFall from "../../assets/images/gif_images/new-form-bottle.gif";
 const LandingPage = () => {
   const navigate = useNavigate();
 
@@ -19,18 +18,19 @@ const LandingPage = () => {
     const handleLoad = () => {
       const timer = setTimeout(() => {
         navigate("/animation");
-      }, 3500);
+      }, 4500);
 
       return () => clearTimeout(timer);
     };
 
     if (document.readyState === "complete") {
       handleLoad();
-    } else {
+    } 
+    else {
       window.addEventListener("load", handleLoad);
       return () => window.removeEventListener("load", handleLoad);
     }
-  }, [navigate]);
+  }, []);
 
   const defaultOptions = {
     loop: true,
@@ -56,50 +56,39 @@ const LandingPage = () => {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
-  useEffect(() => {
-    console.log("Landing Page Initialize");
-  }, []);
+
   return (
     <Wrapper>
-      {/* <PreloadAssets /> */}
-      {/* <img src={bottleAnim} alt="bottle Anim"  style={{display:"none"}}/>
-      <img src={bottle} alt="bottle" style={{display:"none"}}/> */}
+       <PreloadAssets />
+       <img src={BottleGif} alt="Bottle"  style={{visibility:"hidden"}}/>
       <div className="landing_page_wrapper">
-        <div
-          style={{
-            width: "100%",
-            height: "auto",
-            position: "absolute",
-            top: "35%",
-            left: "50%",
-            transform: "translateX(-50%) translateY(-50%)",
-          }}
-        >
-          <Lottie options={foodElements} className="foodElement"  />
+        <div style={{ width: "100%", height: "auto", position: "absolute", top: "35%", left: "50%", transform: "translateX(-50%) translateY(-50%)" }}>
+          <Lottie options={foodElements} style={{ objectFit: "cover" }} />
         </div>
         <div className="landing_logo_wrapper_dynamic">
-          <Lottie options={defaultOptions} className="heartBeat" />
+          <Lottie className="" options={defaultOptions} style={{ objectFit: "cover" }} />
         </div>
         <div className="landing_footer_wrapper">
-          <Lottie options={architecture} />
+          <Lottie className="" options={architecture} />
         </div>
       </div>
     </Wrapper>
   );
 };
 
-// const PreloadAssets = () => {
-//   useEffect(() => {
-//     const preloadImage = (url) => {
-//       const img = new Image();
-//       img.src = url;
-//     };
+const PreloadAssets = () => {
+  useEffect(() => {
+    const preloadImage = (url) => {
+      const img = new Image();
+      img.src = url;
+    };
 
-//     preloadImage(bottle);
-//     preloadImage(bottleAnim);
-//   }, []);
+    preloadImage(BottleGif);
+    preloadImage(BottleFall);
 
-//   return null;
-// };
+  }, []);
+
+  return null;
+};
 
 export default LandingPage;

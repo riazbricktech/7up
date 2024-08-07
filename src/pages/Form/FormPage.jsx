@@ -99,6 +99,17 @@ function FormPage() {
     if (qrCode !== `/${bottleCode}` && qrCode !== `/${canCode}`) {
       setIsQrCode(true);
     }
+    // if (qrCode === `/${canCode}`) {
+    //     setIsQrCode(false);
+    //   }
+    //   else if(qrCode === "" || qrCode === "/"){
+    //     setIsQrCode(true);
+
+    //   }
+    //   else{
+    //     setIsQrCode(true);
+
+    //   }
   }, [qrCode]);
 
   const handleChange = (e) => {

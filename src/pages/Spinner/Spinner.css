@@ -312,8 +312,8 @@
 
 .newclassC {
   position: absolute;
-  top: 41%;
-  left: 47%;
+  top: 45%;
+  left: 50%;
   transform: translate(-50%, -50%);
   opacity: 1;
   z-index: 9999;

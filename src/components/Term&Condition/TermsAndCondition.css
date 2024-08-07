@@ -36,6 +36,10 @@
   animation: slide-up 0.5s forwards;
 }
 
+.tc_modal-container p{
+  font-weight: 300 !important;
+}
+
 @keyframes slide-up {
   to {
     transform: translateY(0);

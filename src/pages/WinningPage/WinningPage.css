@@ -64,7 +64,7 @@
 .winner_frame_wrapper p {
   position: absolute;
   font-size: 70px !important;
-  font-weight: 900;
+  font-weight: 100 !important;
   letter-spacing: 1px;
   font-family: var(--gothic-font);
   top: 18%;
@@ -78,7 +78,7 @@
 
 .winner_wrapper .winner_meal_wrapper {
   position: absolute;
-  top: 45%;
+  top: 41%;
   left: 0%;
   transform: translate(-0%, -50%);
   width: 100%;
@@ -89,7 +89,7 @@
 }
 
 .winner_wrapper .winner_meal_wrapper .meal_lottie {
-  width: 65%;
+  width: 84%;
 }
 
 .winner_meal_wrapper P {
@@ -122,7 +122,7 @@
 
 .you-won-button-wrapper {
   position: absolute;
-  top: 60%;
+  top: 55%;
   left: 55%;
   transform: translate(-50%, -50%);
   z-index: 0;
@@ -221,8 +221,8 @@
   border-bottom: 4px solid var(--green-color);
   border-right: 5px solid var(--green-color);
   position: absolute;
-  top: 79%;
-  left: 25%;
+  top: 74%;
+  left: 23%;
   transform: translate(-50%, -50%);
   z-index: 11111;
   cursor: pointer;
@@ -296,12 +296,12 @@
   }
   .you-won-button-wrapper {
     top: 62%;
-    left: 50%;
+    left: 55%;
     transform: translate(-50%, -50%);
   }
 
   .claim-button {
-    top: 86%;
+    top: 80%;
     left: 25%;
     transform: translate(-50%, -50%);
   }

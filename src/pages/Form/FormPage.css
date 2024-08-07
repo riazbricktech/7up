@@ -11,10 +11,10 @@
   height: 100%;
 }
 .bottle-form {
-  height: 20%;
+  height: 17.5%;
   width: 11%;
   position: absolute;
-  bottom: -15%;
+  bottom: -13%;
   left: 50%;
   transform: translate(-50%, -0%);
   animation: bottleDown 3.8s ease-out;
@@ -681,7 +681,7 @@ select {
 
 @media only screen and (max-height: 760px) {
   .form_page_wrapper {
-    height: 90vh !important;
+    height: 94.5vh !important;
     overflow-x: hidden !important;
     overflow-y: scroll !important;
     -webkit-overflow-scrolling: touch !important;

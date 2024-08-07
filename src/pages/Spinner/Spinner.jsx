@@ -150,6 +150,9 @@ const Spinner = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     if (userData && !hasDispatched.current) {

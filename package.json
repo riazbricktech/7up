@@ -29,7 +29,6 @@
     "react-select": "^5.8.0",
     "react-select-search": "^4.1.7",
     "redux-persist": "^6.0.0",
-    "swiper": "^10.0.0",
     "uuid": "^10.0.0"
   },
   "devDependencies": {
