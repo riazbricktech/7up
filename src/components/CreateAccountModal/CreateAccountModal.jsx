@@ -24,9 +24,8 @@ const CreateAccountModal = ({
         window.location.href =
           "https://apps.apple.com/pk/app/jazzcash-your-mobile-account/id1224617688";
       } else {
-        console.log(
-          "Please create account on Jazzcash and return to this screen"
-        );
+          window.open('https://play.google.com/store/apps/details?id=com.techlogix.mobilinkcustomer&hl=en', '_blank');
+          console.log("open link")
       }
     }
   }, [seconds]);

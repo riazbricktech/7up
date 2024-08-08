@@ -17,7 +17,6 @@ const TransactionFailedPage = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       localStorage.clear();
-      // navigate("/");
     }, 1000);
 
     return () => clearTimeout(timer);

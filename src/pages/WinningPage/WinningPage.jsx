@@ -58,7 +58,6 @@ const WinningPage = () => {
   const prizeName = useSelector((state) => state?.prizeDetail?.mealPrizeName);
   const spinData = useSelector((state) => state?.spin?.spinData);
   const userData = useSelector((state) => state?.user?.createUserData);
-  console.log(prizeName, "prizeName");
 
   const isLoading = useSelector((state) => state?.taction?.isLoading);
 

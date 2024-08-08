@@ -474,17 +474,35 @@ function FormPage() {
                   }`}
                   htmlFor=""
                 >
-                  I have read the{" "}
+                  I have read the
                   <span
                     style={{
                       color: errors.terms ? "#E81D2C !important" : "white",
                     }}
                     onClick={openTermsCon}
+                    className="link"
+                  >{" "}
+                    Terms & Conditions{" "}
+                  </span>
+                  and consent to the use of my personal data as per the{" "}
+                  <span
+                    style={{
+                      color: errors.terms ? "#E81D2C !important" : "white",
+                    }}
+                    className="link"
                   >
-                    Terms & Conditions
-                  </span>{" "}
-                  and consent to the use of my personal data as per the Privacy
-                  Notice. I have the option to opt-out anytime.
+                    <a
+                      href="https://platformassets.wspprod.com/pepsiredemptionpolicy-static/privacypolicy-eng.html"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        color: errors.terms ? "#E81D2C" : "white",
+                      }}
+                    >
+                      Privacy Notice
+                    </a>
+                  </span>
+                  . I have the option to opt-out anytime.
                 </label>
               </div>
               <div>
