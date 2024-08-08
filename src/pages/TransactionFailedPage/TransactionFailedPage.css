@@ -89,7 +89,7 @@
 }
 
 .failedPage_wrapper .failedPage_button_wrapper button {
-    padding: 0px 20px !important;
+    padding: 0px 20px 0px 20px !important;
     border-radius: 10px !important;
     background-color: var(--button-bg-color);
     border: none;
@@ -142,15 +142,15 @@
         width: 100%;
         text-align: center;
         padding: 10px 0;
-        margin-top: calc(100vh - 80vh);
+        margin-top: calc(100vh - 78vh);
     }
 
     .failedPage_wrapper .failedPage_heading_wrapper p {
-        font-size: 34px !important;
+        font-size: 38px !important;
         letter-spacing: 1.5px;
     }
 
-    .failedPage_wrapper .failedPage_image_wrapper {
+    .failedPage_wrapper .failedPage_image_wrapper { 
         margin-top: calc(100vh - 92vh) !important;
         text-align: center;
     }
@@ -162,7 +162,7 @@
     }
 
     .failedPage_wrapper .failedPage_button_wrapper button {
-        padding: 10px 20px !important;
+        padding: 11px 20px 9px 20px !important;
         font-size: 24px !important;
         line-height: 26px;
         width: 100% !important;

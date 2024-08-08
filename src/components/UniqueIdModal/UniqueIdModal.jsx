@@ -2,9 +2,7 @@ import React, { useEffect } from "react";
 import "./UniqueIdModal.css";
 import Cross from "../../assets/images/new_images/cross.webp";
 const UniqueIdModal = ({ showUniqueQrModal, closeQrModalModal }) => {
-  if (!showUniqueQrModal) {
-    return null;
-  }
+
 
   const handleOverlayClick = (e) => {
     if (e.target === e.currentTarget) {
@@ -15,6 +13,10 @@ const UniqueIdModal = ({ showUniqueQrModal, closeQrModalModal }) => {
   useEffect(() => {
     console.log("Unique Id Initialize");
   }, []);
+
+  if (!showUniqueQrModal) {
+    return null;
+  }
   return (
     <div className="unique_modal-overlay" onClick={handleOverlayClick}>
       <div className="modal-icon" onClick={closeQrModalModal}>

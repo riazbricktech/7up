@@ -36,8 +36,11 @@
   animation: slide-up 0.5s forwards;
 }
 
-.tc_modal-container p{
-  font-weight: 300 !important;
+.tc_modal-container p,
+.tc_modal-container li{
+  font-weight: 600 ;
+  font-family: var(--banton-light-font) !important;
+  color: black !important;
 }
 
 @keyframes slide-up {
@@ -62,7 +65,7 @@
 
 .tc_modal-content {
   margin-top: 20px;
-  max-height: 500px;
+  max-height: 480px;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -96,7 +99,7 @@
 @media only screen and (max-height: 860px) {
   .tc_modal-content {
     margin-top: 20px;
-    max-height: 460px !important;
+    max-height: 420px !important;
     overflow-y: auto;
     overflow-x: hidden;
   }
@@ -105,7 +108,7 @@
 @media only screen and (max-height: 750px) {
   .tc_modal-content {
     margin-top: 20px;
-    max-height: 380px !important;
+    max-height: 350px !important;
     overflow-y: auto;
     overflow-x: hidden;
   }
@@ -114,7 +117,7 @@
 @media only screen and (max-height: 700px) {
   .tc_modal-content {
     margin-top: 20px;
-    max-height: 320px !important;
+    max-height: 300px !important;
     overflow-y: auto;
     overflow-x: hidden;
   }

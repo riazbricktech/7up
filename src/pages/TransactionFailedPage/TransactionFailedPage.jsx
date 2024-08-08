@@ -16,8 +16,8 @@ const TransactionFailedPage = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       localStorage.clear();
-      navigate("/");
-    }, 8000);
+      // navigate("/");
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, [navigate]);
@@ -29,6 +29,10 @@ const TransactionFailedPage = () => {
 
     return () => clearTimeout(timer);
   }, [navigate]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     console.log("TransactionFailed Page Initialize");
@@ -53,11 +57,12 @@ const TransactionFailedPage = () => {
         </div>
 
         {/* Para wrapper */}
-        {transactionData?.response && (
+        {/* {transactionData?.response && ( */}
           <div className="failedPage_error_wrapper">
-            <p>{transactionData?.response}</p>
+            {/* <p>{transactionData?.response}</p> */}
+            <p>There is an issue with your transactions,  kindly contact JazzCash before reprocessing the transaction.</p>
           </div>
-        )}
+          {/* )}  */}
 
         {/* Button wrapper */}
         <div className="failedPage_button_wrapper">

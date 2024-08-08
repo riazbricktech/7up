@@ -10,8 +10,8 @@ const MaxAttemptModal = ({ showMaxAttemptModal, closeMaxAttemptModal }) => {
     if (showMaxAttemptModal) {
       const timer = setTimeout(() => {
         localStorage.clear();
-        navigate("/");
-      }, 8000);
+        // navigate("/");
+      }, 1000);
 
       return () => clearTimeout(timer);
     }

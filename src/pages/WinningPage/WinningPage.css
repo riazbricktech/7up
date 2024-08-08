@@ -221,7 +221,7 @@
   border-bottom: 4px solid var(--green-color);
   border-right: 5px solid var(--green-color);
   position: absolute;
-  top: 74%;
+  top: 72.5%;
   left: 23%;
   transform: translate(-50%, -50%);
   z-index: 11111;

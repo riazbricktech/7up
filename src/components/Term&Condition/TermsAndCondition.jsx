@@ -20,17 +20,17 @@ const TermsAndCondition = ({ isOpen, onClose }) => {
             </p>
           </div>
           <div className="tc_modal-content">
-            <p style={{ textAlign: "center", fontWeight: "700" }}>
+            <p style={{ textAlign: "center", fontWeight: "300", fontFamily:"var(--banton-font) !important" }}>
               Terms & Conditions for 7UP Flavours of Pakistan Campaign
             </p>
             <br />
-            <p style={{ textAlign: "center", fontWeight: "700" }}>
+            <p style={{ textAlign: "center", fontWeight: "300" , fontFamily:"var(--banton-font) !important"}}>
               About the Promotion
             </p>
             <hr />
             <p>
               1. The Promotion is operated by Pepsi-Cola International Pvt Ltd
-              <span style={{ fontWeight: "800" }}>{`(we, us, our)`}</span>
+              <span style={{ fontWeight: "300", fontFamily:"var(--banton-font) !important" }}>{`(we, us, our)`}</span>
             </p>
             <p>
               2. The Promotion runs from ……… to ………………on{" "}
@@ -42,7 +42,7 @@ const TermsAndCondition = ({ isOpen, onClose }) => {
             <p>
               3. Entries received after the closing date will not be processed.
             </p>
-            <p style={{ textAlign: "center", fontWeight: "700" }}>
+            <p style={{ textAlign: "center", fontWeight: "300", fontFamily:"var(--banton-font) !important" }}>
               How to enter
             </p>
             <hr />
@@ -104,7 +104,7 @@ const TermsAndCondition = ({ isOpen, onClose }) => {
               participant who has acted in an unfair, fraudulent or misleading
               manner or otherwise in breach of these Terms & Conditions.
             </p>
-            <p style={{ textAlign: "center", fontWeight: "700" }}>Prizes</p>
+            <p style={{ textAlign: "center", fontWeight: "300", fontFamily:"var(--banton-font) !important" }}>Prizes</p>
             <hr />
             <p>
               9. Prizes will be as follows: <br />
@@ -126,7 +126,7 @@ const TermsAndCondition = ({ isOpen, onClose }) => {
               within notification, the prize shall be forfeited and may be
               reallocated at our sole discretion.
             </p>
-            <p style={{ textAlign: "center", fontWeight: "700" }}>
+            <p style={{ textAlign: "center", fontWeight: "300" , fontFamily:"var(--banton-font) !important"}}>
               Limitation of liability
             </p>
             <hr />
@@ -143,7 +143,7 @@ const TermsAndCondition = ({ isOpen, onClose }) => {
               prize.
             </p>
 
-            <p style={{ textAlign: "center", fontWeight: "700" }}>
+            <p style={{ textAlign: "center", fontWeight: "300", fontFamily:"var(--banton-font) !important" }}>
               Ownership of entries
             </p>
             <hr />
@@ -181,7 +181,7 @@ const TermsAndCondition = ({ isOpen, onClose }) => {
                 </li>
               </ol>
             </ol>
-            <p style={{ textAlign: "center", fontWeight: "700" }}>
+            <p style={{ textAlign: "center", fontWeight: "300", fontFamily:"var(--banton-font) !important" }}>
               Publicity and data protection
             </p>
             <hr />
@@ -209,7 +209,7 @@ const TermsAndCondition = ({ isOpen, onClose }) => {
               . See also paragraph 15 above with regard to publicity of winners.
             </p>
 
-            <p style={{ textAlign: "center", fontWeight: "700" }}>General</p>
+            <p style={{ textAlign: "center", fontWeight: "300" }}>General</p>
             <hr />
             <p>
               17. The Promotion is subject to the laws of the Islamic Republic
