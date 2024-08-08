@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import SevenUpLottie from "../../assets/images/lottie_files/7UP_anim.json";
 import { useSelector } from "react-redux";
 import HeaderLights from "../../assets/images/lottie_files/lights_anim.json";
+import resMessage from "../../constant/Response";
 
 const TransactionFailedPage = () => {
   const transactionData = useSelector(
@@ -57,12 +58,12 @@ const TransactionFailedPage = () => {
         </div>
 
         {/* Para wrapper */}
-        {/* {transactionData?.response && ( */}
+        {transactionData?.response && (
           <div className="failedPage_error_wrapper">
             {/* <p>{transactionData?.response}</p> */}
-            <p>There is an issue with your transactions,  kindly contact JazzCash before reprocessing the transaction.</p>
+            <p>{resMessage}</p>
           </div>
-          {/* )}  */}
+          )} 
 
         {/* Button wrapper */}
         <div className="failedPage_button_wrapper">
