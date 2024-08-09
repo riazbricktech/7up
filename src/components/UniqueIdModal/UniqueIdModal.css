@@ -84,7 +84,7 @@
 }
 
 .unique_modal-overlay .modal-button {
-  background: red;
+  background: var(--button-bg-color) !important;
   color: white;
   border: none;
   width: 70%;
@@ -98,6 +98,7 @@
   cursor: pointer;
   border-right: 3px solid var(--green-color);
   border-bottom: 4px solid var(--green-color);
+  text-align: center !important;
 }
 
 .unique_modal-overlay .open-modal-button {

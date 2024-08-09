@@ -9,7 +9,7 @@ export const transaction = createAsyncThunk(
   async (data, { rejectWithValue }) => {
     try {
       const responseData = await postData(`${api}jc/tpi/payment`, data);
-      console.log("page 3 Call To an Action Failed");
+      console.log("page 3 Call To an Action");
       const sanitizeData = (data) => {
         if (typeof data === "string") {
           const decodedData = he.decode(data);

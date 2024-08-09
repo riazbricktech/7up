@@ -1,9 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect ,useState} from "react";
 import "./UniqueIdModal.css";
 import Cross from "../../assets/images/new_images/cross.webp";
 const UniqueIdModal = ({ showUniqueQrModal, closeQrModalModal }) => {
+  const [image, setImage] = useState(null);
 
-
+  const handleCapture = (event) => {
+    const file = event.target.files[0];
+    const imageUrl = URL.createObjectURL(file);
+    setImage(imageUrl);
+  };
   const handleOverlayClick = (e) => {
     if (e.target === e.currentTarget) {
       closeQrModalModal();
@@ -31,9 +36,28 @@ const UniqueIdModal = ({ showUniqueQrModal, closeQrModalModal }) => {
           </div>
         </div>
       </div>
-      <button className="modal-button" onClick={closeQrModalModal}>
+      {/* <button className="modal-button" onClick={closeQrModalModal}>
         SCAN NEW QR CODE
-      </button>
+      </button> */}
+
+      <label htmlFor="cameraInput" className="modal-button">
+          SCAN NEW QR CODE
+          <input
+            type="file"
+            accept="image/*"
+            capture="environment"
+            onChange={handleCapture}
+            style={{ display: "none" }}
+            id="cameraInput"
+          />
+          {image && (
+            <img
+              src={image}
+              alt="Captured"
+              style={{ marginTop: "20px", maxWidth: "100%" }}
+            />
+          )}
+        </label>
     </div>
   );
 };

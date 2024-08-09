@@ -154,7 +154,9 @@ const JazzCash = () => {
 
   useEffect(() => {
     console.log("JazzPage Page Initialize");
+    window.scrollTo(0, 0);
   }, []);
+
 
   return (
     <Wrapper>
