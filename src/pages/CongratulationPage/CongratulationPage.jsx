@@ -14,7 +14,7 @@ const CongratulationPage = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       localStorage.clear();
-    }, 1000);
+    }, 500);
 
     return () => clearTimeout(timer);
   }, [navigate]);
