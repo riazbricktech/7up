@@ -7,7 +7,11 @@ const SpinSlice = createSlice({
     isLoading: false,
     spinData: null,
   },
-  reducers: {},
+  reducers: {
+    clearSpinFunction: (state, action) => {
+      state.spinData = null;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(spinPrice.pending, (state, action) => {
       state.isLoading = true;
@@ -23,5 +27,5 @@ const SpinSlice = createSlice({
   },
 });
 
-
+export const { clearSpinFunction } = SpinSlice.actions;
 export default SpinSlice.reducer;

@@ -172,7 +172,7 @@
   cursor: pointer;
   margin-top: 5px;
   width: 85%;
-  padding: 2px 40px 0px 40px !important;
+  padding: 5px 40px 0px 40px !important;
   border-radius: 12px !important;
   background-color: var(--button-bg-color);
   border-bottom: 4px solid darkgreen;
@@ -280,7 +280,7 @@
 
   .spin_result_wrapper .prize-message {
     width: 85% !important;
-    padding: 2px 40px 0px 40px !important;
+    padding: 5px 40px 0px 40px !important;
     font-size: 24px !important;
     border-radius: 10px !important;
     margin-top: 0px !important;

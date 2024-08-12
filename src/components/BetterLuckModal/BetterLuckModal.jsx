@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "./BetterLuckModal.css";
 import Emoji from "../../assets/images/new_images/emoji.webp";
-import { useNavigate } from "react-router-dom";
+//  remove redux state value
+import { clearSpinFunction } from "../../redux/slice/SpinSlice";
+import { useDispatch } from "react-redux";
+import {clearUserFunction} from "../../redux/slice/CreateUserSlice";
+import { clearTransactionFunction } from "../../redux/slice/TransactionSlice";
+import { prizeName } from "../../redux/slice/WinPrizeSlice";
 
 const BetterLuckModal = ({ showBetterLuckModal, closeBetterLuckModal }) => {
   const [image, setImage] = useState(null);
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleCapture = (event) => {
     const file = event.target.files[0];
@@ -15,14 +20,17 @@ const BetterLuckModal = ({ showBetterLuckModal, closeBetterLuckModal }) => {
 
   useEffect(() => {
     if (showBetterLuckModal) {
-      localStorage.clear();
-      const timer = setTimeout(() => {
-        // navigate("/");
-      }, 1000);
-
-      return () => clearTimeout(timer);
+    const timer = setTimeout(() => {
+      dispatch(clearSpinFunction());
+      dispatch(clearUserFunction());
+      dispatch(clearTransactionFunction());
+      dispatch(prizeName(null));
+    }, 1000);
+  
+    return () => clearTimeout(timer);
+  
     }
-  }, [showBetterLuckModal, navigate]);
+  }, [showBetterLuckModal]);
 
   useEffect(() => {
     console.log("BetterLuck Initialize");

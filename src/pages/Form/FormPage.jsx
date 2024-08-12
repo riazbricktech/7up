@@ -65,7 +65,7 @@ function FormPage() {
     qr_code_user: "",
     city_name: "",
     terms: false,
-    privacy: false,
+    otp_in: false,
   });
   const [showModal, setShowModal] = useState(false);
   const [isTCOpen, setTCOpen] = useState(false);
@@ -79,7 +79,7 @@ function FormPage() {
     city_id: "",
     city_name: "",
     terms: "",
-    privacy: "",
+    otp_in: "",
   });
 
   function formatName(name) {
@@ -183,7 +183,7 @@ function FormPage() {
         return validateCity(value);
       case "terms":
         return validateTerms(value);
-      case "privacy":
+      case "otp_in":
         return validatePrivacy(value);
       default:
         return "";
@@ -199,10 +199,10 @@ function FormPage() {
       city_name: validateCity(formValues.city_name),
       qr_code_user: isQrCode ? validateUniqueId(formValues.qr_code_user) : "",
       terms: validateTerms(formValues.terms),
-      privacy: validatePrivacy(formValues.privacy),
+      otp_in: validatePrivacy(formValues.otp_in),
     };
-    const { phone_user, name, qr_code_user, city_name, city_id } = formValues;
-    const data = { phone_user, name, qr_code_user, city_name, city_id };
+    const { phone_user, name, qr_code_user, city_name, city_id, otp_in } = formValues;
+    const data = { phone_user, name, qr_code_user, city_name, city_id, otp_in };
     for (const key in newErrors) {
       if (newErrors[key]) {
         setErrors({ [key]: newErrors[key] });
@@ -509,16 +509,16 @@ function FormPage() {
                 <input
                   type="checkbox"
                   className={`form-check-input ${
-                    errors.privacy ? "is-invalid" : ""
+                    errors.otp_in ? "is-invalid" : ""
                   }`}
                   id="validationServerPrivacy"
-                  name="privacy"
-                  checked={formValues.privacy}
+                  name="otp_in"
+                  checked={formValues.otp_in}
                   onChange={handleChange}
                 />
                 <label
                   className={`form-check-label ${
-                    errors.privacy ? "errorLabel" : ""
+                    errors.otp_in ? "errorLabel" : ""
                   }`}
                   htmlFor=""
                 >

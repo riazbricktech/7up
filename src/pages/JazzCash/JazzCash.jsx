@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Wrapper from "../../reusableComponents/Wrapper/Wrapper";
 import "./JazzCash.css";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { validatePakistaniPhoneNumber } from "../../services/NumberValidation";
 import { useDispatch, useSelector } from "react-redux";
 import { transaction } from "../../redux/actions/TransactionAction";
@@ -14,8 +14,10 @@ import MaxAttemptModal from "../../components/MaxAttemptModal/MaxAttemptModal";
 const JazzCash = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
   const [isCreateAccount, setIsCreateAccount] = useState(false);
   const [isDisabledFields, setIsDisabledFields] = useState(true);
+  const [isMaxAttempt, setisMaxAttempt] = useState(false);
 
   const [formValues, setFormValues] = useState({
     phoneNumber: "",
@@ -88,6 +90,7 @@ const JazzCash = () => {
 
     setTimeout(() => {
       setIsDisabledFields(false);
+      setIsCreateAccount(false);
     }, 4000);
   };
 
@@ -101,9 +104,14 @@ const JazzCash = () => {
     if (Object.values(newErrors).every((error) => error === "")) {
       dispatch(transaction(jazzCashData)).then((data) => {
         setIsDisabledFields(true);
+        // setisMaxAttempt(data?.payload?.attempt_counter === 2 && true);
         if (data?.payload?.status === 1) {
           navigate("/congrats");
-        } else if (
+        }
+        else if (data?.payload?.attempt_counter === 2) {
+          setisMaxAttempt(true);
+        } 
+         else if (
           data?.payload?.status === 0 &&
           data?.payload?.code === "G2P-T-2001"
         ) {
@@ -112,7 +120,9 @@ const JazzCash = () => {
           });
           setTransactionFailedError("*This number is not on JazzCash");
           return;
-        } else {
+        } 
+       
+        else {
           navigate("/transactionfailed");
         }
       });
@@ -141,16 +151,19 @@ const JazzCash = () => {
   }, [transactionData]);
 
   useEffect(() => {
-    if (return_phone_user) {
-      setFormattedPhoneNumber(return_phone_user);
+    if (return_phone_user && !formattedPhoneNumber) {
+      const formattedValue = return_phone_user.replace(/(.{4})/g, "$1 ").trim();
+      setFormattedPhoneNumber(formattedValue);
     }
   }, [return_phone_user]);
 
   useEffect(() => {
-    if (!spinData) {
-      navigate("/form");
+    if (!spinData && !isMaxAttempt) {
+      if (location.pathname === "/jazzcash") {
+        navigate("/form");
+      }
     }
-  }, [spinData]);
+  }, [location, navigate, spinData, isMaxAttempt]);
 
   useEffect(() => {
     console.log("JazzPage Page Initialize");
@@ -191,7 +204,8 @@ const JazzCash = () => {
         </div>
         <p className="and_para">
           {" "}
-          {transactionData?.attempt_counter === 0 ? "OR" : "AND"}
+          AND
+          {/* {transactionData?.attempt_counter === 0 ? "OR" : "AND"} */}
         </p>
 
         <div className="jazzcash_form_Heading_wrapper">
@@ -267,13 +281,12 @@ const JazzCash = () => {
           closeCreateAccountModal={handleCreateAccountModal}
         />
       )}
-      {transactionData?.attempt_counter === 2 &&
-        transactionData?.status === 0 && (
-          <MaxAttemptModal
-            showMaxAttemptModal={true}
-            closeMaxAttemptModal={handleMaxAttemptModal}
-          />
-        )}
+      {isMaxAttempt && (
+        <MaxAttemptModal
+          showMaxAttemptModal={isMaxAttempt}
+          closeMaxAttemptModal={handleMaxAttemptModal}
+        />
+      )}
     </Wrapper>
   );
 };

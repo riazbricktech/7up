@@ -7,7 +7,11 @@ const transactionSlice = createSlice({
     isLoading: false,
     transactionData: null,
   },
-  reducers: {},
+  reducers: {
+    clearTransactionFunction: (state, action) => {
+      state.transactionData = null;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(transaction.pending, (state) => {
@@ -23,5 +27,8 @@ const transactionSlice = createSlice({
       });
   },
 });
+
+export const { clearTransactionFunction } = transactionSlice.actions;
+
 
 export default transactionSlice.reducer;

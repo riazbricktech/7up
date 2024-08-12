@@ -29,11 +29,11 @@ const TermsAndCondition = ({ isOpen, onClose }) => {
             </p>
             <hr />
             <p>
-              1. The Promotion is operated by Pepsi-Cola International Pvt Ltd
-              <span style={{ fontWeight: "900 !important", fontFamily:"var(--banton-font) !important" }}>{`(we, us, our)`}</span>
+              1. The Promotion is operated by Pepsi-Cola International Pvt Ltd 
+              <span style={{ fontWeight: "900 !important", fontFamily:"var(--banton-font) !important" }}>{` (we, us, our)`}</span>
             </p>
             <p>
-              2. The Promotion runs from ……… to ………………on{" "}
+              2. The Promotion runs from <span style={{padding:"0 17px", borderBottom:"1px solid black"}}>14<sup>th</sup> August 2024</span>  to <span  style={{padding:"0 17px", borderBottom:"1px solid black"}}> 9<sup>th</sup> October 2024 </span> on{" "}
               <span> across stores in the Islamic Republic of Pakistan </span>.
               The promotion is valid on 7UP beverage <span>PET</span> bottles
               and cans (250ml Can, 345ml PET, 500ml PET, 1L PET, 1.5L PET, 1.25L

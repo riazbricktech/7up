@@ -12,15 +12,16 @@ const TransactionFailedPage = () => {
   const transactionData = useSelector(
     (state) => state?.taction?.transactionData
   );
+
   const navigate = useNavigate();
   const [sevenUpDelay, setSevenUpDelay] = useState(false);
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      localStorage.clear();
-    }, 1000);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     // localStorage.clear();
+  //   }, 500);
 
-    return () => clearTimeout(timer);
-  }, [navigate]);
+  //   return () => clearTimeout(timer);
+  // }, [navigate]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -33,6 +34,13 @@ const TransactionFailedPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    if(transactionData?.code === "G2P-T-2001"){
+        navigate("/form");
+  }
+  }, [transactionData,navigate])
+  
 
   useEffect(() => {
     console.log("TransactionFailed Page Initialize");
@@ -66,7 +74,7 @@ const TransactionFailedPage = () => {
 
         {/* Button wrapper */}
         <div className="failedPage_button_wrapper">
-          <button className="btn btn-primary">TRY A DIFFERENT NUMBER</button>
+          <button className="btn btn-primary" onClick={()=>{navigate('/jazzcash')}}>TRY A DIFFERENT NUMBER</button>
         </div>
 
         {/* Bottom Lottie Animation */}

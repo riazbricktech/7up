@@ -1,21 +1,24 @@
 import React, { useEffect } from "react";
 import "./MaxAttemptModal.css";
 import Emoji from "../../assets/images/new_images/emoji.webp";
-import { useNavigate } from "react-router-dom";
-
+import { clearSpinFunction } from "../../redux/slice/SpinSlice";
+import { useDispatch } from "react-redux";
+import { clearUserFunction } from "../../redux/slice/CreateUserSlice";
+import { clearTransactionFunction } from "../../redux/slice/TransactionSlice";
+import { prizeName } from "../../redux/slice/WinPrizeSlice";
 const MaxAttemptModal = ({ showMaxAttemptModal, closeMaxAttemptModal }) => {
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    if (showMaxAttemptModal) {
-      const timer = setTimeout(() => {
-        localStorage.clear();
-        // navigate("/");
-      }, 500);
+    const timer = setTimeout(() => {
+      dispatch(clearSpinFunction());
+      dispatch(clearUserFunction());
+      dispatch(clearTransactionFunction());
+      dispatch(prizeName(null));
+    }, 1000);
 
-      return () => clearTimeout(timer);
-    }
-  }, [showMaxAttemptModal]);
+    return () => clearTimeout(timer);
+  }, [dispatch]);
 
   useEffect(() => {
     console.log("Max Attempt Initialize");

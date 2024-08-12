@@ -7,7 +7,11 @@ const createUserSlice = createSlice({
     isLoading: false,
     createUserData: null,
   },
-  reducers: {},
+  reducers: {
+    clearUserFunction: (state, action) => {
+      state.createUserData = null;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(createUser.pending, (state) => {
@@ -23,5 +27,5 @@ const createUserSlice = createSlice({
       });
   },
 });
-
+export const { clearUserFunction } = createUserSlice.actions;
 export default createUserSlice.reducer;

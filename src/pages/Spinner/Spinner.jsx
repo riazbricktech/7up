@@ -134,7 +134,9 @@ const Spinner = () => {
     }
   }, [mustSpin]);
 
-  const handleBetterLuckModal = () => {};
+  const handleBetterLuckModal = () => {
+    console.log("Better Luck Open")
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -218,8 +220,11 @@ const Spinner = () => {
   }, []);
 
   useEffect(() => {
-    if (!userData) {
+    if (!userData && !isBetterLuck) {
+      if (location.pathname === "/spin") {
+
       navigate("/form");
+      }
     }
   }, [userData]);
 
@@ -361,10 +366,12 @@ const Spinner = () => {
           className="img-fluid spinner_right_circle"
           alt="Cutted Circle"
         />
-        <BetterLuckModal
+        {isBetterLuck &&
+          <BetterLuckModal
           showBetterLuckModal={isBetterLuck}
           closeBetterLuckModal={handleBetterLuckModal}
-        />
+          />
+        }
       </div>
     </Wrapper>
   );

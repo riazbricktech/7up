@@ -1,26 +1,31 @@
 import React, { useEffect, useRef } from "react";
 import Wrapper from "../../reusableComponents/Wrapper/Wrapper";
 import "./CongratulationPage.css";
-import { useNavigate } from "react-router-dom";
 import PakImage from "../../assets/images/new_images/congrats_image.webp";
 import HeartLottie from "../../assets/images/lottie_files/hearts.json";
 import Lottie from "lottie-react";
 import HeaderLights from "../../assets/images/lottie_files/lights_anim.json";
+import { clearSpinFunction } from "../../redux/slice/SpinSlice";
+import { useDispatch } from "react-redux";
+import { clearUserFunction } from "../../redux/slice/CreateUserSlice";
+import { clearTransactionFunction } from "../../redux/slice/TransactionSlice";
+import { prizeName } from "../../redux/slice/WinPrizeSlice";
 
 const CongratulationPage = () => {
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const lottieRef = useRef();
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      localStorage.clear();
-    }, 500);
+    dispatch(clearSpinFunction());
+    dispatch(clearUserFunction());
+    dispatch(clearTransactionFunction());
+    dispatch(prizeName(null));
+  }, [dispatch]);
 
-    return () => clearTimeout(timer);
-  }, [navigate]);
   useEffect(() => {
     console.log("Congratulation Page Initialize");
   }, []);
+
   return (
     <Wrapper>
       <div className="congrats_header_wrapper">
