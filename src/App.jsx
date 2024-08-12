@@ -15,6 +15,7 @@ const App = () => {
   const qrCode = useSelector((state) => state?.qrCode?.qrCodeNumber);
   const error = useSelector((state) => state?.error);
   useEffect(() => {
+    if(qrCode  !== "/5TJ7qu" || qrCode  !== "/yzZI3Z"){
     if (
       (qrCode === "" && "/5TJ7qu" === location.pathname) ||
       "/yzZI3Z" === location.pathname
@@ -27,6 +28,7 @@ const App = () => {
     if ("/yzZI3Z" === location.pathname) {
       dispatch(qrCodeFunction(location.pathname));
     }
+  }
   }, []);
 
   useEffect(() => {
