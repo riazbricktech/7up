@@ -8,10 +8,21 @@ import { useSelector } from "react-redux";
 import HeaderLights from "../../assets/images/lottie_files/lights_anim.json";
 import resMessage from "../../constant/Response";
 
+// Clear redux State
+import { clearSpinFunction } from "../../redux/slice/SpinSlice";
+import { useDispatch } from "react-redux";
+import { clearUserFunction } from "../../redux/slice/CreateUserSlice";
+import { clearTransactionFunction } from "../../redux/slice/TransactionSlice";
+import { prizeName } from "../../redux/slice/WinPrizeSlice";
+import { jcNumFunction } from "../../redux/slice/JcNumberSlice";
+
+
 const TransactionFailedPage = () => {
+  const dispatch = useDispatch();
   const transactionData = useSelector(
     (state) => state?.taction?.transactionData
   );
+
 
   const navigate = useNavigate();
   const [sevenUpDelay, setSevenUpDelay] = useState(false);
@@ -40,6 +51,18 @@ const TransactionFailedPage = () => {
         navigate("/form");
   }
   }, [transactionData,navigate])
+
+
+  useEffect(() => {
+    if(transactionData?.response === "Something went wrong"){
+      dispatch(clearSpinFunction());
+      dispatch(clearUserFunction());
+      dispatch(clearTransactionFunction());
+      dispatch(jcNumFunction(""));
+      dispatch(prizeName(null));
+
+    }
+  }, [transactionData])
   
 
   useEffect(() => {
@@ -65,17 +88,23 @@ const TransactionFailedPage = () => {
         </div>
 
         {/* Para wrapper */}
-        {transactionData?.response && (
+        {transactionData?.response === "Something went wrong"  ?
           <div className="failedPage_error_wrapper">
-            {/* <p>{transactionData?.response}</p> */}
-            <p>{resMessage}</p>
+            <p>Something went wrong</p>
           </div>
-          )} 
+          :
+          <div className="failedPage_error_wrapper">
+          <p>{resMessage}</p>
+        </div>
+           }  
 
         {/* Button wrapper */}
-        <div className="failedPage_button_wrapper">
+        {
+transactionData?.response !== "Something went wrong" || !transactionData?.response &&
+          <div className="failedPage_button_wrapper">
           <button className="btn btn-primary" onClick={()=>{navigate('/jazzcash')}}>TRY A DIFFERENT NUMBER</button>
         </div>
+        }
 
         {/* Bottom Lottie Animation */}
         {sevenUpDelay && (

@@ -35,7 +35,6 @@ export const createUser = createAsyncThunk(
       return sanitizedResponseData;
     } catch (error) {
       console.log("page 1-1 Call To an failed");
-
       dispatch(setError({ message: "An error occurred" }));
       const sanitizeError = (message) => {
         const decodedMessage = he.decode(

@@ -2,12 +2,11 @@ import React, { useEffect ,useState} from "react";
 import "./UniqueIdModal.css";
 import Cross from "../../assets/images/new_images/cross.webp";
 const UniqueIdModal = ({ showUniqueQrModal, closeQrModalModal }) => {
-  const [image, setImage] = useState(null);
+  // const [image, setImage] = useState(null);
 
   const handleCapture = (event) => {
-    const file = event.target.files[0];
-    const imageUrl = URL.createObjectURL(file);
-    setImage(imageUrl);
+    // Camera open hota hai jab user input field ko trigger kare
+    // Lekin hum image ko state mein save nahi karenge
   };
   const handleOverlayClick = (e) => {
     if (e.target === e.currentTarget) {
@@ -40,24 +39,17 @@ const UniqueIdModal = ({ showUniqueQrModal, closeQrModalModal }) => {
         SCAN NEW QR CODE
       </button> */}
 
-      <label htmlFor="cameraInput" className="modal-button">
-          SCAN NEW QR CODE
-          <input
-            type="file"
-            accept="image/*"
-            capture="environment"
-            onChange={handleCapture}
-            style={{ display: "none" }}
-            id="cameraInput"
-          />
-          {image && (
-            <img
-              src={image}
-              alt="Captured"
-              style={{ marginTop: "20px", maxWidth: "100%" }}
-            />
-          )}
-        </label>
+<label htmlFor="cameraInput" className="modal-button">
+  SCAN NEW QR CODE
+  <input
+    type="file"
+    accept="image/*"
+    capture="environment"
+    onChange={handleCapture}
+    style={{ display: "none" }}
+    id="cameraInput"
+  />
+</label>
     </div>
   );
 };

@@ -10,6 +10,9 @@ import healthCheckSlice from "../slice/HealthSlice";
 import TransactionSlice from "../slice/TransactionSlice";
 import errorMiddleware from "../../middleware/errorMiddleware";
 import errorSlice from "../slice/errorSlice";
+import JcNumberSlice from "../slice/JcNumberSlice";
+
+
 const rootReducer = combineReducers({
   spin: SpinSlice,
   cities: CitySlice,
@@ -19,6 +22,7 @@ const rootReducer = combineReducers({
   health: healthCheckSlice,
   taction: TransactionSlice,
   error: errorSlice,
+  jcNum:JcNumberSlice,
 });
 
 // Configuration for redux-persist

@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux";
 import { clearUserFunction } from "../../redux/slice/CreateUserSlice";
 import { clearTransactionFunction } from "../../redux/slice/TransactionSlice";
 import { prizeName } from "../../redux/slice/WinPrizeSlice";
+import { jcNumFunction } from "../../redux/slice/JcNumberSlice";
 
 const CongratulationPage = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ const CongratulationPage = () => {
     dispatch(clearSpinFunction());
     dispatch(clearUserFunction());
     dispatch(clearTransactionFunction());
+    dispatch(jcNumFunction(""));
     dispatch(prizeName(null));
   }, [dispatch]);
 

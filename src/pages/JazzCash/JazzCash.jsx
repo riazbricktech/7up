@@ -10,6 +10,7 @@ import HeaderLights from "../../assets/images/lottie_files/lights_anim.json";
 import ErrorIcon from "../../assets/images/new_images/error.webp";
 import CreateAccountModal from "../../components/CreateAccountModal/CreateAccountModal";
 import MaxAttemptModal from "../../components/MaxAttemptModal/MaxAttemptModal";
+import { jcNumFunction } from "../../redux/slice/JcNumberSlice";
 
 const JazzCash = () => {
   const dispatch = useDispatch();
@@ -29,15 +30,17 @@ const JazzCash = () => {
   const [transactionFailedError, setTransactionFailedError] = useState("");
   const userData = useSelector((state) => state?.user?.createUserData);
   const spinData = useSelector((state) => state?.spin?.spinData);
+  const notJcNumber = useSelector((state) => state?.jcNum?.notJcNumber);
   const transactionData = useSelector(
     (state) => state?.taction?.transactionData
   );
+
+
   const isLoader = useSelector((state) => state?.taction?.isLoading);
   const return_transaction_id = userData?.response?.return_transaction_id;
   const return_user_id = userData?.response?.return_user_id;
   const return_phone_user = userData?.response?.return_phone_user;
   const return_prize_amount = spinData?.response?.return_prize_amount;
-
   const jazzCashData = {
     receiver_number: formValues.phoneNumber,
     amount: return_prize_amount,
@@ -102,6 +105,7 @@ const JazzCash = () => {
     };
 
     if (Object.values(newErrors).every((error) => error === "")) {
+      dispatch(jcNumFunction(formValues.phoneNumber))
       dispatch(transaction(jazzCashData)).then((data) => {
         setIsDisabledFields(true);
         // setisMaxAttempt(data?.payload?.attempt_counter === 2 && true);
@@ -148,14 +152,35 @@ const JazzCash = () => {
     } else {
       setTransactionFailedError(transactionData?.response);
     }
+ 
   }, [transactionData]);
+
+  // useEffect(() => {
+  //   if (return_phone_user && !formattedPhoneNumber) {
+  //     const formattedValue = return_phone_user.replace(/(.{4})/g, "$1 ").trim();
+  //     setFormattedPhoneNumber(formattedValue);
+  //   }
+  // }, [return_phone_user]);
+
 
   useEffect(() => {
     if (return_phone_user && !formattedPhoneNumber) {
       const formattedValue = return_phone_user.replace(/(.{4})/g, "$1 ").trim();
       setFormattedPhoneNumber(formattedValue);
+  
+      const fakeEvent = {
+        target: {
+          name: "phoneNumber",
+          value: notJcNumber ? notJcNumber : return_phone_user,
+        },
+      };
+      handleChange(fakeEvent);
     }
-  }, [return_phone_user]);
+    if(transactionData?.code === "G2P-T-2001"){
+      setTransactionFailedError("*This number is not on JazzCash");
+
+    }
+  }, [return_phone_user,notJcNumber]);
 
   useEffect(() => {
     if (!spinData && !isMaxAttempt) {

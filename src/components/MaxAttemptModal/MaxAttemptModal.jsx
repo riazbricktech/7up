@@ -6,6 +6,8 @@ import { useDispatch } from "react-redux";
 import { clearUserFunction } from "../../redux/slice/CreateUserSlice";
 import { clearTransactionFunction } from "../../redux/slice/TransactionSlice";
 import { prizeName } from "../../redux/slice/WinPrizeSlice";
+import { jcNumFunction } from "../../redux/slice/JcNumberSlice";
+
 const MaxAttemptModal = ({ showMaxAttemptModal, closeMaxAttemptModal }) => {
   const dispatch = useDispatch();
 
@@ -14,6 +16,7 @@ const MaxAttemptModal = ({ showMaxAttemptModal, closeMaxAttemptModal }) => {
       dispatch(clearSpinFunction());
       dispatch(clearUserFunction());
       dispatch(clearTransactionFunction());
+      dispatch(jcNumFunction(""));
       dispatch(prizeName(null));
     }, 1000);
 

@@ -1,2 +1,2 @@
- const resMessage = "There is an issue with your transactions,  kindly contact JazzCash before reprocessing the transaction."
+ const resMessage = "There is an issue with your transaction, kindly contact JazzCash before reprocessing the transaction."
  export default resMessage;

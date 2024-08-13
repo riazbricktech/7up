@@ -4,31 +4,29 @@ import Emoji from "../../assets/images/new_images/emoji.webp";
 //  remove redux state value
 import { clearSpinFunction } from "../../redux/slice/SpinSlice";
 import { useDispatch } from "react-redux";
-import {clearUserFunction} from "../../redux/slice/CreateUserSlice";
+import { clearUserFunction } from "../../redux/slice/CreateUserSlice";
 import { clearTransactionFunction } from "../../redux/slice/TransactionSlice";
 import { prizeName } from "../../redux/slice/WinPrizeSlice";
 
 const BetterLuckModal = ({ showBetterLuckModal, closeBetterLuckModal }) => {
-  const [image, setImage] = useState(null);
+  // const [image, setImage] = useState(null);
   const dispatch = useDispatch();
 
   const handleCapture = (event) => {
-    const file = event.target.files[0];
-    const imageUrl = URL.createObjectURL(file);
-    setImage(imageUrl);
+    // Camera open hota hai jab user input field ko trigger kare
+    // Lekin hum image ko state mein save nahi karenge
   };
 
   useEffect(() => {
     if (showBetterLuckModal) {
-    const timer = setTimeout(() => {
-      dispatch(clearSpinFunction());
-      dispatch(clearUserFunction());
-      dispatch(clearTransactionFunction());
-      dispatch(prizeName(null));
-    }, 1000);
-  
-    return () => clearTimeout(timer);
-  
+      const timer = setTimeout(() => {
+        dispatch(clearSpinFunction());
+        dispatch(clearUserFunction());
+        dispatch(clearTransactionFunction());
+        dispatch(prizeName(null));
+      }, 1000);
+
+      return () => clearTimeout(timer);
     }
   }, [showBetterLuckModal]);
 
@@ -64,13 +62,6 @@ const BetterLuckModal = ({ showBetterLuckModal, closeBetterLuckModal }) => {
             style={{ display: "none" }}
             id="cameraInput"
           />
-          {image && (
-            <img
-              src={image}
-              alt="Captured"
-              style={{ marginTop: "20px", maxWidth: "100%" }}
-            />
-          )}
         </label>
       </div>
     </>
