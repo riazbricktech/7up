@@ -25,7 +25,7 @@ import Lottie from "lottie-react";
 import HeaderLottie from "../../assets/images/lottie_files/lights_anim.json";
 
 import BottleFall from "../../assets/images/gif_images/new-form-bottle.gif";
-
+// import ReCAPTCHA from "react-google-recaptcha";
 const CustomInput = (props) => {
   const handlePaste = (event) => {
     event.preventDefault();
@@ -43,7 +43,6 @@ function FormPage() {
 
   const qrCode = useSelector((state) => state?.qrCode?.qrCodeNumber);
   const userInfoLoading = useSelector((state) => state?.user?.isLoading);
-
   const cityOptions = cityData
     ? Array.isArray(cityData)
       ? cityData.map((city) => ({
@@ -201,7 +200,8 @@ function FormPage() {
       terms: validateTerms(formValues.terms),
       otp_in: validatePrivacy(formValues.otp_in),
     };
-    const { phone_user, name, qr_code_user, city_name, city_id, otp_in } = formValues;
+    const { phone_user, name, qr_code_user, city_name, city_id, otp_in } =
+      formValues;
     const data = { phone_user, name, qr_code_user, city_name, city_id, otp_in };
     for (const key in newErrors) {
       if (newErrors[key]) {
@@ -233,6 +233,13 @@ function FormPage() {
             setIsUniqueQrCode(true);
             return;
           }
+          else if (
+            res?.payload?.response?.return_message ===
+            "Maximum Attempts Utilized. Try again in 24 hours!"
+          ) {
+            setIsUniqueQrCode(true);
+            return;
+          }
 
           setApiResponse(res?.payload?.response);
           return;
@@ -253,6 +260,10 @@ function FormPage() {
   const handleUniqueQrModal = () => {
     setIsUniqueQrCode(false);
   };
+
+  // const onChangeCaptcha = (value) => {
+  //   console.log("Captcha value:", value);
+  // };
 
   useEffect(() => {
     if (!cityOptions || cityOptions === undefined) {
@@ -481,7 +492,8 @@ function FormPage() {
                     }}
                     onClick={openTermsCon}
                     className="link"
-                  >{" "}
+                  >
+                    {" "}
                     Terms & Conditions{" "}
                   </span>
                   and consent to the use of my personal data as per the{" "}
@@ -528,7 +540,17 @@ function FormPage() {
               </div>
             </div>
           </div>
-          <div className="form_button_wrapper class-9">
+
+          {/* <div className="form_captcha_wrapper class-9">
+            <ReCAPTCHA
+              sitekey="6LfGcScqAAAAAL9fDfigjQ_pv1BI_DE6HauQM28M"
+              onChange={onChangeCaptcha}
+              className="xyz"
+            />
+          </div> */}
+
+
+          <div className="form_button_wrapper class-10">
             <button
               type="submit"
               disabled={userInfoLoading}
@@ -555,12 +577,12 @@ function FormPage() {
       />
       <img
         src={LeftCircle}
-        className="img-fluid form_lefts_circle class-10"
+        className="img-fluid form_lefts_circle class-11"
         alt="Cutted Circle"
       />
       <img
         src={RightCircle}
-        className="img-fluid form_rights_circle class-11"
+        className="img-fluid form_rights_circle class-12"
         alt="Cutted Circle"
       />
     </Wrapper>

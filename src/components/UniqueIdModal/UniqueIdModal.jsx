@@ -1,12 +1,14 @@
 import React, { useEffect ,useState} from "react";
 import "./UniqueIdModal.css";
 import Cross from "../../assets/images/new_images/cross.webp";
+import { useSelector } from "react-redux";
+
 const UniqueIdModal = ({ showUniqueQrModal, closeQrModalModal }) => {
-  // const [image, setImage] = useState(null);
+  const userInfo = useSelector((state) => state?.user?.createUserData);
+
+
 
   const handleCapture = (event) => {
-    // Camera open hota hai jab user input field ko trigger kare
-    // Lekin hum image ko state mein save nahi karenge
   };
   const handleOverlayClick = (e) => {
     if (e.target === e.currentTarget) {
@@ -28,11 +30,24 @@ const UniqueIdModal = ({ showUniqueQrModal, closeQrModalModal }) => {
       </div>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="modal-body">
+          {userInfo?.response?.return_message === 
+          "Maximum Attempts Utilized. Try again in 24 hours!"
+          ?
           <div className="modal-message">
-            <p>YOUR UNIQUE ID</p>
-            <p>HAS ALREADY </p>
-            <p>BEEN USED</p>
-          </div>
+          <p>Maximum Attempts</p>
+          <p>Utilized.</p>
+          <p>Try again in</p>
+          <p>24 hours!</p>
+        </div>
+         
+          :
+          <div className="modal-message">
+          <p>YOUR UNIQUE ID</p>
+          <p>HAS ALREADY </p>
+          <p>BEEN USED</p>
+        </div>
+
+          }
         </div>
       </div>
       {/* <button className="modal-button" onClick={closeQrModalModal}>
