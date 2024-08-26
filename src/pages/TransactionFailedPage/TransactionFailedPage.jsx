@@ -26,6 +26,8 @@ const TransactionFailedPage = () => {
 
   const navigate = useNavigate();
   const [sevenUpDelay, setSevenUpDelay] = useState(false);
+  const [errorMessage, seterrorMessage] = useState(false);
+
   // useEffect(() => {
   //   const timer = setTimeout(() => {
   //     // localStorage.clear();
@@ -55,6 +57,7 @@ const TransactionFailedPage = () => {
 
   useEffect(() => {
     if(transactionData?.response === "Something went wrong"){
+      seterrorMessage(true)
       dispatch(clearSpinFunction());
       dispatch(clearUserFunction());
       dispatch(clearTransactionFunction());
@@ -63,7 +66,6 @@ const TransactionFailedPage = () => {
 
     }
   }, [transactionData])
-  
 
   useEffect(() => {
     console.log("TransactionFailed Page Initialize");
@@ -88,7 +90,7 @@ const TransactionFailedPage = () => {
         </div>
 
         {/* Para wrapper */}
-        {transactionData?.response === "Something went wrong"  ?
+        {errorMessage ?
           <div className="failedPage_error_wrapper">
             <p>Something went wrong</p>
           </div>
@@ -100,7 +102,7 @@ const TransactionFailedPage = () => {
 
         {/* Button wrapper */}
         {
-transactionData?.response !== "Something went wrong" || !transactionData?.response &&
+transactionData?.response !== "Something went wrong"   &&  transactionData?.response  &&
           <div className="failedPage_button_wrapper">
           <button className="btn btn-primary" onClick={()=>{navigate('/jazzcash')}}>TRY A DIFFERENT NUMBER</button>
         </div>

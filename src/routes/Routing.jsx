@@ -21,11 +21,13 @@ import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import TransactionFailedPage from "../pages/TransactionFailedPage/TransactionFailedPage";
 import AnimationBottle from "../pages/AnimationBottle/AnimationBottle";
 import HealthPage from "../pages/HealthPage/HealthPage";
+// import useGTM from "../customHook/UseGtm";
 
 const Routing = () => {
   const navigate = useNavigate();
   const qrCode = useSelector((state) => state?.qrCode?.qrCodeNumber);
 
+  // useGTM();
   useEffect(() => {
     if (qrCode === `/${bottleCode}`) {
       if (location.pathname === "/yzZI3Z") {

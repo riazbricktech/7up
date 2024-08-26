@@ -14,6 +14,7 @@ import HeaderLights from "../../assets/images/lottie_files/lights_anim.json";
 import LeftCircle from "../../assets/images/new_images/form_left_circle.webp";
 import RightCircle from "../../assets/images/new_images/form_right_circle.webp";
 import BottleFall from "../../assets/images/gif_images/new-form-bottle.gif";
+import { sfmcCreateUser } from "../../redux/actions/SfmcUserCreateAction";
 
 const inputList = [
   {
@@ -88,7 +89,6 @@ const Spinner = () => {
   const tenThousandOptions = [8, 10, 11];
   const spinValue = spinData?.response?.return_value;
   const spinPrize = spinData?.response?.return_prize_amount;
-
   const userIDs = {
     transaction_id: userData?.response?.return_transaction_id,
     city_id: userData?.response?.return_city_id,
@@ -117,6 +117,14 @@ const Spinner = () => {
     const newPrizeNumber = prizeValue;
     setPrizeNumber(newPrizeNumber);
     setMustSpin(true);
+    if(spinData?.response?.return_result === "win" || spinData?.response?.return_result === "loss"){
+      const data ={
+        transaction_id: userData?.response?.return_transaction_id,
+        amount :spinData?.response?.return_prize_amount,
+        win_or_loss :spinData?.response?.return_result
+      }
+      dispatch(sfmcCreateUser(data));
+    }
   };
 
   useEffect(() => {

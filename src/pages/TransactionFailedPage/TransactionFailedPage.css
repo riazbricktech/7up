@@ -65,11 +65,12 @@
 .failedPage_wrapper .failedPage_error_wrapper {
     width: 90%;
     text-align: center;
+    margin-top: 25px;
 }
 .failedPage_wrapper .failedPage_error_wrapper p {
-    font-size: 16px;
+    font-size: 17px;
     color: var(--red-bg-color);
-    font-weight: 600;
+    font-weight: 400 !important;
     font-family: var(--banton-font);
 }
 
@@ -170,7 +171,7 @@
 
     .failedPage_wrapper .failedPage_error_wrapper p {
         font-size: 12px;
-        font-weight: 500;
+        font-weight: 400;
         line-height: 14px;
     }
 }
