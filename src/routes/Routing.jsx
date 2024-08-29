@@ -10,7 +10,6 @@ import LoaderPage from "../reusableComponents/Loader/Loader";
 const LandingPage = lazy(() => import("../pages/LandingPage/LandingPage"));
 // const AnimationBottle = lazy(() => import("../pages/AnimationBottle/AnimationBottle"));
 
-
 // Direct import other components
 import FormPage from "../pages/Form/FormPage";
 import Spinner from "../pages/Spinner/Spinner";
@@ -33,11 +32,18 @@ const Routing = () => {
       if (location.pathname === "/yzZI3Z") {
         navigate("/");
       }
-    }
-    if (qrCode === `/${canCode}`) {
+    } else if (qrCode === `/${canCode}`) {
       if (location.pathname === "/5TJ7qu") {
         navigate("/");
       }
+    }
+    if (qrCode === "") {
+      const timer = setTimeout(() => {
+        if (qrCode === "") {
+          navigate("/not-found");
+        }
+      }, 200);
+      return () => clearTimeout(timer);
     }
   }, [qrCode, navigate]);
 

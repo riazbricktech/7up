@@ -52,12 +52,12 @@
 }
 
 .notFound_content_wrapper p {
-    font-size: 32px;
+    font-size: 30px;
     font-weight: bolder;
     color: white;
     margin-top: 20px auto;
     font-family: var(--banton-font) !important;
-    letter-spacing: 3px;
+    letter-spacing: 1.6px;
 }
 
 .notFound_button_wrapper {
@@ -89,7 +89,7 @@
     }
 
     .notFound_content_wrapper p {
-        font-size: 26px;
+        font-size: 23px;
     }
 
     .notFound_button_wrapper .notFound_button {

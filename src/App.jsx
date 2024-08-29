@@ -2,33 +2,49 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Routing from "./routes/Routing";
-import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { qrCodeFunction } from "./redux/slice/QrCodeSlice";
 import { useSelector, useDispatch } from "react-redux";
 import "animate.css";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
-
 const App = () => {
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
   const location = useLocation();
   const qrCode = useSelector((state) => state?.qrCode?.qrCodeNumber);
   const error = useSelector((state) => state?.error);
+
   useEffect(() => {
-    if(qrCode  !== "/5TJ7qu" || qrCode  !== "/yzZI3Z"){
-    if (
-      (qrCode === "" && "/5TJ7qu" === location.pathname) ||
-      "/yzZI3Z" === location.pathname
-    ) {
-      dispatch(qrCodeFunction(location.pathname));
+    const userAgent = navigator.userAgent || navigator.vendor;
+
+    if (/android/i.test(userAgent)) {
+      // navigate("/error")
+      console.log("");
+    } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+      // navigate("/error")
+      console.log("");
+    } else {
+      navigate("/error");
     }
-    if ("/5TJ7qu" === location.pathname) {
-      dispatch(qrCodeFunction(location.pathname));
+  }, [navigate]);
+
+  useEffect(() => {
+    if (qrCode !== "/5TJ7qu" || qrCode !== "/yzZI3Z") {
+      if (
+        (qrCode === "" && "/5TJ7qu" === location.pathname) ||
+        "/yzZI3Z" === location.pathname
+      ) {
+        dispatch(qrCodeFunction(location.pathname));
+      }
+      if ("/5TJ7qu" === location.pathname) {
+        dispatch(qrCodeFunction(location.pathname));
+      }
+      if ("/yzZI3Z" === location.pathname) {
+        dispatch(qrCodeFunction(location.pathname));
+      }
     }
-    if ("/yzZI3Z" === location.pathname) {
-      dispatch(qrCodeFunction(location.pathname));
-    }
-  }
   }, []);
 
   useEffect(() => {
