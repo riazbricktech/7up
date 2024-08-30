@@ -5,8 +5,7 @@ import { useSelector } from "react-redux";
 
 const UniqueIdModal = ({ showUniqueQrModal, closeQrModalModal }) => {
   const userInfo = useSelector((state) => state?.user?.createUserData);
-
-
+  const citiesData = useSelector((state) => state?.cities?.citesData);
 
   const handleCapture = (event) => {
   };
@@ -25,9 +24,12 @@ const UniqueIdModal = ({ showUniqueQrModal, closeQrModalModal }) => {
   }
   return (
     <div className="unique_modal-overlay" onClick={handleOverlayClick}>
-      <div className="modal-icon" onClick={closeQrModalModal}>
+      {citiesData !== undefined &&
+
+        <div className="modal-icon" onClick={closeQrModalModal}>
         <img src={Cross} alt="Cut" />
       </div>
+      }
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="modal-body">
           {userInfo?.response?.return_message === 
@@ -41,6 +43,12 @@ const UniqueIdModal = ({ showUniqueQrModal, closeQrModalModal }) => {
         </div>
          
           :
+          citiesData === undefined ?
+          <div className="modal-message">
+          <p>Maximum Attempts</p>
+          <p>Utilized.</p>
+        </div>
+        :
           <div className="modal-message">
           <p>YOUR UNIQUE ID</p>
           <p>HAS ALREADY </p>
@@ -53,7 +61,7 @@ const UniqueIdModal = ({ showUniqueQrModal, closeQrModalModal }) => {
       {/* <button className="modal-button" onClick={closeQrModalModal}>
         SCAN NEW QR CODE
       </button> */}
-
+ {citiesData !== undefined &&
 <label htmlFor="cameraInput" className="modal-button">
   SCAN NEW QR CODE
   <input
@@ -64,7 +72,7 @@ const UniqueIdModal = ({ showUniqueQrModal, closeQrModalModal }) => {
     style={{ display: "none" }}
     id="cameraInput"
   />
-</label>
+</label>}
     </div>
   );
 };

@@ -28,6 +28,7 @@ const Routing = () => {
 
   // useGTM();
   useEffect(() => {
+    const userAgent = navigator.userAgent || navigator.vendor;
     if (qrCode === `/${bottleCode}`) {
       if (location.pathname === "/yzZI3Z") {
         navigate("/");
@@ -39,9 +40,12 @@ const Routing = () => {
     }
     if (qrCode === "") {
       const timer = setTimeout(() => {
-        if (qrCode === "") {
-          navigate("/not-found");
+        if(/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream || /android/i.test(userAgent)){
+          if (qrCode === "") {
+            navigate("/not-found");
+          }
         }
+      
       }, 200);
       return () => clearTimeout(timer);
     }

@@ -8,7 +8,9 @@ const ErrorPage = () => {
       <div className="errorWrapper">
         <img src={ErrorIcon} alt="Error icon" />
         <span>
-          Oops! Something <br /> went wrong.
+          {/* Oops! Something <br /> went wrong. */}
+            Maximum attempts <br /> utilized! 
+          
         </span>
       </div>
     </Wrapper>

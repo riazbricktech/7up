@@ -40,9 +40,16 @@ function FormPage() {
   const cityData = useSelector((state) => state?.cities?.citesData);
   const [formClass, setFormClass] = useState("formdown");
   const [isCodeFound, setIsCodeFound] = useState(false);
+  const [citiesCounter, setCitiesCounter] = useState(false);
+
 
   const qrCode = useSelector((state) => state?.qrCode?.qrCodeNumber);
   const userInfoLoading = useSelector((state) => state?.user?.isLoading);
+  const citiesLoading = useSelector((state) => state?.cities?.isLoading);
+
+
+  
+
   const cityOptions = cityData
     ? Array.isArray(cityData)
       ? cityData.map((city) => ({
@@ -54,6 +61,7 @@ function FormPage() {
           label: cityData[key]?.name,
         }))
     : undefined;
+    
 
   const [isQrCode, setIsQrCode] = useState(false);
   const [apiResponse, setApiResponse] = useState(null);
@@ -298,6 +306,19 @@ function FormPage() {
 
     return () => clearTimeout(timer);
   }, []);
+
+
+  useEffect(() => {
+    if(cityData === undefined && citiesLoading === false){
+     const timer = setTimeout(() => {
+ 
+     setCitiesCounter(true)
+   }, 2000);
+ 
+   return () => clearTimeout(timer);
+   }
+   }, [cityData,citiesLoading])
+  
   return (
     <Wrapper>
       <div className="bottle-wrapper " style={{ zIndex }}>
@@ -571,10 +592,15 @@ function FormPage() {
       </div>
       <CapModal showModal={showModal} closeModal={closeModal} />
       <TermsAndCondition isOpen={isTCOpen} onClose={closeTermsCon} />
+     {cityOptions === undefined && citiesLoading === false && citiesCounter ?
+     <UniqueIdModal
+        showUniqueQrModal={true}
+        closeQrModalModal={handleUniqueQrModal}
+      /> :
       <UniqueIdModal
         showUniqueQrModal={isUniqueQrCode}
         closeQrModalModal={handleUniqueQrModal}
-      />
+      />}
       <img
         src={LeftCircle}
         className="img-fluid form_lefts_circle class-11"
